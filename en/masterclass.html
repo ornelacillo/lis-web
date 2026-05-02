@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Masterclass · Tu primera landing page · LIS Creative Studio</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      cursor: none;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      position: fixed; width: 8px; height: 8px;
+      background: var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s;
+    }
+    .cursor-ring {
+      position: fixed; width: 30px; height: 30px;
+      border: 1px solid var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left .12s ease, top .12s ease, width .25s, height .25s;
+    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) {
+      .cursor, .cursor-ring { display: none !important; }
+      body { cursor: auto; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 60px;
+    }
+    .nav-logo {
+      text-decoration: none; color: var(--black);
+      font-size: 13px; letter-spacing: .06em;
+    }
+    .nav-back {
+      text-decoration: none; color: var(--black);
+      font-size: 13px; letter-spacing: .06em;
+      opacity: .5; transition: opacity .2s;
+    }
+    .nav-back:hover { opacity: 1; }
+    nav.light .nav-logo,
+    nav.light .nav-back { color: var(--white); }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--black);
+      color: var(--white);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 140px 60px 100px;
+      text-align: center;
+    }
+    .hero-inner { max-width: 800px; }
+    .hero-tag {
+      font-size: 11px; letter-spacing: .16em;
+      color: #555; text-transform: uppercase;
+      margin-bottom: 40px;
+    }
+    .hero-title {
+      font-size: clamp(2.2rem, 5vw, 4.2rem);
+      font-weight: 400; line-height: 1.15;
+      color: var(--white); margin-bottom: 32px;
+    }
+    .hero-sub {
+      font-size: 18px; color: #888;
+      line-height: 1.7; margin-bottom: 56px;
+      max-width: 580px; margin-left: auto; margin-right: auto;
+    }
+    .btn-pill {
+      display: inline-block; padding: 18px 56px;
+      border-radius: 100px; text-decoration: none;
+      font-size: 14px; letter-spacing: .04em;
+      transition: background .3s, color .3s;
+    }
+    .btn-white {
+      background: var(--white); color: var(--black);
+    }
+    .btn-white:hover { background: #e0e0e0; }
+    .btn-outline-white {
+      border: 1px solid var(--white); color: var(--white);
+    }
+    .btn-outline-white:hover { background: var(--white); color: var(--black); }
+    .btn-black {
+      background: var(--black); color: var(--white);
+    }
+    .btn-black:hover { background: #333; }
+
+    /* ── SECTION LABELS ── */
+    .section-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: #999; text-transform: lowercase;
+      margin-bottom: 64px;
+    }
+
+    /* ── PROBLEMA ── */
+    #problema {
+      padding: 120px 60px;
+      max-width: 860px; margin: 0 auto;
+    }
+    .problema-text {
+      font-size: clamp(1.4rem, 2.5vw, 2rem);
+      font-weight: 400; line-height: 1.6;
+      color: #222;
+    }
+
+    /* ── PROMESA ── */
+    #promesa {
+      background: var(--black); color: var(--white);
+      padding: 120px 60px;
+    }
+    .promesa-inner { max-width: 1100px; margin: 0 auto; }
+    .promesa-text {
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      font-weight: 400; line-height: 1.8;
+      color: #ccc; max-width: 720px;
+      margin-bottom: 80px;
+    }
+
+    /* ── QUÉ VAS A APRENDER ── */
+    .aprende-grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 2px; margin-top: 0;
+    }
+    .aprende-item {
+      border-top: 1px solid #2a2a2a;
+      padding: 48px 40px 48px 0;
+    }
+    .aprende-num {
+      font-size: 11px; letter-spacing: .12em;
+      color: #444; margin-bottom: 28px;
+    }
+    .aprende-title {
+      font-size: 1.1rem; font-weight: 500;
+      line-height: 1.3; margin-bottom: 16px;
+      color: var(--white);
+    }
+    .aprende-desc {
+      font-size: 15px; color: #666; line-height: 1.75;
+    }
+
+    /* ── PARA QUIÉN ── */
+    #para-quien {
+      padding: 120px 60px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .para-quien-grid {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 3px;
+    }
+    .para-quien-item {
+      padding: 56px 48px;
+      border-top: 1px solid var(--light);
+    }
+    .para-quien-item.dark {
+      background: var(--black); color: var(--white);
+    }
+    .para-quien-label {
+      font-size: 11px; letter-spacing: .14em;
+      text-transform: uppercase; margin-bottom: 32px;
+      color: #555;
+    }
+    .para-quien-item.dark .para-quien-label { color: #444; }
+    .para-quien-text {
+      font-size: 16px; line-height: 1.8; color: #333;
+    }
+    .para-quien-item.dark .para-quien-text { color: #999; }
+
+    /* ── QUIÉN SOY ── */
+    #quien-soy {
+      padding: 120px 60px;
+      background: var(--white);
+      border-top: 1px solid var(--light);
+    }
+    .quien-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: center;
+    }
+    .quien-img {
+      width: 100%; aspect-ratio: 3/4;
+      object-fit: cover; border-radius: 20px;
+      display: block;
+    }
+    .quien-img-placeholder {
+      width: 100%; aspect-ratio: 3/4;
+      background: var(--light);
+      border-radius: 20px;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--gray); font-size: 12px; letter-spacing: .1em;
+    }
+    .quien-text p {
+      font-size: 16px; line-height: 1.8;
+      margin-bottom: 18px; color: #333;
+    }
+    .quien-text .quote {
+      font-style: italic; font-size: 16px;
+      color: var(--black); margin-top: 32px; line-height: 1.8;
+    }
+
+    /* ── PRECIO ── */
+    #precio {
+      background: var(--black); color: var(--white);
+      padding: 120px 60px;
+      text-align: center;
+    }
+    .precio-inner { max-width: 680px; margin: 0 auto; }
+    .precio-tag {
+      font-size: 11px; letter-spacing: .16em;
+      color: #444; text-transform: uppercase;
+      margin-bottom: 32px;
+    }
+    .precio-amount {
+      font-size: clamp(3rem, 8vw, 7rem);
+      font-weight: 600; line-height: 1;
+      color: var(--white); margin-bottom: 12px;
+    }
+    .precio-normal {
+      font-size: 15px; color: #555;
+      margin-bottom: 48px;
+      text-decoration: line-through;
+    }
+    .precio-includes {
+      list-style: none;
+      margin-bottom: 56px;
+    }
+    .precio-includes li {
+      font-size: 16px; color: #888;
+      padding: 16px 0;
+      border-bottom: 1px solid #1e1e1e;
+      line-height: 1.6;
+    }
+    .precio-includes li:first-child {
+      border-top: 1px solid #1e1e1e;
+    }
+    .precio-nota {
+      font-size: 13px; color: #444;
+      margin-top: 24px; line-height: 1.7;
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 120px 60px;
+      max-width: 860px; margin: 0 auto;
+    }
+    .faq-item {
+      border-top: 1px solid var(--light);
+      padding: 40px 0;
+    }
+    .faq-item:last-child { border-bottom: 1px solid var(--light); }
+    .faq-q {
+      font-size: 18px; font-weight: 500;
+      margin-bottom: 16px; color: var(--black);
+    }
+    .faq-a {
+      font-size: 16px; color: #555; line-height: 1.8;
+    }
+
+    /* ── CTA FINAL ── */
+    #cta-final {
+      background: var(--black); color: var(--white);
+      padding: 120px 60px;
+      text-align: center;
+    }
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400; line-height: 1.2;
+      margin-bottom: 48px; max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 60px;
+      border-top: 1px solid var(--light);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy {
+      font-size: 12px; color: #aaa; letter-spacing: .04em;
+    }
+    .footer-link {
+      font-size: 12px; color: #aaa; letter-spacing: .04em;
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-link:hover { color: var(--black); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 20px 32px; }
+      #hero, #problema, #promesa, #para-quien, #quien-soy, #precio, #faq, #cta-final { padding: 100px 32px; }
+      .aprende-grid { grid-template-columns: 1fr; }
+      .para-quien-grid { grid-template-columns: 1fr; }
+      .quien-inner { grid-template-columns: 1fr; gap: 48px; }
+      footer { padding: 32px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+
+    @media (max-width: 540px) {
+      nav { padding: 18px 24px; }
+      #hero, #problema, #promesa, #para-quien, #quien-soy, #precio, #faq, #cta-final { padding: 80px 24px; }
+      .btn-pill { padding: 16px 36px; font-size: 13px; }
+      .precio-amount { font-size: clamp(2.5rem, 14vw, 5rem); }
+      footer { padding: 28px 24px; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2559356064485053');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <!-- CURSOR -->
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- NAV -->
+  <nav class="light" id="nav">
+    <a href="https://liscreativestudio.com" class="nav-logo">LIS.</a>
+    <div class="lang-switcher">
+      <a href="/masterclass" class="lang-btn">ES</a>
+      <span class="lang-sep">·</span>
+      <a href="/en/masterclass" class="lang-btn lang-active">EN</a>
+    </div>
+    <a href="https://liscreativestudio.com" class="nav-back">← back to home</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">masterclass · June 2026</p>
+      <h1 class="hero-title">Your first landing page.<br>No code, no fuss<br>almost no investment.</h1>
+      <p class="hero-sub">You have your design ready in PNG or PDF and want to see it converted into a real website.</p>
+      <a href="https://pay.hotmart.com/Q105362095X?off=byve9cqn&bid=1776085786440" target="_blank" class="btn-pill btn-white">I want to learn how →</a>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section id="problema">
+    <p class="section-label">[the problem]</p>
+    <p class="problema-text">You have your design ready in PNG or PDF and want to see it converted into a real website. El problema es que de ahí a tenerla online hay un paso que nadie explica bien, y pagarle a alguien para que te lo resuelva puede salirte desde 300 dólares para arriba.</p>
+  </section>
+
+  <!-- PROMESA + QUÉ VAS A APRENDER -->
+  <section id="promesa">
+    <div class="promesa-inner">
+      <p class="section-label">[lo que vas a lograr]</p>
+      <p class="promesa-text">In this masterclass I teach you exactly that. How to translate your design into a real website and publish it in a morning.</p>
+
+      <div class="aprende-grid">
+        <div class="aprende-item">
+          <p class="aprende-num">001</p>
+          <p class="aprende-title">Generate the code with Claude</p>
+          <p class="aprende-desc">How to use AI to convert your design into functional HTML code without knowing programming.</p>
+        </div>
+        <div class="aprende-item">
+          <p class="aprende-num">002</p>
+          <p class="aprende-title">Ver y editar en VS Code</p>
+          <p class="aprende-desc">How to open the file, add your images, and see the result in real time before publishing.</p>
+        </div>
+        <div class="aprende-item">
+          <p class="aprende-num">003</p>
+          <p class="aprende-title">Publicar con tu dominio</p>
+          <p class="aprende-desc">How to upload the site to Netlify and connect your own domain in less than 10 minutes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section id="para-quien">
+    <p class="section-label">[who is it for]</p>
+    <div class="para-quien-grid">
+      <div class="para-quien-item">
+        <p class="para-quien-label">Es para vos si</p>
+        <p class="para-quien-text">You have a business or project and have wanted your website for a while but never found the moment or the way. You don't need to know programming, but you do need to enjoy understanding how things work.</p>
+      </div>
+      <div class="para-quien-item dark">
+        <p class="para-quien-label">No es para vos si</p>
+        <p class="para-quien-text">You want someone to solve it without your involvement, or you need a complex website with a store, login, or advanced features. Esto es una landing, una página clara y directa que representa tu proyecto online.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUIÉN SOY -->
+  <section id="quien-soy">
+    <div class="quien-inner">
+      <div>
+        <img src="ornela.jpg" alt="Orne" class="quien-img" onerror="this.style.display='none';this.nextElementSibling.style.display='flex';" />
+        <div class="quien-img-placeholder" style="display:none;">[ foto · orne ]</div>
+      </div>
+      <div class="quien-text">
+        <p class="section-label">[about me]</p>
+        <p>I'm Orne, graphic and web designer. I founded LIS Creative Studio, a studio specializing in visual identity, branding, and web design for creative brands.</p>
+        <p>I started incorporating AI into my work out of curiosity, wanting to see how far I could go without knowing how to code. I built my own website in a morning.</p>
+        <p class="quote">That's exactly what I want you to feel too.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIO -->
+  <section id="precio">
+    <div class="precio-inner">
+      <p class="precio-tag">precio de lanzamiento · por tiempo limitado</p>
+      <p class="precio-amount">$15.000</p>
+      <p class="precio-normal">then $30,000</p>
+      <ul class="precio-includes">
+        <li>Masterclass grabada para ver cuando quieras, las veces que quieras</li>
+        <li>Design template of my own landing page with the code included</li>
+        <li>Live group meet one month later to resolve questions with me</li>
+        <li>Actualizaciones de la clase incluidas, sin costo adicional</li>
+      </ul>
+      <a href="https://pay.hotmart.com/Q105362095X?off=byve9cqn&bid=1776085786440" target="_blank" class="btn-pill btn-outline-white">I want to learn how →</a>
+      <p class="precio-nota">Al hacer click vas a ser redirigida a Hotmart para completar la compra de forma segura.</p>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <p class="section-label">[preguntas frecuentes]</p>
+    <div class="faq-item">
+      <p class="faq-q">Do I need to know how to code?</p>
+      <p class="faq-a">Not at all. You just need curiosity and a desire to understand how things work.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Do I need to have my design ready?</p>
+      <p class="faq-a">Yes, the class starts from there. You need your design in PNG or PDF.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Will the website I create stay online forever?</p>
+      <p class="faq-a">Yes, as long as you pay your annual domain. Hosting on Netlify is free.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can I watch the class whenever I want?</p>
+      <p class="faq-a">Yes, it's recorded. You watch it at your own pace, as many times as you want.</p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <h2 class="cta-title">If you've wanted your website for a while and haven't found the moment yet, this is it.</h2>
+    <a href="https://pay.hotmart.com/Q105362095X?off=byve9cqn&bid=1776085786440" target="_blank" class="btn-pill btn-white">I want to learn how →</a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">LIS Creative Studio · All rights reserved</span>
+    <a href="https://liscreativestudio.com" class="footer-link">liscreativestudio.com</a>
+  </footer>
+
+  <!-- WHATSAPP FLOTANTE -->
+  <a href="https://wa.me/543413780854?text=Hola%20Orne%2C%20tengo%20una%20consulta%20sobre%20la%20masterclass" target="_blank" class="wa-btn" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Any questions?</span>
+  </a>
+
+  <style>
+    .wa-btn {
+      position: fixed; bottom: 32px; right: 32px; z-index: 999;
+      background: #25D366; color: white;
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 22px; border-radius: 100px;
+      text-decoration: none; font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.15);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+    @media (max-width: 540px) {
+      .wa-btn span { display: none; }
+      .wa-btn { padding: 14px; bottom: 24px; right: 24px; }
+    }
+  </style>
+
+  <!-- SCRIPTS -->
+  <script>
+    // Cursor
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    });
+
+    // Nav color change on scroll
+    const nav = document.getElementById('nav');
+    const darkSections = ['hero', 'promesa', 'precio', 'cta-final'];
+    function updateNav() {
+      const scrollY = window.scrollY + 60;
+      let isDark = false;
+      darkSections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const bottom = top + el.offsetHeight;
+          if (scrollY >= top && scrollY < bottom) isDark = true;
+        }
+      });
+      nav.className = isDark ? 'light' : '';
+    }
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+</body>
+</html>

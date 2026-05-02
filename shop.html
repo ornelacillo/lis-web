@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop — LIS. Creative Studio</title>
+  <meta name="description" content="The Studio Kit: sistema completo de gestión de clientes en Notion. Masterclass: tu primera landing con IA." />
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --black: #111; --white: #ffffff; --gray: #888; --light: #e0ddd8; --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--white); color: var(--black); font-family: var(--font); font-size: 15px; line-height: 1.6; cursor: none; }
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: left .12s ease, top .12s ease, width .25s, height .25s; }
+    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none !important; } body { cursor: auto; } }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; gap: 48px; padding: 22px 0; align-items: center; transition: background .35s, box-shadow .35s; }
+    nav.scrolled { background: var(--black); box-shadow: 0 1px 0 #222; }
+    nav a { text-decoration: none; color: var(--white); font-family: var(--font); font-size: 13px; letter-spacing: .06em; transition: opacity .2s; }
+    nav a:hover { opacity: .45; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { cursor: default; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; min-width: 180px; z-index: 200; }
+    .nav-dropdown-menu-inner { background: #181818; border: 1px solid #2a2a2a; padding: 8px 0; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 9px 20px; font-size: 12px; letter-spacing: .06em; color: var(--white) !important; text-decoration: none; transition: opacity .2s; pointer-events: auto !important; }
+    .nav-dropdown-menu a:hover { opacity: .45; }
+    .nav-hamburger { display: none; position: fixed; top: 16px; right: 20px; z-index: 1001; background: none; border: none; cursor: none; padding: 6px; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .nav-mobile-overlay.open { display: flex; }
+    .nav-mobile-overlay a { text-decoration: none; color: var(--white); font-size: 22px; letter-spacing: .04em; transition: opacity .2s; }
+    .nav-mobile-overlay a:hover { opacity: .45; }
+    .nav-mobile-overlay .mob-sub { display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 8px; border-top: 1px solid #2a2a2a; width: 220px; }
+    .nav-mobile-overlay .mob-sub a { font-size: 15px; color: #888; }
+    @media (max-width: 860px) { nav { display: none; } .nav-hamburger { display: flex; } }
+
+    .page-hero { background: var(--black); color: var(--white); padding: 180px 60px 100px; position: relative; overflow: hidden; }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; text-align: center; }
+    .hero-x { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .1; }
+    .hero-x svg { width: 100%; height: 100%; }
+    .hero-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 32px; }
+    .hero-title { font-size: clamp(2.8rem, 5vw, 5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 24px; }
+    .hero-desc { font-size: 17px; color: #888; line-height: 1.8; max-width: 600px; margin: 0 auto; }
+
+    .product-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px; }
+    .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 100px; align-items: start; }
+    .product-tag { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 32px; }
+    .product-title { font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 24px; }
+    .product-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 16px; }
+    .product-includes { margin-top: 40px; border-top: 1px solid var(--light); padding-top: 32px; }
+    .product-includes-label { font-size: 11px; letter-spacing: .12em; color: var(--gray); text-transform: uppercase; margin-bottom: 20px; }
+    .product-includes li { list-style: none; padding: 10px 0; border-bottom: 1px solid var(--light); font-size: 15px; color: #444; display: flex; gap: 12px; align-items: flex-start; }
+    .product-includes li::before { content: "→"; color: var(--black); flex-shrink: 0; }
+
+    .buy-box { border: 1px solid var(--light); padding: 48px; }
+    .buy-box-prices { margin-bottom: 8px; }
+    .buy-box-price { font-size: 42px; font-weight: 300; letter-spacing: -.02em; line-height: 1.1; }
+    .buy-box-price-ars { font-size: 28px; font-weight: 300; letter-spacing: -.02em; color: #555; line-height: 1.2; margin-top: 4px; }
+    .buy-box-note { font-size: 13px; color: var(--gray); margin-bottom: 32px; margin-top: 12px; }
+    .btn-buy { display: block; width: 100%; padding: 18px 0; text-align: center; text-decoration: none; font-family: var(--font); font-size: 14px; letter-spacing: .04em; transition: background .3s, color .3s; margin-bottom: 12px; border: none; cursor: pointer; }
+    .btn-buy-black { background: var(--black); color: var(--white); }
+    .btn-buy-black:hover { background: #333; }
+    .btn-buy-outline { background: transparent; color: var(--black); border: 1px solid var(--light); }
+    .btn-buy-outline:hover { border-color: var(--black); }
+    .buy-box-separator { text-align: center; font-size: 12px; color: var(--gray); margin: 16px 0; letter-spacing: .06em; }
+    .buy-box-details { margin-top: 32px; padding-top: 24px; border-top: 1px solid var(--light); }
+    .buy-box-details p { font-size: 13px; color: var(--gray); line-height: 1.7; margin-bottom: 4px; }
+
+    .how-section { background: var(--black); color: var(--white); padding: 120px 60px; }
+    .how-inner { max-width: 1100px; margin: 0 auto; }
+    .how-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 64px; }
+    .how-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
+    .how-item { border-top: 1px solid #2a2a2a; padding: 48px 32px 48px 0; }
+    .how-num { font-size: 11px; letter-spacing: .12em; color: #444; margin-bottom: 20px; }
+    .how-title { font-size: 1rem; font-weight: 500; line-height: 1.3; margin-bottom: 12px; color: var(--white); }
+    .how-desc { font-size: 14px; color: #666; line-height: 1.7; }
+
+    /* MASTERCLASS SECTION */
+    .mc-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px; border-top: 1px solid var(--light); }
+    .mc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .mc-tag { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 32px; }
+    .mc-title { font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; margin-bottom: 20px; }
+    .mc-desc { font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 32px; }
+    .mc-date { font-size: 13px; color: var(--gray); letter-spacing: .06em; margin-bottom: 32px; }
+    .btn-pill { display: inline-block; padding: 18px 56px; border-radius: 100px; text-decoration: none; font-size: 14px; letter-spacing: .04em; transition: background .3s, color .3s; }
+    .btn-pill-black { background: var(--black); color: var(--white); }
+    .btn-pill-black:hover { background: #333; }
+    .mc-right { background: var(--black); color: var(--white); padding: 56px 48px; text-align: center; }
+    .mc-price-tag { font-size: 11px; letter-spacing: .14em; color: #555; text-transform: uppercase; margin-bottom: 16px; }
+    .mc-price { font-size: 42px; font-weight: 300; letter-spacing: -.02em; margin-bottom: 4px; }
+    .mc-price-normal { font-size: 14px; color: #555; text-decoration: line-through; margin-bottom: 24px; }
+    .mc-price-items { text-align: left; margin-bottom: 32px; }
+    .mc-price-items li { list-style: none; font-size: 14px; color: #888; padding: 6px 0; display: flex; gap: 10px; }
+    .mc-price-items li::before { content: "→"; color: #555; flex-shrink: 0; }
+
+    footer { border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; font-weight: 400; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+
+    @media (max-width: 860px) {
+      .page-hero { padding: 140px 24px 80px; }
+      .product-section { padding: 60px 24px; }
+      .product-grid { grid-template-columns: 1fr; gap: 48px; }
+      .how-section { padding: 80px 24px; }
+      .how-grid { grid-template-columns: 1fr 1fr; }
+      .buy-box { padding: 32px; }
+      .mc-section { padding: 60px 24px; }
+      .mc-grid { grid-template-columns: 1fr; gap: 48px; }
+      .mc-right { padding: 40px 32px; }
+      .footer-geo { flex-direction: column; gap: 16px; }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); }
+    }
+    @media (max-width: 540px) { .how-grid { grid-template-columns: 1fr; } }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2559356064485053');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="mainNav">
+    <a href="/">home</a>
+    <a href="/#about">about</a>
+    <div class="nav-dropdown">
+      <a href="/#services">services</a>
+      <div class="nav-dropdown-menu"><div class="nav-dropdown-menu-inner">
+        <a href="/branding">Branding Completo</a>
+        <a href="/identidad-visual">Identidad Visual</a>
+        <a href="/web">Diseño Web</a>
+      </div></div>
+    </div>
+    <a href="/#portfolio">portfolio</a>
+    <a href="/shop" style="opacity:.45">shop</a>
+    <a href="/freebies">freebies</a>
+    <a href="/#contact">contact</a>
+  </nav>
+  <button class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="/" onclick="closeMenu()">home</a>
+    <a href="/#about" onclick="closeMenu()">about</a>
+    <div class="mob-sub">
+      <a href="/branding" onclick="closeMenu()">Branding Completo</a>
+      <a href="/identidad-visual" onclick="closeMenu()">Identidad Visual</a>
+      <a href="/web" onclick="closeMenu()">Diseño Web</a>
+    </div>
+    <a href="/#portfolio" onclick="closeMenu()">portfolio</a>
+    <a href="/shop" onclick="closeMenu()" style="opacity:.45">shop</a>
+    <a href="/freebies" onclick="closeMenu()">freebies</a>
+    <a href="/#contact" onclick="closeMenu()">contact</a>
+  </div>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <div class="hero-x"><svg viewBox="0 0 1440 900" xmlns="http://www.w3.org/2000/svg"><line x1="0" y1="0" x2="1440" y2="900" stroke="white" stroke-width=".5"/><line x1="1440" y1="0" x2="0" y2="900" stroke="white" stroke-width=".5"/></svg></div>
+    <div class="page-hero-inner">
+      <p class="hero-label">[shop]</p>
+      <h1 class="hero-title">Productos digitales.</h1>
+      <p class="hero-desc">Templates y formación para diseñadores y creativos que quieren profesionalizar su trabajo.</p>
+    </div>
+  </section>
+
+  <!-- THE STUDIO KIT -->
+  <div class="product-section">
+    <div class="product-grid">
+      <div class="fi">
+        <p class="product-tag">[the studio kit]</p>
+        <h2 class="product-title">Sistema completo de gestión de clientes en Notion.</h2>
+        <p class="product-desc">Todo lo que necesitás para gestionar tu estudio creativo desde un solo lugar: desde la primera llamada con un potencial cliente hasta la entrega final del proyecto.</p>
+        <p class="product-desc">No es un PDF estático. Es un sistema interactivo en Notion que duplicás, personalizás con tu marca y empezás a usar hoy.</p>
+        <div class="product-includes">
+          <p class="product-includes-label">Qué incluye</p>
+          <ul>
+            <li>Hub central con guía de uso paso a paso</li>
+            <li>Base de datos de clientes activos con estados</li>
+            <li>Flujo completo: de la llamada de cortesía a la entrega</li>
+            <li>Portal del cliente — lo que compartís con cada proyecto</li>
+            <li>Cuestionarios por servicio (branding, identidad visual, web)</li>
+            <li>Checklist interno por tipo de proyecto</li>
+            <li>Contratos editables por servicio</li>
+            <li>Template de factura/recibo</li>
+            <li>Mensaje de bienvenida listo para copiar y enviar</li>
+            <li>Tabla de tarifas y condiciones internas</li>
+          </ul>
+        </div>
+      </div>
+      <div class="fi fi-d1">
+        <div class="buy-box">
+          <div class="buy-box-prices">
+            <p class="buy-box-price">€19</p>
+            <p class="buy-box-price-ars">$47.000 ARS</p>
+          </div>
+          <p class="buy-box-note">Pago único · acceso de por vida</p>
+          <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-buy btn-buy-black">Comprar con PayPal — €19</a>
+          <p class="buy-box-separator">o</p>
+          <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-buy btn-buy-outline">Comprar con Mercado Pago — $47.000 ARS</a>
+          <div class="buy-box-details">
+            <p>Producto digital — recibís el link para duplicar el template en tu Notion.</p>
+            <p>Editable e ilimitado: personalizalo las veces que quieras.</p>
+          </div>
+          <a href="/studio-kit" style="display:inline-block;margin-top:16px;font-size:13px;color:#888;text-decoration:none;letter-spacing:.04em;">Ver detalles →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="how-section">
+    <div class="how-inner">
+      <p class="how-label">[cómo funciona]</p>
+      <div class="how-grid">
+        <div class="how-item fi"><p class="how-num">01</p><p class="how-title">Comprás</p><p class="how-desc">Elegís tu método de pago y completás la compra.</p></div>
+        <div class="how-item fi fi-d1"><p class="how-num">02</p><p class="how-title">Recibís el link</p><p class="how-desc">Te enviamos el enlace al template de Notion por email.</p></div>
+        <div class="how-item fi fi-d1"><p class="how-num">03</p><p class="how-title">Duplicás en tu Notion</p><p class="how-desc">Un click y ya tenés todo el sistema en tu cuenta.</p></div>
+        <div class="how-item fi fi-d2"><p class="how-num">04</p><p class="how-title">Personalizás y usás</p><p class="how-desc">Ponés tu marca, tus datos, tus precios y arrancás.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MASTERCLASS -->
+  <div class="mc-section">
+    <div class="mc-grid">
+      <div class="fi">
+        <p class="mc-tag">[masterclass]</p>
+        <h2 class="mc-title">Tu primera landing page. Sin código, sin vueltas y casi sin inversión.</h2>
+        <p class="mc-desc">Aprendé a traducir tu diseño a una web real y publicarla en una mañana, con IA y herramientas gratuitas. Sin escribir código desde cero y sin conocimiento técnico previo.</p>
+        <p class="mc-date">Lanzamiento: lunes 22 de junio 2026</p>
+        <a href="/masterclass" class="btn-pill btn-pill-black">Ver más sobre la masterclass →</a>
+      </div>
+      <div class="mc-right fi fi-d1">
+        <p class="mc-price-tag">Precio de lanzamiento</p>
+        <p class="mc-price">$15.000</p>
+        <p class="mc-price-normal">después $30.000</p>
+        <ul class="mc-price-items">
+          <li>Masterclass grabada para ver cuando quieras</li>
+          <li>Meet grupal en vivo un mes después</li>
+          <li>Actualizaciones incluidas</li>
+        </ul>
+        <a href="/masterclass" class="btn-pill" style="border: 1px solid #fff; color: #fff; padding: 14px 40px;">Ver detalles →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-top"><p class="footer-tagline">a creative</p><p class="footer-tagline footer-tagline-sub">design studio</p></div>
+    <div class="footer-geo"><span class="footer-geo-text">Argentina</span><div class="footer-geo-img"><img src="portfolio/lis-web.png" alt="LIS" /></div><span class="footer-geo-text">Worldwide</span></div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left"><div class="footer-sillon-img"><img src="sillon-globo.webp" alt="LIS" /></div><div class="footer-social-block"><p class="footer-social-label">Social media</p><a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a><a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a><a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a></div></div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Newsletter. ¡No spam, lo prometemos!</p>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center">
+              <div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow">
+                        <div class="ml-field-group ml-field-name">
+                          <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name">
+                        </div>
+                      </div>
+                      <div class="ml-form-fieldRow ml-last-item">
+                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                          <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email">
+                        </div>
+                      </div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit">
+                      <button type="submit" class="primary">Suscribite</button>
+                      <button disabled="disabled" style="display:none" type="button" class="loading">
+                        <div class="ml-form-embedSubmitLoad"></div>
+                        <span class="sr-only">Loading...</span>
+                      </button>
+                    </div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display:none">
+                  <div class="ml-form-successContent">
+                    <h4>¡Muchas gracias!</h4>
+                    <p>Te suscribiste correctamente.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const cur=document.getElementById('cursor'),ring=document.getElementById('cursorRing');
+    document.addEventListener('mousemove',e=>{cur.style.left=e.clientX+'px';cur.style.top=e.clientY+'px';requestAnimationFrame(()=>{ring.style.left=e.clientX+'px';ring.style.top=e.clientY+'px';});});
+    const nav=document.getElementById('mainNav');window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80);});
+    const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open');});function closeMenu(){hamburger.classList.remove('open');mobileMenu.classList.remove('open');}
+    const fiObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});document.querySelectorAll('.fi').forEach(el=>fiObs.observe(el));
+  </script>
+  <!-- Mailerlite -->
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script>
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+  </script>
+
+
+  <!-- Social proof popup -->
+  <style>
+    .sp-popup {
+      position: fixed; bottom: 32px; left: 32px; z-index: 999;
+      background: var(--white);
+      border: 1px solid var(--light);
+      border-radius: 16px;
+      padding: 16px 20px 16px 16px;
+      display: flex; align-items: center; gap: 14px;
+      max-width: 300px; min-width: 260px;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.10);
+      transform: translateY(20px); opacity: 0;
+      transition: transform .4s cubic-bezier(0.175,0.885,0.32,1.2), opacity .4s ease;
+      pointer-events: none;
+    }
+    .sp-popup.show { transform: translateY(0); opacity: 1; pointer-events: auto; }
+    .sp-icon {
+      width: 40px; height: 40px; border-radius: 50%;
+      background: #fff0f0; display: flex; align-items: center; justify-content: center;
+      flex-shrink: 0; font-size: 18px;
+    }
+    .sp-text { flex: 1; min-width: 0; }
+    .sp-name { font-size: 13px; font-weight: 500; color: var(--black); }
+    .sp-detail { font-size: 12px; color: var(--gray); margin-top: 2px; }
+    .sp-close {
+      position: absolute; top: 10px; right: 12px;
+      background: none; border: none; cursor: pointer;
+      font-size: 14px; color: #bbb; line-height: 1; padding: 2px;
+    }
+    .sp-close:hover { color: var(--black); }
+    @media (max-width: 480px) {
+      .sp-popup { left: 16px; right: 16px; max-width: calc(100% - 32px); bottom: 24px; }
+    }
+  </style>
+
+  <div class="sp-popup" id="spPopup">
+    <div class="sp-icon">🛍️</div>
+    <div class="sp-text">
+      <div class="sp-name" id="spName">Valentina compró The Studio Kit</div>
+      <div class="sp-detail" id="spDetail">Buenos Aires, Argentina · hace 12 min</div>
+    </div>
+    <button class="sp-close" onclick="document.getElementById('spPopup').classList.remove('show')">×</button>
+  </div>
+
+  <script>
+    const spData = [
+      { name: "Valentina", city: "Buenos Aires, Argentina", mins: 12 },
+      { name: "Lucía", city: "Rosario, Argentina", mins: 27 },
+      { name: "Camila", city: "Madrid, España", mins: 8 },
+      { name: "Sofía", city: "Montevideo, Uruguay", mins: 34 },
+      { name: "Florencia", city: "Córdoba, Argentina", mins: 19 },
+      { name: "Martina", city: "Barcelona, España", mins: 5 },
+      { name: "Julieta", city: "Mendoza, Argentina", mins: 41 },
+      { name: "Agustina", city: "Ciudad de México, México", mins: 23 },
+    ];
+    function showSP() {
+      const d = spData[Math.floor(Math.random() * spData.length)];
+      document.getElementById('spName').textContent = d.name + ' compró The Studio Kit';
+      document.getElementById('spDetail').textContent = d.city + ' · hace ' + d.mins + ' min';
+      const popup = document.getElementById('spPopup');
+      popup.classList.add('show');
+      setTimeout(() => popup.classList.remove('show'), 5000);
+    }
+    setTimeout(showSP, 3000);
+    setInterval(showSP, 25000);
+  </script>
+</body>
+</html>

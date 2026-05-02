@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Studio Kit · Sistema de gestión para diseñadores · LIS Creative Studio</title>
+  <meta name="description" content="Complete client management system in Notion for freelance designers. Hub, portal del cliente, contratos, checklist y más. €19, lifetime access." />
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      cursor: none;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      position: fixed; width: 8px; height: 8px;
+      background: var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      position: fixed; width: 30px; height: 30px;
+      border: 1px solid var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left .12s ease, top .12s ease, width .25s, height .25s;
+    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) {
+      .cursor, .cursor-ring { display: none !important; }
+      body { cursor: auto; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 60px;
+    }
+    .nav-logo {
+      text-decoration: none; color: var(--black);
+      font-size: 13px; letter-spacing: .06em;
+    }
+    .nav-back {
+      text-decoration: none; color: var(--black);
+      font-size: 13px; letter-spacing: .06em;
+      opacity: .5; transition: opacity .2s;
+    }
+    .nav-back:hover { opacity: 1; }
+    nav.light .nav-logo,
+    nav.light .nav-back { color: var(--white); }
+
+    /* ── BTN ── */
+    .btn-pill {
+      display: inline-block; text-decoration: none;
+      padding: 18px 48px; border-radius: 100px;
+      font-size: 14px; font-weight: 500; letter-spacing: .04em;
+      transition: opacity .2s, transform .2s;
+    }
+    .btn-pill:hover { opacity: .85; transform: translateY(-1px); }
+    .btn-white { background: var(--white); color: var(--black); }
+    .btn-black { background: var(--black); color: var(--white); }
+    .btn-outline-white {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,.4);
+    }
+    .btn-outline-white:hover { background: rgba(255,255,255,.08); }
+
+    /* ── HERO ── */
+    #hero {
+      background: var(--black); color: var(--white);
+      min-height: 100vh;
+      display: flex; align-items: center; justify-content: center;
+      padding: 140px 60px 100px;
+    }
+    .hero-inner { max-width: 860px; }
+    .hero-tag {
+      font-size: 12px; letter-spacing: .14em; color: #888;
+      margin-bottom: 40px; text-transform: lowercase;
+    }
+    .hero-title {
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 400; line-height: 1.05;
+      letter-spacing: -.03em; margin-bottom: 32px;
+    }
+    .hero-sub {
+      font-size: 18px; color: #bbb; line-height: 1.7;
+      max-width: 560px; margin-bottom: 52px;
+    }
+
+    /* ── PROBLEMA + VIDEO ── */
+    #problema {
+      padding: 120px 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .problema-inner {
+      display: flex; align-items: center;
+      gap: 60px; max-width: 1100px; margin: 0 auto;
+    }
+    .problema-left { flex: 1; }
+    .problema-right {
+      flex: 0 0 300px; max-width: 300px;
+    }
+    .section-label {
+      font-size: 12px; letter-spacing: .14em; color: var(--gray);
+      margin-bottom: 48px; display: block;
+    }
+    .problema-text {
+      font-size: clamp(1.2rem, 2vw, 1.7rem);
+      font-weight: 300; line-height: 1.5;
+      color: #333;
+    }
+    .video-wrap {
+      padding: 83.84% 0 0 0; position: relative;
+      border-radius: 12px; overflow: hidden;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+    }
+    .video-wrap iframe {
+      position: absolute; top: 0; left: 0;
+      width: 100%; height: 100%; border: none;
+    }
+    @media (max-width: 860px) {
+      .problema-inner { flex-direction: column; }
+      .problema-right { max-width: 100%; width: 100%; }
+    }
+
+    /* ── QUÉ INCLUYE ── */
+    #incluye {
+      padding: 120px 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .incluye-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2px; margin-top: 0;
+    }
+    .incluye-item {
+      border-top: 1px solid var(--light);
+      padding: 36px 36px 36px 0;
+    }
+    .incluye-num {
+      font-size: 11px; letter-spacing: .12em; color: var(--gray);
+      margin-bottom: 16px;
+    }
+    .incluye-title {
+      font-size: 16px; font-weight: 500; margin-bottom: 10px;
+    }
+    .incluye-desc {
+      font-size: 14px; color: #555; line-height: 1.7;
+    }
+
+    /* ── PARA QUIÉN ── */
+    #para-quien {
+      padding: 0 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .para-quien-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .para-quien-item {
+      padding: 80px 60px 80px 0;
+      border-top: 1px solid var(--light);
+    }
+    .para-quien-item.dark {
+      background: var(--black); color: var(--white);
+      padding: 80px 60px;
+    }
+    .para-quien-label {
+      font-size: 12px; letter-spacing: .12em; color: var(--gray);
+      margin-bottom: 24px;
+    }
+    .para-quien-item.dark .para-quien-label { color: #666; }
+    .para-quien-text {
+      font-size: 17px; line-height: 1.75;
+    }
+
+    /* ── CÓMO FUNCIONA ── */
+    #como-funciona {
+      padding: 120px 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .pasos-grid {
+      display: grid; grid-template-columns: repeat(4,1fr); gap: 2px;
+    }
+    .paso {
+      border-top: 1px solid var(--light); padding: 40px 40px 40px 0;
+    }
+    .paso-num {
+      font-size: 11px; letter-spacing: .12em; color: var(--gray);
+      margin-bottom: 20px;
+    }
+    .paso-title { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+    .paso-desc { font-size: 14px; color: #555; line-height: 1.7; }
+
+    /* ── PRECIO ── */
+    #precio {
+      background: var(--black); color: var(--white);
+      padding: 120px 60px; text-align: center;
+    }
+    .precio-tag {
+      font-size: 12px; letter-spacing: .12em; color: #666;
+      margin-bottom: 40px;
+    }
+    .precio-amount {
+      font-size: clamp(4rem, 10vw, 8rem);
+      font-weight: 300; letter-spacing: -.04em;
+      line-height: 1; margin-bottom: 8px;
+    }
+    .precio-ars {
+      font-size: 20px; color: #666; margin-bottom: 8px;
+    }
+    .precio-nota-small {
+      font-size: 13px; color: #666; margin-bottom: 48px;
+    }
+    .precio-includes {
+      list-style: none; max-width: 480px;
+      margin: 0 auto 52px; text-align: left;
+    }
+    .precio-includes li {
+      font-size: 15px; color: #bbb; padding: 12px 0;
+      border-bottom: 1px solid #222;
+    }
+    .precio-includes li:last-child { border-bottom: none; }
+    .precio-includes li::before { content: '→ '; color: #555; }
+    .btn-row {
+      display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+      margin-bottom: 24px;
+    }
+    .precio-aviso {
+      font-size: 12px; color: #555; max-width: 400px; margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* ── FAQ ── */
+    #faq {
+      padding: 120px 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .faq-item { padding: 40px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:last-child { border-bottom: none; }
+    .faq-q { font-size: 18px; font-weight: 500; margin-bottom: 16px; }
+    .faq-a { font-size: 16px; color: #555; line-height: 1.8; }
+
+    /* ── CTA FINAL ── */
+    #cta-final {
+      background: var(--black); color: var(--white);
+      padding: 120px 60px; text-align: center;
+    }
+    .cta-title {
+      font-size: clamp(2rem, 4vw, 3.5rem);
+      font-weight: 400; line-height: 1.2;
+      margin-bottom: 48px; max-width: 600px;
+      margin-left: auto; margin-right: auto;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 48px 60px;
+      border-top: 1px solid var(--light);
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 12px; color: #aaa; letter-spacing: .04em; }
+    .footer-link {
+      font-size: 12px; color: #aaa; letter-spacing: .04em;
+      text-decoration: none; transition: color .2s;
+    }
+    .footer-link:hover { color: var(--black); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { padding: 20px 32px; }
+      #hero, #problema, #incluye, #como-funciona, #precio, #faq, #cta-final { padding: 100px 32px; }
+      #para-quien { padding: 0 32px; }
+      .para-quien-grid { grid-template-columns: 1fr; }
+      .para-quien-item { padding: 60px 0; }
+      .para-quien-item.dark { padding: 60px 32px; }
+      .pasos-grid { grid-template-columns: repeat(2,1fr); }
+      footer { padding: 32px; flex-direction: column; gap: 16px; text-align: center; }
+    }
+    @media (max-width: 540px) {
+      nav { padding: 18px 24px; }
+      #hero, #problema, #incluye, #como-funciona, #precio, #faq, #cta-final { padding: 80px 24px; }
+      #para-quien { padding: 0 24px; }
+      .pasos-grid { grid-template-columns: 1fr; }
+      .btn-row { flex-direction: column; align-items: center; }
+      .btn-pill { width: 100%; max-width: 360px; text-align: center; }
+      footer { padding: 28px 24px; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2559356064485053');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="light" id="nav">
+    <a href="https://liscreativestudio.com" class="nav-logo">LIS.</a>
+    <a href="https://liscreativestudio.com/shop" class="nav-back">← back to shop</a>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-inner">
+      <p class="hero-tag">producto digital · lifetime access</p>
+      <h1 class="hero-title">The Studio Kit.</h1>
+      <p class="hero-sub">Complete client management system in Notion for freelance designers. Everything in one place, from the first inquiry to final delivery.</p>
+      <div style="display:flex;gap:16px;flex-wrap:wrap;">
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Buy with PayPal — €19</a>
+        <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-pill btn-outline-white">Mercado Pago — $47.000</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA + VIDEO -->
+  <section id="problema">
+    <div class="problema-inner">
+      <div class="problema-left">
+        <span class="section-label">[the problem]</span>
+        <p class="problema-text">As a freelancer, you manage clients through voice notes, carpetas de Drive, mensajes de WhatsApp y hojas de cálculo. Every project starts from scratch. Perdés tiempo buscando contratos viejos, olvidás enviar el cuestionario, no sabés en qué estado quedó la propuesta. Todo eso se puede resolver.</p>
+      </div>
+      <div class="problema-right">
+        <div class="video-wrap">
+          <iframe src="https://player.vimeo.com/video/1187676153?badge=0&autopause=0&player_id=0&app_id=58479&autoplay=1&muted=1&loop=1" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write; encrypted-media; web-share" referrerpolicy="strict-origin-when-cross-origin" title="Video Studio Kit"></iframe>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script src="https://player.vimeo.com/api/player.js"></script>
+
+  <!-- QUÉ INCLUYE -->
+  <section id="incluye">
+    <span class="section-label">[what's included]</span>
+    <div class="incluye-grid">
+      <div class="incluye-item">
+        <p class="incluye-num">01</p>
+        <p class="incluye-title">Central hub</p>
+        <p class="incluye-desc">Your operations center. Step-by-step usage guide and overview of all your active projects at a glance.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">02</p>
+        <p class="incluye-title">Client database</p>
+        <p class="incluye-desc">All your active clients with statuses, dates, and data. You know where each project stands without having to remember.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">03</p>
+        <p class="incluye-title">Complete workflow</p>
+        <p class="incluye-desc">From the discovery call to final delivery. Every step documented so you never skip anything important.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">04</p>
+        <p class="incluye-title">Client portal</p>
+        <p class="incluye-desc">A space you share with each client per project: progress, links, deliverables. Professional from day one.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">05</p>
+        <p class="incluye-title">Service questionnaires</p>
+        <p class="incluye-desc">Questionnaire templates for branding, visual identity, and web. You send them as soon as you receive the deposit.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">06</p>
+        <p class="incluye-title">Internal checklist</p>
+        <p class="incluye-desc">Step by step for each type of project. Nothing slips through and you move forward with purpose.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">07</p>
+        <p class="incluye-title">Editable contracts</p>
+        <p class="incluye-desc">Contract templates per service. You duplicate them, fill in the client data, and share the link.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">08</p>
+        <p class="incluye-title">Invoice and welcome</p>
+        <p class="incluye-desc">Invoice/receipt template and welcome message ready to copy and send via WhatsApp or email.</p>
+      </div>
+      <div class="incluye-item">
+        <p class="incluye-num">09</p>
+        <p class="incluye-title">Pricing and terms</p>
+        <p class="incluye-desc">Your pricing table and payment terms to check quickly while quoting without losing focus.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARA QUIÉN -->
+  <section id="para-quien">
+    <div class="para-quien-grid">
+      <div class="para-quien-item">
+        <p class="para-quien-label">it's for you if</p>
+        <p class="para-quien-text">You're a freelance designer or creative and want to stop improvising with every new client. If your management today depends on memory and WhatsApp messages, this will change your daily life.</p>
+      </div>
+      <div class="para-quien-item dark">
+        <p class="para-quien-label">no it's for you if</p>
+        <p class="para-quien-text">You don't use Notion or don't intend to learn. The system lives in Notion — if you prefer another tool, this template won't be useful for you.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section id="como-funciona">
+    <span class="section-label">[how it works]</span>
+    <div class="pasos-grid">
+      <div class="paso">
+        <p class="paso-num">01</p>
+        <p class="paso-title">You buy</p>
+        <p class="paso-desc">You choose your payment method — PayPal in euros or Mercado Pago in pesos — and complete the purchase.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">02</p>
+        <p class="paso-title">You receive the link</p>
+        <p class="paso-desc">We send you the link to the Notion template by email, within 24 hours.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">03</p>
+        <p class="paso-title">Duplicate in your Notion</p>
+        <p class="paso-desc">One click and you have the entire system in your own account. Free forever.</p>
+      </div>
+      <div class="paso">
+        <p class="paso-num">04</p>
+        <p class="paso-title">Customize and use</p>
+        <p class="paso-desc">Add your brand, your rates, your data. And start with the next client.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRECIO -->
+  <section id="precio">
+    <p class="precio-tag">pago único · lifetime access</p>
+    <p class="precio-amount">€19</p>
+    <p class="precio-ars">$47.000 ARS</p>
+    <p class="precio-nota-small">Elegís cómo pagarlo</p>
+    <ul class="precio-includes">
+      <li>Acceso completo al sistema en Notion</li>
+      <li>Central hub + portal del cliente + flujo de trabajo</li>
+      <li>Cuestionarios, contratos y checklist por servicio</li>
+      <li>Factura, recibo y mensaje de bienvenida</li>
+      <li>Editable e ilimitado: personalizalo las veces que quieras</li>
+    </ul>
+    <div class="btn-row">
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Buy with PayPal — €19</a>
+      <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-pill btn-outline-white">Mercado Pago — $47.000 ARS</a>
+    </div>
+    <p class="precio-aviso">Producto digital. You receive the link para duplicar el template en tu Notion por email dentro de las 24 horas.</p>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <span class="section-label">[frequently asked questions]</span>
+    <div class="faq-item">
+      <p class="faq-q">Do I need to know how to use Notion?</p>
+      <p class="faq-a">You need the basics — knowing how to duplicate a page and edit text. The Hub includes a step-by-step guide to get started.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Can I customize it with my brand?</p>
+      <p class="faq-a">Yes, completely. You can change colors, icons, names, and content. It's yours to use however you want.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">When do I receive the link?</p>
+      <p class="faq-a">Within 24 hours of confirmed payment. If it doesn't arrive, check spam or write to us via WhatsApp.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Does it work for any type of design service?</p>
+      <p class="faq-a">It's designed for branding, visual identity, and web, but you can adapt it to any creative service.</p>
+    </div>
+    <div class="faq-item">
+      <p class="faq-q">Is there any extra cost afterward?</p>
+      <p class="faq-a">No. One-time payment y lifetime access. Notion es gratuito en su plan personal, que alcanza perfectamente para esto.</p>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section id="cta-final">
+    <h2 class="cta-title">If every new client finds you improvising, this is for you.</h2>
+    <div class="btn-row" style="margin-bottom:0;">
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Buy with PayPal — €19</a>
+      <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-pill btn-outline-white">Mercado Pago — $47.000 ARS</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <span class="footer-copy">LIS Creative Studio · All rights reserved</span>
+    <a href="https://liscreativestudio.com" class="footer-link">liscreativestudio.com</a>
+  </footer>
+
+  <!-- WHATSAPP -->
+  <a href="https://wa.me/543413780854?text=Hola%20Orne%2C%20tengo%20una%20consulta%20sobre%20el%20Studio%20Kit" target="_blank" class="wa-btn" aria-label="Contactar por WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="white">
+      <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+    </svg>
+    <span>Any questions?</span>
+  </a>
+
+  <style>
+    .wa-btn {
+      position: fixed; bottom: 32px; right: 32px; z-index: 999;
+      background: #25D366; color: white;
+      display: flex; align-items: center; gap: 10px;
+      padding: 14px 22px; border-radius: 100px;
+      text-decoration: none; font-size: 14px;
+      box-shadow: 0 4px 20px rgba(0,0,0,.15);
+      transition: transform .2s, box-shadow .2s;
+    }
+    .wa-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,.2); }
+    @media (max-width: 540px) {
+      .wa-btn span { display: none; }
+      .wa-btn { padding: 14px; bottom: 24px; right: 24px; }
+    }
+  </style>
+
+  <script>
+    const cursor = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      ring.style.left = e.clientX + 'px';
+      ring.style.top = e.clientY + 'px';
+    });
+
+    const nav = document.getElementById('nav');
+    const darkSections = ['hero', 'precio', 'cta-final'];
+    function updateNav() {
+      const scrollY = window.scrollY + 60;
+      let isDark = false;
+      darkSections.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+          const top = el.offsetTop;
+          const bottom = top + el.offsetHeight;
+          if (scrollY >= top && scrollY < bottom) isDark = true;
+        }
+      });
+      nav.className = isDark ? 'light' : '';
+    }
+    window.addEventListener('scroll', updateNav);
+    updateNav();
+  </script>
+</body>
+</html>

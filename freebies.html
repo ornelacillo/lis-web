@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freebies — LIS. Creative Studio</title>
+  <meta name="description" content="Recursos gratuitos de diseño. Descargá la plantilla de Canva y empezá a comunicar tu marca con criterio." />
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1460085');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px; line-height: 1.6; cursor: none;
+    }
+
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: left .12s ease, top .12s ease, width .25s, height .25s; }
+    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none !important; } body { cursor: auto; } }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 48px;
+      padding: 22px 0; align-items: center;
+      transition: background .35s, box-shadow .35s;
+    }
+    nav.scrolled { background: var(--black); box-shadow: 0 1px 0 #222; }
+    nav a { text-decoration: none; color: var(--white); font-family: var(--font); font-size: 13px; letter-spacing: .06em; transition: opacity .2s; }
+    nav a:hover { opacity: .45; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { cursor: default; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; min-width: 180px; z-index: 200; }
+    .nav-dropdown-menu-inner { background: #181818; border: 1px solid #2a2a2a; padding: 8px 0; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 9px 20px; font-size: 12px; letter-spacing: .06em; color: var(--white) !important; text-decoration: none; transition: opacity .2s; pointer-events: auto !important; }
+    .nav-dropdown-menu a:hover { opacity: .45; }
+    /* ── HAMBURGER ── */
+    .nav-hamburger { display: none; position: fixed; top: 16px; right: 20px; z-index: 1001; background: none; border: none; cursor: none; padding: 6px; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .nav-mobile-overlay.open { display: flex; }
+    .nav-mobile-overlay a { text-decoration: none; color: var(--white); font-size: 22px; letter-spacing: .04em; transition: opacity .2s; }
+    .nav-mobile-overlay a:hover { opacity: .45; }
+    .nav-mobile-overlay .mob-sub { display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 8px; border-top: 1px solid #2a2a2a; width: 220px; }
+    .nav-mobile-overlay .mob-sub a { font-size: 15px; color: #888; }
+    @media (max-width: 860px) { nav { display: none; } .nav-hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--black); color: var(--white);
+      padding: 180px 60px 100px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-x { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .1; }
+    .hero-x svg { width: 100%; height: 100%; }
+    .hero-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 32px; }
+    .hero-title { font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 24px; }
+    .hero-desc { font-size: 17px; color: #888; line-height: 1.8; margin-bottom: 0; }
+    .hero-img-wrap {
+      position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%; display: block;
+      border-radius: 4px;
+    }
+    .hero-badge {
+      position: absolute; top: -16px; right: -16px;
+      background: #c8f060; color: #111;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em;
+      padding: 8px 16px; border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    /* ── FREEBIE CARD ── */
+    .freebie-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 100px 60px;
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 100px; align-items: start;
+    }
+    .freebie-left {}
+    .freebie-tag {
+      font-size: 12px; letter-spacing: .14em; color: var(--gray);
+      text-transform: lowercase; margin-bottom: 32px;
+    }
+    .freebie-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -.02em; margin-bottom: 24px;
+    }
+    .freebie-desc {
+      font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 16px;
+    }
+    .freebie-includes {
+      margin-top: 40px; border-top: 1px solid var(--light); padding-top: 32px;
+    }
+    .freebie-includes-label {
+      font-size: 11px; letter-spacing: .12em; color: var(--gray);
+      text-transform: uppercase; margin-bottom: 20px;
+    }
+    .freebie-includes li {
+      list-style: none; padding: 10px 0;
+      border-bottom: 1px solid var(--light);
+      font-size: 15px; color: #444;
+      display: flex; gap: 12px; align-items: flex-start;
+    }
+    .freebie-includes li::before { content: "→"; color: var(--black); flex-shrink: 0; }
+
+    /* ── FORM ── */
+    .freebie-right {}
+    .form-wrap {
+      border: 1px solid var(--light);
+      padding: 48px;
+    }
+    .form-wrap-title {
+      font-size: 22px; font-weight: 500;
+      line-height: 1.3; margin-bottom: 8px;
+    }
+    .form-wrap-sub {
+      font-size: 14px; color: var(--gray); margin-bottom: 36px; line-height: 1.6;
+    }
+
+    /* Override MailerLite styles to match LIS */
+    .ml-embedded * { font-family: var(--font) !important; }
+    .ml-embedded input {
+      border-radius: 0 !important;
+      border-color: #ccc !important;
+      font-size: 14px !important;
+      padding: 12px 14px !important;
+      background: transparent !important;
+      width: 100% !important;
+    }
+    .ml-embedded .ml-btn-primary, .ml-embedded button[type="submit"] {
+      border-radius: 0 !important;
+      background-color: #111 !important;
+      border-color: #111 !important;
+      font-size: 13px !important;
+      font-weight: 500 !important;
+      padding: 14px 20px !important;
+      letter-spacing: .04em !important;
+      width: 100% !important;
+      margin-top: 8px !important;
+    }
+    .ml-embedded .ml-btn-primary:hover, .ml-embedded button[type="submit"]:hover {
+      background-color: #333 !important;
+    }
+    .ml-embedded .ml-form-successContent h4 {
+      font-size: 18px !important; font-weight: 500 !important;
+    }
+    .ml-embedded .ml-form-successContent p {
+      font-size: 14px !important; color: var(--gray) !important;
+    }
+    /* Hide MailerLite branding if any */
+    .ml-form-embedWrapper .ml-form-embedContent { display: none !important; }
+
+    /* ── TEMPLATES SECTION ── */
+    .coming-section {
+      background: #f9f9f7;
+      padding: 100px 60px;
+      border-top: 1px solid var(--light);
+    }
+    .coming-inner { max-width: 1100px; margin: 0 auto; }
+    .coming-label { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 56px; }
+    .coming-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .coming-item {
+      background: var(--white);
+      border: 1px solid var(--light);
+      padding: 40px 32px;
+      position: relative;
+    }
+    .coming-badge {
+      display: inline-block; font-size: 10px; letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      margin-bottom: 24px;
+    }
+    .badge-gratis { background: #e8f5e9; color: #2e7d32; border: 1px solid #c8e6c9; }
+    .badge-pago { background: #ede7f6; color: #5e35b1; border: 1px solid #d1c4e9; }
+    .coming-name { font-size: 20px; font-weight: 400; line-height: 1.3; margin-bottom: 12px; color: var(--black); }
+    .coming-desc { font-size: 14px; color: #555; line-height: 1.65; margin-bottom: 20px; }
+    .coming-item-link { text-decoration: none; display: block; transition: border-color .3s; }
+    .coming-item-link:hover { border-color: var(--black); }
+    .coming-cta { display: block; margin-top: 20px; font-size: 13px; letter-spacing: .06em; color: var(--gray); transition: color .2s; }
+    .coming-item-link:hover .coming-cta { color: var(--black); }
+    /* MailerLite mini forms inside template cards */
+    .template-form { margin-top: 20px; border-top: 1px solid var(--light); padding-top: 20px; }
+    .template-form p { font-size: 12px; color: var(--gray); margin-bottom: 10px; }
+    .template-form .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .template-form .ml-form-embedBody { padding: 0 !important; }
+    .template-form .ml-form-embedContent { display: none !important; }
+    .template-form .ml-form-formContent { margin: 0 !important; }
+    .template-form .ml-form-fieldRow { margin-bottom: 6px !important; }
+    .template-form .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: var(--font) !important; font-size: 13px !important; padding: 8px 10px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+    .template-form .ml-form-embedSubmit { margin: 0 !important; }
+    .template-form .ml-form-embedSubmit button { border-radius: 0 !important; font-family: var(--font) !important; font-size: 12px !important; font-weight: 500 !important; background-color: #111 !important; color: #fff !important; padding: 8px 16px !important; width: 100% !important; }
+    .template-form .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 14px !important; font-weight: 500 !important; }
+    .template-form .ml-form-successContent p { font-family: var(--font) !important; font-size: 12px !important; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-family: var(--font); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-family: var(--font); font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+    .fi-d3 { transition-delay: .3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-hero { padding: 140px 24px 80px; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .freebie-section { grid-template-columns: 1fr; padding: 72px 24px; gap: 56px; }
+      .form-wrap { padding: 32px 24px; }
+      .coming-section { padding: 72px 24px; }
+      .coming-grid { grid-template-columns: 1fr; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      .hero-badge { display: none; }
+      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: .08em;
+    }
+    .lang-btn {
+      text-decoration: none; color: rgba(17,17,17,0.4);
+      transition: color .2s; padding: 2px 4px;
+    }
+    .lang-btn.lang-active { color: #111; font-weight: 500; }
+    .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Hamburger button (mobile) -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile overlay -->
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="/" onclick="closeMenu()">home</a>
+    <a href="/#about" onclick="closeMenu()">about</a>
+    <div class="mob-sub">
+      <a href="/branding" onclick="closeMenu()">Branding Completo</a>
+      <a href="/identidad-visual" onclick="closeMenu()">Identidad Visual</a>
+      <a href="/web" onclick="closeMenu()">Diseño Web</a>
+    </div>
+    <a href="/#portfolio" onclick="closeMenu()">portfolio</a>
+    <a href="/shop" onclick="closeMenu()">shop</a>
+    <a href="/freebies" onclick="closeMenu()" style="opacity:.45">freebies</a>
+    <a href="/#contact" onclick="closeMenu()">contact</a>
+  </div>
+
+  <nav id="mainNav">
+    <a href="/">home</a>
+    <a href="/#about">about</a>
+    <div class="nav-dropdown">
+      <a href="/#services">services</a>
+      <div class="nav-dropdown-menu">
+        <div class="nav-dropdown-menu-inner">
+          <a href="/branding">Branding Completo</a>
+          <a href="/identidad-visual">Identidad Visual</a>
+          <a href="/web">Diseño Web</a>
+        </div>
+      </div>
+    </div>
+    <a href="/#portfolio">portfolio</a>
+    <a href="/shop">shop</a>
+    <a href="/freebies" style="opacity:.45">freebies</a>
+    <a href="/#contact">contact</a>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <div class="page-hero">
+    <div class="hero-x">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="80"   y1="0" x2="360"  y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="360"  y1="0" x2="80"   y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1160" y1="0" x2="1440" y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1440" y1="0" x2="1160" y2="600" stroke="#fff" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="page-hero-inner">
+      <div>
+        <p class="hero-label fi">[freebies]</p>
+        <h1 class="hero-title fi fi-d1">Recursos<br>gratuitos.</h1>
+        <p class="hero-desc fi fi-d2">Herramientas y plantillas para que tu marca comunique mejor, sin necesidad de ser diseñadora.</p>
+      </div>
+      <div class="hero-img-wrap fi fi-d2">
+        <!-- Renombrá tu gif a "freebies-mockup.gif" y subilo a la raíz del sitio -->
+        <img src="mockup-plantilla.gif" alt="Plantilla gratuita LIS Creative Studio" />
+        <span class="hero-badge">Gratis</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FREEBIE PRINCIPAL ══ -->
+  <div class="freebie-section">
+
+    <div class="freebie-left fi">
+      <p class="freebie-tag">[plantilla gratuita]</p>
+      <h2 class="freebie-title">Plantilla<br>editable en Canva.</h2>
+      <p class="freebie-desc">Una plantilla lista para usar, pensada para que puedas presentar tu marca, tus servicios o tu trabajo de forma profesional — sin saber diseño.</p>
+      <p class="freebie-desc">Solo la abrís en Canva, cambiás los textos y colores, y listo. Te la enviamos directo al mail.</p>
+
+      <div class="freebie-includes">
+        <p class="freebie-includes-label">Qué incluye</p>
+        <ul>
+          <li>Plantilla 100% editable en Canva</li>
+          <li>Diseño limpio y adaptable a cualquier marca</li>
+          <li>Instrucciones simples para personalizarla</li>
+          <li>Acceso inmediato por email</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="freebie-right fi fi-d1">
+      <div class="form-wrap">
+        <h3 class="form-wrap-title">Quiero la plantilla gratis</h3>
+        <p class="form-wrap-sub">Dejá tu nombre y email y te la enviamos al instante.</p>
+        <!-- MailerLite embed form -->
+        <div class="ml-embedded" data-form="sL6UKO"></div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ TEMPLATES DE NOTION ══ -->
+  <div class="coming-section">
+    <div class="coming-inner">
+      <p class="coming-label fi">[templates de notion]</p>
+      <div class="coming-grid">
+
+        <!-- Template 1: Portfolio -->
+        <div class="coming-item fi fi-d1">
+          <span class="coming-badge badge-gratis">Gratis</span>
+          <p class="coming-name">Notion Portfolio Web Design + My Resume</p>
+          <p class="coming-desc">Plantilla 100% editable en Notion para mostrar tu trabajo de diseño web de manera profesional. Intuitiva y fácil de personalizar con Notion (una herramienta gratuita), ahorrándote mucho tiempo y plata.</p>
+          <p class="coming-desc">Incluye un template editable de CV/Resume para que tengas todo en un solo lugar. Cambiá banners, imágenes, textos, colores, y agregá o sacá lo que necesites — las veces que quieras.</p>
+          <p class="coming-desc" style="font-size:13px; color: var(--gray); margin-top: 8px;">Plantillas listas para usar, editables en pocos pasos, para que te enfoques en lo importante.</p>
+          <div class="template-form">
+            <p>Dejá tu nombre y email para recibirlo:</p>
+            <div id="mlb2-40075675" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40075675">
+              <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/185023786568910630/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                      <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit"><button type="submit" class="primary">Quiero el template</button><button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Pronto te va a llegar la plantilla a tu casilla de email.</p></div></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template 2: Planner -->
+        <div class="coming-item fi fi-d2">
+          <span class="coming-badge badge-gratis">Gratis</span>
+          <p class="coming-name">Work Notion Planner for Freelancers</p>
+          <p class="coming-desc">¿Cuántas veces perdiste un trabajo porque no tenías claro el proceso o el paso a paso? Con esta plantilla vas a tener todo organizado para gestionar tus propios clientes freelance de principio a fin.</p>
+          <p class="coming-desc">Desde el primer contacto con el cliente hasta la entrega y el soporte final. Todo el flujo del proyecto ordenado y con calidad profesional, para que te diferencies del resto.</p>
+          <p class="coming-desc">Editala como quieras: ponés tus colores, tu tipografía, tu logo y las imágenes que quieras. Disponible en español e inglés.</p>
+          <div class="template-form">
+            <p>Dejá tu nombre y email para recibirlo:</p>
+            <div id="mlb2-40075877" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40075877">
+              <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                  <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/185024159604017013/subscribe" data-code="" method="post" target="_blank">
+                    <div class="ml-form-formContent">
+                      <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                      <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                    </div>
+                    <input type="hidden" name="ml-submit" value="1">
+                    <div class="ml-form-embedSubmit"><button type="submit" class="primary">Quiero el template</button><button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                    <input type="hidden" name="anticsrf" value="true">
+                  </form>
+                </div>
+                <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Pronto te va a llegar la plantilla a tu casilla de email.</p></div></div>
+              </div></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Template 3: The Studio Kit (de pago) -->
+        <a href="/shop" class="coming-item coming-item-link fi fi-d3">
+          <span class="coming-badge badge-pago">De pago</span>
+          <p class="coming-name">The Studio Kit</p>
+          <p class="coming-desc">El sistema completo en Notion para gestionar tu estudio creativo. Hub central, portal del cliente, contratos por servicio, cuestionarios, factura/recibo, checklist interno y flujo de trabajo paso a paso — todo listo para duplicar y personalizar.</p>
+          <span class="coming-cta">Ver más y comprar →</span>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
+    </div>
+    <div class="footer-geo">
+      <span class="footer-geo-text">Argentina</span>
+      <div class="footer-geo-img"><img src="portfolio/lis-web.png" alt="LIS" /></div>
+      <span class="footer-geo-text">Worldwide</span>
+    </div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left">
+        <div class="footer-sillon-img"><img src="sillon-globo.webp" alt="LIS" /></div>
+        <div class="footer-social-block">
+          <p class="footer-social-label">Social media</p>
+          <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Newsletter. ¡No spam, lo prometemos!</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Suscribite</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Te suscribiste correctamente.</p></div></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script>
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    function ml_webform_success_40075675() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-40075675 .row-success').show();
+      $('.ml-subscribe-form-40075675 .row-form').hide();
+    }
+    function ml_webform_success_40075877() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-40075877 .row-success').show();
+      $('.ml-subscribe-form-40075877 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/185023786568910630/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/185024159604017013/takel");
+
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    });
+
+    // Nav: add dark bg on scroll
+    const nav = document.getElementById('mainNav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 80);
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    const fiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  </script>
+
+</body>
+</html>

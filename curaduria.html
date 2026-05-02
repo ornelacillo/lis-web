@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Curaduría Visual Premium · LIS Creative Studio</title>
+  <meta name="description" content="Una intervención estética rápida para marcas que necesitan orden, claridad y coherencia visual — sin proceso de branding completo." />
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      cursor: none;
+    }
+
+    /* ── CURSOR ── */
+    .cursor {
+      position: fixed; width: 8px; height: 8px;
+      background: var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s;
+    }
+    .cursor-ring {
+      position: fixed; width: 30px; height: 30px;
+      border: 1px solid var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left .12s ease, top .12s ease, width .25s, height .25s;
+    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) {
+      .cursor, .cursor-ring { display: none !important; }
+      body { cursor: auto; }
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 60px;
+    }
+    .nav-logo {
+      text-decoration: none; color: var(--black);
+      font-size: 15px; font-weight: 500; letter-spacing: .02em;
+    }
+    .nav-back {
+      text-decoration: none; color: var(--gray);
+      font-size: 13px; letter-spacing: .04em;
+      transition: opacity .2s;
+    }
+    .nav-back:hover { opacity: .5; }
+
+    /* ── HERO ── */
+    .hero {
+      padding: 160px 60px 100px;
+      max-width: 1100px; margin: 0 auto;
+      border-bottom: 1px solid var(--light);
+    }
+    .service-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: var(--gray); text-transform: lowercase;
+      margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -.02em;
+      max-width: 700px;
+      margin-bottom: 32px;
+    }
+    .hero-sub {
+      font-size: 17px; color: #555;
+      max-width: 560px; line-height: 1.7;
+    }
+
+    /* ── SECTIONS ── */
+    .section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .section-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: var(--gray); text-transform: lowercase;
+      margin-bottom: 56px;
+    }
+    .section h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 400; line-height: 1.2;
+      letter-spacing: -.01em;
+      margin-bottom: 56px;
+    }
+
+    /* problema */
+    .problem-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 32px;
+    }
+    .problem-item {
+      border-top: 1px solid var(--light);
+      padding-top: 24px;
+    }
+    .problem-item p {
+      font-size: 15px; color: #444; line-height: 1.7;
+    }
+
+    /* entregables */
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 48px;
+    }
+    .deliverable-num {
+      font-size: 11px; letter-spacing: .12em;
+      color: var(--gray); margin-bottom: 16px;
+    }
+    .deliverable-title {
+      font-size: 16px; font-weight: 500;
+      margin-bottom: 10px;
+    }
+    .deliverable-desc {
+      font-size: 14px; color: #555; line-height: 1.7;
+    }
+
+    /* no incluye */
+    .no-list {
+      display: flex; flex-wrap: wrap; gap: 12px;
+      list-style: none;
+    }
+    .no-list li {
+      font-size: 13px; color: var(--gray);
+      border: 1px solid var(--light);
+      padding: 8px 16px;
+    }
+
+    /* pasos */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+    }
+    .step {
+      border-top: 1px solid var(--light);
+      padding: 40px 40px 40px 0;
+    }
+    .step-num {
+      font-size: 11px; letter-spacing: .12em;
+      color: var(--gray); margin-bottom: 20px;
+    }
+    .step-title {
+      font-size: 16px; font-weight: 500; margin-bottom: 12px;
+    }
+    .step-desc {
+      font-size: 14px; color: #555; line-height: 1.7;
+    }
+
+    /* precio */
+    .price-block {
+      background: var(--black); color: var(--white);
+      padding: 80px 60px;
+      max-width: 1100px; margin: 0 auto;
+    }
+    .price-inner {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap; gap: 40px;
+    }
+    .price-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: #555; text-transform: lowercase;
+      margin-bottom: 24px;
+    }
+    .price-amount {
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 300; letter-spacing: -.03em;
+      line-height: 1;
+    }
+    .price-detail {
+      font-size: 13px; color: #888; margin-top: 12px;
+    }
+    .price-conditions {
+      max-width: 360px;
+    }
+    .price-conditions p {
+      font-size: 14px; color: #aaa; line-height: 1.8;
+      margin-bottom: 12px;
+    }
+    .price-conditions p:last-child { margin-bottom: 0; }
+
+    /* upsell */
+    .upsell {
+      background: #f7f6f3;
+      padding: 48px 60px;
+      max-width: 1100px; margin: 0 auto;
+      border-bottom: 1px solid var(--light);
+    }
+    .upsell p {
+      font-size: 15px; color: #555; line-height: 1.7;
+      max-width: 680px;
+    }
+    .upsell strong { color: var(--black); }
+
+    /* CTA */
+    .cta-section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 60px;
+    }
+    .cta-section h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 400; letter-spacing: -.01em;
+      margin-bottom: 32px;
+    }
+    .cta-btn {
+      display: inline-block;
+      background: var(--black); color: var(--white);
+      text-decoration: none;
+      font-size: 13px; letter-spacing: .08em;
+      padding: 16px 36px;
+      transition: opacity .2s;
+    }
+    .cta-btn:hover { opacity: .75; }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--light);
+      padding: 40px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy {
+      font-size: 12px; color: var(--gray); letter-spacing: .04em;
+    }
+    .footer-link {
+      font-size: 12px; color: var(--gray);
+      text-decoration: none; letter-spacing: .04em;
+      transition: color .2s;
+    }
+    .footer-link:hover { color: var(--black); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 130px 24px 72px; }
+      .section { padding: 64px 24px; }
+      .steps { grid-template-columns: 1fr; }
+      .step { padding: 32px 0; }
+      .price-block { padding: 60px 24px; }
+      .price-inner { flex-direction: column; align-items: flex-start; }
+      .upsell { padding: 40px 24px; }
+      .cta-section { padding: 60px 24px; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2559356064485053');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="nav">
+    <a href="https://liscreativestudio.com" class="nav-logo">LIS.</a>
+    <div class="lang-switcher">
+      <a href="/curaduria" class="lang-btn lang-active">ES</a>
+      <span class="lang-sep">·</span>
+      <a href="/en/curation" class="lang-btn">EN</a>
+    </div>
+    <a href="https://liscreativestudio.com" class="nav-back">← volver al inicio</a>
+  </nav>
+
+  <!-- HERO -->
+  <div class="hero">
+    <p class="service-label">[02] — curaduría visual</p>
+    <h1>Curaduría Visual Premium.</h1>
+    <p class="hero-sub">
+      Una intervención estética rápida para marcas que ya existen y necesitan orden, claridad y coherencia — sin meterse en un proceso de branding completo.
+    </p>
+  </div>
+
+  <!-- PROBLEMA -->
+  <div class="section">
+    <p class="section-label">[el problema]</p>
+    <h2>Tu marca se ve desordenada aunque tu negocio funcione bien.</h2>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <p>Cada diseñador que contrataste hizo lo que quiso. El resultado es inconsistente.</p>
+      </div>
+      <div class="problem-item">
+        <p>Producís mucho contenido pero sin una línea estética que lo unifique.</p>
+      </div>
+      <div class="problem-item">
+        <p>Tu comunicación no refleja el nivel real de lo que ofrecés.</p>
+      </div>
+      <div class="problem-item">
+        <p>Querés verte premium pero no querés meterte en un proceso de branding de dos meses.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ENTREGABLES -->
+  <div class="section">
+    <p class="section-label">[qué te llevás]</p>
+    <h2>Todo lo que necesitás para alinear tu estética. Nada más.</h2>
+    <div class="deliverable-grid">
+      <div>
+        <p class="deliverable-num">01</p>
+        <p class="deliverable-title">Línea visual curada</p>
+        <p class="deliverable-desc">Estilo, tono, dirección estética y referencias concretas. No es un moodboard poético — es una guía visual clara para aplicar.</p>
+      </div>
+      <div>
+        <p class="deliverable-num">02</p>
+        <p class="deliverable-title">Paleta depurada</p>
+        <p class="deliverable-desc">Tomamos lo que ya existe, eliminamos excesos y dejamos una paleta funcional, coherente y aplicable.</p>
+      </div>
+      <div>
+        <p class="deliverable-num">03</p>
+        <p class="deliverable-title">Reglas visuales simples</p>
+        <p class="deliverable-desc">Qué sí, qué no, cómo aplicar. Reglas claras que cualquier persona de tu equipo puede seguir.</p>
+      </div>
+      <div>
+        <p class="deliverable-num">04</p>
+        <p class="deliverable-title">10 piezas corregidas</p>
+        <p class="deliverable-desc">Enviás tus piezas actuales. Las editamos y mostramos exactamente cómo deben verse con la nueva línea visual.</p>
+      </div>
+      <div>
+        <p class="deliverable-num">05</p>
+        <p class="deliverable-title">Video explicativo</p>
+        <p class="deliverable-desc">10 a 15 minutos mostrando qué cambiar, qué mantener y cómo aplicar la nueva dirección. Directo, práctico, sin reuniones.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NO INCLUYE -->
+  <div class="section">
+    <p class="section-label">[qué no incluye]</p>
+    <h2>Para que sepas exactamente qué estás comprando.</h2>
+    <ul class="no-list">
+      <li>Branding completo</li>
+      <li>Diseño de logo</li>
+      <li>Revisiones adicionales</li>
+      <li>Reuniones</li>
+      <li>Diseño desde cero</li>
+      <li>Estrategia de marca</li>
+      <li>Copywriting</li>
+      <li>Manejo de redes</li>
+    </ul>
+  </div>
+
+  <!-- PASOS -->
+  <div class="section">
+    <p class="section-label">[cómo funciona]</p>
+    <div class="steps">
+      <div class="step">
+        <p class="step-num">01</p>
+        <p class="step-title">Enviás tus materiales</p>
+        <p class="step-desc">10 a 20 piezas actuales, tu feed o web, paleta y tipografías que usás actualmente.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">02</p>
+        <p class="step-title">Trabajamos</p>
+        <p class="step-desc">Curamos, depuramos, corregimos las 10 piezas, armamos la guía visual y grabamos el video.</p>
+      </div>
+      <div class="step">
+        <p class="step-num">03</p>
+        <p class="step-title">Entrega en 5 días</p>
+        <p class="step-desc">Todo empaquetado y listo para aplicar. Sin idas y vueltas.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRECIO -->
+  <div class="price-block">
+    <div class="price-inner">
+      <div>
+        <p class="price-label">[inversión]</p>
+        <p class="price-amount">USD 350</p>
+        <p class="price-detail">Pago único · entrega en 5 días hábiles</p>
+      </div>
+      <div class="price-conditions">
+        <p>El pago se realiza en su totalidad antes de iniciar el trabajo.</p>
+        <p>Una vez confirmado el pago y recibidos los materiales, el plazo de 5 días comienza a correr.</p>
+        <p>El servicio no incluye revisiones. Lo que entregamos está pensado para aplicarse tal como está.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- UPSELL -->
+  <div class="upsell">
+    <p>
+      <strong>¿Querés ir más lejos?</strong> Si después de la Curaduría decidís encarar un branding completo, el valor de este servicio se descuenta del total. Es la puerta de entrada, no el techo.
+    </p>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2>¿Querés ordenar tu estética visual?</h2>
+    <a href="https://liscreativestudio.com/#contact" class="cta-btn">Escribime</a>
+  </div>
+
+  <footer>
+    <span class="footer-copy">LIS Creative Studio · Todos los derechos reservados</span>
+    <a href="https://liscreativestudio.com" class="footer-link">liscreativestudio.com</a>
+  </footer>
+
+  <script>
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top  = e.clientY + 'px';
+      requestAnimationFrame(() => {
+        ring.style.left = e.clientX + 'px';
+        ring.style.top  = e.clientY + 'px';
+      });
+    });
+  </script>
+
+</body>
+</html>

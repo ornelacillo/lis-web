@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identidad Visual — LIS. Creative Studio</title>
+  <meta name="description" content="Sistema visual completo: logo, colores, tipografías, elementos gráficos y aplicaciones. LIS. Creative Studio, Rosario." />
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px;
+      line-height: 1.6;
+      cursor: none;
+    }
+
+    .cursor {
+      position: fixed; width: 8px; height: 8px;
+      background: var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+      transition: width .2s, height .2s;
+    }
+    .cursor-ring {
+      position: fixed; width: 30px; height: 30px;
+      border: 1px solid var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left .12s ease, top .12s ease, width .25s, height .25s;
+    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) {
+      .cursor, .cursor-ring { display: none !important; }
+      body { cursor: auto; }
+    }
+
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 48px;
+      padding: 22px 0;
+    }
+    nav a {
+      text-decoration: none; color: var(--black);
+      font-family: var(--font); font-size: 13px;
+      letter-spacing: .06em; transition: opacity .2s;
+    }
+    nav a:hover { opacity: .45; }
+    nav.light a { color: var(--white); }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--black);
+      color: var(--white);
+      padding: 180px 60px 120px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-hero-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: #555; text-transform: lowercase; margin-bottom: 40px;
+    }
+    .page-hero-title {
+      font-size: clamp(3rem, 6vw, 6rem);
+      font-weight: 400; line-height: 1.05;
+      letter-spacing: -.02em; max-width: 720px; margin-bottom: 40px;
+    }
+    .page-hero-desc {
+      font-size: 18px; color: #888; line-height: 1.75; max-width: 560px;
+    }
+    .hero-x {
+      position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .12;
+    }
+    .hero-x svg { width: 100%; height: 100%; }
+
+    /* ── INTRO SPLIT ── */
+    .intro-split {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 80px; align-items: start;
+      max-width: 1100px; margin: 0 auto;
+      padding: 100px 60px;
+    }
+    .intro-split-left {}
+    .intro-split-right {}
+    .section-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: var(--gray); text-transform: lowercase; margin-bottom: 40px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -.02em; margin-bottom: 24px;
+    }
+    .body-text {
+      font-size: 16px; color: #555; line-height: 1.8; margin-bottom: 16px;
+    }
+
+    /* ── PROCESS ── */
+    .process-section {
+      padding: 0 60px 100px;
+    }
+    .process-inner { max-width: 1100px; margin: 0 auto; }
+    .process-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px;
+    }
+    .process-step { border-top: 1px solid #e0e0e0; padding: 36px 28px 36px 0; }
+    .step-num { font-size: 11px; letter-spacing: .12em; color: var(--gray); margin-bottom: 20px; }
+    .step-name { font-size: 18px; font-weight: 500; line-height: 1.3; margin-bottom: 12px; }
+    .step-duration { font-size: 12px; color: var(--gray); letter-spacing: .06em; margin-bottom: 16px; }
+    .step-desc { font-size: 14px; color: #666; line-height: 1.7; }
+
+    /* ── CALLOUT ── */
+    .callout {
+      padding: 100px 60px; border-top: 1px solid var(--light); border-bottom: 1px solid var(--light);
+    }
+    .callout-inner { max-width: 1100px; margin: 0 auto; }
+    .callout-text {
+      font-size: clamp(1.5rem, 2.8vw, 2.4rem);
+      font-weight: 400; line-height: 1.35;
+      letter-spacing: -.02em; color: #333; max-width: 820px;
+    }
+
+    /* ── INCLUDES ── */
+    .includes-section { background: var(--black); padding: 100px 60px; }
+    .includes-inner { max-width: 1100px; margin: 0 auto; }
+    .includes-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 56px; }
+    .includes-title {
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -.02em; color: var(--white); margin-bottom: 72px;
+    }
+    .includes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .include-item { border-top: 1px solid #2a2a2a; padding: 36px 32px 36px 0; }
+    .include-num { font-size: 11px; letter-spacing: .1em; color: #444; margin-bottom: 16px; }
+    .include-name { font-size: 17px; font-weight: 400; color: var(--white); line-height: 1.4; margin-bottom: 10px; }
+    .include-detail { font-size: 14px; color: #666; line-height: 1.65; }
+
+    /* ── COMPARE ── */
+    .compare-section {
+      padding: 100px 60px;
+      border-bottom: 1px solid var(--light);
+    }
+    .compare-inner { max-width: 1100px; margin: 0 auto; }
+    .compare-note {
+      font-size: 16px; color: #555; line-height: 1.75;
+      max-width: 620px; padding: 36px 0;
+      border-top: 1px solid var(--light);
+    }
+    .compare-note strong { color: var(--black); font-weight: 500; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 120px 60px; }
+    .cta-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; justify-content: space-between;
+      align-items: flex-end; gap: 40px; flex-wrap: wrap;
+    }
+    .cta-title {
+      font-size: clamp(2.8rem, 5.5vw, 5rem);
+      font-weight: 400; line-height: 1.05; letter-spacing: -.03em;
+    }
+    .cta-btn {
+      display: inline-block; padding: 18px 56px;
+      border: 1px solid var(--black); border-radius: 100px;
+      text-decoration: none; color: var(--black);
+      font-size: 14px; letter-spacing: .04em;
+      transition: background .3s, color .3s; white-space: nowrap;
+    }
+    .cta-btn:hover { background: var(--black); color: var(--white); }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline {
+      font-family: var(--font);
+      font-size: clamp(2.8rem, 7vw, 6.5rem);
+      font-weight: 600; line-height: 1.0;
+      color: var(--black); letter-spacing: -.02em; margin: 0;
+    }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo {
+      display: flex; align-items: center; justify-content: center;
+      gap: 28px; padding: 32px 60px 48px;
+    }
+    .footer-geo-text {
+      font-family: var(--font);
+      font-size: clamp(1.4rem, 4.5vw, 4.5rem);
+      font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap;
+    }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+    .fi-d3 { transition-delay: .3s; }
+    .fi-d4 { transition-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { gap: 20px; }
+      .page-hero { padding: 140px 24px 80px; }
+      .intro-split { grid-template-columns: 1fr; padding: 72px 24px; gap: 40px; }
+      .process-section { padding: 0 24px 72px; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .callout { padding: 72px 24px; }
+      .includes-section { padding: 72px 24px; }
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+      .compare-section { padding: 72px 24px; }
+      .cta-section { padding: 80px 24px; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      nav { gap: 10px; flex-wrap: wrap; padding: 14px 16px; }
+      nav a { font-size: 12px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: 1fr; }
+      .cta-inner { flex-direction: column; align-items: flex-start; }
+      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: .08em;
+    }
+    .lang-btn {
+      text-decoration: none; color: rgba(17,17,17,0.4);
+      transition: color .2s; padding: 2px 4px;
+    }
+    .lang-btn.lang-active { color: #111; font-weight: 500; }
+    .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+  </style>
+</head>
+<body>
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav id="mainNav" class="light">
+    <a href="/">home</a>
+    <a href="/#about">about</a>
+    <a href="/#services">services</a>
+    <a href="/#portfolio">portfolio</a>
+    <a href="/#contact">contact</a>
+  </nav>
+
+  <!-- ══ HERO ══ -->
+  <div class="page-hero">
+    <div class="hero-x">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="440"  y1="0" x2="720"  y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="720"  y1="0" x2="440"  y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1160" y1="0" x2="1440" y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1440" y1="0" x2="1160" y2="600" stroke="#fff" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="page-hero-inner">
+      <p class="page-hero-label fi">[02] — identidad visual</p>
+      <h1 class="page-hero-title fi fi-d1">Identidad<br>Visual.</h1>
+      <p class="page-hero-desc fi fi-d2">El sistema gráfico completo para que tu marca sea reconocible, coherente y memorable en cualquier soporte.</p>
+    </div>
+  </div>
+
+  <!-- ══ INTRO ══ -->
+  <div class="intro-split">
+    <div class="intro-split-left">
+      <p class="section-label fi">[qué es]</p>
+      <h2 class="section-title fi">Tu marca,<br>con sistema.</h2>
+    </div>
+    <div class="intro-split-right fi fi-d1">
+      <p class="body-text">La identidad visual es el lenguaje gráfico de tu marca. El conjunto de elementos que hacen que alguien te reconozca sin necesidad de leer tu nombre.</p>
+      <p class="body-text">Logo, colores, tipografías, elementos gráficos — pero pensados como un sistema coherente, no como piezas sueltas.</p>
+      <p class="body-text">Es el punto de partida para comunicar con intención. Y el paso previo natural antes de construir tu web o tu contenido de redes.</p>
+    </div>
+  </div>
+
+  <!-- ══ PROCESO ══ -->
+  <section class="process-section">
+    <div class="process-inner">
+      <p class="section-label fi">[proceso]</p>
+      <div class="process-grid">
+        <div class="process-step fi fi-d1">
+          <p class="step-num">01</p>
+          <p class="step-name">Investigación</p>
+          <p class="step-duration">1 semana</p>
+          <p class="step-desc">Conocemos tu negocio, tu público y los referentes visuales que te inspiran. Todo lo que necesitamos para tomar decisiones con criterio.</p>
+        </div>
+        <div class="process-step fi fi-d2">
+          <p class="step-num">02</p>
+          <p class="step-name">Dirección<br>Creativa</p>
+          <p class="step-duration">1 semana</p>
+          <p class="step-desc">El concepto visual de tu marca toma forma. Definimos el punto de partida estético y la línea que va a guiar todo el diseño.</p>
+        </div>
+        <div class="process-step fi fi-d3">
+          <p class="step-num">03</p>
+          <p class="step-name">Diseño</p>
+          <p class="step-duration">2 semanas</p>
+          <p class="step-desc">Desarrollamos todas las piezas de identidad: logo, sistema visual completo, aplicaciones y templates.</p>
+        </div>
+        <div class="process-step fi fi-d4">
+          <p class="step-num">04</p>
+          <p class="step-name">Implementación<br>y Entrega</p>
+          <p class="step-duration">2 semanas</p>
+          <p class="step-desc">La identidad se aplica en soportes reales. Entrega de archivos y Manual de Identidad para que puedas usarla de forma autónoma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CALLOUT ══ -->
+  <div class="callout">
+    <div class="callout-inner">
+      <p class="callout-text fi">Una identidad visual bien construida le ahorra al negocio miles de decisiones futuras. Todo parte de ella.</p>
+    </div>
+  </div>
+
+  <!-- ══ INCLUYE ══ -->
+  <section class="includes-section">
+    <div class="includes-inner">
+      <p class="includes-label fi">[entregables]</p>
+      <h2 class="includes-title fi">Qué te llevás.</h2>
+      <div class="includes-grid">
+        <div class="include-item fi fi-d1">
+          <p class="include-num">01</p>
+          <p class="include-name">Sistema de logotipos</p>
+          <p class="include-detail">Logo principal, versiones secundarias, ícono y variantes para fondos claros y oscuros.</p>
+        </div>
+        <div class="include-item fi fi-d2">
+          <p class="include-num">02</p>
+          <p class="include-name">Paleta de colores</p>
+          <p class="include-detail">Colores primarios y secundarios con sus códigos para web (HEX, RGB) e impresión (CMYK, Pantone).</p>
+        </div>
+        <div class="include-item fi fi-d3">
+          <p class="include-num">03</p>
+          <p class="include-name">Tipografías</p>
+          <p class="include-detail">Familia tipográfica seleccionada y jerarquías de uso definidas para títulos, cuerpo y destacados.</p>
+        </div>
+        <div class="include-item fi fi-d1">
+          <p class="include-num">04</p>
+          <p class="include-name">Elementos gráficos</p>
+          <p class="include-detail">Iconografía, ilustraciones (si aplica) y elementos visuales que complementan el sistema y le dan personalidad.</p>
+        </div>
+        <div class="include-item fi fi-d2">
+          <p class="include-num">05</p>
+          <p class="include-name">6 templates para redes</p>
+          <p class="include-detail">Piezas editables para comunicar en redes con coherencia, sin necesidad de diseñar cada publicación desde cero.</p>
+        </div>
+        <div class="include-item fi fi-d3">
+          <p class="include-num">06</p>
+          <p class="include-name">4 mockups</p>
+          <p class="include-detail">Aplicaciones de la identidad en soportes reales para que veas cómo vive tu marca en el mundo.</p>
+        </div>
+        <div class="include-item fi fi-d1">
+          <p class="include-num">07</p>
+          <p class="include-name">Manual de Identidad</p>
+          <p class="include-detail">La guía de uso de tu marca: qué podés hacer, qué no, y cómo aplicar cada elemento con coherencia.</p>
+        </div>
+        <div class="include-item fi fi-d2">
+          <p class="include-num">08</p>
+          <p class="include-name">Archivos editables</p>
+          <p class="include-detail">Todo en PNG, JPG y PDF. Para imprimir, publicar y compartir desde el primer día.</p>
+        </div>
+        <div class="include-item fi fi-d3">
+          <p class="include-num">09</p>
+          <p class="include-name">Portal del cliente y 2 rondas de cambios</p>
+          <p class="include-detail">Seguimiento en Notion y Trello. Dos instancias de revisión incluidas para llegar al resultado que buscás.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ ¿IDENTIDAD O BRANDING? ══ -->
+  <section class="compare-section">
+    <div class="compare-inner">
+      <p class="section-label fi">[¿cuál es para mí?]</p>
+      <h2 class="section-title fi">¿Identidad Visual<br>o Branding Completo?</h2>
+      <p class="compare-note fi">
+        La <strong>Identidad Visual</strong> te da el sistema gráfico completo: todo lo que necesitás para que tu marca sea visual y coherente.<br><br>
+        El <strong>Branding Completo</strong> suma la capa estratégica: investigación profunda, estrategia de marca documentada, naming y el doble de mockups. Es para proyectos que están empezando desde cero o que necesitan replantear su identidad desde la raíz.<br><br>
+        Si tenés dudas, escribime y te ayudo a entender cuál tiene más sentido para tu proyecto.
+      </p>
+      <a href="/branding" style="font-size:14px;color:var(--black);letter-spacing:.04em;text-underline-offset:4px;text-decoration:underline;">Ver Branding Completo →</a>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="cta-section">
+    <div class="cta-inner">
+      <h2 class="cta-title fi">¿Es hora de<br>construir tu marca?</h2>
+      <a href="/#contact" class="cta-btn fi">Escribime</a>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
+    </div>
+    <div class="footer-geo">
+      <span class="footer-geo-text">Argentina</span>
+      <div class="footer-geo-img"><img src="portfolio/lis-web.png" alt="LIS" /></div>
+      <span class="footer-geo-text">Worldwide</span>
+    </div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left">
+        <div class="footer-sillon-img"><img src="sillon-globo.webp" alt="LIS" /></div>
+        <div class="footer-social-block">
+          <p class="footer-social-label">Social media</p>
+          <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Newsletter. ¡No spam, lo prometemos!</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Suscribite</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Te suscribiste correctamente.</p></div></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script>
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    });
+    const fiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  </script>
+</body>
+</html>

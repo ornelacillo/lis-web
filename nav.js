@@ -130,9 +130,10 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-menu {
       display: none;
-      position: absolute; top: calc(100% + 10px); left: 50%;
+      position: absolute; top: 100%; left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
+      padding-top: 10px;
       min-width: 210px;
     }
     .nav-dropdown-inner {

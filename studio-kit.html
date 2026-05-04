@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Studio Kit · Sistema de gestión para diseñadores · LIS Creative Studio</title>
-  <meta name="description" content="Sistema completo de gestión de clientes en Notion para diseñadores freelance. Hub, portal del cliente, contratos, checklist y más. €19, acceso de por vida." />
+  <meta name="description" content="Sistema completo de gestión de clientes en Notion para diseñadores freelance. Hub, portal del cliente, contratos, checklist y más. €29, acceso de por vida." />
   <link rel="icon" href="/favicon.png" type="image/png">
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -324,16 +324,12 @@
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
+  <script src="nav.js"></script>
 </head>
-<body>
+<body data-nav-theme="light">
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
-
-  <nav class="light" id="nav">
-    <a href="https://liscreativestudio.com" class="nav-logo">LIS.</a>
-    <a href="https://liscreativestudio.com/shop" class="nav-back">← volver al shop</a>
-  </nav>
 
   <!-- HERO -->
   <section id="hero">
@@ -342,7 +338,7 @@
       <h1 class="hero-title">The Studio Kit.</h1>
       <p class="hero-sub">Sistema completo de gestión de clientes en Notion para diseñadores freelance. Todo en un solo lugar, desde la primera consulta hasta la entrega final.</p>
       <div style="display:flex;gap:16px;flex-wrap:wrap;">
-        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Comprar con PayPal — €19</a>
+        <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Comprar con PayPal — €29</a>
         <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-pill btn-outline-white">Mercado Pago — $47.000</a>
       </div>
     </div>
@@ -460,7 +456,7 @@
   <!-- PRECIO -->
   <section id="precio">
     <p class="precio-tag">pago único · acceso de por vida</p>
-    <p class="precio-amount">€19</p>
+    <p class="precio-amount">€29</p>
     <p class="precio-ars">$47.000 ARS</p>
     <p class="precio-nota-small">Elegís cómo pagarlo</p>
     <ul class="precio-includes">
@@ -471,7 +467,7 @@
       <li>Editable e ilimitado: personalizalo las veces que quieras</li>
     </ul>
     <div class="btn-row">
-      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Comprar con PayPal — €19</a>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Comprar con PayPal — €29</a>
       <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-pill btn-outline-white">Mercado Pago — $47.000 ARS</a>
     </div>
     <p class="precio-aviso">Producto digital. Recibís el link para duplicar el template en tu Notion por email dentro de las 24 horas.</p>
@@ -506,7 +502,7 @@
   <section id="cta-final">
     <h2 class="cta-title">Si cada cliente nuevo te encuentra improvisando, esto es para vos.</h2>
     <div class="btn-row" style="margin-bottom:0;">
-      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Comprar con PayPal — €19</a>
+      <a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=6C6CWC6PZ8V3J" target="_blank" class="btn-pill btn-white">Comprar con PayPal — €29</a>
       <a href="https://mpago.la/1LVuNkv" target="_blank" class="btn-pill btn-outline-white">Mercado Pago — $47.000 ARS</a>
     </div>
   </section>
@@ -551,24 +547,6 @@
       ring.style.left = e.clientX + 'px';
       ring.style.top = e.clientY + 'px';
     });
-
-    const nav = document.getElementById('nav');
-    const darkSections = ['hero', 'precio', 'cta-final'];
-    function updateNav() {
-      const scrollY = window.scrollY + 60;
-      let isDark = false;
-      darkSections.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) {
-          const top = el.offsetTop;
-          const bottom = top + el.offsetHeight;
-          if (scrollY >= top && scrollY < bottom) isDark = true;
-        }
-      });
-      nav.className = isDark ? 'light' : '';
-    }
-    window.addEventListener('scroll', updateNav);
-    updateNav();
   </script>
 </body>
 </html>

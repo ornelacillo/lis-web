@@ -130,10 +130,9 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-menu {
       display: none;
-      position: absolute; top: 100%; left: 50%;
+      position: absolute; top: calc(100% + 10px); left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
-      padding-top: 10px;
       min-width: 210px;
     }
     .nav-dropdown-inner {
@@ -574,7 +573,7 @@
     // ── Mobile logo ──
     const mobileLogo = document.createElement('div');
     mobileLogo.id = 'lis-nav-mobile-logo';
-    mobileLogo.innerHTML = `<a href="/">LIS.</a>`;
+    mobileLogo.innerHTML = `<a href="/"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>`;
     document.body.insertBefore(mobileLogo, document.body.firstChild);
 
     // ── Hamburger button ──

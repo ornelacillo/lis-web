@@ -287,8 +287,9 @@
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
   </style>
+  <script src="/nav.js"></script>
 </head>
-<body>
+<body data-nav-theme="dark">
 
   <div class="cursor" id="cursor"></div>
   <div class="cursor-ring" id="cursorRing"></div>
@@ -312,25 +313,6 @@
     <a href="/freebies" onclick="closeMenu()" style="opacity:.45">freebies</a>
     <a href="/#contact" onclick="closeMenu()">contact</a>
   </div>
-
-  <nav id="mainNav">
-    <a href="/">home</a>
-    <a href="/#about">about</a>
-    <div class="nav-dropdown">
-      <a href="/#services">services</a>
-      <div class="nav-dropdown-menu">
-        <div class="nav-dropdown-menu-inner">
-          <a href="/branding">Branding Completo</a>
-          <a href="/identidad-visual">Identidad Visual</a>
-          <a href="/web">Diseño Web</a>
-        </div>
-      </div>
-    </div>
-    <a href="/#portfolio">portfolio</a>
-    <a href="/shop">shop</a>
-    <a href="/freebies" style="opacity:.45">freebies</a>
-    <a href="/#contact">contact</a>
-  </nav>
 
   <!-- ══ HERO ══ -->
   <div class="page-hero">
@@ -471,7 +453,7 @@
     </div>
     <div class="footer-geo">
       <span class="footer-geo-text">Argentina</span>
-      <div class="footer-geo-img"><img src="portfolio/lis-web.png" alt="LIS" /></div>
+      <div class="footer-geo-img"><img src="lis-web.png" alt="LIS" /></div>
       <span class="footer-geo-text">Worldwide</span>
     </div>
     <div class="footer-bottom-grid">

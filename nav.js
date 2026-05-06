@@ -155,7 +155,7 @@
       background: rgba(255,255,255,0.08) !important;
       opacity: 1 !important;
     }
-    .nav-dropdown:hover .nav-dropdown-menu,
+    .nav-dropdown-menu.dd-open { display: block; }
     .nav-dropdown:focus-within .nav-dropdown-menu { display: block; }
 
     /* chevron */
@@ -313,13 +313,13 @@
   /* Determine base path prefix depending on current location */
   function getBase() {
     const path = window.location.pathname;
-    // If inside /en/ subfolder
-    if (path.startsWith('/en/')) return '/en/';
+    if (path === '/en' || path.startsWith('/en/')) return '/en/';
     return '/';
   }
 
   function isEn() {
-    return window.location.pathname.startsWith('/en/');
+    const path = window.location.pathname;
+    return path === '/en' || path.startsWith('/en/');
   }
 
   /* Mark active link */
@@ -343,13 +343,13 @@
     const en = isEn();
 
     const links = en ? [
-      { label: 'home',      href: base + 'index.html' },
-      { label: 'about',     href: base + 'index.html#about' },
-      { label: 'services',  href: base + 'index.html#services', dropdown: true },
-      { label: 'portfolio', href: base + 'index.html#portfolio' },
-      { label: 'shop',      href: base + 'shop.html' },
-      { label: 'freebies',  href: base + 'freebies.html' },
-      { label: 'contact',   href: base + 'index.html#contact', cta: true },
+      { label: 'home',      href: '/en' },
+      { label: 'about',     href: '/en/#about' },
+      { label: 'services',  href: '/en/#services', dropdown: true },
+      { label: 'portfolio', href: '/en/#portfolio' },
+      { label: 'shop',      href: '/en/shop' },
+      { label: 'freebies',  href: '/en/freebies' },
+      { label: 'contact',   href: '/en/#contact', cta: true },
     ] : [
       { label: 'home',      href: '/' },
       { label: 'about',     href: '/#about' },
@@ -361,11 +361,11 @@
     ];
 
     const serviceLinks = en ? [
-      { label: 'Complete Branding', href: base + 'branding.html' },
-      { label: 'Visual Identity',   href: base + 'identity.html' },
-      { label: 'Web Design',        href: base + 'web.html' },
-      { label: 'Visual Curation',   href: base + 'curation.html' },
-      { label: 'Advisory 1:1',      href: base + 'advisory.html' },
+      { label: 'Complete Branding', href: '/en/branding' },
+      { label: 'Visual Identity',   href: '/en/identity' },
+      { label: 'Web Design',        href: '/en/web' },
+      { label: 'Visual Curation',   href: '/en/curation' },
+      { label: 'Advisory 1:1',      href: '/en/advisory' },
     ] : [
       { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
@@ -432,11 +432,11 @@
     const enPath = '/en' + (window.location.pathname === '/' ? '/index.html' : window.location.pathname);
 
     const serviceLinks = en ? [
-      { label: 'Complete Branding', href: base + 'branding.html' },
-      { label: 'Visual Identity',   href: base + 'identity.html' },
-      { label: 'Web Design',        href: base + 'web.html' },
-      { label: 'Visual Curation',   href: base + 'curation.html' },
-      { label: 'Advisory 1:1',      href: base + 'advisory.html' },
+      { label: 'Complete Branding', href: '/en/branding' },
+      { label: 'Visual Identity',   href: '/en/identity' },
+      { label: 'Web Design',        href: '/en/web' },
+      { label: 'Visual Curation',   href: '/en/curation' },
+      { label: 'Advisory 1:1',      href: '/en/advisory' },
     ] : [
       { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
@@ -453,8 +453,8 @@
           <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
       </button>
-      <a href="${en ? base + 'index.html' : '/'}">home</a>
-      <a href="${en ? base + 'index.html#about' : '/#about'}">about</a>
+      <a href="${en ? '/en' : '/'}">home</a>
+      <a href="${en ? '/en/#about' : '/#about'}">about</a>
       <button class="overlay-services-toggle" id="overlay-services-btn">
         services
         <svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -464,15 +464,40 @@
       <div class="overlay-sub" id="overlay-sub">
         ${subItems}
       </div>
-      <a href="${en ? base + 'index.html#portfolio' : '/#portfolio'}">portfolio</a>
-      <a href="${en ? base + 'shop.html' : '/shop'}">shop</a>
-      <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
-      <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
+      <a href="${en ? '/en/#portfolio' : '/#portfolio'}">portfolio</a>
+      <a href="${en ? '/en/shop' : '/shop'}">shop</a>
+      <a href="${en ? '/en/freebies' : '/freebies'}">freebies</a>
+      <a href="${en ? '/en/#contact' : '/#contact'}">contact</a>
       <div class="overlay-lang">
         <a href="${esPath}" class="lang-btn${!en ? ' lang-active' : ''}">ES</a>
         <a href="${enPath}" class="lang-btn${en ? ' lang-active' : ''}">EN</a>
       </div>
     `;
+  }
+
+  /* ─── Dropdown hover with delay ──────────────────────────── */
+  function setupDropdowns() {
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+      var menu = dd.querySelector('.nav-dropdown-menu');
+      var timer;
+      dd.addEventListener('mouseenter', function() {
+        clearTimeout(timer);
+        menu.classList.add('dd-open');
+      });
+      dd.addEventListener('mouseleave', function() {
+        timer = setTimeout(function() {
+          menu.classList.remove('dd-open');
+        }, 120);
+      });
+      if (menu) {
+        menu.addEventListener('mouseenter', function() { clearTimeout(timer); });
+        menu.addEventListener('mouseleave', function() {
+          timer = setTimeout(function() {
+            menu.classList.remove('dd-open');
+          }, 120);
+        });
+      }
+    });
   }
 
   /* ─── Theme switching logic ───────────────────────────────── */
@@ -569,11 +594,11 @@
     document.body.insertBefore(nav, document.body.firstChild);
 
     markActive(pill);
-
-    // ── Mobile logo ──
+    setupDropdowns();
     const mobileLogo = document.createElement('div');
     mobileLogo.id = 'lis-nav-mobile-logo';
-    mobileLogo.innerHTML = `<a href="/"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:28px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>`;
+    const _mhref = isEn() ? '/en' : '/';
+    mobileLogo.innerHTML = `<a href="${_mhref}"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:26px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>`;
     document.body.insertBefore(mobileLogo, document.body.firstChild);
 
     // ── Hamburger button ──

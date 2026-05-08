@@ -130,7 +130,8 @@
     .nav-dropdown { position: relative; }
     .nav-dropdown-menu {
       display: none;
-      position: absolute; top: calc(100% + 10px); left: 50%;
+      position: absolute; top: 100%;
+      padding-top: 10px; left: 50%;
       transform: translateX(-50%);
       z-index: 1000;
       min-width: 210px;
@@ -313,13 +314,13 @@
   /* Determine base path prefix depending on current location */
   function getBase() {
     const path = window.location.pathname;
-    if (path === '/en' || path.startsWith('/en/')) return '/en/';
+    // If inside /en/ subfolder
+    if(path==='/en'||path.startsWith('/en/')) return '/en/';
     return '/';
   }
 
   function isEn() {
-    const path = window.location.pathname;
-    return path === '/en' || path.startsWith('/en/');
+    var _p2=window.location.pathname; return _p2==='/en'||_p2.startsWith('/en/');
   }
 
   /* Mark active link */
@@ -453,8 +454,8 @@
           <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
       </button>
-      <a href="${en ? '/en' : '/'}">home</a>
-      <a href="${en ? '/en/#about' : '/#about'}">about</a>
+      <a href="${en ? base + 'index.html' : '/'}">home</a>
+      <a href="${en ? base + 'index.html#about' : '/#about'}">about</a>
       <button class="overlay-services-toggle" id="overlay-services-btn">
         services
         <svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -464,40 +465,15 @@
       <div class="overlay-sub" id="overlay-sub">
         ${subItems}
       </div>
-      <a href="${en ? '/en/#portfolio' : '/#portfolio'}">portfolio</a>
-      <a href="${en ? '/en/shop' : '/shop'}">shop</a>
-      <a href="${en ? '/en/freebies' : '/freebies'}">freebies</a>
-      <a href="${en ? '/en/#contact' : '/#contact'}">contact</a>
+      <a href="${en ? base + 'index.html#portfolio' : '/#portfolio'}">portfolio</a>
+      <a href="${en ? base + 'shop.html' : '/shop'}">shop</a>
+      <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
+      <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
       <div class="overlay-lang">
         <a href="${esPath}" class="lang-btn${!en ? ' lang-active' : ''}">ES</a>
         <a href="${enPath}" class="lang-btn${en ? ' lang-active' : ''}">EN</a>
       </div>
     `;
-  }
-
-  /* ─── Dropdown hover with delay ──────────────────────────── */
-  function setupDropdowns() {
-    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
-      var menu = dd.querySelector('.nav-dropdown-menu');
-      var timer;
-      dd.addEventListener('mouseenter', function() {
-        clearTimeout(timer);
-        menu.classList.add('dd-open');
-      });
-      dd.addEventListener('mouseleave', function() {
-        timer = setTimeout(function() {
-          menu.classList.remove('dd-open');
-        }, 120);
-      });
-      if (menu) {
-        menu.addEventListener('mouseenter', function() { clearTimeout(timer); });
-        menu.addEventListener('mouseleave', function() {
-          timer = setTimeout(function() {
-            menu.classList.remove('dd-open');
-          }, 120);
-        });
-      }
-    });
   }
 
   /* ─── Theme switching logic ───────────────────────────────── */
@@ -569,12 +545,28 @@
   }
 
   function setTheme(navEl, hamburgerEl, mobileLogoEl, theme) {
+    if (!navEl || !hamburgerEl || !mobileLogoEl) return;
     navEl.classList.toggle('nav-light', theme === 'light');
     navEl.classList.toggle('nav-dark',  theme === 'dark');
     hamburgerEl.classList.toggle('hamburger-light', theme === 'light');
     hamburgerEl.classList.toggle('hamburger-dark',  theme === 'dark');
     mobileLogoEl.classList.toggle('mobile-logo-light', theme === 'light');
     mobileLogoEl.classList.toggle('mobile-logo-dark',  theme === 'dark');
+  }
+
+
+  function setupDropdowns() {
+    document.querySelectorAll('.nav-dropdown').forEach(function(dd) {
+      var menu = dd.querySelector('.nav-dropdown-menu');
+      if (!menu) return;
+      var timer;
+      function openMenu() { clearTimeout(timer); menu.classList.add('dd-open'); }
+      function closeMenu() { timer = setTimeout(function() { if(menu) menu.classList.remove('dd-open'); }, 120); }
+      dd.addEventListener('mouseenter', openMenu);
+      dd.addEventListener('mouseleave', closeMenu);
+      menu.addEventListener('mouseenter', function() { clearTimeout(timer); });
+      menu.addEventListener('mouseleave', closeMenu);
+    });
   }
 
   /* ─── Init ────────────────────────────────────────────────── */
@@ -595,10 +587,12 @@
 
     markActive(pill);
     setupDropdowns();
+
+    // ── Mobile logo ──
     const mobileLogo = document.createElement('div');
     mobileLogo.id = 'lis-nav-mobile-logo';
-    const _mhref = isEn() ? '/en' : '/';
-    mobileLogo.innerHTML = `<a href="${_mhref}"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:26px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>`;
+    var _mhref = (window.location.pathname==='/en'||window.location.pathname.startsWith('/en/')) ? '/en' : '/';
+    mobileLogo.innerHTML = '<a href="'+_mhref+'"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:26px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>';
     document.body.insertBefore(mobileLogo, document.body.firstChild);
 
     // ── Hamburger button ──

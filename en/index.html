@@ -87,52 +87,76 @@
     }
 
     .hero-top {
-      padding: 40px 48px 0;
-      display: flex; flex-direction: column; gap: 16px;
+      padding: 48px 48px 0;
+      display: grid;
+      grid-template-columns: 0.7fr 1.4fr;
+      align-items: flex-end;
+      gap: 40px;
       position: relative; z-index: 2;
     }
 
-    .hero-tag {
+    .hero-left {
+      padding-bottom: 16px;
+      display: flex; flex-direction: column; gap: 20px;
+    }
+
+    .hero-left-tag {
       font-family: var(--font-body);
       font-size: 11px; letter-spacing: .16em;
       color: rgba(245,244,241,0.35);
       text-transform: uppercase;
     }
 
+    .hero-left-text {
+      font-family: var(--font-display);
+      font-size: 11px; line-height: 1.6;
+      letter-spacing: .08em;
+      color: rgba(245,244,241,0.40);
+      max-width: 280px;
+    }
+
     .hero-title {
       font-family: var(--font-display);
-      font-size: clamp(3.5rem, 8vw, 7.5rem);
+      font-size: clamp(3.8rem, 8.5vw, 8rem);
       font-weight: 800;
-      line-height: .95;
+      line-height: .92;
       letter-spacing: -.03em;
       color: var(--white);
       text-transform: uppercase;
+      text-align: right;
     }
 
     .hero-title .indent {
       display: block;
-      padding-left: clamp(60px, 12vw, 180px);
+      padding-left: 0;
     }
 
     /* SLIDER */
     .hero-slider-wrap {
       position: relative; z-index: 2;
       width: 100%; overflow: hidden;
-      padding: 16px 0 0;
+      padding: 20px 0 0;
     }
 
-    .hero-slider {
+    .hero-slider-track {
       display: flex; gap: 12px;
-      padding: 0 48px 48px;
-      overflow-x: auto;
-      scroll-snap-type: x mandatory;
-      scrollbar-width: none;
-      -webkit-overflow-scrolling: touch;
-      user-select: none;
-      cursor: grab;
+      width: max-content;
+      animation: sliderMarquee 32s linear infinite;
+      padding: 0 0 48px;
     }
-    .hero-slider:active { cursor: grabbing; }
-    .hero-slider::-webkit-scrollbar { display: none; }
+    .hero-slider-track:hover { animation-play-state: paused; }
+
+    @keyframes sliderMarquee {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    /* keep old class for compat */
+    .hero-slider {
+      display: flex;
+      overflow: hidden;
+      padding: 0 0 0;
+    }
 
     .hero-slide {
       flex-shrink: 0;
@@ -180,6 +204,21 @@
     }
     .hero-scroll-btn:hover { color: var(--white); }
     .hero-scroll-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    @media (max-width: 768px) {
+      #home { min-height: auto; }
+      .hero-top {
+        grid-template-columns: 1fr;
+        padding: 24px 24px 0;
+        gap: 16px;
+      }
+      .hero-left { display: none; }
+      .hero-title { text-align: left; font-size: clamp(3rem, 12vw, 5rem); }
+      .hero-slider-wrap { padding: 16px 0 0; }
+      .hero-slider { padding: 0; }
+      .hero-slide { width: clamp(160px, 44vw, 240px); }
+      .hero-scroll-btn { margin-left: 16px; }
+    }
 
     /* ══════════════════════════════
        SERVICES
@@ -544,6 +583,10 @@
   <section id="home" data-nav-theme="light">
 
     <div class="hero-top">
+      <div class="hero-left fi">
+        <p class="hero-left-tag">LIS. Creative Studio</p>
+        <p class="hero-left-text">AT LIS., WE ARE MORE THAN A CREATIVE STUDIO; WE ARE A DYNAMIC PLATFORM DEDICATED TO EMPOWERING TALENT.</p>
+      </div>
       <h1 class="hero-title fi fi-d1">
         DESIGN
         <span class="indent">FOR YOUR</span>
@@ -552,55 +595,66 @@
     </div>
 
     <div class="hero-slider-wrap">
-      <div class="hero-slider" id="heroSlider">
+      <div class="hero-slider" id="heroSlider"><div class="hero-slider-track">
 
-        <a href="#portfolio" class="hero-slide fi fi-d1" style="text-decoration:none;">
+        <div class="hero-slide fi fi-d1">
           <img src="../bm-merch.jpg" alt="Portfolio" />
           <div class="hero-slide-label">
             <span>Explorar</span>
             <span class="hero-slide-arrow">→</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#portfolio" class="hero-slide fi fi-d2" style="text-decoration:none;">
+        <div class="hero-slide fi fi-d2">
           <img src="../portada_behance_new.png" alt="Portfolio" />
           <div class="hero-slide-label">
             <span>Explorar</span>
             <span class="hero-slide-arrow">→</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#portfolio" class="hero-slide fi fi-d2" style="text-decoration:none;">
+        <div class="hero-slide fi fi-d2">
           <img src="../Slide_53.jpg" alt="Portfolio" />
           <div class="hero-slide-label">
             <span>Explorar</span>
             <span class="hero-slide-arrow">→</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#portfolio" class="hero-slide fi fi-d3" style="text-decoration:none;">
+        <div class="hero-slide fi fi-d3">
           <img src="../Slide_53__1_.jpg" alt="Portfolio" />
           <div class="hero-slide-label">
             <span>Explorar</span>
             <span class="hero-slide-arrow">→</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#portfolio" class="hero-slide fi fi-d3" style="text-decoration:none;">
+        <div class="hero-slide fi fi-d3">
           <img src="../lis-tshirt.png" alt="Portfolio" />
           <div class="hero-slide-label">
             <span>Explorar</span>
             <span class="hero-slide-arrow">→</span>
           </div>
-        </a>
+        </div>
 
-        <a href="#portfolio" class="hero-slide fi fi-d4" style="text-decoration:none;">
+        <div class="hero-slide">
           <img src="../gorrita.png" alt="Portfolio" />
           <div class="hero-slide-label">
-            <span>Explorar</span>
+            <span>Explore</span>
             <span class="hero-slide-arrow">→</span>
           </div>
-        </a>
+        </div>
+
+      </div><!-- end track -->
+      <!-- Duplicado para loop infinito -->
+      <div class="hero-slider-track" aria-hidden="true">
+        <div class="hero-slide"><img src="../bm-merch.jpg" alt="" /><div class="hero-slide-label"><span>Explore</span><span class="hero-slide-arrow">→</span></div></div>
+        <div class="hero-slide"><img src="../portada_behance_new.png" alt="" /><div class="hero-slide-label"><span>Explore</span><span class="hero-slide-arrow">→</span></div></div>
+        <div class="hero-slide"><img src="../Slide_53.jpg" alt="" /><div class="hero-slide-label"><span>Explore</span><span class="hero-slide-arrow">→</span></div></div>
+        <div class="hero-slide"><img src="../Slide_53__1_.jpg" alt="" /><div class="hero-slide-label"><span>Explore</span><span class="hero-slide-arrow">→</span></div></div>
+        <div class="hero-slide"><img src="../lis-tshirt.png" alt="" /><div class="hero-slide-label"><span>Explore</span><span class="hero-slide-arrow">→</span></div></div>
+        <div class="hero-slide"><img src="../gorrita.png" alt="" /><div class="hero-slide-label"><span>Explore</span><span class="hero-slide-arrow">→</span></div></div>
+      </div>
 
       </div>
 
@@ -692,8 +746,8 @@
     <div class="about-content fi fi-d1">
       <p class="about-tag">The studio</p>
       <h2 class="about-title">Ornela<br>Cillo.</h2>
-      <p class="about-body">Graphic and web designer focused on building clear brands and digital experiences with structure. I work with businesses that understand design is not just how it looks — it's how it works over time and at every touchpoint.</p>
-      <p class="about-body">I combine branding and web design to create consistent, functional identities and sites built to grow. I work with clients across LATAM and internationally, where clarity, order and direction make the difference.</p>
+      <p class="about-body">I'm a graphic and web designer focused on building clear brands and structured digital experiences. I work with businesses that understand that design is not just about how it looks but how it performs over time and across every touchpoint.</p>
+      <p class="about-body">I combine branding and web design to create identities and websites that are consistent, functional and built to grow. Collaborating with clients across LATAM and internationally where clarity, structure and direction make a real impact.</p>
       <p class="about-quote">"I believe in design as a tool for communication, order and meaning."</p>
     </div>
 
@@ -704,10 +758,7 @@
 
     <div class="portfolio-header fi">
       <p class="portfolio-label">[Portfolio · Branding]</p>
-      <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-        <a href="https://ornelacillo.myportfolio.com/" target="_blank" rel="noopener" class="portfolio-link">Branding Portfolio →</a>
-        <a href="https://ornelacillo.notion.site/Web-Design-Portfolio-a13231c2593b4203a57283bc247a32a2" target="_blank" rel="noopener" class="portfolio-link">Web Portfolio →</a>
-      </div>
+      <a href="https://ornelacillo.myportfolio.com/" target="_blank" rel="noopener" class="portfolio-link">View Portfolio →</a>
     </div>
 
     <div class="pg-row fi" style="grid-template-columns:2fr 1fr;height:520px;">

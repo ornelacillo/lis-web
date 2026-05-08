@@ -1,0 +1,13 @@
+User-agent: *
+Allow: /
+
+User-agent: GPTBot
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: anthropic-ai
+Disallow: /
+
+Sitemap: https://liscreativestudio.com/sitemap.xml

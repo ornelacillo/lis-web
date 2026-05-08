@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="p:domain_verify" content="733ea535e876397e73c8c758867b7a16"/>
-  <title>LIS. Creative Studio | Diseño de marcas y sitios web</title>
+  <title>LIS. Creative Studio | Diseño de Marcas y Sitios Web en Rosario</title>
   <link rel="icon" href="/favicon.png" type="image/png">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32"></script>
@@ -17,8 +17,26 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" /></noscript>
 
+    <!-- Auto language detection -->
+  <script>
+    (function() {
+      // No redirigir si ya está en /en/ o si ya eligió idioma manualmente
+      if (window.location.pathname.startsWith('/en')) return;
+      if (sessionStorage.getItem('lang-chosen')) return;
+      
+      var lang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+      var isEnglish = lang.startsWith('en') && !lang.startsWith('en-ar');
+      
+      if (isEnglish) {
+        sessionStorage.setItem('lang-chosen', 'en');
+        window.location.replace('/en');
+      }
+    })();
+  </script>
   <script src="/nav.js"></script>
 
   <!-- Meta Pixel -->
@@ -574,6 +592,51 @@
       .footer-sillon-img { width: 100px; }
     }
   </style>
+  <meta name="description" content="Estudio de diseño gráfico y web en Rosario, Argentina. Creamos marcas, identidades visuales y sitios web para negocios en LATAM. Diseño que funciona." />
+  <link rel="canonical" href="https://liscreativestudio.com/" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="es" href="https://liscreativestudio.com/" />
+  <link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="LIS. Creative Studio | Diseño de Marcas y Sitios Web en Rosario" />
+  <meta property="og:description" content="Estudio de diseño gráfico y web en Rosario, Argentina. Creamos marcas, identidades visuales y sitios web para negocios en LATAM. Diseño que funciona." />
+  <meta property="og:url" content="https://liscreativestudio.com/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="LIS. Creative Studio | Diseño de Marcas y Sitios Web en Rosario" />
+  <meta name="twitter:description" content="Estudio de diseño gráfico y web en Rosario, Argentina. Creamos marcas, identidades visuales y sitios web para negocios en LATAM. Diseño que funciona." />
+  <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <!-- JSON-LD Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "LocalBusiness",
+        "name": "LIS. Creative Studio",
+        "description": "Estudio de diseño gráfico y web en Rosario, Argentina.",
+        "url": "https://liscreativestudio.com",
+        "image": "https://liscreativestudio.com/ornela-new.jpg",
+        "founder": { "@type": "Person", "name": "Ornela Cillo" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Rosario", "addressCountry": "AR" },
+        "areaServed": ["AR", "ES", "UY", "Latinoamérica", "Worldwide"],
+        "serviceType": ["Branding", "Identidad Visual", "Diseño Web", "Curaduría Visual", "Asesoría de Diseño"]
+      },
+      {
+        "@type": "WebSite",
+        "name": "LIS. Creative Studio",
+        "url": "https://liscreativestudio.com"
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-nav-theme="light">
   <div class="cursor" id="cursor"></div>
@@ -648,7 +711,7 @@
       </div><!-- end track -->
       <!-- Duplicado para loop infinito -->
       <div class="hero-slider-track" aria-hidden="true">
-        <div class="hero-slide"><img src="bm-merch.jpg" alt="" /><div class="hero-slide-label"><span>Explorar</span><span class="hero-slide-arrow">→</span></div></div>
+        <div class="hero-slide">img src="bm-merch.jpg" alt="Diseño de marca Buenas Marcas — LIS. Creative Studio" /><div class="hero-slide-label"><span>Explorar</span><span class="hero-slide-arrow">→</span></div></div>
         <div class="hero-slide"><img src="portada_behance_new.png" alt="" /><div class="hero-slide-label"><span>Explorar</span><span class="hero-slide-arrow">→</span></div></div>
         <div class="hero-slide"><img src="Slide_53.jpg" alt="" /><div class="hero-slide-label"><span>Explorar</span><span class="hero-slide-arrow">→</span></div></div>
         <div class="hero-slide"><img src="Slide_53__1_.jpg" alt="" /><div class="hero-slide-label"><span>Explorar</span><span class="hero-slide-arrow">→</span></div></div>
@@ -677,7 +740,7 @@
         <span class="svc-num">/01</span>
         <span class="svc-name">Branding Completo</span>
         <div class="svc-item-img">
-          <img src="bm-merch.jpg" alt="" />
+          img src="bm-merch.jpg" alt="Diseño de marca Buenas Marcas — LIS. Creative Studio" />
         </div>
         <span class="svc-arrow">
           Ver más

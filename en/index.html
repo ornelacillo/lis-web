@@ -91,39 +91,7 @@
       cursor: default;
     }
 
-    /* ── LANG SWITCHER ── */
-    .lang-switch {
-      position: fixed;
-      top: 22px; right: 24px;
-      z-index: 1100;
-      display: flex; align-items: center;
-      border: 1px solid rgba(245,244,241,0.16);
-      border-radius: 2px; overflow: hidden;
-      background: rgba(10,10,10,0.5);
-      backdrop-filter: blur(10px);
-    }
-    .lang-switch a {
-      font-family: var(--font-body);
-      font-size: 10px; letter-spacing: .15em;
-      text-transform: uppercase;
-      color: rgba(245,244,241,.32);
-      padding: 7px 12px;
-      text-decoration: none;
-      line-height: 1;
-      transition: all .2s;
-    }
-    .lang-switch a.active {
-      background: rgba(245,244,241,.1);
-      color: var(--white);
-    }
-    .lang-switch a:hover { color: var(--white); }
-    .lang-switch-sep {
-      width: 1px; height: 14px;
-      background: rgba(245,244,241,.14); flex-shrink: 0;
-    }
-    @media (max-width: 768px) {
-      .lang-switch { top: 14px; right: 16px; }
-    }
+    /* lang-switch handled by nav.js */
 
     /* ── FADE IN ── */
     .fi {
@@ -461,12 +429,6 @@
 </head>
 <body data-nav-theme="light">
 
-  <!-- Language switcher -->
-  <div class="lang-switch" aria-label="Language">
-    <a href="/">ES</a>
-    <div class="lang-switch-sep" aria-hidden="true"></div>
-    <a href="/en/" class="active" aria-current="page">EN</a>
-  </div>
 
   <!-- ══ HERO — Parallax Floating ══ -->
   <section id="home" data-nav-theme="light">
@@ -478,7 +440,7 @@
     <div class="fi-img" data-depth="1"><img src="../lis-tshirt.png" alt="" /></div>
     <div class="fi-img" data-depth="2"><img src="../Slide_53__1_.jpg" alt="" /></div>
     <div class="fi-img" data-depth="4"><img src="../bm-web.jpg" alt="" /></div>
-    <div class="fi-img" data-depth="1"><img src="../margen-marca.gif" alt="" /></div>
+    <div class="fi-img" data-depth="1"><img src="../ornela-new.jpg" alt="" /></div>
 
     <div class="hero-center">
       <h1 class="hero-center-title">DESIGN<br>FOR YOUR<br>BRAND.</h1>

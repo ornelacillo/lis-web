@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>404 — LIS. Creative Studio</title>
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@800&family=Inter:wght@400;500&display=swap" />
+
+  <script src="nav.js"></script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f1;
+      --font-display: 'Manrope', sans-serif;
+      --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 80px 48px 48px;
+      overflow: hidden;
+    }
+
+    .container {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 32px;
+    }
+
+    .num {
+      font-family: var(--font-display);
+      font-size: clamp(7rem, 22vw, 18rem);
+      font-weight: 800;
+      letter-spacing: -.05em;
+      line-height: 1;
+      color: var(--white);
+      opacity: .06;
+      user-select: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      white-space: nowrap;
+    }
+
+    .content {
+      position: relative;
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .tag {
+      font-family: var(--font-body);
+      font-size: 10px;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(245,244,241,.3);
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 5vw, 4rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      text-transform: uppercase;
+      line-height: 1;
+      color: var(--white);
+    }
+
+    .subtitle {
+      font-family: var(--font-body);
+      font-size: 15px;
+      color: rgba(245,244,241,.4);
+      line-height: 1.6;
+      max-width: 340px;
+    }
+
+    .btn {
+      margin-top: 16px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-family: var(--font-body);
+      font-size: 11px;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+      color: rgba(245,244,241,.5);
+      text-decoration: none;
+      border: 1px solid rgba(245,244,241,.18);
+      border-radius: 2px;
+      padding: 13px 28px;
+      transition: color .25s, border-color .25s;
+    }
+    .btn:hover {
+      color: var(--white);
+      border-color: rgba(245,244,241,.45);
+    }
+    .btn svg {
+      width: 14px; height: 14px;
+      stroke: currentColor; fill: none; stroke-width: 1.5;
+    }
+
+    @media (max-width: 768px) {
+      body { padding: 64px 24px 48px; }
+    }
+  </style>
+</head>
+<body data-nav-theme="light">
+
+  <span class="num" aria-hidden="true">404</span>
+
+  <div class="content">
+    <p class="tag">Error 404</p>
+    <h1 class="title">PÁGINA<br>NO ENCONTRADA.</h1>
+    <p class="subtitle">Esta página no existe o fue movida. Volvé al inicio y seguimos desde ahí.</p>
+    <a href="/" class="btn">
+      <svg viewBox="0 0 14 14"><path d="M13 7H1M7 1l-6 6 6 6"/></svg>
+      Volver al inicio
+    </a>
+  </div>
+
+</body>
+</html>

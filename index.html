@@ -53,16 +53,116 @@
     "@graph": [
       {
         "@type": "ProfessionalService",
+        "@id": "https://liscreativestudio.com/#studio",
         "name": "LIS. Creative Studio",
-        "description": "Estudio de diseño gráfico y web en Rosario, Argentina.",
+        "description": "Estudio de diseño gráfico y web especializado en identidad visual, branding y diseño web para estudios de arquitectura, interiorismo, real estate y marcas creativas. Fundado en Rosario, Argentina, en 2025.",
         "url": "https://liscreativestudio.com",
         "image": "https://liscreativestudio.com/ornela-new.jpg",
-        "founder": { "@type": "Person", "name": "Ornela Cillo" },
-        "address": { "@type": "PostalAddress", "addressLocality": "Rosario", "addressCountry": "AR" },
-        "areaServed": ["AR", "ES", "UY", "Latinoamérica", "Worldwide"],
-        "serviceType": ["Branding", "Identidad Visual", "Diseño Web", "Curaduría Visual", "Asesoría de Diseño"]
+        "logo": "https://liscreativestudio.com/og-image.jpg",
+        "foundingDate": "2025",
+        "founder": { "@id": "https://liscreativestudio.com/#ornela" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rosario",
+          "addressRegion": "Santa Fe",
+          "addressCountry": "AR"
+        },
+        "areaServed": [
+          { "@type": "Country", "name": "Argentina" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Uruguay" }
+        ],
+        "email": "hello@liscreativestudio.com",
+        "sameAs": [
+          "https://www.instagram.com/liscreative.studio"
+        ],
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de diseño",
+          "itemListElement": [
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Branding Completo",
+                "description": "Desarrollo de identidad de marca desde cero: estrategia, naming, sistema visual completo y manual de marca.",
+                "url": "https://liscreativestudio.com/branding"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Identidad Visual",
+                "description": "Sistema de identidad visual: logotipo, paleta de color, tipografía, íconos y aplicaciones básicas.",
+                "url": "https://liscreativestudio.com/identidad-visual"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Diseño Web",
+                "description": "Diseño y desarrollo de sitios web no-code: landings, sitios institucionales y tiendas online. 100% personalizado y responsive.",
+                "url": "https://liscreativestudio.com/web"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Curaduría Visual",
+                "description": "Intervención estética para marcas existentes: dirección de fotografía, paleta, selección de imágenes y coherencia visual.",
+                "url": "https://liscreativestudio.com/curaduria-visual"
+              }
+            },
+            {
+              "@type": "Offer",
+              "itemOffered": {
+                "@type": "Service",
+                "name": "Asesoría 1:1",
+                "description": "Sesión de trabajo de 2 horas para resolver un problema concreto de diseño, posicionamiento o herramientas digitales.",
+                "url": "https://liscreativestudio.com/asesoria"
+              }
+            }
+          ]
+        }
       },
-      { "@type": "WebSite", "name": "LIS. Creative Studio", "url": "https://liscreativestudio.com" }
+      {
+        "@type": "Person",
+        "@id": "https://liscreativestudio.com/#ornela",
+        "name": "Ornela Cillo",
+        "jobTitle": "Diseñadora gráfica y web, directora creativa",
+        "url": "https://liscreativestudio.com",
+        "worksFor": { "@id": "https://liscreativestudio.com/#studio" },
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Rosario",
+          "addressCountry": "AR"
+        },
+        "sameAs": [
+          "https://www.instagram.com/ornela.cillo",
+          "https://www.instagram.com/liscreative.studio"
+        ],
+        "knowsAbout": [
+          "Branding",
+          "Identidad visual",
+          "Diseño gráfico",
+          "Diseño web no-code",
+          "Inteligencia artificial aplicada al diseño",
+          "Diseño para arquitectura e interiorismo",
+          "Estrategia de marca",
+          "Curaduría visual"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://liscreativestudio.com/#website",
+        "name": "LIS. Creative Studio",
+        "url": "https://liscreativestudio.com",
+        "inLanguage": ["es", "en"],
+        "publisher": { "@id": "https://liscreativestudio.com/#studio" }
+      }
     ]
   }
   </script>
@@ -605,10 +705,16 @@
       <div class="pitem"><img src="bm-web.jpg" alt="Portfolio" /></div>
       <div class="pitem"><img src="santo-pastel-portada.gif" alt="Portfolio" /></div>
     </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr 1fr 1fr;height:400px;">
+    <div class="pg-row fi" style="grid-template-columns:1fr 1fr;height:420px;">
       <div class="pitem"><img src="Valentina_landing.png" alt="Web design portfolio" /></div>
       <div class="pitem"><img src="yeet_portfolio.png" alt="Web design portfolio" /></div>
+    </div>
+    <div class="pg-row fi" style="grid-template-columns:2fr 1fr;height:400px;">
+      <div class="pitem"><img src="BOTANICAL.gif" alt="Web design portfolio" /></div>
       <div class="pitem"><img src="Valentina_landing_gif.gif" alt="Web design portfolio" /></div>
+    </div>
+    <div class="pg-row fi" style="grid-template-columns:1fr;height:360px;">
+      <div class="pitem"><img src="yeet_portfolio2.png" alt="Web design portfolio" /></div>
     </div>
   </section>
 

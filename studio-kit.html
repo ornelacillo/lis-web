@@ -6,6 +6,9 @@
 <title>The Studio Kit — Sistema de gestión para diseñadoras freelance</title>
 <meta name="description" content="Un sistema completo en Notion para gestionar clientes, presupuestos y proyectos. Listo para usar hoy. Pago único.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+<noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" /></noscript>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700,800&display=swap" rel="stylesheet">
@@ -23,6 +26,7 @@ html { scroll-behavior: smooth; }
   --yellow-hover: #d4c232;
   --serif: 'General Sans', system-ui, sans-serif;
   --sans: 'General Sans', system-ui, sans-serif;
+  --display: 'Manrope', sans-serif;
 }
 
 body {
@@ -64,15 +68,16 @@ nav {
   margin-bottom: 32px; display: block;
 }
 .hero-h1 {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-size: clamp(44px, 8vw, 96px);
   font-weight: 800; line-height: 0.95;
   letter-spacing: -0.04em;
+  text-transform: uppercase;
   color: var(--paper);
   margin-bottom: 40px;
 }
 .hero-h1 em {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-style: italic;
   font-weight: 400;
   color: var(--yellow);
@@ -165,14 +170,15 @@ section { padding: 80px 32px; }
 .s-paper .section-tag, .s-cream .section-tag { color: #888; }
 
 .section-title {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-size: clamp(28px, 5vw, 52px);
   font-weight: 800; line-height: 1.0;
-  letter-spacing: -0.03em;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
   margin-bottom: 8px;
 }
 .section-title em {
-  font-family: var(--serif);
+  font-family: var(--display);
   font-style: italic; font-weight: 400;
 }
 
@@ -284,8 +290,8 @@ blockquote::before {
   display: flex; align-items: center; justify-content: center;
   margin-top: 2px;
 }
-.include-text { font-size: 14px; font-weight: 700; color: var(--ink); }
-.include-desc { font-size: 13px; color: #666; margin-top: 2px; font-family: var(--sans); font-style: italic; }
+.include-text { font-size: 16px; font-weight: 700; color: var(--ink); }
+.include-desc { font-size: 15px; color: #666; margin-top: 2px; font-family: var(--sans); }
 
 /* ── MOCKUP ── */
 .mockup-grid {
@@ -429,9 +435,10 @@ video { width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; max-
 }
 .guarantee-icon { font-size: 40px; margin-bottom: 16px; }
 .guarantee-inner h2 {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-size: 28px; font-weight: 800; color: var(--ink);
-  margin-bottom: 16px; letter-spacing: -0.02em; line-height: 1.1;
+  margin-bottom: 16px; letter-spacing: -0.03em; line-height: 1.1;
+  text-transform: uppercase;
 }
 .guarantee-inner p {
   font-family: var(--sans);
@@ -470,14 +477,15 @@ video { width: 100%; display: block; aspect-ratio: 9/16; object-fit: cover; max-
   background: var(--ink); padding: 96px 32px; text-align: center;
 }
 .final-cta h2 {
-  font-family: var(--sans);
+  font-family: var(--display);
   font-size: clamp(36px, 7vw, 84px);
   font-weight: 800; color: var(--paper);
   letter-spacing: -0.04em; line-height: 0.95;
+  text-transform: uppercase;
   margin-bottom: 8px;
 }
 .final-cta h2 em {
-  font-family: var(--sans); font-style: italic;
+  font-family: var(--display); font-style: italic;
   font-weight: 400; color: var(--yellow);
 }
 .final-cta-note {
@@ -545,7 +553,6 @@ footer {
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <span class="hero-tag">The Studio Kit · Notion Template</span>
     <h1 class="hero-h1">Organizá tu<br>estudio <em>de una</em><br>vez.</h1>
     <p class="hero-sub">Un sistema completo en Notion para gestionar clientes, presupuestos y proyectos. Sin planillas, sin WhatsApp, sin caos.</p>
     <div class="hero-price-row">
@@ -587,7 +594,6 @@ footer {
 <!-- PROBLEM -->
 <section class="s-dark">
   <div class="wrap">
-    <span class="section-tag">¿Te suena familiar?</span>
     <h2 class="section-title">Trabajás bien.<br><em>Pero tu negocio no.</em></h2>
     <div class="problem-grid">
       <div class="problem-item">
@@ -613,7 +619,6 @@ footer {
 <!-- SOCIAL PROOF -->
 <section class="s-cream">
   <div class="wrap">
-    <span class="section-tag">Por qué funciona</span>
     <h2 class="section-title">Lo armé para<br><em>mi propio estudio.</em></h2>
     <div class="proof-split">
       <div class="proof-left">
@@ -649,7 +654,6 @@ footer {
 <!-- INCLUDES -->
 <section class="s-paper">
   <div class="wrap">
-    <span class="section-tag">Qué incluye</span>
     <h2 class="section-title">Todo lo que necesitás,<br><em>ya armado.</em></h2>
     <div class="includes-grid">
       <div class="include-item">
@@ -732,7 +736,6 @@ footer {
 <!-- VIDEO -->
 <section class="s-off" style="padding-top:64px; padding-bottom:64px;">
   <div class="wrap-sm" style="text-align:center;">
-    <span class="section-tag">De mi boca</span>
     <h2 class="section-title" style="margin-bottom:40px;">Por qué lo armé y<br><em>por qué puede funcionarte.</em></h2>
     <div class="video-wrap">
       <iframe
@@ -750,7 +753,6 @@ footer {
 <!-- TESTIMONIALS -->
 <section class="s-paper">
   <div class="wrap">
-    <span class="section-tag">Lo que llegó a mi WhatsApp</span>
     <h2 class="section-title">Esto dijeron las<br><em>primeras usuarias.</em></h2>
     <div class="testi-grid">
       <div class="testi-img-wrap">
@@ -778,7 +780,6 @@ footer {
 <!-- FOR WHO -->
 <section class="s-dark" style="padding-left:0; padding-right:0; padding-top:80px; padding-bottom:0;">
   <div style="max-width:960px; margin:0 auto; padding:0 32px 40px;">
-    <span class="section-tag">¿Esto es para mí?</span>
     <h2 class="section-title">Es para vos si<br><em>trabajás sola con clientes.</em></h2>
   </div>
   <div class="forwhom-grid" style="max-width:960px; margin:0 auto 0;">
@@ -805,7 +806,6 @@ footer {
 <!-- PRICING -->
 <section class="s-dark" id="comprar">
   <div class="wrap-sm" style="text-align:center;">
-    <span class="section-tag">La inversión</span>
     <h2 class="section-title">Una sola vez.<br><em>Para siempre.</em></h2>
     <div class="price-box">
       <div class="price-main">$25.000</div>
@@ -850,7 +850,6 @@ footer {
 <!-- FAQ -->
 <section class="s-cream">
   <div class="wrap-sm">
-    <span class="section-tag" style="color:#888;">Dudas frecuentes</span>
     <h2 class="section-title" style="color:var(--ink);">Las preguntas<br><em>que siempre aparecen.</em></h2>
     <div class="faq-list">
       <div class="faq-item">

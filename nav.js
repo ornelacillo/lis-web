@@ -411,16 +411,7 @@
       }
     });
 
-    // Lang switcher
-    const esPath = window.location.pathname.replace(/^\/en\//, '/');
-    const enPath = '/en' + (window.location.pathname === '/' ? '/index.html' : window.location.pathname);
-    html += `
-      <span class="nav-sep"></span>
-      <div class="nav-lang">
-        <a href="${esPath}" class="lang-btn${!en ? ' lang-active' : ''}">ES</a>
-        <span class="nav-lang-sep">·</span>
-        <a href="${enPath}" class="lang-btn${en ? ' lang-active' : ''}">EN</a>
-      </div>`;
+
 
     return html;
   }
@@ -429,9 +420,6 @@
   function buildOverlay() {
     const base = getBase();
     const en = isEn();
-    const esPath = window.location.pathname.replace(/^\/en\//, '/');
-    const enPath = '/en' + (window.location.pathname === '/' ? '/index.html' : window.location.pathname);
-
     const serviceLinks = en ? [
       { label: 'Complete Branding', href: '/en/branding' },
       { label: 'Visual Identity',   href: '/en/identity' },
@@ -469,10 +457,7 @@
       <a href="${en ? base + 'shop.html' : '/shop'}">shop</a>
       <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
       <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
-      <div class="overlay-lang">
-        <a href="${esPath}" class="lang-btn${!en ? ' lang-active' : ''}">ES</a>
-        <a href="${enPath}" class="lang-btn${en ? ' lang-active' : ''}">EN</a>
-      </div>
+
     `;
   }
 

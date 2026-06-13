@@ -185,6 +185,15 @@
       border: 1px solid var(--light); padding: 8px 16px;
     }
 
+    /* ── FAQ ── */
+    .faq-section { padding: 80px 60px; background: var(--white); max-width: 100%; }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; border-top: 1px solid var(--light); }
+    .faq-item { padding: 28px 40px 28px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--light); }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 10px; letter-spacing: -.01em; }
+    .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
     /* CTA */
     .cta-section {
       max-width: 1100px; margin: 0 auto; padding: 80px 60px;
@@ -225,6 +234,9 @@
       .step, .flow-item { padding: 32px 0; }
       .price-block { padding: 60px 24px; }
       .price-inner { flex-direction: column; align-items: flex-start; }
+      .faq-section { padding: 60px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
       .cta-section { padding: 60px 24px; }
       footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
     }
@@ -265,6 +277,72 @@
   <meta name="twitter:title" content="Asesoría de Diseño 1:1 | LIS. Creative Studio — Rosario" />
   <meta name="twitter:description" content="Sesión personalizada de 2 horas para resolver un problema concreto de diseño o estrategia de marca. Virtual, con entregable y hoja de ruta. Reservá tu lugar." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://liscreativestudio.com/asesoria#service",
+        "name": "Asesoría 1:1",
+        "description": "Sesión de trabajo individual de 2 horas para resolver un problema concreto de diseño, posicionamiento, herramientas digitales o estrategia de negocio creativo.",
+        "url": "https://liscreativestudio.com/asesoria",
+        "provider": { "@id": "https://liscreativestudio.com/#studio" },
+        "areaServed": [
+          { "@type": "Country", "name": "Argentina" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Uruguay" }
+        ],
+        "serviceType": "Asesoría de diseño y estrategia creativa"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué se puede resolver en una asesoría 1:1?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Problemas concretos de diseño, posicionamiento o herramientas digitales. Por ejemplo: incorporar IA al proceso de diseño, hacer un sitio web sin código, ordenar servicios y precios, definir posicionamiento y nicho, o mejorar la comunicación para atraer mejores clientes."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo es la estructura de la sesión?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La sesión dura 2 horas y tiene tres partes: los primeros 30 minutos son de diagnóstico para entender el problema en profundidad, los siguientes 60 minutos son de trabajo en vivo sobre el problema, y los últimos 30 minutos se definen los próximos pasos con un plan concreto."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿La asesoría es presencial o virtual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es virtual, por videollamada. Incluye un documento de entrega con el resumen de lo trabajado y la hoja de ruta definida en la sesión."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para quién es la asesoría 1:1?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para diseñadoras freelance, emprendedoras creativas y profesionales independientes que necesitan claridad sobre su negocio, su posicionamiento o cómo incorporar herramientas digitales e inteligencia artificial a su trabajo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo hay que esperar para conseguir turno?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Los cupos son limitados. Después de completar el formulario, la confirmación llega en las próximas 48 horas."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-nav-theme="dark">
 
@@ -383,6 +461,40 @@
       <li>Soporte por WhatsApp o email</li>
     </ul>
   </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <p class="section-label fi">[preguntas frecuentes]</p>
+      <h2 class="section-title fi">Preguntas frecuentes.</h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Qué se puede resolver en una asesoría?</p>
+          <p class="faq-a">Problemas concretos de diseño, posicionamiento o herramientas digitales. Por ejemplo: incorporar IA al proceso de diseño, ordenar servicios y precios, definir nicho, o mejorar la comunicación para atraer mejores clientes.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Cómo es la estructura de la sesión?</p>
+          <p class="faq-a">2 horas en total: 30 min de diagnóstico, 60 min de trabajo en vivo sobre el problema, y 30 min para definir los próximos pasos con un plan concreto.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">¿Es presencial o virtual?</p>
+          <p class="faq-a">Virtual, por videollamada. Incluye un documento de entrega con el resumen de lo trabajado y la hoja de ruta definida en la sesión.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">¿Para quién es?</p>
+          <p class="faq-a">Diseñadoras freelance, emprendedoras creativas y profesionales independientes que necesitan claridad sobre su negocio, posicionamiento o cómo incorporar herramientas digitales e IA a su trabajo.</p>
+        </div>
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Cuánto hay que esperar para conseguir turno?</p>
+          <p class="faq-a">Los cupos son limitados. Después de completar el formulario, la confirmación llega en las próximas 48 horas.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Incluye entregable?</p>
+          <p class="faq-a">Sí, la sesión incluye un documento con el resumen de lo trabajado y los próximos pasos definidos para que puedas aplicarlos de forma autónoma.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA -->
   <div class="cta-section">

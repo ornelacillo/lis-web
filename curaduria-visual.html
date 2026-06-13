@@ -221,6 +221,15 @@
     }
     .upsell strong { color: var(--black); }
 
+    /* ── FAQ ── */
+    .faq-section { padding: 80px 60px; background: var(--white); max-width: 100%; }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; border-top: 1px solid var(--light); }
+    .faq-item { padding: 28px 40px 28px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--light); }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 10px; letter-spacing: -.01em; }
+    .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
     /* CTA */
     .cta-section {
       max-width: 1100px; margin: 0 auto;
@@ -267,6 +276,9 @@
       .price-block { padding: 60px 24px; }
       .price-inner { flex-direction: column; align-items: flex-start; }
       .upsell { padding: 40px 24px; }
+      .faq-section { padding: 60px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
       .cta-section { padding: 60px 24px; }
       footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
     }
@@ -307,6 +319,72 @@
   <meta name="twitter:title" content="Curaduría Visual Premium | LIS. Creative Studio — Rosario" />
   <meta name="twitter:description" content="Intervención estética rápida: ordená la imagen de tu marca en un proceso corto y enfocado. Sin branding desde cero. Para negocios que necesitan coherencia visual." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://liscreativestudio.com/curaduria-visual#service",
+        "name": "Curaduría Visual",
+        "description": "Intervención estética para marcas existentes: organización y coherencia de la imagen visual sin hacer branding desde cero. Paleta, fotografía, selección de imágenes y dirección visual.",
+        "url": "https://liscreativestudio.com/curaduria-visual",
+        "provider": { "@id": "https://liscreativestudio.com/#studio" },
+        "areaServed": [
+          { "@type": "Country", "name": "Argentina" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Uruguay" }
+        ],
+        "serviceType": "Curaduría y dirección visual de marca"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es la curaduría visual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La curaduría visual es una intervención estética sobre una marca que ya existe. No se hace branding desde cero: se trabaja sobre lo que ya tiene la marca para ordenar, unificar y mejorar su imagen visual. Incluye revisión de paleta de color, tipografías, estilo fotográfico y coherencia en redes sociales y sitio web."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuándo conviene hacer curaduría visual en lugar de branding completo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La curaduría visual es ideal cuando la marca ya tiene identidad pero la imagen se ve desorganizada o desactualizada. Si el problema es falta de coherencia visual y no de identidad de marca, la curaduría es más rápida y económica que un branding completo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye el servicio de curaduría visual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Incluye auditoría de la imagen actual, definición de paleta de color y tipografías, guía de estilo fotográfico, selección y organización de imágenes, y recomendaciones de aplicación en redes sociales y web."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo lleva el proceso?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entre 2 y 4 semanas, dependiendo del estado actual de la marca y los tiempos de feedback. Es un proceso más corto que el branding completo porque parte de una identidad ya existente."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para qué tipo de negocios es la curaduría visual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Para marcas creativas, estudios de arquitectura, interiorismo o diseño que tienen presencia pero sienten que su imagen no está a la altura de lo que ofrecen. También para emprendedoras que arrancaron sin diseñadora y necesitan ordenar su comunicación visual."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-nav-theme="dark">
 
@@ -435,6 +513,40 @@
       <strong>¿Querés ir más lejos?</strong> Si después de la Curaduría decidís encarar un branding completo, el valor de este servicio se descuenta del total. Es la puerta de entrada, no el techo.
     </p>
   </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <p class="section-label fi">[preguntas frecuentes]</p>
+      <h2 class="section-title fi">Preguntas frecuentes.</h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Qué es la curaduría visual?</p>
+          <p class="faq-a">Una intervención estética sobre una marca que ya existe. No se hace branding desde cero: se trabaja sobre lo que tiene la marca para ordenar, unificar y mejorar su imagen visual.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Cuándo conviene hacer curaduría en lugar de branding?</p>
+          <p class="faq-a">Cuando la marca ya tiene identidad pero la imagen se ve desorganizada o desactualizada. Si el problema es coherencia visual y no identidad de marca, la curaduría es más rápida y económica.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">¿Qué incluye?</p>
+          <p class="faq-a">Auditoría de la imagen actual, definición de paleta y tipografías, guía de estilo fotográfico, selección de imágenes y recomendaciones de aplicación en redes y web.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">¿Cuánto tiempo lleva?</p>
+          <p class="faq-a">Entre 2 y 4 semanas. Es más corto que el branding completo porque parte de una identidad ya existente.</p>
+        </div>
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Para qué tipo de negocios es?</p>
+          <p class="faq-a">Marcas creativas, estudios de arquitectura, interiorismo o diseño que tienen presencia pero sienten que su imagen no está a la altura de lo que ofrecen.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Cómo son las condiciones de pago?</p>
+          <p class="faq-a">50% para comenzar y 50% al momento de la entrega final.</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <!-- CTA -->
   <div class="cta-section">

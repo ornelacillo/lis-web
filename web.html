@@ -110,6 +110,15 @@
     .addon-name { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
     .addon-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
 
+    /* ── FAQ ── */
+    .faq-section { padding: 100px 60px; background: var(--white); }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 56px; border-top: 1px solid var(--light); }
+    .faq-item { padding: 32px 40px 32px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--light); }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 12px; letter-spacing: -.01em; }
+    .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
     /* ── CTA ── */
     .cta-section { padding: 120px 60px; }
     .cta-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
@@ -158,6 +167,9 @@
       .process-grid { grid-template-columns: 1fr 1fr; }
       .addons-section { padding: 60px 24px; }
       .addons-inner { grid-template-columns: 1fr; gap: 0; }
+      .faq-section { padding: 72px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
       .cta-section { padding: 80px 24px; }
       .footer-top { padding: 40px 24px 0; }
       .footer-geo { padding: 20px 16px 28px; gap: 12px; }
@@ -208,6 +220,72 @@
   <meta name="twitter:title" content="Diseño Web No-Code Profesional | LIS. Creative Studio — Rosario" />
   <meta name="twitter:description" content="Diseño y desarrollo web a medida: landing pages, sitios institucionales y tiendas online. No-code, responsive y listo para crecer. Cotizá tu proyecto." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://liscreativestudio.com/web#service",
+        "name": "Diseño Web No-Code",
+        "description": "Diseño y desarrollo de sitios web no-code: landings, sitios institucionales y tiendas online. 100% personalizado, responsive y sin necesidad de programador.",
+        "url": "https://liscreativestudio.com/web",
+        "provider": { "@id": "https://liscreativestudio.com/#studio" },
+        "areaServed": [
+          { "@type": "Country", "name": "Argentina" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Uruguay" }
+        ],
+        "serviceType": "Diseño y desarrollo web no-code"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué es el diseño web no-code?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El diseño web no-code permite crear sitios profesionales sin escribir código. Se usan plataformas visuales que permiten un diseño 100% personalizado, mantenimiento fácil por parte del cliente y resultados de alto nivel sin depender de un programador."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué tipos de sitios web diseñan?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Diseñamos landings y one-pages para servicios o lanzamientos, sitios institucionales con múltiples páginas para estudios y agencias, y tiendas online con catálogo, carrito y pasarela de pago."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo lleva hacer un sitio web?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Una landing page lleva entre 3 y 5 semanas. Un sitio institucional completo entre 6 y 10 semanas. Los tiempos varían según la complejidad del proyecto y los ciclos de feedback del cliente."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Incluye SEO el diseño web?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, todos los sitios incluyen configuración de Google Analytics y optimización SEO básica: estructura semántica, meta tags, velocidad de carga y diseño responsive para que el sitio sea encontrable en buscadores."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Voy a poder actualizar el sitio yo mismo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí. La entrega incluye videos tutoriales para que puedas operar y actualizar el sitio de forma autónoma, sin depender de nadie."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-nav-theme="dark">
 
@@ -407,6 +485,40 @@
         <div class="addon-item fi fi-d1">
           <p class="addon-name">Condiciones</p>
           <p class="addon-desc">Se abona el 50% para comenzar y el 50% al finalizar. Pasado un mes sin contacto del cliente, el proyecto se da de baja automáticamente. El presupuesto tiene vigencia de 15 días.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <p class="section-label fi">[preguntas frecuentes]</p>
+      <h2 class="section-title fi">Preguntas frecuentes.</h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Qué es el diseño web no-code?</p>
+          <p class="faq-a">Crear sitios profesionales sin escribir código. Usamos plataformas visuales que permiten diseño 100% personalizado, fácil mantenimiento para el cliente y resultados de alto nivel sin depender de un programador.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Qué tipos de sitios diseñan?</p>
+          <p class="faq-a">Landings y one-pages para servicios o lanzamientos, sitios institucionales con múltiples páginas para estudios y agencias, y tiendas online con catálogo, carrito y pasarela de pago.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">¿Cuánto tiempo lleva?</p>
+          <p class="faq-a">Una landing: 3 a 5 semanas. Un sitio institucional completo: 6 a 10 semanas. Depende de la complejidad y los ciclos de feedback.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">¿Incluye SEO?</p>
+          <p class="faq-a">Sí, todos los sitios incluyen Google Analytics y optimización SEO básica: estructura semántica, meta tags, velocidad de carga y diseño responsive.</p>
+        </div>
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Voy a poder actualizar el sitio yo sola?</p>
+          <p class="faq-a">Sí. La entrega incluye videos tutoriales para que puedas operar y actualizar el sitio de forma autónoma, sin depender de nadie.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Trabajan con clientes fuera de Argentina?</p>
+          <p class="faq-a">Sí, trabajamos de forma remota con clientes en Argentina, España y Uruguay. Todo el proceso es digital.</p>
         </div>
       </div>
     </div>

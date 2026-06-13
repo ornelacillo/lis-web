@@ -207,7 +207,45 @@
       max-width: 820px;
     }
 
-    /* ── CTA ── */
+    /* ── FAQ ── */
+    .faq-section {
+      padding: 100px 60px;
+      background: var(--white);
+    }
+    .faq-inner {
+      max-width: 1100px; margin: 0 auto;
+    }
+    .faq-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-top: 56px;
+      border-top: 1px solid var(--light);
+    }
+    .faq-item {
+      padding: 32px 0;
+      border-bottom: 1px solid var(--light);
+      padding-right: 40px;
+    }
+    .faq-item:nth-child(even) {
+      padding-left: 40px;
+      padding-right: 0;
+      border-left: 1px solid var(--light);
+    }
+    .faq-q {
+      font-size: 15px;
+      font-weight: 500;
+      color: var(--black);
+      margin-bottom: 12px;
+      letter-spacing: -.01em;
+    }
+    .faq-a {
+      font-size: 14px;
+      color: var(--gray);
+      line-height: 1.7;
+    }
+
+        /* ── CTA ── */
     .cta-section {
       padding: 120px 60px;
     }
@@ -312,6 +350,9 @@
       .includes-section { padding: 72px 24px; }
       .includes-grid { grid-template-columns: 1fr 1fr; }
       .callout { padding: 72px 24px; }
+      .faq-section { padding: 72px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
       .cta-section { padding: 80px 24px; }
       .footer-top { padding: 40px 24px 0; }
       .footer-geo { padding: 20px 16px 28px; gap: 12px; }
@@ -362,6 +403,72 @@
   <meta name="twitter:title" content="Branding Completo para Empresas | LIS. Creative Studio — Rosario" />
   <meta name="twitter:description" content="Construcción completa de marca desde cero: estrategia, identidad visual, Brand Book y aplicaciones reales. Para negocios que entienden el diseño como inversión." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://liscreativestudio.com/branding#service",
+        "name": "Branding Completo",
+        "description": "Desarrollo de identidad de marca desde cero: estrategia, naming, sistema visual completo y Brand Book. Para negocios que quieren construir una marca coherente, profesional y diferenciada.",
+        "url": "https://liscreativestudio.com/branding",
+        "provider": { "@id": "https://liscreativestudio.com/#studio" },
+        "areaServed": [
+          { "@type": "Country", "name": "Argentina" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Uruguay" }
+        ],
+        "serviceType": "Branding y diseño de identidad visual"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye el servicio de branding completo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El branding completo incluye estrategia de marca, naming (si es necesario), diseño del sistema visual completo (logotipo, paleta de color, tipografía, íconos), Brand Book con manual de uso y aplicaciones reales como papelería, redes sociales y mockups."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En cuánto tiempo se desarrolla un branding completo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El proceso completo lleva entre 6 y 10 semanas, dependiendo de los tiempos de feedback del cliente. Incluye etapas de investigación, propuesta conceptual, desarrollo visual y entrega final."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para qué tipo de negocios es este servicio?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Está orientado a estudios de arquitectura, interiorismo, real estate y marcas creativas que necesitan una identidad visual sólida y diferenciada. También trabajamos con emprendimientos y marcas de servicios que quieren posicionarse profesionalmente."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Trabajan con clientes fuera de Argentina?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, trabajamos de forma remota con clientes en Argentina, España y Uruguay. Todo el proceso se gestiona de manera digital, con reuniones por videollamada y entrega de archivos vía plataformas digitales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo son las condiciones de pago?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El servicio se abona en dos partes: 50% para comenzar el proyecto y 50% al momento de la entrega final."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-nav-theme="dark">
 
@@ -485,6 +592,40 @@
           <p class="include-num">09</p>
           <p class="include-name">Acompañamiento y 2 rondas de cambios</p>
           <p class="include-detail">Portal del cliente en Notion y Trello. Reuniones cada 20 días. Dos instancias de revisión incluidas en el proceso.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <p class="section-label fi">[preguntas frecuentes]</p>
+      <h2 class="section-title fi">Preguntas frecuentes.</h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Qué incluye el branding completo?</p>
+          <p class="faq-a">Estrategia de marca, diseño del sistema visual completo (logotipo, paleta, tipografía, íconos), Brand Book con manual de uso y aplicaciones reales como papelería, redes sociales y mockups.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Cuánto tiempo lleva el proceso?</p>
+          <p class="faq-a">Entre 6 y 10 semanas, dependiendo de los tiempos de feedback. El plazo no está fijo porque depende del ciclo de revisiones — trabajamos a tu ritmo sin apuros.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">¿Para qué tipo de negocios es?</p>
+          <p class="faq-a">Estudios de arquitectura, interiorismo, real estate y marcas creativas que necesitan una identidad sólida y diferenciada. También emprendimientos y marcas de servicios que quieren posicionarse profesionalmente.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">¿Trabajan con clientes fuera de Argentina?</p>
+          <p class="faq-a">Sí, trabajamos de forma remota con clientes en Argentina, España y Uruguay. Todo el proceso es digital: reuniones por videollamada y entrega de archivos vía plataformas online.</p>
+        </div>
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Cómo son las condiciones de pago?</p>
+          <p class="faq-a">50% para comenzar el proyecto y 50% al momento de la entrega final.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Puedo pedir cambios durante el proceso?</p>
+          <p class="faq-a">Sí, el proceso incluye rondas de revisión en cada etapa. Los cambios estructurales fuera del alcance acordado se recotizan.</p>
         </div>
       </div>
     </div>

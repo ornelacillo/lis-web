@@ -168,6 +168,15 @@
     }
     .compare-note strong { color: var(--black); font-weight: 500; }
 
+    /* ── FAQ ── */
+    .faq-section { padding: 100px 60px; background: var(--white); }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 56px; border-top: 1px solid var(--light); }
+    .faq-item { padding: 32px 40px 32px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--light); }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 12px; letter-spacing: -.01em; }
+    .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
     /* ── CTA ── */
     .cta-section { padding: 120px 60px; }
     .cta-inner {
@@ -238,6 +247,9 @@
       .includes-section { padding: 72px 24px; }
       .includes-grid { grid-template-columns: 1fr 1fr; }
       .compare-section { padding: 72px 24px; }
+      .faq-section { padding: 72px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
       .cta-section { padding: 80px 24px; }
       .footer-top { padding: 40px 24px 0; }
       .footer-geo { padding: 20px 16px 28px; gap: 12px; }
@@ -288,6 +300,72 @@
   <meta name="twitter:title" content="Identidad Visual Profesional | LIS. Creative Studio — Rosario" />
   <meta name="twitter:description" content="Sistema de identidad visual completo: logo, paleta, tipografías y aplicaciones. Para marcas que necesitan consistencia en cada punto de contacto." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Service",
+        "@id": "https://liscreativestudio.com/identidad-visual#service",
+        "name": "Identidad Visual",
+        "description": "Diseño de sistema de identidad visual: logotipo, paleta de color, tipografía, íconos y aplicaciones básicas. Para marcas que necesitan una imagen clara, coherente y profesional.",
+        "url": "https://liscreativestudio.com/identidad-visual",
+        "provider": { "@id": "https://liscreativestudio.com/#studio" },
+        "areaServed": [
+          { "@type": "Country", "name": "Argentina" },
+          { "@type": "Country", "name": "España" },
+          { "@type": "Country", "name": "Uruguay" }
+        ],
+        "serviceType": "Diseño de identidad visual"
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Cuál es la diferencia entre identidad visual y branding completo?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La identidad visual es el sistema visual de la marca: logotipo, paleta de color, tipografía e íconos. El branding completo incluye además la estrategia de marca, naming y un Brand Book con manual de uso completo. La identidad visual es ideal para marcas que ya tienen su estrategia definida y necesitan el sistema gráfico."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué incluye el servicio de identidad visual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Incluye diseño de logotipo y sus variantes, paleta de color, tipografías principales y de apoyo, sistema de íconos y aplicaciones básicas como tarjeta personal, firma de email y perfil de redes sociales."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuánto tiempo lleva el proceso de identidad visual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Entre 4 y 7 semanas, dependiendo de los tiempos de revisión y feedback del cliente."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Para qué tipo de negocios es la identidad visual?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Es ideal para estudios de arquitectura, interiorismo, real estate y marcas creativas que necesitan una imagen visual coherente y profesional. También para emprendedoras y profesionales independientes que quieren construir su presencia de marca."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Recibo los archivos en todos los formatos?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sí, la entrega incluye todos los archivos en formatos vectoriales (AI, PDF, SVG) y de uso digital (PNG, JPG) para que puedas usar la identidad en cualquier contexto."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body data-nav-theme="dark">
 
@@ -430,6 +508,40 @@
         Si tenés dudas, escribime y te ayudo a entender cuál tiene más sentido para tu proyecto.
       </p>
       <a href="/branding" style="font-size:14px;color:var(--black);letter-spacing:.04em;text-underline-offset:4px;text-decoration:underline;">Ver Branding Completo →</a>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <p class="section-label fi">[preguntas frecuentes]</p>
+      <h2 class="section-title fi">Preguntas frecuentes.</h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Cuál es la diferencia entre identidad visual y branding completo?</p>
+          <p class="faq-a">La identidad visual es el sistema gráfico: logotipo, paleta, tipografía e íconos. El branding completo suma la estrategia de marca, naming y Brand Book. La identidad es para marcas que ya tienen su estrategia definida y necesitan el sistema visual.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Qué incluye el servicio?</p>
+          <p class="faq-a">Logotipo y sus variantes, paleta de color, tipografías principal y de apoyo, sistema de íconos y aplicaciones básicas: tarjeta personal, firma de email y perfil de redes sociales.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">¿Cuánto tiempo lleva?</p>
+          <p class="faq-a">Entre 4 y 7 semanas, dependiendo de los ciclos de revisión y feedback.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">¿Para qué tipo de negocios es?</p>
+          <p class="faq-a">Estudios de arquitectura, interiorismo, real estate y marcas creativas. También emprendedoras y profesionales independientes que quieren construir su presencia de marca.</p>
+        </div>
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Recibo los archivos en todos los formatos?</p>
+          <p class="faq-a">Sí. La entrega incluye formatos vectoriales (AI, PDF, SVG) y digitales (PNG, JPG) para que puedas usar la identidad en cualquier contexto.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Cómo son las condiciones de pago?</p>
+          <p class="faq-a">50% para comenzar el proyecto y 50% al momento de la entrega final.</p>
+        </div>
+      </div>
     </div>
   </section>
 

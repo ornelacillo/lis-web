@@ -46,6 +46,12 @@
     .product-includes li { list-style: none; padding: 10px 0; border-bottom: 1px solid var(--light); font-size: 15px; color: #444; display: flex; gap: 12px; align-items: flex-start; }
     .product-includes li::before { content: "→"; color: var(--black); flex-shrink: 0; }
 
+    /* ── PRODUCT MEDIA ── */
+    .product-media { width: 100%; overflow: hidden; margin-bottom: 24px; }
+    .product-media img, .product-media video { width: 100%; display: block; object-fit: cover; }
+    .product-details-link { display: inline-block; margin-top: 20px; font-size: 13px; font-weight: 600; color: #111; text-decoration: none; letter-spacing: .06em; background: #4caf7d; padding: 12px 20px; transition: opacity .2s; }
+    .product-details-link:hover { opacity: .8; }
+
     /* ── BUY BOX ── */
     .buy-box { border: 1px solid var(--light); padding: 48px; }
     .buy-box-prices { margin-bottom: 8px; }
@@ -212,25 +218,28 @@
             <li>Factura/Recibo y Mensaje de bienvenida</li>
             <li>+ 2 bonos: Checklist de cierre y Email de bienvenida</li>
           </ul>
+          <a href="/studio-kit" class="product-details-link">Ver todos los detalles →</a>
         </div>
       </div>
 
       <!-- buy box -->
       <div class="fi fi-d1">
+        <div class="product-media">
+          <video autoplay muted loop playsinline>
+            <source src="studio-kit-gif.webm" type="video/webm">
+          </video>
+        </div>
         <div class="buy-box">
           <div class="buy-box-prices">
             <p class="buy-box-price">$25.000 ARS</p>
             <p class="buy-box-note" style="margin-top:6px;margin-bottom:0;">precio lanzamiento</p>
           </div>
           <p class="buy-box-note" style="margin-top:16px;">Pago único · acceso de por vida · sin suscripción</p>
-          <a href="https://pay.hotmart.com/L105861632G?off=ppj3rhqp" target="_blank" class="btn-buy btn-buy-black">
-            Comprar ahora →
-          </a>
+          <a href="https://pay.hotmart.com/L105861632G?off=ppj3rhqp" target="_blank" class="btn-buy btn-buy-black">Comprar ahora →</a>
           <div class="buy-box-details">
             <p>Recibís acceso inmediato por email al completar la compra.</p>
             <p>Podés pagar con tarjeta, PayPal o Mercado Pago según tu país.</p>
           </div>
-          <a href="/studio-kit" class="btn-buy btn-buy-outline" style="margin-top:12px;">Ver todos los detalles →</a>
         </div>
       </div>
 
@@ -256,23 +265,31 @@
             <li>Aplicaciones de marca</li>
             <li>Versión en Illustrator y Canva</li>
           </ul>
+          <a href="/brandbook" class="product-details-link">Ver todos los detalles →</a>
         </div>
       </div>
 
       <!-- buy box -->
       <div class="fi fi-d1">
+        <div class="product-media">
+          <img src="brandbook-portada.png" alt="Brandbook Template — LIS. Creative Studio" />
+        </div>
         <div class="buy-box">
           <div class="buy-box-prices">
-            <p class="buy-box-price">$25.000 ARS</p>
+            <p class="buy-box-price">€17 · $19.000 ARS</p>
             <p class="buy-box-note" style="margin-top:6px;margin-bottom:0;">precio lanzamiento</p>
           </div>
           <p class="buy-box-note" style="margin-top:16px;">Pago único · acceso de por vida · sin suscripción</p>
-          <button class="btn-buy btn-buy-black" disabled style="opacity:.45;cursor:not-allowed;">
-            Próximamente →
-          </button>
+          <a href="https://mpago.la/1TLxNWu" target="_blank" class="btn-buy btn-buy-black">Comprar con Mercado Pago →</a>
+          <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top" style="margin-bottom:12px;">
+            <input type="hidden" name="cmd" value="_s-xclick" />
+            <input type="hidden" name="hosted_button_id" value="XHRNQFXWFVP9S" />
+            <input type="hidden" name="currency_code" value="EUR" />
+            <button type="submit" class="btn-buy btn-buy-outline">Comprar con PayPal →</button>
+          </form>
           <div class="buy-box-details">
-            <p>Producto digital · Illustrator y Canva · Acceso de por vida</p>
-            <p>Compatible con la versión gratuita de Canva.</p>
+            <p>Recibís acceso inmediato por email al completar la compra.</p>
+            <p>Producto digital · Illustrator y Canva · Compatible con la versión gratuita de Canva.</p>
           </div>
         </div>
       </div>

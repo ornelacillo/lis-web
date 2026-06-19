@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>¡Gracias por tu compra! — LIS. Creative Studio</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <link rel="icon" href="favicon.png" type="image/png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" /></noscript>
+
+  <!--
+    META PIXEL — esta página dispara PageView + Purchase juntos,
+    a diferencia de gracias-studio-kit.html que al principio solo
+    tenía PageView (ese fue el bug que detectamos ahí).
+    En Events Manager > Conversiones personalizadas, creá la regla
+    "Compra Brandbook" = PageView + URL contiene /gracias-brandbook
+    (se llega acá solo DESPUÉS de pagar en Mercado Pago/PayPal).
+    El value está fijado en ARS — si querés separar EUR, habría que
+    pasar el monto por parámetro de URL desde el botón de PayPal.
+  -->
+  <script>
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init','2559356064485053');
+    fbq('track','PageView');
+    fbq('track','Purchase', {value: 19000.00, currency: 'ARS'});
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #0a0a0a;
+      --white: #f5f4f1;
+      --gray: #666;
+      --light: #e0ddd8;
+      --font-display: 'Manrope', sans-serif;
+      --font-body: 'Inter', 'Helvetica Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--black);
+      color: var(--white);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.6;
+      overflow-x: hidden;
+      cursor: default;
+      min-height: 100vh;
+    }
+
+    .fi {
+      opacity: 0; transform: translateY(20px);
+      animation: fadeUp .7s ease forwards;
+    }
+    .fi-d1 { animation-delay: .1s; }
+    .fi-d2 { animation-delay: .25s; }
+    .fi-d3 { animation-delay: .4s; }
+    .fi-d4 { animation-delay: .55s; }
+    @keyframes fadeUp { to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) {
+      .fi { animation: none; opacity: 1; transform: none; }
+    }
+
+    .wrap {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 48px 24px;
+    }
+
+    .check {
+      width: 56px; height: 56px;
+      border: 1px solid rgba(245,244,241,.3);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 32px;
+    }
+    .check svg { width: 22px; height: 22px; stroke: var(--white); fill: none; stroke-width: 1.8; }
+
+    .label {
+      font-family: var(--font-body);
+      font-size: 11px; letter-spacing: .18em;
+      text-transform: uppercase;
+      color: rgba(245,244,241,.4);
+      margin-bottom: 24px;
+    }
+
+    .title {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 6.5vw, 4.6rem);
+      font-weight: 800;
+      letter-spacing: -.03em;
+      text-transform: uppercase;
+      line-height: 1.02;
+      color: var(--white);
+      max-width: 760px;
+      margin-bottom: 24px;
+    }
+
+    .subtitle {
+      font-family: var(--font-body);
+      font-size: 16px;
+      color: rgba(245,244,241,.55);
+      max-width: 480px;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    .downloads {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 56px;
+    }
+
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-body);
+      font-size: 12px; letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--black);
+      background: var(--white);
+      text-decoration: none;
+      border-radius: 2px;
+      padding: 16px 30px;
+      transition: opacity .25s, gap .25s;
+    }
+    .dl-btn:hover { opacity: .85; gap: 16px; }
+    .dl-btn svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 1.5; }
+
+    .dl-btn.secondary {
+      background: transparent;
+      color: var(--white);
+      border: 1px solid rgba(245,244,241,.25);
+    }
+    .dl-btn.secondary:hover { border-color: rgba(245,244,241,.6); opacity: 1; }
+
+    .help {
+      font-family: var(--font-body);
+      font-size: 13px;
+      color: rgba(245,244,241,.4);
+      max-width: 420px;
+      line-height: 1.7;
+    }
+    .help a { color: rgba(245,244,241,.7); text-decoration: underline; text-decoration-color: rgba(245,244,241,.3); }
+    .help a:hover { color: var(--white); }
+
+    .back {
+      margin-top: 56px;
+      font-family: var(--font-body);
+      font-size: 11px; letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(245,244,241,.3);
+      text-decoration: none;
+    }
+    .back:hover { color: rgba(245,244,241,.6); }
+
+    @media (max-width: 480px) {
+      .downloads { flex-direction: column; width: 100%; }
+      .dl-btn { justify-content: center; width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="wrap">
+    <div class="check fi">
+      <svg viewBox="0 0 24 24"><path d="M4 12.5l5 5L20 7"/></svg>
+    </div>
+
+    <p class="label fi fi-d1">Pedido confirmado</p>
+
+    <h1 class="title fi fi-d2">TU BRANDBOOK TEMPLATE<br>YA ESTÁ LISTO.</h1>
+
+    <p class="subtitle fi fi-d2">
+      Gracias por confiar en LIS. Creative Studio. Elegí la versión que prefieras
+      para empezar a usar la plantilla en tu próximo proyecto.
+    </p>
+
+    <div class="downloads fi fi-d3">
+      <a href="https://drive.google.com/drive/folders/1aIiqscBcCvzVnpwug_vt67uOhmhE9KfQ?usp=sharing" target="_blank" rel="noopener" class="dl-btn">
+        Descargar en Illustrator
+        <svg viewBox="0 0 14 14"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+      </a>
+      <a href="https://canva.link/dhf7lthb2gw6ypq" target="_blank" rel="noopener" class="dl-btn secondary">
+        Abrir en Canva
+        <svg viewBox="0 0 14 14"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
+      </a>
+    </div>
+
+    <p class="help fi fi-d4">
+      Si tenés algún problema con la descarga o con tu compra, escribime a
+      <a href="mailto:hello@liscreativestudio.com">hello@liscreativestudio.com</a>
+      y te ayudo enseguida.
+    </p>
+
+    <a href="https://liscreativestudio.com" class="back fi fi-d4">Volver al inicio</a>
+  </div>
+
+</body>
+</html>

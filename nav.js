@@ -371,7 +371,7 @@
       { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
-      { label: 'Curaduría Visual',   href: '/curaduria' },
+      { label: 'Curaduría Visual',   href: '/curaduria-visual' },
       { label: 'Asesoría 1:1',       href: '/asesoria' },
     ];
 
@@ -430,7 +430,7 @@
       { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
-      { label: 'Curaduría Visual',   href: '/curaduria' },
+      { label: 'Curaduría Visual',   href: '/curaduria-visual' },
       { label: 'Asesoría 1:1',       href: '/asesoria' },
     ];
 

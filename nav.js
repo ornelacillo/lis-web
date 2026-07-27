@@ -5,7 +5,7 @@
  * Usage: add <script src="/nav.js"></script> inside <head> or before </body>
  *
  * Per-page config via data attributes on the <body>:
- *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|shop|freebies|masterclass"
+ *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|freebies|masterclass"
  *   data-nav-lang="es|en"  (default: es)
  *
  * Automatic theme switching:
@@ -348,7 +348,6 @@
       { label: 'about',     href: '/en/#about' },
       { label: 'services',  href: '/en/#services', dropdown: true },
       { label: 'portfolio', href: '/en/#portfolio' },
-      { label: 'shop',      href: '/en/shop' },
       { label: 'freebies',  href: '/en/freebies' },
       { label: 'contact',   href: '/en/#contact', cta: true },
     ] : [
@@ -356,7 +355,6 @@
       { label: 'about',     href: '/#about' },
       { label: 'services',  href: '/#services', dropdown: true },
       { label: 'portfolio', href: '/#portfolio' },
-      { label: 'shop',      href: '/shop' },
       { label: 'freebies',  href: '/freebies' },
       { label: 'contact',   href: '/#contact', cta: true },
     ];
@@ -454,7 +452,6 @@
         ${subItems}
       </div>
       <a href="${en ? base + 'index.html#portfolio' : '/#portfolio'}">portfolio</a>
-      <a href="${en ? base + 'shop.html' : '/shop'}">shop</a>
       <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
       <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
 

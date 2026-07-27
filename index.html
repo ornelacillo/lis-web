@@ -167,24 +167,54 @@
     .planet {
       position: absolute;
       border-radius: 50%;
-      filter: blur(1px);
     }
+    /* p1 — ringed planet, warm tone, Saturn-like */
     .p1 {
-      top: -6%; left: 78%;
-      width: 260px; height: 260px;
-      background: radial-gradient(circle at 35% 32%, rgba(150,150,150,.9), rgba(50,50,50,.75) 60%, transparent 80%);
-      box-shadow: 0 0 90px 22px rgba(245,244,241,.12);
+      top: 4%; left: 87%;
+      width: 88px; height: 88px;
+      background:
+        radial-gradient(circle at 30% 65%, rgba(0,0,0,.35), transparent 40%),
+        radial-gradient(circle at 34% 30%, rgba(225,205,175,.95), rgba(150,120,90,.9) 55%, rgba(70,50,38,.95) 82%);
+      box-shadow:
+        inset -10px -8px 16px rgba(0,0,0,.55),
+        inset 6px 6px 10px rgba(255,245,225,.15),
+        0 0 26px 4px rgba(245,244,241,.10);
     }
+    .p1::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 172%; height: 40%;
+      border: 1.5px solid rgba(224,206,176,.55);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) rotate(-20deg);
+      pointer-events: none;
+    }
+    /* p2 — cratered moon-like planet */
     .p2 {
-      top: 62%; left: -8%;
-      width: 200px; height: 200px;
-      background: radial-gradient(circle at 40% 35%, rgba(130,130,130,.85), rgba(40,40,40,.7) 62%, transparent 82%);
-      box-shadow: 0 0 75px 18px rgba(245,244,241,.10);
+      top: 66%; left: -4%;
+      width: 64px; height: 64px;
+      background:
+        radial-gradient(circle at 70% 70%, rgba(0,0,0,.4), transparent 45%),
+        radial-gradient(circle at 38% 34%, rgba(175,175,175,.95), rgba(90,90,90,.92) 58%, rgba(45,45,45,.95) 85%);
+      box-shadow:
+        inset -7px -6px 12px rgba(0,0,0,.6),
+        inset 4px 4px 8px rgba(255,255,255,.10),
+        0 0 20px 3px rgba(245,244,241,.08);
     }
+    .p2::before, .p2::after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      background: rgba(20,20,20,.35);
+    }
+    .p2::before { width: 22%; height: 22%; top: 22%; left: 30%; }
+    .p2::after  { width: 14%; height: 14%; top: 55%; left: 60%; }
+
     @media (max-width: 768px) {
       .hero-halo { width: 640px; height: 440px; }
-      .p1 { width: 160px; height: 160px; top: -8%; left: 70%; }
-      .p2 { width: 130px; height: 130px; top: 68%; left: -10%; }
+      .p1 { width: 60px; height: 60px; top: 2%;  left: 80%; }
+      .p2 { width: 44px; height: 44px; top: 70%; left: -6%; }
     }
 
     /* corner crosses */
@@ -311,20 +341,39 @@
       100% { clip-path: polygon(90.7% 52.6%, 89.5% 69.7%, 72.2% 81.4%, 55.6% 91.4%, 31.9% 95.6%, 27.6% 68.6%, 12.3% 59.7%, 11.7% 38.7%, 15.9% 20.3%, 31.8% 7.8%, 57.7% 0%, 80.2% 9.8%, 96.0% 29.0%); }
     }
 
-    /* soft diagonal light streak */
-    .hero-streak {
+    /* ── Shooting stars — brief, occasional, contained to upper area ── */
+    .shooting-star {
       position: absolute;
-      inset: -30% -20%;
-      z-index: 9;
+      width: 3px; height: 3px;
+      background: #fff;
+      border-radius: 50%;
+      z-index: 3;
       pointer-events: none;
-      background: linear-gradient(120deg, transparent 42%, rgba(255,255,255,.05) 50%, transparent 58%);
-      transform: rotate(-8deg);
-      animation: streakDrift 32s linear infinite;
+      opacity: 0;
+      box-shadow: 0 0 6px 1px rgba(255,255,255,.9);
     }
-    @keyframes streakDrift {
-      0%   { transform: rotate(-8deg) translateX(-4%); }
-      50%  { transform: rotate(-6deg) translateX(4%); }
-      100% { transform: rotate(-8deg) translateX(-4%); }
+    .shooting-star::before {
+      content: '';
+      position: absolute;
+      top: 50%; right: 1px;
+      width: 130px; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,.75));
+      transform: translateY(-50%);
+    }
+    .ss1 { top: 10%; left: -4%;  animation: ss1move 10s ease-in infinite; animation-delay: 2.5s; }
+    .ss2 { top: 58%; right: -4%; animation: ss2move 14s ease-in infinite; animation-delay: 7s;   }
+
+    @keyframes ss1move {
+      0%   { transform: translate(0,0) rotate(24deg);        opacity: 0; }
+      2%   { opacity: 1; }
+      16%  { transform: translate(620px, 300px) rotate(24deg); opacity: 0; }
+      100% { opacity: 0; }
+    }
+    @keyframes ss2move {
+      0%   { transform: translate(0,0) rotate(204deg);        opacity: 0; }
+      2%   { opacity: 1; }
+      14%  { transform: translate(-560px, -220px) rotate(204deg); opacity: 0; }
+      100% { opacity: 0; }
     }
 
     /* center content */
@@ -702,7 +751,8 @@
       <div class="blob-wrap bw12" data-depth="0.4" data-dir="-1" data-freq="0.75" data-phase="1.1"><span class="blob"></span></div>
       <div class="blob-wrap bw13" data-depth="2.9" data-dir="1"  data-freq="0.30" data-phase="4.9"><span class="blob"></span></div>
     </div>
-    <div class="hero-streak"></div>
+    <span class="shooting-star ss1"></span>
+    <span class="shooting-star ss2"></span>
 
 
     <!-- Centered text — same in both idiomas -->

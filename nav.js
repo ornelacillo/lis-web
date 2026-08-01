@@ -5,7 +5,7 @@
  * Usage: add <script src="/nav.js"></script> inside <head> or before </body>
  *
  * Per-page config via data attributes on the <body>:
- *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|freebies|masterclass"
+ *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|freebies"
  *   data-nav-lang="es|en"  (default: es)
  *
  * Automatic theme switching:
@@ -313,14 +313,11 @@
 
   /* Determine base path prefix depending on current location */
   function getBase() {
-    const path = window.location.pathname;
-    // If inside /en/ subfolder
-    if(path==='/en'||path.startsWith('/en/')) return '/en/';
     return '/';
   }
 
   function isEn() {
-    var _p2=window.location.pathname; return _p2==='/en'||_p2.startsWith('/en/');
+    return false;
   }
 
   /* Mark active link */
@@ -332,7 +329,7 @@
       const aPath = href.split('#')[0].replace(/\/$/, '') || '/';
       if (aPath && aPath !== '/' && path.endsWith(aPath)) {
         a.classList.add('nav-active');
-      } else if ((aPath === '/' || aPath === '/en/') && (path === '/' || path === '/en/')) {
+      } else if (aPath === '/' && path === '/') {
         a.classList.add('nav-active');
       }
     });
@@ -343,14 +340,7 @@
     const base = getBase();
     const en = isEn();
 
-    const links = en ? [
-      { label: 'home',      href: '/en' },
-      { label: 'about',     href: '/en/#about' },
-      { label: 'services',  href: '/en/#services', dropdown: true },
-      { label: 'portfolio', href: '/en/#portfolio' },
-      { label: 'freebies',  href: '/en/freebies' },
-      { label: 'contact',   href: '/en/#contact', cta: true },
-    ] : [
+    const links = [
       { label: 'home',      href: '/' },
       { label: 'about',     href: '/#about' },
       { label: 'services',  href: '/#services', dropdown: true },
@@ -359,13 +349,7 @@
       { label: 'contact',   href: '/#contact', cta: true },
     ];
 
-    const serviceLinks = en ? [
-      { label: 'Complete Branding', href: '/en/branding' },
-      { label: 'Visual Identity',   href: '/en/identity' },
-      { label: 'Web Design',        href: '/en/web' },
-      { label: 'Visual Curation',   href: '/en/curation' },
-      { label: 'Advisory 1:1',      href: '/en/advisory' },
-    ] : [
+    const serviceLinks = [
       { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
@@ -376,10 +360,6 @@
     let html = '';
 
     links.forEach((link, i) => {
-      // Add sep before shop
-      if (link.label === 'shop') {
-        html += `<span class="nav-sep"></span>`;
-      }
       // Add sep before contact
       if (link.label === 'contact') {
         html += `<span class="nav-sep"></span>`;
@@ -418,13 +398,7 @@
   function buildOverlay() {
     const base = getBase();
     const en = isEn();
-    const serviceLinks = en ? [
-      { label: 'Complete Branding', href: '/en/branding' },
-      { label: 'Visual Identity',   href: '/en/identity' },
-      { label: 'Web Design',        href: '/en/web' },
-      { label: 'Visual Curation',   href: '/en/curation' },
-      { label: 'Advisory 1:1',      href: '/en/advisory' },
-    ] : [
+    const serviceLinks = [
       { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
@@ -573,7 +547,7 @@
     // ── Mobile logo ──
     const mobileLogo = document.createElement('div');
     mobileLogo.id = 'lis-nav-mobile-logo';
-    var _mhref = (window.location.pathname==='/en'||window.location.pathname.startsWith('/en/')) ? '/en' : '/';
+    var _mhref = '/';
     mobileLogo.innerHTML = '<a href="'+_mhref+'"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:26px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>';
     document.body.insertBefore(mobileLogo, document.body.firstChild);
 

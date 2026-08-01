@@ -4,8 +4,6 @@
 
   <url>
     <loc>https://liscreativestudio.com/</loc>
-    <xhtml:link rel="alternate" hreflang="es" href="https://liscreativestudio.com/"/>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en/"/>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -36,26 +34,6 @@
 
   <url>
     <loc>https://liscreativestudio.com/asesoria</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://liscreativestudio.com/shop</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-
-  <url>
-    <loc>https://liscreativestudio.com/studio-kit</loc>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-
-  <url>
-    <loc>https://liscreativestudio.com/en/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en/"/>
-    <xhtml:link rel="alternate" hreflang="es" href="https://liscreativestudio.com/"/>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>

@@ -656,6 +656,77 @@
     /* ══════════════════════════════
        CTA
     ══════════════════════════════ */
+    /* ══════════════════════════════
+       TESTIMONIALS (Google reviews style)
+    ══════════════════════════════ */
+    #testimonials {
+      background: var(--white); color: var(--black);
+      padding: 100px max(80px, 10%);
+    }
+    .test-tag {
+      font-family: var(--font-body);
+      font-size: 11px; letter-spacing: .16em;
+      color: #999; text-transform: uppercase; margin-bottom: 20px;
+      text-align: center;
+    }
+    .test-title {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 700;
+      letter-spacing: -.03em; text-transform: uppercase;
+      line-height: 1.1; margin-bottom: 48px; color: var(--black);
+      text-align: center;
+    }
+    .test-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      max-width: 980px;
+      margin: 0 auto 40px;
+    }
+    .test-card {
+      background: #fff;
+      border: 1px solid #e3e3e3;
+      border-radius: 8px;
+      padding: 24px;
+      font-family: 'Google Sans', Arial, sans-serif;
+    }
+    .test-head { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+    .test-avatar {
+      width: 40px; height: 40px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      color: #fff; font-family: var(--font-body); font-weight: 600; font-size: 16px;
+      flex-shrink: 0;
+    }
+    .test-avatar.a1 { background: #1a73e8; }
+    .test-avatar.a2 { background: #d93025; }
+    .test-name { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #202124; }
+    .test-meta { font-family: var(--font-body); font-size: 12px; color: #70757a; margin-top: 1px; }
+    .test-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
+    .test-stars { color: #fbbc04; font-size: 14px; letter-spacing: 1px; }
+    .test-time { font-family: var(--font-body); font-size: 12px; color: #70757a; }
+    .test-body { font-family: var(--font-body); font-size: 14px; color: #3c4043; line-height: 1.6; }
+    .test-reply {
+      margin-top: 14px; padding: 12px 14px;
+      background: #f8f9fa; border-radius: 6px;
+    }
+    .test-reply-label { font-family: var(--font-body); font-size: 12px; font-weight: 600; color: #202124; margin-bottom: 4px; }
+    .test-reply-body { font-family: var(--font-body); font-size: 13px; color: #3c4043; line-height: 1.55; }
+    .test-cta { text-align: center; }
+    .test-cta a {
+      display: inline-flex; align-items: center; gap: 10px;
+      font-family: var(--font-body); font-size: 13px; font-weight: 600;
+      letter-spacing: .04em; text-transform: uppercase;
+      color: var(--black); text-decoration: none;
+      border-bottom: 1px solid rgba(0,0,0,.25);
+      padding-bottom: 4px;
+      transition: border-color .2s;
+    }
+    .test-cta a:hover { border-color: var(--black); }
+    @media (max-width: 768px) {
+      #testimonials { padding: 60px 24px; }
+      .test-grid { grid-template-columns: 1fr; }
+    }
+
     #contact {
       background: var(--white); color: var(--black);
       padding: 120px 48px;
@@ -1018,6 +1089,53 @@
       <div class="pitem"><img src="Valentina_landing_gif.gif" alt="Diseño web portfolio — LIS Creative Studio" /></div>
     </div>
   </section>
+  <!-- ══ TESTIMONIALS ══ -->
+  <section id="testimonials" data-nav-theme="dark">
+    <p class="test-tag fi">Reseñas</p>
+    <h2 class="test-title fi">Lo que dicen sobre LIS</h2>
+
+    <div class="test-grid">
+      <div class="test-card fi">
+        <div class="test-head">
+          <div class="test-avatar a1">A</div>
+          <div>
+            <div class="test-name">Augusto Iadanza</div>
+            <div class="test-meta">Local Guide · 23 reseñas · 2 fotos</div>
+          </div>
+        </div>
+        <div class="test-rating">
+          <span class="test-stars">★★★★★</span>
+          <span class="test-time">Hace 10 meses</span>
+        </div>
+        <p class="test-body">Cuando contacté a LIS. no tenía muy en claro el diseño de nuestro sitio web. Gracias a su equipo creamos una nueva marca y un sitio web funcional acorde a nuestras necesidades, logrando nuestros objetivos. Recomiendo al 100%.</p>
+        <div class="test-reply">
+          <div class="test-reply-label">Respuesta del propietario · Hace 10 meses</div>
+          <div class="test-reply-body">Muchas gracias Augus por la reseña! Nos alegramos mucho haber cumplidos sus expectativas!!</div>
+        </div>
+      </div>
+
+      <div class="test-card fi">
+        <div class="test-head">
+          <div class="test-avatar a2">L</div>
+          <div>
+            <div class="test-name">Leonardo Calvet</div>
+            <div class="test-meta">Local Guide · 285 reseñas · 122 fotos</div>
+          </div>
+        </div>
+        <div class="test-rating">
+          <span class="test-stars">★★★★★</span>
+          <span class="test-time">Hace 6 años</span>
+        </div>
+        <p class="test-body">Necesitaba unos ajustes con mi logo y poder tenerlo en Giphy, y me lo hizo en menos de 24 horas cuando habíamos pactado 48!!! Super genia!!!</p>
+      </div>
+    </div>
+
+    <div class="test-cta fi">
+      <!-- TODO Orni: reemplazar # por tu link de Google (g.page/r/XXXXX/review) -->
+      <a href="https://g.page/r/CZe31SeGF55PEBM/review" target="_blank" rel="noopener">Dejá tu reseña en Google →</a>
+    </div>
+  </section>
+
   <!-- ══ CTA ══ -->
   <section id="contact" data-nav-theme="dark">
     <p class="cta-sub fi">¿Empezamos?</p>

@@ -885,8 +885,19 @@
       color: rgba(245,244,241,.5); text-decoration: none; transition: color .2s;
     }
     .footer-social-block a:hover { color: var(--white); }
-    .we-badge { display: inline-flex !important; align-items: center; gap: 7px; margin-top: 6px; }
-    .we-badge-icon { width: 24px; height: 24px; border-radius: 5px; flex-shrink: 0; }
+    .we-badge {
+      display: inline-flex !important;
+      align-items: center; gap: 10px;
+      margin-top: 10px;
+      padding: 8px 14px 8px 8px;
+      border: 1px solid rgba(245,244,241,.18);
+      border-radius: 8px;
+      width: fit-content;
+      font-size: 13px !important;
+      transition: border-color .2s, background .2s;
+    }
+    .we-badge:hover { border-color: rgba(245,244,241,.4); background: rgba(245,244,241,.04); }
+    .we-badge-icon { width: 40px; height: 40px; border-radius: 7px; flex-shrink: 0; }
     .footer-bottom-right {
       border-left: 1px solid rgba(245,244,241,.07); padding: 40px 48px;
     }

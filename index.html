@@ -832,106 +832,47 @@
     /* ══════════════════════════════
        FOOTER
     ══════════════════════════════ */
-    .footer-new { background: var(--white); color: var(--black); }
-    .footer-phrase {
-      overflow: hidden;
-      border-top: 1px solid rgba(10,10,10,.08);
-      border-bottom: 1px solid rgba(10,10,10,.08);
-      padding: 13px 0;
-    }
-    .footer-phrase-inner {
-      display: flex; gap: 32px; width: max-content;
-      animation: footerMarquee 24s linear infinite;
-      font-family: var(--font-body); font-size: 11px;
-      letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(10,10,10,.32);
-    }
-    @keyframes footerMarquee {
-      from { transform: translateX(0); }
-      to   { transform: translateX(-50%); }
-    }
-    .footer-top { padding: 80px 48px 48px; }
-    .footer-tagline {
-      font-family: var(--font-display);
-      font-size: clamp(4rem, 9vw, 9rem); font-weight: 800;
-      letter-spacing: -.04em; text-transform: uppercase;
-      line-height: .88; color: var(--black);
-    }
-    .footer-tagline-sub { color: rgba(10,10,10,.08); }
-    .footer-geo {
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 48px; margin-bottom: 64px; gap: 24px;
-    }
-    .footer-geo-text {
-      font-family: var(--font-body); font-size: 11px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(10,10,10,.35);
-    }
-    .footer-geo-img { width: 80px; height: 50px; overflow: hidden; border-radius: 3px; }
-    .footer-geo-img img { width:100%; height:100%; object-fit:cover; display:block; }
-    .footer-bottom-grid {
-      display: grid; grid-template-columns: 1fr 1fr;
-      border-top: 1px solid rgba(10,10,10,.08);
-    }
-    .footer-bottom-left { display: flex; gap: 32px; align-items: flex-start; padding: 40px 48px; }
-    .footer-sillon-img { width: 90px; flex-shrink: 0; }
-    .footer-sillon-img img { width:100%; display:block; border-radius: 2px; }
-    .footer-social-block { display: flex; flex-direction: column; gap: 8px; }
-    .footer-social-label {
-      font-family: var(--font-body); font-size: 10px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(10,10,10,.3); margin-bottom: 4px;
-    }
-    .footer-social-block a {
-      font-family: var(--font-body); font-size: 13px;
-      color: rgba(10,10,10,.6); text-decoration: none; transition: color .2s;
-    }
-    .footer-social-block a:hover { color: var(--black); }
-    .we-badge {
-      display: inline-flex !important;
-      align-items: center; gap: 10px;
-      margin-top: 10px;
-      padding: 8px 14px 8px 8px;
-      border: 1px solid rgba(10,10,10,.15);
-      border-radius: 8px;
-      width: fit-content;
-      font-size: 13px !important;
-      transition: border-color .2s, background .2s;
-    }
-    .we-badge:hover { border-color: rgba(10,10,10,.35); background: rgba(10,10,10,.03); }
-    .we-badge-icon { width: 40px; height: 40px; border-radius: 7px; flex-shrink: 0; }
-    .footer-bottom-right {
-      border-left: 1px solid rgba(10,10,10,.08); padding: 40px 48px;
-    }
-    .footer-nl-label {
-      font-family: var(--font-body); font-size: 10px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(10,10,10,.3); margin-bottom: 16px;
-    }
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-family: var(--font-body); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-family: var(--font-body); font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-family: var(--font-body); font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-family: var(--font-body); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .we-badge { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 4px; padding: 6px 12px 6px 6px; border: 1px solid var(--light); border-radius: 8px; width: fit-content; font-size: 14px !important; opacity: 1 !important; transition: border-color .2s, background .2s; }
+    .we-badge:hover { border-color: #ccc; background: #fafafa; opacity: 1 !important; }
+    .we-badge-icon { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-family: var(--font-body); font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
     .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
     .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
     .footer-ml-wrap .ml-form-embedContent { display: none; }
     .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
     .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
-    .footer-ml-wrap .ml-form-fieldRow input {
-      border-radius: 0 !important; border-color: rgba(10,10,10,.18) !important;
-      font-family: 'Inter', sans-serif !important; font-size: 13px !important;
-      padding: 10px 14px !important; background: transparent !important;
-      width: 100% !important; box-sizing: border-box !important; color: var(--black) !important;
-    }
+    .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
     .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
-    .footer-ml-wrap .ml-form-embedSubmit button {
-      border-radius: 0 !important; font-family: 'Inter', sans-serif !important;
-      font-size: 13px !important; font-weight: 500 !important;
-      background-color: var(--black) !important; color: #f5f4f1 !important;
-      padding: 10px 20px !important; width: 100% !important;
-    }
+    .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+    .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
     @media (max-width: 768px) {
-      .footer-top { padding: 48px 24px 32px; }
-      .footer-tagline { font-size: clamp(3rem, 12vw, 6rem); }
-      .footer-geo { padding: 0 24px; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
       .footer-bottom-grid { grid-template-columns: 1fr; }
-      .footer-bottom-left { padding: 32px 24px; }
-      .footer-bottom-right {
-        border-left: none; border-top: 1px solid rgba(10,10,10,.08); padding: 32px 24px;
-      }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
     }
 
   </style>
@@ -1252,26 +1193,10 @@
   </section>
 
   <!-- ══ FOOTER ══ -->
-  <footer class="footer-new" data-nav-theme="dark">
-    <div class="footer-phrase">
-      <div class="footer-phrase-inner">
-        <span>LIS. Creative Studio</span><span>·</span>
-        <span>Identidad Visual</span><span>·</span>
-        <span>Diseño Web</span><span>·</span>
-        <span>Branding Completo</span><span>·</span>
-        <span>Rosario, Argentina</span><span>·</span>
-        <span>Worldwide</span><span>·</span>
-        <span>LIS. Creative Studio</span><span>·</span>
-        <span>Identidad Visual</span><span>·</span>
-        <span>Diseño Web</span><span>·</span>
-        <span>Branding Completo</span><span>·</span>
-        <span>Rosario, Argentina</span><span>·</span>
-        <span>Worldwide</span><span>·</span>
-      </div>
-    </div>
+  <footer>
     <div class="footer-top">
-      <p class="footer-tagline">UN ESTUDIO</p>
-      <p class="footer-tagline footer-tagline-sub">CREATIVO</p>
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
     </div>
     <div class="footer-geo">
       <span class="footer-geo-text">Argentina</span>
@@ -1282,7 +1207,7 @@
       <div class="footer-bottom-left">
         <div class="footer-sillon-img"><img src="sillon-globo.webp" alt="LIS Studio" /></div>
         <div class="footer-social-block">
-          <p class="footer-social-label">Redes sociales</p>
+          <p class="footer-social-label">Social media</p>
           <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
           <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
           <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
@@ -1293,42 +1218,38 @@
         </div>
       </div>
       <div class="footer-bottom-right">
-        <p class="footer-nl-label">Newsletter — Sin spam, prometido.</p>
+        <p class="footer-nl-label">Newsletter. ¡No spam, lo prometemos!</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
         <div class="footer-ml-wrap">
           <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
-            <div class="ml-form-align-center">
-              <div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <div class="ml-form-embedContent" style="margin-bottom:0"></div>
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
-                    <div class="ml-form-formContent">
-                      <div class="ml-form-fieldRow">
-                        <div class="ml-field-group ml-field-name">
-                          <input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name">
-                        </div>
-                      </div>
-                      <div class="ml-form-fieldRow ml-last-item">
-                        <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                          <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email">
-                        </div>
-                      </div>
-                    </div>
-                    <input type="hidden" name="ml-submit" value="1">
-                    <div class="ml-form-embedSubmit">
-                      <button type="submit" class="primary">Suscribirse</button>
-                      <button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button>
-                    </div>
-                    <input type="hidden" name="anticsrf" value="true">
-                  </form>
-                </div>
-                <div class="ml-form-successBody row-success" style="display:none">
-                  <div class="ml-form-successContent">
-                    <h4 style="color:var(--white);font-family:'Manrope',sans-serif;">¡Gracias!</h4>
-                    <p style="color:rgba(245,244,241,.55);font-size:13px;margin-top:4px;">Ya estás suscripta.</p>
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
                   </div>
-                </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Suscribite</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
               </div>
-            </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Te suscribiste correctamente.</p></div></div>
+            </div></div>
           </div>
         </div>
       </div>

@@ -832,11 +832,11 @@
     /* ══════════════════════════════
        FOOTER
     ══════════════════════════════ */
-    .footer-new { background: var(--black); color: var(--white); }
+    .footer-new { background: var(--white); color: var(--black); }
     .footer-phrase {
       overflow: hidden;
-      border-top: 1px solid rgba(245,244,241,.07);
-      border-bottom: 1px solid rgba(245,244,241,.07);
+      border-top: 1px solid rgba(10,10,10,.08);
+      border-bottom: 1px solid rgba(10,10,10,.08);
       padding: 13px 0;
     }
     .footer-phrase-inner {
@@ -844,7 +844,7 @@
       animation: footerMarquee 24s linear infinite;
       font-family: var(--font-body); font-size: 11px;
       letter-spacing: .14em; text-transform: uppercase;
-      color: rgba(245,244,241,.24);
+      color: rgba(10,10,10,.32);
     }
     @keyframes footerMarquee {
       from { transform: translateX(0); }
@@ -855,22 +855,22 @@
       font-family: var(--font-display);
       font-size: clamp(4rem, 9vw, 9rem); font-weight: 800;
       letter-spacing: -.04em; text-transform: uppercase;
-      line-height: .88; color: var(--white);
+      line-height: .88; color: var(--black);
     }
-    .footer-tagline-sub { color: rgba(245,244,241,.1); }
+    .footer-tagline-sub { color: rgba(10,10,10,.08); }
     .footer-geo {
       display: flex; align-items: center; justify-content: space-between;
       padding: 0 48px; margin-bottom: 64px; gap: 24px;
     }
     .footer-geo-text {
       font-family: var(--font-body); font-size: 11px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(245,244,241,.28);
+      text-transform: uppercase; color: rgba(10,10,10,.35);
     }
     .footer-geo-img { width: 80px; height: 50px; overflow: hidden; border-radius: 3px; }
     .footer-geo-img img { width:100%; height:100%; object-fit:cover; display:block; }
     .footer-bottom-grid {
       display: grid; grid-template-columns: 1fr 1fr;
-      border-top: 1px solid rgba(245,244,241,.07);
+      border-top: 1px solid rgba(10,10,10,.08);
     }
     .footer-bottom-left { display: flex; gap: 32px; align-items: flex-start; padding: 40px 48px; }
     .footer-sillon-img { width: 90px; flex-shrink: 0; }
@@ -878,32 +878,32 @@
     .footer-social-block { display: flex; flex-direction: column; gap: 8px; }
     .footer-social-label {
       font-family: var(--font-body); font-size: 10px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(245,244,241,.2); margin-bottom: 4px;
+      text-transform: uppercase; color: rgba(10,10,10,.3); margin-bottom: 4px;
     }
     .footer-social-block a {
       font-family: var(--font-body); font-size: 13px;
-      color: rgba(245,244,241,.5); text-decoration: none; transition: color .2s;
+      color: rgba(10,10,10,.6); text-decoration: none; transition: color .2s;
     }
-    .footer-social-block a:hover { color: var(--white); }
+    .footer-social-block a:hover { color: var(--black); }
     .we-badge {
       display: inline-flex !important;
       align-items: center; gap: 10px;
       margin-top: 10px;
       padding: 8px 14px 8px 8px;
-      border: 1px solid rgba(245,244,241,.18);
+      border: 1px solid rgba(10,10,10,.15);
       border-radius: 8px;
       width: fit-content;
       font-size: 13px !important;
       transition: border-color .2s, background .2s;
     }
-    .we-badge:hover { border-color: rgba(245,244,241,.4); background: rgba(245,244,241,.04); }
+    .we-badge:hover { border-color: rgba(10,10,10,.35); background: rgba(10,10,10,.03); }
     .we-badge-icon { width: 40px; height: 40px; border-radius: 7px; flex-shrink: 0; }
     .footer-bottom-right {
-      border-left: 1px solid rgba(245,244,241,.07); padding: 40px 48px;
+      border-left: 1px solid rgba(10,10,10,.08); padding: 40px 48px;
     }
     .footer-nl-label {
       font-family: var(--font-body); font-size: 10px; letter-spacing: .14em;
-      text-transform: uppercase; color: rgba(245,244,241,.2); margin-bottom: 16px;
+      text-transform: uppercase; color: rgba(10,10,10,.3); margin-bottom: 16px;
     }
     .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
     .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
@@ -911,16 +911,16 @@
     .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
     .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
     .footer-ml-wrap .ml-form-fieldRow input {
-      border-radius: 0 !important; border-color: rgba(245,244,241,.18) !important;
+      border-radius: 0 !important; border-color: rgba(10,10,10,.18) !important;
       font-family: 'Inter', sans-serif !important; font-size: 13px !important;
       padding: 10px 14px !important; background: transparent !important;
-      width: 100% !important; box-sizing: border-box !important; color: var(--white) !important;
+      width: 100% !important; box-sizing: border-box !important; color: var(--black) !important;
     }
     .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
     .footer-ml-wrap .ml-form-embedSubmit button {
       border-radius: 0 !important; font-family: 'Inter', sans-serif !important;
       font-size: 13px !important; font-weight: 500 !important;
-      background-color: var(--white) !important; color: #0a0a0a !important;
+      background-color: var(--black) !important; color: #f5f4f1 !important;
       padding: 10px 20px !important; width: 100% !important;
     }
     @media (max-width: 768px) {
@@ -930,7 +930,7 @@
       .footer-bottom-grid { grid-template-columns: 1fr; }
       .footer-bottom-left { padding: 32px 24px; }
       .footer-bottom-right {
-        border-left: none; border-top: 1px solid rgba(245,244,241,.07); padding: 32px 24px;
+        border-left: none; border-top: 1px solid rgba(10,10,10,.08); padding: 32px 24px;
       }
     }
 
@@ -1245,7 +1245,7 @@
   <section id="contact" data-nav-theme="dark">
     <p class="cta-sub fi">¿Empezamos?</p>
     <h2 class="cta-title fi">TRABAJEMOS<br>JUNTAS.</h2>
-   <a href="https://forms.fillout.com/t/dP1dkTKuaKus" target="_blank" class="cta-btn fi" onclick="if(typeof gtag==='function'){gtag('event','contacto_click');}">
+   <a href="https://forms.fillout.com/t/b5HXXbUv3Xus?name=xxxxx" target="_blank" class="cta-btn fi" onclick="if(typeof gtag==='function'){gtag('event','contacto_click');}">
       Contacto
       <svg viewBox="0 0 14 14"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
     </a>

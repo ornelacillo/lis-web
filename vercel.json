@@ -2,9 +2,47 @@
   "cleanUrls": true,
   "trailingSlash": false,
   "redirects": [
-    { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/about", "destination": "/#about", "permanent": true },
-    { "source": "/contact", "destination": "/#contact", "permanent": true },
-    { "source": "/portfolio", "destination": "/#portfolio", "permanent": true }
+    {
+      "source": "/home",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/about",
+      "destination": "/#about",
+      "permanent": true
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/portfolio",
+      "destination": "/#portfolio",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/",
+      "has": [
+        {
+          "type": "host",
+          "value": "peque.liscreativestudio.com"
+        }
+      ],
+      "destination": "/peque"
+    },
+    {
+      "source": "/:path((?!peque/).*)",
+      "has": [
+        {
+          "type": "host",
+          "value": "peque.liscreativestudio.com"
+        }
+      ],
+      "destination": "/peque/:path"
+    }
   ]
 }

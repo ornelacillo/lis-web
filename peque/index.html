@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mi día · Tarjetas de rutina ilustradas | Peque Studio</title>
+<meta name="description" content="Tarjetas de rutina ilustradas para peques de 2 a 5 años. Una protagonista que tu peque va a querer, un diseño que queda lindo en tu casa y palabras de acá. PDF para imprimir.">
+<meta property="og:title" content="Mi día · Tarjetas de rutina ilustradas">
+<meta property="og:description" content="Su día, paso a paso, en dibujos que entiende. Para peques de 2 a 5 años.">
+<meta property="og:image" content="https://peque.liscreativestudio.com/peque/img/pdf-portada.webp">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FBF6EC">
+<link rel="icon" href="/peque/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF6EC;
+    --paper: #FFFDF8;
+    --terra: #C0704F;
+    --terra-dark: #9E5539;
+    --sage: #9DAF8F;
+    --sage-dark: #5F7654;
+    --sage-soft: #E4EADD;
+    --mustard: #D2A44A;
+    --mustard-soft: #F4E6C6;
+    --ink: #4A3429;
+    --soft: #7D6A5C;
+    --line: #E8DCCB;
+    --radius: 18px;
+    --hand: "Gochi Hand", cursive;
+    --sans: "Manrope", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .hand { font-family: var(--hand); font-weight: 400; }
+  section { padding: 72px 0; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--terra-dark);
+  }
+  h1, h2, h3 { line-height: 1.12; font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(30px, 6vw, 46px); margin: 10px 0 18px; }
+  h2 .hand { color: var(--terra); font-size: 1.15em; letter-spacing: 0; }
+  .lead { font-size: 18px; color: var(--soft); max-width: 620px; }
+
+  /* ---------- botones ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px; padding: 0 28px;
+    border-radius: 999px; border: 0;
+    font: 800 17px/1 var(--sans);
+    text-decoration: none; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-buy { background: var(--terra-dark); color: #fff; box-shadow: 0 6px 0 #7A3F28; }
+  .btn-buy:hover { background: #8E4B31; }
+  .btn-soft { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+  .btn-soft:hover { background: var(--ink); color: var(--cream); }
+  :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 8px; }
+
+  /* ---------- header ---------- */
+  header { padding: 18px 0; }
+  header .wrap { display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: var(--hand); font-size: 30px; color: var(--terra); text-decoration: none; line-height: 1; }
+  .logo small { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: .14em; color: var(--soft); display: block; text-transform: uppercase; margin-top: 2px; }
+  .header-link { font-weight: 700; font-size: 15px; text-decoration: none; border-bottom: 2px solid var(--mustard); }
+
+  /* ---------- hero ---------- */
+  .hero { padding: 24px 0 72px; }
+  .hero .wrap { display: grid; gap: 40px; align-items: center; }
+  .hero h1 { margin: 14px 0 18px; }
+  .hero h1 { font-size: clamp(32px, 7.4vw, 50px); }
+  .hero h1 .hand-top { display: block; color: var(--terra); font-size: 1.45em; letter-spacing: 0; line-height: 1; margin-bottom: 12px; transform: rotate(-2deg); transform-origin: left; }
+  .hero p.lead { color: var(--ink); opacity: .85; }
+  .chips { display: flex; flex-wrap: wrap; gap: 8px; margin: 22px 0 28px; list-style: none; }
+  .chips li { background: var(--paper); border: 1.5px solid var(--line); border-radius: 999px; padding: 6px 14px; font-size: 14px; font-weight: 700; }
+
+  /* tablero animado */
+  .board {
+    --pad: 12px; --gap: 12px; --slot: clamp(96px, 26vw, 150px);
+    display: grid; grid-template-columns: 1fr 1fr; gap: var(--gap);
+    background: var(--paper);
+    padding: 16px; border-radius: 26px;
+    box-shadow: 0 30px 60px -30px rgba(74, 52, 41, .35);
+    position: relative;
+    max-width: 440px; margin: 0 auto; width: 100%;
+    transform: rotate(-1.2deg);
+  }
+  .board::before { /* imán */
+    content: ""; position: absolute; top: -12px; left: 50%; width: 34px; height: 34px; margin-left: -17px;
+    background: var(--terra); border-radius: 50%; box-shadow: inset 0 -4px 0 rgba(0,0,0,.15);
+  }
+  .col { border-radius: 16px; padding: var(--pad); display: grid; gap: 10px; align-content: start; }
+  .col-todo { background: var(--mustard); }
+  .col-done { background: var(--sage); }
+  .col h3 { font-size: 15px; font-weight: 800; color: var(--ink); display: flex; align-items: center; gap: 6px; }
+  .col-done h3 { color: #22301C; }
+  .slot {
+    aspect-ratio: 1; border-radius: 12px; border: 2px dashed rgba(255,255,255,.75);
+    position: relative;
+  }
+  .mini {
+    position: absolute; inset: 0;
+    background: var(--cream); border: 2px solid var(--terra); border-radius: 12px;
+    display: grid; place-items: center; padding: 6px;
+  }
+  .mini img { width: 100%; height: 100%; object-fit: contain; }
+  .mover { z-index: 2; animation: move 6s ease-in-out infinite; }
+  .check-pop {
+    position: absolute; top: -10px; right: -10px; width: 30px; height: 30px; border-radius: 50%;
+    background: var(--terra-dark); display: grid; place-items: center; opacity: 0; transform: scale(.4);
+    animation: pop 6s ease-in-out infinite;
+  }
+  @keyframes move {
+    0%, 22% { transform: translateX(0) rotate(0); }
+    45%     { transform: translateX(calc(50% + var(--pad) + var(--gap) / 2)) translateY(-18px) rotate(4deg); }
+    62%, 100% { transform: translateX(calc(100% + 2 * var(--pad) + var(--gap))) rotate(0); }
+  }
+  @keyframes pop {
+    0%, 60% { opacity: 0; transform: scale(.4); }
+    68%, 92% { opacity: 1; transform: scale(1); }
+    100% { opacity: 0; transform: scale(.4); }
+  }
+  .board-note { text-align: center; font-family: var(--hand); font-size: 22px; color: var(--soft); margin-top: 18px; }
+
+  /* ---------- problema ---------- */
+  .problem { background: var(--paper); border-top: 1.5px solid var(--line); border-bottom: 1.5px solid var(--line); }
+  .problem .wrap { display: grid; gap: 36px; }
+  .bubble {
+    font-family: var(--hand); font-size: clamp(38px, 10vw, 84px); line-height: 1; color: var(--terra); white-space: nowrap;
+    position: relative; display: inline-block; padding: 26px 34px;
+    background: var(--cream); border-radius: 40px; transform: rotate(-3deg);
+  }
+  .bubble::after {
+    content: ""; position: absolute; bottom: -18px; left: 48px;
+    border-width: 20px 14px 0 14px; border-style: solid; border-color: var(--cream) transparent transparent transparent;
+  }
+  .problem p { margin-bottom: 16px; max-width: 620px; }
+  .problem .want {
+    margin-top: 26px; padding: 22px 24px; border-left: 5px solid var(--sage);
+    background: var(--sage-soft); border-radius: 0 16px 16px 0; font-weight: 600;
+  }
+
+  /* ---------- la peque ---------- */
+  .meet .wrap { display: grid; gap: 28px; align-items: center; }
+  .meet figure { background: var(--mustard-soft); border-radius: 32px; padding: 26px 14px 14px; }
+  .meet figcaption { font-family: var(--hand); font-size: 22px; text-align: center; color: var(--soft); margin-top: 6px; }
+  .sign { font-family: var(--hand); font-size: 30px; color: var(--terra); margin-top: 10px; }
+
+  /* ---------- día (tira) ---------- */
+  .day-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
+  .strip {
+    display: grid; grid-auto-flow: column; grid-auto-columns: 200px; gap: 16px;
+    overflow-x: auto; scroll-snap-type: x mandatory; padding: 26px 20px 20px;
+    margin: 0 -20px; scrollbar-width: thin;
+  }
+  .card {
+    scroll-snap-align: start;
+    background: var(--cream); border: 2px solid var(--terra); border-radius: 16px;
+    padding: 12px 12px 14px; text-align: center; box-shadow: 0 10px 20px -16px rgba(74,52,41,.5);
+  }
+  .card:nth-child(odd) { transform: rotate(-1deg); }
+  .card:nth-child(even) { transform: rotate(1deg); }
+  .card img { aspect-ratio: 1; object-fit: contain; width: 100%; }
+  .card span { display: block; font-weight: 800; font-size: 15px; margin-top: 6px; }
+  .card .n { font-size: 11px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; color: var(--soft); margin: 0 0 4px; display: flex; align-items: center; justify-content: center; gap: 6px; }
+  .dot { width: 9px; height: 9px; border-radius: 50%; display: inline-block; }
+  .dot.m { background: var(--mustard); } .dot.t { background: var(--sage); } .dot.n { background: var(--terra); } .dot.e { background: var(--ink); }
+  .strip-more { display: grid; place-items: center; text-align: center; border: 2px dashed var(--terra); border-radius: 16px; padding: 20px; background: transparent; font-weight: 700; color: var(--terra-dark); scroll-snap-align: start; }
+  .strip-more b { font-family: var(--hand); font-size: 44px; font-weight: 400; display: block; line-height: 1; }
+  .moments { display: flex; gap: 8px; flex-wrap: wrap; }
+  .moments span { font-size: 13px; font-weight: 800; padding: 6px 14px; border-radius: 999px; color: var(--ink); }
+
+  /* ---------- incluye ---------- */
+  .includes { background: var(--paper); }
+  .bento { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin-top: 34px; }
+  .tile { background: var(--cream); border-radius: var(--radius); padding: 14px; display: flex; flex-direction: column; gap: 12px; }
+  .tile .shot { border-radius: 10px; overflow: hidden; box-shadow: 0 16px 30px -18px rgba(74,52,41,.55); }
+  .tile .shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: top; }
+  .tile.wide .shot img { aspect-ratio: 16 / 10; }
+  .tile.big { grid-column: 1 / -1; }
+  .tile h3 { font-size: 17px; }
+  .tile p { font-size: 14.5px; color: var(--soft); line-height: 1.5; }
+  .tile .tag { font-family: var(--hand); font-size: 20px; color: var(--terra); line-height: 1; }
+
+  /* ---------- beneficios ---------- */
+  .benefits ol { list-style: none; display: grid; gap: 0; margin-top: 30px; counter-reset: b; }
+  .benefits li {
+    counter-increment: b; display: grid; grid-template-columns: 56px 1fr; gap: 14px;
+    padding: 22px 0; border-top: 1.5px solid var(--line);
+  }
+  .benefits li::before {
+    content: counter(b); font-family: var(--hand); font-size: 44px; line-height: 1; color: var(--terra);
+  }
+  .benefits h3 { font-size: 19px; margin-bottom: 4px; }
+  .benefits p { color: var(--soft); font-size: 16px; }
+
+  /* ---------- cómo funciona ---------- */
+  .how { background: var(--sage); color: #1F2B1A; }
+  .how h2 .hand { color: #fff; }
+  .steps { display: grid; gap: 14px; margin-top: 30px; counter-reset: s; list-style: none; }
+  .steps li { background: var(--paper); color: var(--ink); border-radius: var(--radius); padding: 22px; counter-increment: s; }
+  .steps li::before { content: "Paso " counter(s); font-family: var(--hand); font-size: 22px; color: var(--sage-dark); display: block; }
+  .steps h3 { font-size: 20px; margin: 2px 0 6px; }
+  .steps p { font-size: 15.5px; color: var(--soft); }
+
+  /* ---------- bonus (recortables) ---------- */
+  .coupons { display: grid; gap: 16px; margin-top: 30px; }
+  .coupon {
+    position: relative; background: var(--paper); border-radius: 16px; padding: 22px 22px 22px 26px;
+    outline: 2px dashed var(--terra); outline-offset: -8px;
+  }
+  .coupon .scissors { position: absolute; top: -13px; left: 22px; background: var(--cream); padding: 0 6px; color: var(--terra); }
+  .coupon .kind { font-size: 12px; font-weight: 800; letter-spacing: .1em; text-transform: uppercase; color: var(--terra-dark); }
+  .coupon h3 { font-size: 21px; margin: 4px 0 6px; }
+  .coupon h3 .hand { color: var(--terra); font-size: 1.2em; }
+  .coupon p { font-size: 15.5px; color: var(--soft); }
+
+  /* ---------- precio ---------- */
+  .price { text-align: center; }
+  .ticket {
+    max-width: 560px; margin: 30px auto 0; background: var(--paper);
+    border-radius: 28px; padding: 36px 24px; position: relative;
+    box-shadow: 0 30px 60px -30px rgba(74,52,41,.4);
+    outline: 2.5px dashed var(--terra); outline-offset: -12px;
+  }
+  .ticket ul { list-style: none; text-align: left; display: grid; gap: 8px; margin: 18px auto 24px; max-width: 400px; }
+  .ticket li { display: grid; grid-template-columns: 24px 1fr; gap: 8px; font-size: 15.5px; }
+  .ticket li svg { margin-top: 3px; }
+  .old { color: var(--soft); font-size: 17px; font-weight: 600; } .old s { font-weight: 800; }
+  .now { font-size: clamp(48px, 12vw, 64px); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; }
+  .launch { display: inline-block; background: var(--mustard); color: var(--ink); font-weight: 800; font-size: 13px; padding: 6px 14px; border-radius: 999px; margin-bottom: 8px; }
+  .stack { list-style: none; text-align: left; margin: 18px auto 24px; max-width: 420px; display: grid; gap: 0; }
+  .stack li { display: flex; justify-content: space-between; gap: 14px; padding: 9px 0; border-bottom: 1px dashed var(--line); font-size: 15px; }
+  .stack li s { color: var(--soft); white-space: nowrap; }
+  .stack li.total { font-weight: 800; border-bottom: 0; padding-top: 14px; }
+  .stack li.today { font-weight: 800; color: var(--terra-dark); font-size: 17px; border-bottom: 0; padding-top: 0; }
+  .mid-cta { text-align: center; margin-top: 36px; }
+  .mid-cta small { display: block; margin-top: 10px; color: var(--soft); font-size: 13.5px; }
+  .why { font-family: var(--hand); font-size: 22px; color: var(--terra); margin-top: 4px; }
+  .fine { font-size: 13.5px; color: var(--soft); margin-top: 16px; }
+  .ticket .btn { width: 100%; max-width: 400px; }
+
+  /* ---------- faq ---------- */
+  .faq { background: var(--paper); }
+  .faq-list { margin-top: 26px; max-width: 760px; }
+  details { border-top: 1.5px solid var(--line); }
+  details:last-child { border-bottom: 1.5px solid var(--line); }
+  summary {
+    list-style: none; cursor: pointer; padding: 20px 40px 20px 0; font-weight: 700; font-size: 17px; position: relative;
+  }
+  summary::-webkit-details-marker { display: none; }
+  summary::after {
+    content: "+"; position: absolute; right: 4px; top: 50%; transform: translateY(-50%);
+    font-family: var(--hand); font-size: 32px; color: var(--terra); transition: transform .2s;
+  }
+  details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
+  details p { padding: 0 0 20px; color: var(--soft); max-width: 640px; }
+
+  /* ---------- cierre ---------- */
+  .closing { text-align: center; }
+  .closing img { width: min(420px, 90%); margin: 0 auto 10px; }
+  .closing h2 { max-width: 700px; margin-left: auto; margin-right: auto; }
+  .closing .lead { margin: 0 auto 28px; }
+
+  footer { padding: 36px 0 110px; border-top: 1.5px solid var(--line); font-size: 14px; color: var(--soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; }
+  footer a { color: var(--ink); font-weight: 700; }
+
+  /* ---------- barra fija mobile ---------- */
+  .sticky {
+    position: fixed; left: 12px; right: 12px; bottom: 12px; z-index: 50;
+    display: flex; align-items: center; justify-content: space-between; gap: 12px;
+    background: var(--ink); color: var(--cream); border-radius: 999px; padding: 8px 8px 8px 20px;
+    box-shadow: 0 14px 30px -12px rgba(0,0,0,.45);
+    transform: translateY(140%); transition: transform .3s ease;
+  }
+  .sticky.show { transform: translateY(0); }
+  .sticky b { font-size: 15px; }
+  .sticky small { display: block; font-size: 12px; opacity: .75; font-weight: 600; }
+  .sticky .btn { min-height: 46px; padding: 0 20px; font-size: 15px; box-shadow: none; background: var(--terra); }
+
+  /* ---------- reveal ---------- */
+  .reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ---------- desktop ---------- */
+  @media (min-width: 860px) {
+    section { padding: 110px 0; }
+    .hero { padding: 40px 0 110px; }
+    .hero .wrap { grid-template-columns: 1.05fr .95fr; gap: 56px; }
+    .board { max-width: 360px; }
+    .problem .wrap { grid-template-columns: .9fr 1.1fr; align-items: center; gap: 60px; }
+    .meet .wrap { grid-template-columns: 1fr 1fr; gap: 60px; }
+    .meet figure { order: 2; }
+    .strip { grid-auto-columns: 220px; }
+    .bento { grid-template-columns: repeat(6, 1fr); gap: 18px; }
+    .tile { grid-column: span 2; }
+    .tile.big { grid-column: span 3; }
+    .tile.wide { grid-column: span 4; }
+    .benefits .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
+    .benefits ol { margin-top: 0; }
+    .steps { grid-template-columns: repeat(3, 1fr); }
+    .coupons { grid-template-columns: 1fr 1fr; gap: 22px; }
+    .sticky { display: none; }
+    footer { padding-bottom: 36px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    .mover { animation: none; transform: translateX(calc(100% + 2 * var(--pad) + var(--gap))); }
+    .check-pop { animation: none; opacity: 1; transform: none; }
+    .reveal { opacity: 1; transform: none; transition: none; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Peque Studio, inicio">Peque Studio<small>por Ornela Cillo</small></a>
+    <a class="header-link" href="#precio">Ver precio</a>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Kit "Mi día" · Para peques de 2 a 5 años</span>
+        <h1><span class="hand hand-top">"¿Y ahora qué, ma?"</span> Tarjetas para que tu peque vea qué viene después.</h1>
+        <p class="lead">Y vos no lo tengas que repetir mil veces. Ilustradas con una protagonista que tu peque va a querer y un diseño que queda lindo en tu heladera.</p>
+        <ul class="chips" aria-label="Características">
+          <li>Para imprimir en casa</li>
+          <li>Con y sin texto</li>
+          <li>Hecho con palabras de acá</li>
+        </ul>
+        <a class="btn btn-soft" href="#conoce">Conocé el kit ↓</a>
+      </div>
+
+      <div>
+        <div class="board" aria-label="Tablero Para hacer y Listo: una tarjeta pasa de Para hacer a Listo">
+          <div class="col col-todo">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+              Para hacer
+            </h3>
+            <div class="slot">
+              <div class="mini mover">
+                <img src="/peque/img/card-05-desayuno.webp" alt="Tarjeta: desayuno" width="640" height="640">
+                <span class="check-pop" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
+              </div>
+            </div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-06-me-visto.webp" alt="Tarjeta: me visto" width="640" height="640"></div></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-08-voy-al-jardin.webp" alt="Tarjeta: voy al jardín" width="640" height="640"></div></div>
+          </div>
+          <div class="col col-done">
+            <h3>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>
+              ¡Listo!
+            </h3>
+            <div class="slot"></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-01-me-despierto.webp" alt="Tarjeta: me despierto" width="640" height="640"></div></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-04-me-lavo-los-dientes.webp" alt="Tarjeta: me lavo los dientes" width="640" height="640"></div></div>
+          </div>
+        </div>
+        <p class="board-note">Cuando termina algo, lo pasa a "¡Listo!"</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEMA -->
+  <section class="problem" id="conoce">
+    <div class="wrap">
+      <div class="reveal"><span class="bubble">¿Y después?</span></div>
+      <div class="reveal">
+        <span class="eyebrow">Si en tu casa pasa esto, no estás sola</span>
+        <h2>A esta edad, "en un ratito" <span class="hand">no dice nada.</span></h2>
+        <p>Tu peque tiene 2, 3 o 4 años y todavía no entiende el reloj. "Después del baño" o "en un ratito" no le dicen nada. Entonces pregunta mil veces qué sigue, se sorprende con cada cambio, y a vos te toca explicar lo mismo todos los días.</p>
+        <p>Buscás algo para ayudarlo a ver su día y encontrás íconos sueltos, dibujos de estilos mezclados, colores chillones o textos que no hablan como hablamos en casa. Nada que te den ganas de pegar en la heladera.</p>
+        <p class="want">Lo que querés es simple: algo lindo, fácil de usar y que tu peque entienda solo mirándolo. Que pueda ver qué sigue, moverlo con sus manos y sentirse grande cuando lo termina.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LA PEQUE -->
+  <section class="meet">
+    <div class="wrap">
+      <figure class="reveal">
+        <img src="/peque/img/peque-y-perrita.webp" alt="La protagonista del kit: una nena de rulos con colitas, en vestido y en pijama, junto a su perrita negra" width="1200" height="620" loading="lazy">
+        <figcaption>La peque, de día y de noche, con su perrita</figcaption>
+      </figure>
+      <div class="reveal">
+        <span class="eyebrow">Una protagonista, no íconos sueltos</span>
+        <h2>Ella es la peque. <span class="hand">Y su perrita.</span></h2>
+        <p>Soy Ornela, diseñadora y mamá de una peque de 2 años. Diseñé estas tarjetas para mi hija, porque todo lo que encontraba era genérico o no se parecía a nuestra casa.</p>
+        <p style="margin-top:14px">La protagonista está inspirada en ella: sus rulos, sus colitas y hasta nuestra perrita. Aparece en todas las tarjetas, así tu peque la reconoce y la acompaña en cada momento del día.</p>
+        <p class="sign">Ornela</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- UN DÍA -->
+  <section class="day">
+    <div class="wrap">
+      <div class="day-head reveal">
+        <div>
+          <span class="eyebrow">Un día completo</span>
+          <h2>Una tarjeta para <span class="hand">cada momento.</span></h2>
+        </div>
+        <div class="moments" aria-label="Momentos del día">
+          <span style="background:var(--mustard)">Mañana</span>
+          <span style="background:var(--sage)">Tarde</span>
+          <span style="background:var(--terra);color:#fff">Noche</span>
+          <span style="background:var(--ink);color:#fff">Especiales</span>
+        </div>
+      </div>
+      <div class="strip" tabindex="0" aria-label="Las tarjetas del kit, deslizá para ver todas">
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-01-me-despierto.webp" alt="" width="520" height="520" loading="lazy"><span>Me despierto</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-02-hago-pis.webp" alt="" width="520" height="520" loading="lazy"><span>Hago pis</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-03-me-lavo-la-cara.webp" alt="" width="520" height="520" loading="lazy"><span>Me lavo la cara</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-04-me-lavo-los-dientes.webp" alt="" width="520" height="520" loading="lazy"><span>Me lavo los dientes</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-05-desayuno.webp" alt="" width="520" height="520" loading="lazy"><span>Desayuno</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-06-me-visto.webp" alt="" width="520" height="520" loading="lazy"><span>Me visto</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-07-me-peino.webp" alt="" width="520" height="520" loading="lazy"><span>Me peino</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-08-voy-al-jardin.webp" alt="" width="520" height="520" loading="lazy"><span>Voy al jardín</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-09-almuerzo.webp" alt="" width="520" height="520" loading="lazy"><span>Almuerzo</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-10-siesta.webp" alt="" width="520" height="520" loading="lazy"><span>Siesta</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-11-merienda.webp" alt="" width="520" height="520" loading="lazy"><span>Merienda</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-12-juego.webp" alt="" width="520" height="520" loading="lazy"><span>Juego</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-13-plaza.webp" alt="" width="520" height="520" loading="lazy"><span>Plaza</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-14-saco-al-perro.webp" alt="" width="520" height="520" loading="lazy"><span>Saco al perro</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-15-ordeno-los-juguetes.webp" alt="" width="520" height="520" loading="lazy"><span>Ordeno los juguetes</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-16-pinto.webp" alt="" width="520" height="520" loading="lazy"><span>Pinto</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-17-abuelos.webp" alt="" width="520" height="520" loading="lazy"><span>Visita a los abuelos</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-18-me-bano.webp" alt="" width="520" height="520" loading="lazy"><span>Me baño</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-19-me-pongo-el-pijama.webp" alt="" width="520" height="520" loading="lazy"><span>Me pongo el pijama</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-20-ceno.webp" alt="" width="520" height="520" loading="lazy"><span>Ceno</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-21-leemos-un-cuento.webp" alt="" width="520" height="520" loading="lazy"><span>Leemos un cuento</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-22-apago-la-luz.webp" alt="" width="520" height="520" loading="lazy"><span>Apago la luz</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-23-beso-de-buenas-noches.webp" alt="" width="520" height="520" loading="lazy"><span>Beso de buenas noches</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-24-duermo.webp" alt="" width="520" height="520" loading="lazy"><span>Duermo</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-25-medico.webp" alt="" width="520" height="520" loading="lazy"><span>Médico</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-26-cumpleanos.webp" alt="" width="520" height="520" loading="lazy"><span>Cumpleaños</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-27-paseo-en-auto.webp" alt="" width="520" height="520" loading="lazy"><span>Paseo en auto</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-28-corte-de-pelo.webp" alt="" width="520" height="520" loading="lazy"><span>Corte de pelo</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-29-dia-de-lluvia.webp" alt="" width="520" height="520" loading="lazy"><span>Día de lluvia</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INCLUYE -->
+  <section class="includes">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Todo lo que recibís</span>
+        <h2>Un kit completo, <span class="hand">listo para imprimir.</span></h2>
+        <p class="lead">Un PDF con todo lo que necesitás para armar el tablero de rutinas de tu casa en una tarde.</p>
+      </div>
+      <div class="bento">
+        <article class="tile wide reveal">
+          <div class="shot"><img src="/peque/img/pdf-tarjetas.webp" alt="Página del PDF con tarjetas de la mañana" loading="lazy"></div>
+          <div><p class="tag">31 tarjetas</p><h3>Su día completo, con y sin texto</h3><p>Mañana, tarde, noche y momentos especiales, en dos tamaños. Sin texto para los que no leen; con texto para ir sumando palabras.</p></div>
+        </article>
+        <article class="tile reveal">
+          <div class="shot"><img src="/peque/img/pdf-tablero.webp" alt="Tablero con columnas Para hacer y Listo" loading="lazy"></div>
+          <div><p class="tag">Tablero</p><h3>Para hacer · ¡Listo!</h3><p>Tu peque mueve cada tarjeta cuando termina.</p></div>
+        </article>
+        <article class="tile reveal">
+          <div class="shot"><img src="/peque/img/pdf-carteles.webp" alt="Carteles Para hacer, Listo, Mañana, Tarde y Noche" loading="lazy"></div>
+          <div><p class="tag">Carteles</p><h3>Directo en la heladera</h3><p>Para armarlo sin tablero, con imanes.</p></div>
+        </article>
+        <article class="tile reveal">
+          <div class="shot"><img src="/peque/img/pdf-fichitas.webp" alt="Hoja de fichitas redondas con tilde" loading="lazy"></div>
+          <div><p class="tag">Fichitas</p><h3>Para festejar cada paso</h3><p>20 circulitos "¡Listo!" para poner arriba de cada tarjeta.</p></div>
+        </article>
+        <article class="tile reveal">
+          <div class="shot"><img src="/peque/img/pdf-guia.webp" alt="Página de la guía de armado" loading="lazy"></div>
+          <div><p class="tag">Guía</p><h3>Cómo armarlo y usarlo</h3><p>Impresión, plastificado e ideas para presentárselo.</p></div>
+        </article>
+      </div>
+      <div class="mid-cta reveal"><a class="btn btn-buy" data-checkout href="#precio">Quiero el kit completo</a><small>$10.999 · Te llega por mail al instante</small></div>
+    </div>
+  </section>
+
+  <!-- BENEFICIOS -->
+  <section class="benefits">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Por qué te va a gustar</span>
+        <h2>Pensado para tu peque. <span class="hand">Y para tu casa.</span></h2>
+      </div>
+      <ol>
+        <li class="reveal"><div><h3>La reconoce en cada tarjeta</h3><p>La misma peque y su perrita en todo el kit. Tu peque se engancha y le dan ganas de usarlas.</p></div></li>
+        <li class="reveal"><div><h3>La entiende solo mirándola</h3><p>Dibujos claros, una acción por tarjeta. Vos repetís menos.</p></div></li>
+        <li class="reveal"><div><h3>La mueve con sus manos</h3><p>Pasar la tarjeta a "¡Listo!" lo hace sentir grande y parte de su día.</p></div></li>
+        <li class="reveal"><div><h3>Queda linda en tu casa</h3><p>Paleta suave en tonos tierra. En la cocina o en su cuarto, no parece un cartel escolar.</p></div></li>
+        <li class="reveal"><div><h3>Habla como hablamos acá</h3><p>Jardín, merienda, plaza, abuelos, sacar al perro. Se siente hecho para tu casa.</p></div></li>
+        <li class="reveal"><div><h3>Se adapta a tu casa</h3><p>Tablero, heladera o fichitas: lo armás como te quede más cómodo.</p></div></li>
+      </ol>
+      <div class="mid-cta reveal"><a class="btn btn-buy" data-checkout href="#precio">Sí, lo quiero para mi peque</a><small>$10.999 · Te llega por mail al instante</small></div>
+    </div>
+  </section>
+
+  <!-- CÓMO FUNCIONA -->
+  <section class="how">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow" style="color:#1F2B1A">Cómo funciona</span>
+        <h2>De tu mail a la heladera <span class="hand">en una tarde.</span></h2>
+      </div>
+      <ol class="steps">
+        <li class="reveal"><h3>Comprás</h3><p>Pagás con Mercado Pago y te llega el PDF a tu mail.</p></li>
+        <li class="reveal"><h3>Imprimís</h3><p>En casa o en cualquier librería. A4, a color, mejor en papel grueso.</p></li>
+        <li class="reveal"><h3>Armás y usás</h3><p>Recortás, plastificás y le ponés imán o abrojo. ¡Listo para su día!</p></li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- BONUS -->
+  <section class="bonus">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">De regalo con tu kit</span>
+        <h2>Y para que sea <span class="hand">100% tuyo…</span></h2>
+      </div>
+      <div class="coupons">
+        <article class="coupon reveal">
+          <span class="scissors" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></span>
+          <p class="kind">Bonus 1 · Plantilla en Canva</p>
+          <h3><span class="hand">Hacelas tuyas</span></h3>
+          <p>Creá tarjetas para eso que es único en tu casa (natación, la casa del papá, la maestra) y poné el nombre de tu peque en el tablero.</p>
+        </article>
+        <article class="coupon reveal">
+          <span class="scissors" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></span>
+          <p class="kind">Bonus 2 · Calendario ilustrado</p>
+          <h3><span class="hand">Mi semana</span></h3>
+          <p>Para que vea qué pasa cada día (jardín, abuelos, plaza), porque a esta edad "el sábado" no significa nada.</p>
+        </article>
+        <article class="coupon reveal">
+          <span class="scissors" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></span>
+          <p class="kind">Bonus 3 · Tablero con stickers</p>
+          <h3><span class="hand">¡Lo logré!</span></h3>
+          <p>Para festejar cuando completa su rutina.</p>
+        </article>
+        <article class="coupon reveal">
+          <span class="scissors" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M20 4L8.12 15.88M14.47 14.48L20 20M8.12 8.12L12 12"/></svg></span>
+          <p class="kind">Bonus 4 · Versión para colorear</p>
+          <h3><span class="hand">Para pintar</span></h3>
+          <p>Que pinte sus propias tarjetas y se las apropie.</p>
+        </article>
+      </div>
+      <div class="mid-cta reveal"><a class="btn btn-buy" data-checkout href="#precio">Lo quiero con sus 4 bonus</a><small>$10.999 · Te llega por mail al instante</small></div>
+    </div>
+  </section>
+
+  <!-- PRECIO -->
+  <section class="price" id="precio">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Tu kit "Mi día"</span>
+        <h2>Todo esto, <span class="hand">en un solo PDF.</span></h2>
+      </div>
+      <div class="ticket reveal">
+        <p class="now">$10.999</p>
+        <p class="why">Lo dejé a este precio para que llegue a más familias 🤍</p>
+        <ul class="stack">
+          <li><span>Kit "Mi día": 31 tarjetas, tablero, carteles, fichitas y guía</span><s>$16.000</s></li>
+          <li><span>Bonus · Hacelas tuyas (plantilla en Canva)</span><s>$4.000</s></li>
+          <li><span>Bonus · Mi semana</span><s>$3.500</s></li>
+          <li><span>Bonus · ¡Lo logré! + stickers</span><s>$3.000</s></li>
+          <li><span>Bonus · Para pintar</span><s>$3.500</s></li>
+          <li class="total"><span>Valor total</span><s>$30.000</s></li>
+          <li class="today"><span>Hoy, todo por</span><b>$10.999</b></li>
+        </ul>
+        <a class="btn btn-buy" data-checkout href="#precio">Quiero mi kit "Mi día"</a>
+        <p class="fine">Pago único con Mercado Pago · Te llega por mail<br>Producto digital, sin devolución</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq">
+    <div class="wrap">
+      <div class="reveal">
+        <span class="eyebrow">Preguntas frecuentes</span>
+        <h2>Antes de comprar, <span class="hand">te cuento.</span></h2>
+      </div>
+      <div class="faq-list">
+        <details><summary>¿Para quién es?</summary><p>Para familias con peques de 2 a 5 años que quieren acompañar sus rutinas de una forma visual y linda.</p></details>
+        <details><summary>¿Para quién no es?</summary><p>Si buscás un método de crianza o de sueño, esto no lo es: son tarjetas ilustradas para acompañar el día. Tampoco es un producto físico.</p></details>
+        <details><summary>¿Es un producto físico?</summary><p>No, es un PDF para imprimir. No se envía nada por correo.</p></details>
+        <details><summary>¿Cómo y cuándo lo recibo?</summary><p>Apenas se acredita el pago, te llega el PDF por mail.</p></details>
+        <details><summary>¿Necesito impresora?</summary><p>No. Podés llevarlo a cualquier librería o centro de copiado.</p></details>
+        <details><summary>¿Qué necesito para armarlo?</summary><p>Papel (mejor si es grueso), tijera, contact o plastificado, y imanes o abrojo.</p></details>
+        <details><summary>¿Mi peque tiene que saber leer?</summary><p>No. Cada tarjeta viene también sin texto.</p></details>
+        <details><summary>¿La protagonista es una nena? ¿Sirve para varones?</summary><p>Por ahora la protagonista es una nena. Estamos preparando la versión con un nene.</p></details>
+        <details><summary>¿Lo puedo imprimir más de una vez?</summary><p>Sí, todas las veces que quieras para tu familia. No se puede compartir ni revender.</p></details>
+        <details><summary>¿Tiene devolución?</summary><p>Al ser un archivo digital que se descarga al instante, no tiene devolución.</p></details>
+        <details><summary>¿Cómo pago?</summary><p>Con Mercado Pago: tarjeta, débito o dinero en cuenta.</p></details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CIERRE -->
+  <section class="closing">
+    <div class="wrap reveal">
+      <img src="/peque/img/peque-y-perrita.webp" alt="" width="1200" height="620" loading="lazy">
+      <h2>Que su día sea algo <span class="hand">que pueda ver.</span></h2>
+      <p class="lead">Un kit lindo y simple para que tu peque entienda qué viene después, y disfrute cada vez que mueve una tarjeta a "¡Listo!".</p>
+      <a class="btn btn-buy" data-checkout href="#precio">Quiero mi kit "Mi día"</a>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><span class="hand" style="font-size:22px;color:var(--terra)">Peque Studio</span> · Diseñado por Ornela Cillo en Argentina</span>
+    <span><a href="https://www.instagram.com/ornela.cillo/" target="_blank" rel="noopener">@ornela.cillo</a> · <a href="https://liscreativestudio.com/">LIS Creative Studio</a></span>
+  </div>
+</footer>
+
+<div class="sticky" aria-hidden="true">
+  <div><b>Kit "Mi día"</b><small>31 tarjetas + tablero + bonus</small></div>
+  <a class="btn" data-checkout href="#precio" tabindex="-1">Lo quiero</a>
+</div>
+
+<script>
+  // ===== CONFIG: todo lo que se cambia está acá =====
+  const CONFIG = {
+    checkoutUrl: "https://peque-studio.tiendup.com/p/mi-dia-tarjetas-de-rutina-ilustradas",
+    metaPixelId: "",          // pegar acá el ID del píxel de Meta cuando hagas anuncios
+    price: 10999,
+    currency: "ARS"
+  };
+
+  // Links de compra: llevan los parámetros de la campaña (utm_*, fbclid) al checkout
+  const buyUrl = (() => {
+    const url = new URL(CONFIG.checkoutUrl);
+    new URLSearchParams(location.search).forEach((v, k) => {
+      if (/^(utm_|fbclid|gclid)/.test(k)) url.searchParams.set(k, v);
+    });
+    return url.toString();
+  })();
+  document.querySelectorAll("[data-checkout]").forEach(a => { a.href = buyUrl; });
+
+  // Píxel de Meta (solo se carga si hay ID)
+  if (CONFIG.metaPixelId) {
+    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
+    fbq("init", CONFIG.metaPixelId);
+    fbq("track", "PageView");
+    fbq("track", "ViewContent", { value: CONFIG.price, currency: CONFIG.currency, content_name: "Kit Mi día" });
+  }
+  document.querySelectorAll("[data-checkout]").forEach(a => a.addEventListener("click", () => {
+    if (window.fbq) fbq("track", "InitiateCheckout", { value: CONFIG.price, currency: CONFIG.currency });
+  }));
+
+  // Aparición suave de las secciones
+  const io = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+  }, { threshold: 0.12 });
+  document.querySelectorAll(".reveal").forEach(el => io.observe(el));
+
+  // Barra fija en mobile: aparece después del hero y se esconde en la sección de precio
+  const sticky = document.querySelector(".sticky");
+  const hero = document.querySelector(".hero");
+  const price = document.querySelector("#precio");
+  let pastHero = false, atPrice = false;
+  const update = () => sticky.classList.toggle("show", pastHero && !atPrice);
+  new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; update(); }).observe(hero);
+  new IntersectionObserver(([e]) => { atPrice = e.isIntersecting; update(); }, { threshold: 0.2 }).observe(price);
+</script>
+</body>
+</html>

@@ -22,27 +22,5 @@
       "destination": "/#portfolio",
       "permanent": true
     }
-  ],
-  "rewrites": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "host",
-          "value": "peque.liscreativestudio.com"
-        }
-      ],
-      "destination": "/peque"
-    },
-    {
-      "source": "/:path((?!peque/).*)",
-      "has": [
-        {
-          "type": "host",
-          "value": "peque.liscreativestudio.com"
-        }
-      ],
-      "destination": "/peque/:path"
-    }
   ]
 }

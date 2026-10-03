@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="p:domain_verify" content="2c4d933dd0c7c0666b4d03330c43b320"/>
+<title>Láminas para pintar de regalo | Peque Studio</title>
+<meta name="description" content="4 láminas para pintar con la protagonista de Mi día, de regalo. Dejame tu mail y te las mando al instante.">
+<meta property="og:title" content="Láminas para pintar, de regalo 🎨">
+<meta property="og:description" content="4 láminas con la protagonista de Mi día, para que tu peque las pinte como quiera.">
+<meta property="og:image" content="https://peque.liscreativestudio.com/peque/img/regalo-pinto.jpg">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#FBF6EC">
+<link rel="icon" href="/peque/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF6EC;
+    --paper: #FFFDF8;
+    --terra: #C0704F;
+    --terra-dark: #9E5539;
+    --sage: #9DAF8F;
+    --sage-dark: #5F7654;
+    --sage-soft: #E4EADD;
+    --mustard: #D2A44A;
+    --mustard-soft: #F4E6C6;
+    --ink: #4A3429;
+    --soft: #7D6A5C;
+    --line: #E8DCCB;
+    --radius: 18px;
+    --hand: "Gochi Hand", cursive;
+    --sans: "Manrope", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .hand { font-family: var(--hand); font-weight: 400; }
+  section { padding: 72px 0; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--terra-dark);
+  }
+  h1, h2, h3 { line-height: 1.12; font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(30px, 6vw, 46px); margin: 10px 0 18px; }
+  h2 .hand { color: var(--terra); font-size: 1.15em; letter-spacing: 0; }
+  .lead { font-size: 18px; color: var(--soft); max-width: 620px; }
+
+  /* ---------- botones ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px; padding: 0 28px;
+    border-radius: 999px; border: 0;
+    font: 800 17px/1 var(--sans);
+    text-decoration: none; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-buy { background: var(--terra-dark); color: #fff; box-shadow: 0 6px 0 #7A3F28; }
+  .btn-buy:hover { background: #8E4B31; }
+  .btn-soft { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+  .btn-soft:hover { background: var(--ink); color: var(--cream); }
+  :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 8px; }
+
+  .logo { font-family: var(--hand); font-size: 30px; color: var(--terra); text-decoration: none; line-height: 1; }
+  .logo small { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: .14em; color: var(--soft); display: block; text-transform: uppercase; margin-top: 2px; }
+  header { padding: 18px 0; }
+  .gift { padding: 20px 0 64px; }
+  .gift h1 { font-size: clamp(32px, 7vw, 46px); margin: 6px 0 14px; }
+  .gift h1 .hand { color: var(--terra); font-size: 1.15em; letter-spacing: 0; }
+  .more { text-align: center; padding: 0 0 72px; }
+  .more p { color: var(--soft); max-width: 560px; margin: 0 auto 18px; }
+  .more img { width: min(380px, 90%); margin: 0 auto 8px; }
+  /* ---------- regalo (formulario MailerLite) ---------- */
+  .gift .box {
+    display: grid; gap: 28px; align-items: center; max-width: 900px; margin: 0 auto;
+    background: var(--paper); border-radius: 28px; padding: 32px 22px;
+    outline: 2.5px dashed var(--sage); outline-offset: -12px;
+  }
+  .gift .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gift .pics img { border-radius: 16px; border: 1.5px solid var(--line); background: #fff; }
+  .gift .pics img:first-child { transform: rotate(-2deg); }
+  .gift .pics img:last-child { transform: rotate(2deg) translateY(10px); }
+  .gift h2 { font-size: clamp(28px, 5vw, 38px); margin-top: 6px; }
+  .gift p.lead { font-size: 16.5px; margin-bottom: 18px; }
+  .gift .eyebrow { color: var(--sage-dark); }
+  .ml-field { margin-bottom: 10px; }
+  .ml-field input {
+    width: 100%; font: 600 16px/1.3 var(--sans); color: var(--ink);
+    background: #fff; border: 1.5px solid var(--line); border-radius: 999px; padding: 15px 20px;
+  }
+  .ml-field input::placeholder { color: var(--soft); font-weight: 400; }
+  .ml-field input:focus { outline: none; border-color: var(--terra); }
+  .ml-error input { border-color: #C0392B !important; }
+  .gift .btn { width: 100%; margin-top: 6px; }
+  .gift .note { font-size: 13px; color: var(--soft); margin-top: 12px; }
+  .gift .ok h3 { font-family: var(--hand); font-weight: 400; font-size: 34px; color: var(--terra); }
+  .gift .ok p { color: var(--soft); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+  .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #fff; border-color: #fff #fff #fff transparent; animation: mlspin 1.2s linear infinite; }
+  @keyframes mlspin { to { transform: rotate(360deg); } }
+  @media (min-width: 760px) { .gift .box { grid-template-columns: 1fr 1.1fr; padding: 44px; gap: 44px; } }
+
+  footer { padding: 36px 0 110px; border-top: 1.5px solid var(--line); font-size: 14px; color: var(--soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; }
+  footer a { color: var(--ink); font-weight: 700; }
+
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/">Peque Studio<small>por Ornela Cillo</small></a></div></header>
+<main>
+  <!-- REGALO -->
+  <section class="gift" id="regalo">
+    <div class="wrap">
+      <div class="box">
+        <div class="pics">
+          <img src="/peque/img/regalo-pinto.jpg" alt="Lámina para pintar: la peque pintando" width="800" height="800">
+          <img src="/peque/img/regalo-plaza.jpg" alt="Lámina para pintar: la peque en la hamaca" width="800" height="800">
+        </div>
+        <div id="mlb2-46679732" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-46679732">
+          <div class="row-form">
+            <span class="eyebrow">Regalo de Peque Studio</span>
+            <h1>Láminas para pintar, <span class="hand">de regalo.</span></h1>
+            <p class="lead">Dejame tu mail y te mando 4 láminas con la protagonista de Mi día, para que tu peque las pinte como quiera y las imprimas todas las veces que quieras.</p>
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/200320402882299016/subscribe" data-code="" method="post" target="_blank">
+              <div class="ml-form-fieldRow ml-field"><div class="ml-field-group ml-field-name ml-validate-required">
+                <input aria-label="Nombre" type="text" class="form-control" name="fields[name]" placeholder="Tu nombre" autocomplete="given-name">
+              </div></div>
+              <div class="ml-form-fieldRow ml-field ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                <input aria-label="Email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Tu mail" autocomplete="email">
+              </div></div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button type="submit" class="primary btn btn-buy">Quiero mis láminas</button>
+                <button disabled="disabled" style="display: none;" type="button" class="loading btn btn-buy"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Enviando…</span></button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+            <p class="note">Te llegan al instante, y de vez en cuando te escribo con ideas para la rutina de tu peque. Te podés dar de baja cuando quieras.</p>
+          </div>
+          <div class="row-success ok" style="display: none">
+            <h3>¡Listo! 🎨</h3>
+            <p>Ya te mandé las láminas a tu mail, si no las ves en unos minutos fijate en promociones o spam 🤍</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="more">
+    <div class="wrap">
+      <img src="/peque/img/peque-y-perrita.webp" alt="" width="1200" height="620" loading="lazy">
+      <p>Las láminas son parte de Mi día, el kit de tarjetas de rutina que diseñé para mi hija, para que tu peque vea su día paso a paso y lo mueva a "¡Listo!".</p>
+      <a class="btn btn-soft" href="/">Conocé el kit Mi día</a>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span><span class="hand" style="font-size:22px;color:var(--terra)">Peque Studio</span> · Diseñado por Ornela Cillo en Argentina</span>
+    <span><a href="https://www.instagram.com/ornela.cillo/" target="_blank" rel="noopener">@ornela.cillo</a> · <a href="https://liscreativestudio.com/">LIS Creative Studio</a></span>
+  </div>
+</footer>
+<script>
+  function ml_webform_success_46679732() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-46679732 .row-success').show();
+    $('.ml-subscribe-form-46679732 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>fetch("https://assets.mailerlite.com/jsonp/1460085/forms/200320402882299016/takel");</script>
+</body>
+</html>

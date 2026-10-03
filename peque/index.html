@@ -282,6 +282,37 @@
   details[open] summary::after { transform: translateY(-50%) rotate(45deg); }
   details p { padding: 0 0 20px; color: var(--soft); max-width: 640px; }
 
+  /* ---------- regalo (formulario MailerLite) ---------- */
+  .gift .box {
+    display: grid; gap: 28px; align-items: center; max-width: 900px; margin: 0 auto;
+    background: var(--paper); border-radius: 28px; padding: 32px 22px;
+    outline: 2.5px dashed var(--sage); outline-offset: -12px;
+  }
+  .gift .pics { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .gift .pics img { border-radius: 16px; border: 1.5px solid var(--line); background: #fff; }
+  .gift .pics img:first-child { transform: rotate(-2deg); }
+  .gift .pics img:last-child { transform: rotate(2deg) translateY(10px); }
+  .gift h2 { font-size: clamp(28px, 5vw, 38px); margin-top: 6px; }
+  .gift p.lead { font-size: 16.5px; margin-bottom: 18px; }
+  .gift .eyebrow { color: var(--sage-dark); }
+  .ml-field { margin-bottom: 10px; }
+  .ml-field input {
+    width: 100%; font: 600 16px/1.3 var(--sans); color: var(--ink);
+    background: #fff; border: 1.5px solid var(--line); border-radius: 999px; padding: 15px 20px;
+  }
+  .ml-field input::placeholder { color: var(--soft); font-weight: 400; }
+  .ml-field input:focus { outline: none; border-color: var(--terra); }
+  .ml-error input { border-color: #C0392B !important; }
+  .gift .btn { width: 100%; margin-top: 6px; }
+  .gift .note { font-size: 13px; color: var(--soft); margin-top: 12px; }
+  .gift .ok h3 { font-family: var(--hand); font-weight: 400; font-size: 34px; color: var(--terra); }
+  .gift .ok p { color: var(--soft); }
+  .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0,0,0,0); }
+  .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
+  .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #fff; border-color: #fff #fff #fff transparent; animation: mlspin 1.2s linear infinite; }
+  @keyframes mlspin { to { transform: rotate(360deg); } }
+  @media (min-width: 760px) { .gift .box { grid-template-columns: 1fr 1.1fr; padding: 44px; gap: 44px; } }
+
   /* ---------- cierre ---------- */
   .closing { text-align: center; }
   .closing img { width: min(420px, 90%); margin: 0 auto 10px; }
@@ -640,6 +671,44 @@
     </div>
   </section>
 
+  <!-- REGALO -->
+  <section class="gift" id="regalo">
+    <div class="wrap">
+      <div class="box reveal">
+        <div class="pics">
+          <img src="/peque/img/regalo-pinto.jpg" alt="Lámina para pintar: la peque pintando" width="800" height="800" loading="lazy">
+          <img src="/peque/img/regalo-plaza.jpg" alt="Lámina para pintar: la peque en la hamaca" width="800" height="800" loading="lazy">
+        </div>
+        <div id="mlb2-46679732" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-46679732">
+          <div class="row-form">
+            <span class="eyebrow">¿Todavía lo estás pensando?</span>
+            <h2>Láminas para pintar, <span class="hand">de regalo.</span></h2>
+            <p class="lead">Dejame tu mail y te mando 4 láminas con la protagonista de Mi día, para que tu peque las pinte como quiera y las imprimas todas las veces que quieras.</p>
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/200320402882299016/subscribe" data-code="" method="post" target="_blank">
+              <div class="ml-form-fieldRow ml-field"><div class="ml-field-group ml-field-name ml-validate-required">
+                <input aria-label="Nombre" type="text" class="form-control" name="fields[name]" placeholder="Tu nombre" autocomplete="given-name">
+              </div></div>
+              <div class="ml-form-fieldRow ml-field ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                <input aria-label="Email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Tu mail" autocomplete="email">
+              </div></div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button type="submit" class="primary btn btn-buy">Quiero mis láminas</button>
+                <button disabled="disabled" style="display: none;" type="button" class="loading btn btn-buy"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Enviando…</span></button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+            <p class="note">Te llegan al instante, y de vez en cuando te escribo con ideas para la rutina de tu peque. Te podés dar de baja cuando quieras.</p>
+          </div>
+          <div class="row-success ok" style="display: none">
+            <h3>¡Listo! 🎨</h3>
+            <p>Ya te mandé las láminas a tu mail, si no las ves en unos minutos fijate en promociones o spam 🤍</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- CIERRE -->
   <section class="closing">
     <div class="wrap reveal">
@@ -709,5 +778,14 @@
   new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; update(); }).observe(hero);
   new IntersectionObserver(([e]) => { atPrice = e.isIntersecting; update(); }, { threshold: 0.2 }).observe(price);
 </script>
+<script>
+  function ml_webform_success_46679732() {
+    var $ = ml_jQuery || jQuery;
+    $('.ml-subscribe-form-46679732 .row-success').show();
+    $('.ml-subscribe-form-46679732 .row-form').hide();
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>fetch("https://assets.mailerlite.com/jsonp/1460085/forms/200320402882299016/takel");</script>
 </body>
 </html>

@@ -224,6 +224,10 @@
   .steps li::before { content: "Paso " counter(s); font-family: var(--hand); font-size: 22px; color: var(--sage-dark); display: block; }
   .steps h3 { font-size: 20px; margin: 2px 0 6px; }
   .steps p { font-size: 15.5px; color: var(--soft); }
+  .real { margin-top: 34px; }
+  .real-title { font-family: var(--hand); font-size: 26px; color: #fff; text-align: center; margin-bottom: 14px; }
+  .real-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .real-grid > * { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--radius); background: var(--paper); display: block; }
 
   /* ---------- bonus (recortables) ---------- */
   .coupons { display: grid; gap: 16px; margin-top: 30px; }
@@ -322,6 +326,7 @@
     .benefits .wrap { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: start; }
     .benefits ol { margin-top: 0; }
     .steps { grid-template-columns: repeat(3, 1fr); }
+    .real-grid { grid-template-columns: repeat(4, 1fr); gap: 18px; }
     .coupons { grid-template-columns: 1fr 1fr; gap: 22px; }
     .sticky { display: none; }
     footer { padding-bottom: 36px; }
@@ -538,6 +543,15 @@
         <li class="reveal"><h3>Imprimís</h3><p>En casa o en cualquier librería. A4, a color, mejor en papel grueso.</p></li>
         <li class="reveal"><h3>Armás y usás</h3><p>Recortás, plastificás y le ponés imán o abrojo. ¡Listo para su día!</p></li>
       </ol>
+      <div class="real reveal">
+        <p class="real-title">Así queda en casa</p>
+        <div class="real-grid">
+          <video src="/peque/img/real-armado.mp4" poster="/peque/img/real-armado-poster.webp" autoplay muted loop playsinline preload="metadata" aria-label="Video recortando las tarjetas impresas del kit Mi día"></video>
+          <img src="/peque/img/real-tarjetas-tijera.webp" alt="Tarjetas impresas del kit Mi día listas para recortar" loading="lazy">
+          <img src="/peque/img/real-tablero.webp" alt="Tablero Para hacer y ¡Listo! impreso junto a las tarjetas especiales" loading="lazy">
+          <img src="/peque/img/real-stickers.webp" alt="Hoja de stickers ¡Bien! impresa junto a las tarjetas" loading="lazy">
+        </div>
+      </div>
     </div>
   </section>
 

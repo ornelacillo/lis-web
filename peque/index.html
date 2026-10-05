@@ -13,7 +13,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="p:domain_verify" content="2c4d933dd0c7c0666b4d03330c43b320"/>
 <title>Mi día · Tarjetas de rutina ilustradas | Peque Studio</title>
-<meta name="description" content="Tarjetas de rutina ilustradas para peques de 2 a 5 años. Una protagonista que tu peque va a querer, un diseño que queda lindo en tu casa y palabras de acá. PDF para imprimir.">
+<meta name="description" content="Tarjetas de rutina ilustradas para peques de 2 a 5 años. Con nena y con nene, un diseño que queda lindo en tu casa y palabras de acá. PDF para imprimir.">
 <meta property="og:title" content="Mi día · Tarjetas de rutina ilustradas">
 <meta property="og:description" content="Tu peque sabe qué sigue. Vos, un poco más de calma. Tarjetas de rutina ilustradas para peques de 2 a 5 años.">
 <meta property="og:image" content="https://peque.liscreativestudio.com/peque/img/pdf-portada.webp">
@@ -175,6 +175,11 @@
   .meet figure { background: var(--mustard-soft); border-radius: 32px; padding: 26px 14px 14px; }
   .meet figcaption { font-family: var(--hand); font-size: 22px; text-align: center; color: var(--soft); margin-top: 6px; }
   .sign { font-family: var(--hand); font-size: 30px; color: var(--terra); margin-top: 10px; }
+  .kid-switch { display: inline-flex; gap: 4px; padding: 4px; border-radius: 999px; background: var(--cream); border: 2px solid var(--ink); }
+  .kid-switch button { font: inherit; font-size: 14px; font-weight: 800; padding: 6px 16px; border-radius: 999px; border: 0; background: transparent; color: var(--ink); cursor: pointer; }
+  .kid-switch button[aria-pressed="true"] { background: var(--ink); color: var(--cream); }
+  .meet .kid-switch { display: flex; width: max-content; margin: 12px auto 0; }
+
 
   /* ---------- día (tira) ---------- */
   .day-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px; }
@@ -401,6 +406,7 @@
         <ul class="chips" aria-label="Características">
           <li>Para imprimir en casa</li>
           <li>Con y sin texto</li>
+          <li>Con nena y con nene</li>
           <li>Hecho con palabras de acá</li>
         </ul>
         <a class="btn btn-soft" href="#conoce">Conocé el kit ↓</a>
@@ -415,12 +421,12 @@
             </h3>
             <div class="slot">
               <div class="mini mover">
-                <img src="/peque/img/card-05-desayuno.webp" alt="Tarjeta: desayuno" width="640" height="640">
+                <img src="/peque/img/card-05-desayuno.webp" data-nene="/peque/img/card-05-desayuno-nene.webp" alt="Tarjeta: desayuno" width="640" height="640">
                 <span class="check-pop" aria-hidden="true"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></span>
               </div>
             </div>
-            <div class="slot"><div class="mini"><img src="/peque/img/card-06-me-visto.webp" alt="Tarjeta: me visto" width="640" height="640"></div></div>
-            <div class="slot"><div class="mini"><img src="/peque/img/card-08-voy-al-jardin.webp" alt="Tarjeta: voy al jardín" width="640" height="640"></div></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-06-me-visto.webp" data-nene="/peque/img/card-06-me-visto-nene.webp" alt="Tarjeta: me visto" width="640" height="640"></div></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-08-voy-al-jardin.webp" data-nene="/peque/img/card-08-voy-al-jardin-nene.webp" alt="Tarjeta: voy al jardín" width="640" height="640"></div></div>
           </div>
           <div class="col col-done">
             <h3>
@@ -428,8 +434,8 @@
               ¡Listo!
             </h3>
             <div class="slot"></div>
-            <div class="slot"><div class="mini"><img src="/peque/img/card-01-me-despierto.webp" alt="Tarjeta: me despierto" width="640" height="640"></div></div>
-            <div class="slot"><div class="mini"><img src="/peque/img/card-04-me-lavo-los-dientes.webp" alt="Tarjeta: me lavo los dientes" width="640" height="640"></div></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-01-me-despierto.webp" data-nene="/peque/img/card-01-me-despierto-nene.webp" alt="Tarjeta: me despierto" width="640" height="640"></div></div>
+            <div class="slot"><div class="mini"><img src="/peque/img/card-04-me-lavo-los-dientes.webp" data-nene="/peque/img/card-04-me-lavo-los-dientes-nene.webp" alt="Tarjeta: me lavo los dientes" width="640" height="640"></div></div>
           </div>
         </div>
         <p class="board-note">Cuando termina algo, lo pasa a "¡Listo!"</p>
@@ -455,14 +461,15 @@
   <section class="meet">
     <div class="wrap">
       <figure class="reveal">
-        <img src="/peque/img/peque-y-perrita.webp" alt="La protagonista del kit: una nena de rulos con colitas, en vestido y en pijama, junto a su perrita negra" width="1200" height="620" loading="lazy">
-        <figcaption>La peque, de día y de noche, con su perrita</figcaption>
+        <img src="/peque/img/peque-y-perrita.webp" data-nene="/peque/img/nene-y-perrita.webp" alt="Los protagonistas del kit, de día y en pijama, junto a su perrita negra" width="1200" height="620" loading="lazy">
+        <figcaption>De día y de noche, con su perrita</figcaption>
+        <div class="kid-switch" role="group" aria-label="Elegí el personaje"><button type="button" data-kid="nena" aria-pressed="true">Nena</button><button type="button" data-kid="nene" aria-pressed="false">Nene</button></div>
       </figure>
       <div class="reveal">
         <span class="eyebrow">Una protagonista, no íconos sueltos</span>
-        <h2>Ella es la peque. <span class="hand">Y su perrita.</span></h2>
+        <h2>Viene con nena y con nene, <span class="hand">y su perrita.</span></h2>
         <p>Soy Ornela, diseñadora y mamá de una peque de 2 años. Diseñé estas tarjetas para mi hija, porque todo lo que encontraba era genérico o no se parecía a nuestra casa.</p>
-        <p style="margin-top:14px">La protagonista está inspirada en ella: sus rulos, sus colitas y hasta nuestra perrita. Aparece en todas las tarjetas, así tu peque la reconoce y la acompaña en cada momento del día.</p>
+        <p style="margin-top:14px">La nena está inspirada en ella, con sus rulos, sus colitas y hasta nuestra perrita, y también diseñé un nene para que cada familia elija el que más se parezca a su peque. El mismo personaje aparece en todas las tarjetas, así tu peque lo reconoce y lo acompaña en cada momento del día.</p>
         <p class="sign">Ornela</p>
       </div>
     </div>
@@ -476,6 +483,7 @@
           <span class="eyebrow">Un día completo</span>
           <h2>Una tarjeta para <span class="hand">cada momento.</span></h2>
         </div>
+        <div class="kid-switch" role="group" aria-label="Ver tarjetas con nena o con nene"><button type="button" data-kid="nena" aria-pressed="true">Nena</button><button type="button" data-kid="nene" aria-pressed="false">Nene</button></div>
         <div class="moments" aria-label="Momentos del día">
           <span style="background:var(--mustard)">Mañana</span>
           <span style="background:var(--sage)">Tarde</span>
@@ -484,35 +492,35 @@
         </div>
       </div>
       <div class="strip" tabindex="0" aria-label="Las tarjetas del kit, deslizá para ver todas">
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-01-me-despierto.webp" alt="" width="520" height="520" loading="lazy"><span>Me despierto</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-02-hago-pis.webp" alt="" width="520" height="520" loading="lazy"><span>Hago pis</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-03-me-lavo-la-cara.webp" alt="" width="520" height="520" loading="lazy"><span>Me lavo la cara</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-04-me-lavo-los-dientes.webp" alt="" width="520" height="520" loading="lazy"><span>Me lavo los dientes</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-05-desayuno.webp" alt="" width="520" height="520" loading="lazy"><span>Desayuno</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-06-me-visto.webp" alt="" width="520" height="520" loading="lazy"><span>Me visto</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-07-me-peino.webp" alt="" width="520" height="520" loading="lazy"><span>Me peino</span></div>
-        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-08-voy-al-jardin.webp" alt="" width="520" height="520" loading="lazy"><span>Voy al jardín</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-09-almuerzo.webp" alt="" width="520" height="520" loading="lazy"><span>Almuerzo</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-10-siesta.webp" alt="" width="520" height="520" loading="lazy"><span>Siesta</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-11-merienda.webp" alt="" width="520" height="520" loading="lazy"><span>Merienda</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-12-juego.webp" alt="" width="520" height="520" loading="lazy"><span>Juego</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-13-plaza.webp" alt="" width="520" height="520" loading="lazy"><span>Plaza</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-14-saco-al-perro.webp" alt="" width="520" height="520" loading="lazy"><span>Saco al perro</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-15-ordeno-los-juguetes.webp" alt="" width="520" height="520" loading="lazy"><span>Ordeno los juguetes</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-16-pinto.webp" alt="" width="520" height="520" loading="lazy"><span>Pinto</span></div>
-        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-17-abuelos.webp" alt="" width="520" height="520" loading="lazy"><span>Visita a los abuelos</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-18-me-bano.webp" alt="" width="520" height="520" loading="lazy"><span>Me baño</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-19-me-pongo-el-pijama.webp" alt="" width="520" height="520" loading="lazy"><span>Me pongo el pijama</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-20-ceno.webp" alt="" width="520" height="520" loading="lazy"><span>Ceno</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-21-leemos-un-cuento.webp" alt="" width="520" height="520" loading="lazy"><span>Leemos un cuento</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-22-apago-la-luz.webp" alt="" width="520" height="520" loading="lazy"><span>Apago la luz</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-23-beso-de-buenas-noches.webp" alt="" width="520" height="520" loading="lazy"><span>Beso de buenas noches</span></div>
-        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-24-duermo.webp" alt="" width="520" height="520" loading="lazy"><span>Duermo</span></div>
-        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-25-medico.webp" alt="" width="520" height="520" loading="lazy"><span>Médico</span></div>
-        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-26-cumpleanos.webp" alt="" width="520" height="520" loading="lazy"><span>Cumpleaños</span></div>
-        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-27-paseo-en-auto.webp" alt="" width="520" height="520" loading="lazy"><span>Paseo en auto</span></div>
-        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-28-corte-de-pelo.webp" alt="" width="520" height="520" loading="lazy"><span>Corte de pelo</span></div>
-        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-29-dia-de-lluvia.webp" alt="" width="520" height="520" loading="lazy"><span>Día de lluvia</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-01-me-despierto.webp" data-nene="/peque/img/card-01-me-despierto-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me despierto</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-02-hago-pis.webp" data-nene="/peque/img/card-02-hago-pis-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Hago pis</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-03-me-lavo-la-cara.webp" data-nene="/peque/img/card-03-me-lavo-la-cara-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me lavo la cara</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-04-me-lavo-los-dientes.webp" data-nene="/peque/img/card-04-me-lavo-los-dientes-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me lavo los dientes</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-05-desayuno.webp" data-nene="/peque/img/card-05-desayuno-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Desayuno</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-06-me-visto.webp" data-nene="/peque/img/card-06-me-visto-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me visto</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-07-me-peino.webp" data-nene="/peque/img/card-07-me-peino-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me peino</span></div>
+        <div class="card"><p class="n"><i class="dot m"></i>Mañana</p><img src="/peque/img/card-08-voy-al-jardin.webp" data-nene="/peque/img/card-08-voy-al-jardin-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Voy al jardín</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-09-almuerzo.webp" data-nene="/peque/img/card-09-almuerzo-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Almuerzo</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-10-siesta.webp" data-nene="/peque/img/card-10-siesta-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Siesta</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-11-merienda.webp" data-nene="/peque/img/card-11-merienda-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Merienda</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-12-juego.webp" data-nene="/peque/img/card-12-juego-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Juego</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-13-plaza.webp" data-nene="/peque/img/card-13-plaza-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Plaza</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-14-saco-al-perro.webp" data-nene="/peque/img/card-14-saco-al-perro-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Saco al perro</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-15-ordeno-los-juguetes.webp" data-nene="/peque/img/card-15-ordeno-los-juguetes-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Ordeno los juguetes</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-16-pinto.webp" data-nene="/peque/img/card-16-pinto-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Pinto</span></div>
+        <div class="card"><p class="n"><i class="dot t"></i>Tarde</p><img src="/peque/img/card-17-abuelos.webp" data-nene="/peque/img/card-17-abuelos-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Visita a los abuelos</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-18-me-bano.webp" data-nene="/peque/img/card-18-me-bano-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me baño</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-19-me-pongo-el-pijama.webp" data-nene="/peque/img/card-19-me-pongo-el-pijama-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Me pongo el pijama</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-20-ceno.webp" data-nene="/peque/img/card-20-ceno-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Ceno</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-21-leemos-un-cuento.webp" data-nene="/peque/img/card-21-leemos-un-cuento-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Leemos un cuento</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-22-apago-la-luz.webp" data-nene="/peque/img/card-22-apago-la-luz-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Apago la luz</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-23-beso-de-buenas-noches.webp" data-nene="/peque/img/card-23-beso-de-buenas-noches-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Beso de buenas noches</span></div>
+        <div class="card"><p class="n"><i class="dot n"></i>Noche</p><img src="/peque/img/card-24-duermo.webp" data-nene="/peque/img/card-24-duermo-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Duermo</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-25-medico.webp" data-nene="/peque/img/card-25-medico-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Médico</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-26-cumpleanos.webp" data-nene="/peque/img/card-26-cumpleanos-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Cumpleaños</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-27-paseo-en-auto.webp" data-nene="/peque/img/card-27-paseo-en-auto-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Paseo en auto</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-28-corte-de-pelo.webp" data-nene="/peque/img/card-28-corte-de-pelo-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Corte de pelo</span></div>
+        <div class="card"><p class="n"><i class="dot e"></i>Especial</p><img src="/peque/img/card-29-dia-de-lluvia.webp" data-nene="/peque/img/card-29-dia-de-lluvia-nene.webp" alt="" width="520" height="520" loading="lazy"><span>Día de lluvia</span></div>
       </div>
     </div>
   </section>
@@ -523,12 +531,12 @@
       <div class="reveal">
         <span class="eyebrow">Todo lo que recibís</span>
         <h2>Un kit completo, <span class="hand">listo para imprimir.</span></h2>
-        <p class="lead">Un PDF con todo lo que necesitás para armar el tablero de rutinas de tu casa en una tarde.</p>
+        <p class="lead">Todo lo que necesitás para armar el tablero de rutinas de tu casa en una tarde.</p>
       </div>
       <div class="bento">
         <article class="tile wide reveal">
           <div class="shot"><img src="/peque/img/pdf-tarjetas.webp" alt="Página del PDF con tarjetas de la mañana" loading="lazy"></div>
-          <div><p class="tag">31 tarjetas</p><h3>Su día completo, con y sin texto</h3><p>Mañana, tarde, noche y momentos especiales, en dos tamaños. Sin texto para los que no leen; con texto para ir sumando palabras.</p></div>
+          <div><p class="tag">31 tarjetas · nena y nene</p><h3>Su día completo, con y sin texto</h3><p>Mañana, tarde, noche y momentos especiales, en dos tamaños y en versión nena y nene. Sin texto para los que no leen, y con texto para ir sumando palabras.</p></div>
         </article>
         <article class="tile reveal">
           <div class="shot"><img src="/peque/img/pdf-tablero.webp" alt="Tablero con columnas Para hacer y Listo" loading="lazy"></div>
@@ -559,7 +567,7 @@
         <h2>Pensado para tu peque. <span class="hand">Y para tu casa.</span></h2>
       </div>
       <ol>
-        <li class="reveal"><div><h3>La reconoce en cada tarjeta</h3><p>La misma peque y su perrita en todo el kit. Tu peque se engancha y le dan ganas de usarlas.</p></div></li>
+        <li class="reveal"><div><h3>Lo reconoce en cada tarjeta</h3><p>El mismo personaje y su perrita en todo el kit, así tu peque se engancha y le dan ganas de usarlas.</p></div></li>
         <li class="reveal"><div><h3>La entiende solo mirándola</h3><p>Dibujos claros, una acción por tarjeta. Vos repetís menos.</p></div></li>
         <li class="reveal"><div><h3>La mueve con sus manos</h3><p>Pasar la tarjeta a "¡Listo!" lo hace sentir grande y parte de su día.</p></div></li>
         <li class="reveal"><div><h3>Queda linda en tu casa</h3><p>Paleta suave en tonos tierra. En la cocina o en su cuarto, no parece un cartel escolar.</p></div></li>
@@ -636,13 +644,13 @@
     <div class="wrap">
       <div class="reveal">
         <span class="eyebrow">Tu kit "Mi día"</span>
-        <h2>Todo esto, <span class="hand">en un solo PDF.</span></h2>
+        <h2>Todo esto, <span class="hand">en una sola compra.</span></h2>
       </div>
       <div class="ticket reveal">
         <p class="now">$10.999</p>
         <p class="why">Lo dejé a este precio para que llegue a más familias 🤍</p>
         <ul class="stack">
-          <li><span>Kit "Mi día": 31 tarjetas, tablero, carteles, fichitas y guía</span><s>$16.000</s></li>
+          <li><span>Kit "Mi día": 31 tarjetas con nena y con nene, tablero, carteles, fichitas y guía</span><s>$16.000</s></li>
           <li><span>Bonus · Hacelas tuyas (plantilla en Canva)</span><s>$4.000</s></li>
           <li><span>Bonus · Mi semana</span><s>$3.500</s></li>
           <li><span>Bonus · ¡Lo logré! + stickers</span><s>$3.000</s></li>
@@ -671,7 +679,7 @@
         <details><summary>¿Necesito impresora?</summary><p>No. Podés llevarlo a cualquier librería o centro de copiado.</p></details>
         <details><summary>¿Qué necesito para armarlo?</summary><p>Papel (mejor si es grueso), tijera, contact o plastificado, y imanes o abrojo.</p></details>
         <details><summary>¿Mi peque tiene que saber leer?</summary><p>No. Cada tarjeta viene también sin texto.</p></details>
-        <details><summary>¿La protagonista es una nena? ¿Sirve para varones?</summary><p>Por ahora la protagonista es una nena. Estamos preparando la versión con un nene.</p></details>
+        <details><summary>¿Viene con nena o con nene?</summary><p>Con los dos. El kit trae las 31 tarjetas con la nena y las 31 con el nene, así imprimís la que más se parezca a tu peque, o las dos si en casa hay nena y nene.</p></details>
         <details><summary>¿Lo puedo imprimir más de una vez?</summary><p>Sí, todas las veces que quieras para tu familia. No se puede compartir ni revender.</p></details>
         <details><summary>¿Tiene devolución?</summary><p>Al ser un archivo digital que se descarga al instante, no tiene devolución.</p></details>
         <details><summary>¿Cómo pago?</summary><p>Con Mercado Pago: tarjeta, débito o dinero en cuenta.</p></details>
@@ -769,6 +777,14 @@
   }
   document.querySelectorAll("[data-checkout]").forEach(a => a.addEventListener("click", () => {
     if (window.fbq) fbq("track", "InitiateCheckout", { value: CONFIG.price, currency: CONFIG.currency });
+  }));
+
+  // Nena / Nene: cambia todas las ilustraciones de personaje
+  document.querySelectorAll("[data-nene]").forEach(img => { img.dataset.nena = img.getAttribute("src"); });
+  document.querySelectorAll(".kid-switch button").forEach(btn => btn.addEventListener("click", () => {
+    const kid = btn.dataset.kid;
+    document.querySelectorAll("[data-nene]").forEach(img => { img.src = img.dataset[kid]; });
+    document.querySelectorAll(".kid-switch button").forEach(b => b.setAttribute("aria-pressed", String(b.dataset.kid === kid)));
   }));
 
   // Aparición suave de las secciones

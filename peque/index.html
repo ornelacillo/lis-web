@@ -737,7 +737,7 @@
   // ===== CONFIG: todo lo que se cambia está acá =====
   const CONFIG = {
     checkoutUrl: "https://peque-studio.tiendup.com/p/mi-dia-tarjetas-de-rutina-ilustradas",
-    metaPixelId: "",          // pegar acá el ID del píxel de Meta cuando hagas anuncios
+    metaPixelId: "1091344163708905", // píxel de Meta (portfolio Peque Studio)
     price: 10999,
     currency: "ARS"
   };
@@ -783,6 +783,7 @@
     var $ = ml_jQuery || jQuery;
     $('.ml-subscribe-form-46679732 .row-success').show();
     $('.ml-subscribe-form-46679732 .row-form').hide();
+    if (window.fbq) fbq('track', 'Lead', { content_name: 'Regalo láminas' });
   }
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>

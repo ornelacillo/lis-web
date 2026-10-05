@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="es-AR">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0B637X5C7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0B637X5C7R');
+</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="p:domain_verify" content="2c4d933dd0c7c0666b4d03330c43b320"/>
@@ -190,6 +198,7 @@ fbq('track', 'PageView');
     $('.ml-subscribe-form-46679732 .row-success').show();
     $('.ml-subscribe-form-46679732 .row-form').hide();
     if (window.fbq) fbq('track', 'Lead', { content_name: 'Regalo láminas' });
+    if (window.gtag) gtag('event', 'generate_lead', { form_name: 'Regalo láminas' });
   }
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>

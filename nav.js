@@ -5,7 +5,7 @@
  * Usage: add <script src="/nav.js"></script> inside <head> or before </body>
  *
  * Per-page config via data attributes on the <body>:
- *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|freebies"
+ *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|freebies|blog"
  *   data-nav-lang="es|en"  (default: es)
  *
  * Automatic theme switching:
@@ -346,6 +346,7 @@
       { label: 'services',  href: '/#services', dropdown: true },
       { label: 'portfolio', href: '/#portfolio' },
       { label: 'freebies',  href: '/freebies' },
+      { label: 'blog',      href: '/blog' },
       { label: 'contact',   href: '/#contact', cta: true },
     ];
 
@@ -423,6 +424,7 @@
       </div>
       <a href="${en ? base + 'index.html#portfolio' : '/#portfolio'}">portfolio</a>
       <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
+      <a href="/blog">blog</a>
       <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
 
     `;

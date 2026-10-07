@@ -22,3 +22,4 @@
 - /web — Diseño Web
 - /asesoria — Asesoría 1:1
 - /freebies — Recursos gratuitos
+- /blog — Blog: artículos semanales sobre diseño, identidad y presencia digital

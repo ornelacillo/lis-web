@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Recursos Gratuitos de Diseño | LIS. Creative Studio</title>
+  <title>Blog de Diseño y Marca | LIS. Creative Studio</title>
   <link rel="icon" href="/favicon.png" type="image/png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -197,6 +197,11 @@
     .res-form .ml-form-embedSubmit button { border: 1px solid #111 !important; border-radius: 100px !important; padding: 12px 20px !important; }
 
 
+    /* ── BLOG ── */
+    .blog-empty { border: 1px dashed var(--black); border-radius: 18px; padding: 48px; }
+    a.res-btn { text-decoration: none; }
+    .page-hero-inner { grid-template-columns: 1fr !important; }
+
     /* ── NEWSLETTER DESTACADO ── */
     .nl-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px 0; scroll-margin-top: 40px; }
     .nl-card {
@@ -248,6 +253,7 @@
       .nl-body { padding: 36px 24px; }
       .nl-form-side { padding: 36px 24px; }
       .nl-perks li { border-radius: 14px; }
+      .blog-empty { padding: 32px 24px; }
     }
 
     /* ── FOOTER ── */
@@ -313,14 +319,14 @@
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
   </style>
   <script src="/nav.js"></script>
-  <meta name="description" content="Plantillas gratuitas de Canva y recursos de diseño para diseñadoras y creativos. Descargalos gratis." />
-  <link rel="canonical" href="https://liscreativestudio.com/freebies" />
+  <meta name="description" content="Artículos semanales sobre diseño, identidad visual y presencia digital para marcas creativas. Por Ornela Cillo, LIS. Creative Studio." />
+  <link rel="canonical" href="https://liscreativestudio.com/blog" />
   <meta name="theme-color" content="#0a0a0a" />
   <!-- hreflang -->
   <!-- Open Graph -->
-  <meta property="og:title" content="Recursos Gratuitos de Diseño | LIS. Creative Studio" />
-  <meta property="og:description" content="Plantillas gratuitas de Canva y recursos de diseño para diseñadoras y creativos. Descargalos gratis." />
-  <meta property="og:url" content="https://liscreativestudio.com/freebies" />
+  <meta property="og:title" content="Blog de Diseño y Marca | LIS. Creative Studio" />
+  <meta property="og:description" content="Artículos semanales sobre diseño, identidad visual y presencia digital para marcas creativas. Por Ornela Cillo, LIS. Creative Studio." />
+  <meta property="og:url" content="https://liscreativestudio.com/blog" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="LIS. Creative Studio" />
@@ -329,8 +335,8 @@
   <meta property="og:image:height" content="630" />
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Recursos Gratuitos de Diseño | LIS. Creative Studio" />
-  <meta name="twitter:description" content="Plantillas gratuitas de Canva y recursos de diseño para diseñadoras y creativos. Descargalos gratis." />
+  <meta name="twitter:title" content="Blog de Diseño y Marca | LIS. Creative Studio" />
+  <meta name="twitter:description" content="Artículos semanales sobre diseño, identidad visual y presencia digital para marcas creativas. Por Ornela Cillo, LIS. Creative Studio." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
 </head>
 <body data-nav-theme="dark">
@@ -353,7 +359,8 @@
       <a href="/asesoria" onclick="closeMenu()">Asesoría 1:1</a>
     </div>
     <a href="/#portfolio" onclick="closeMenu()">portfolio</a>
-    <a href="/freebies" onclick="closeMenu()" style="opacity:.45">freebies</a>
+    <a href="/freebies" onclick="closeMenu()">freebies</a>
+    <a href="/blog" onclick="closeMenu()" style="opacity:.45">blog</a>
     <a href="/#contact" onclick="closeMenu()">contact</a>
   </div>
 
@@ -369,15 +376,10 @@
     </div>
     <div class="page-hero-inner">
       <div>
-        <p class="hero-label fi">[freebies]</p>
-        <h1 class="hero-title fi fi-d1">Recursos<br>gratuitos.</h1>
-        <p class="hero-desc fi fi-d2">Herramientas y plantillas para que tu marca comunique mejor, sin necesidad de ser diseñadora.</p>
-        <a href="#newsletter" class="hero-nl-link fi fi-d2">Sumate al newsletter semanal <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="hero-img-wrap fi fi-d2">
-        <!-- Renombrá tu gif a "freebies-mockup.gif" y subilo a la raíz del sitio -->
-        <img src="mockup-plantilla.gif" alt="Plantilla gratuita LIS Creative Studio" />
-        <span class="hero-badge">Gratis</span>
+        <p class="hero-label fi">[blog]</p>
+        <h1 class="hero-title fi fi-d1">El blog<br>de LIS.</h1>
+        <p class="hero-desc fi fi-d2">Un artículo por semana sobre diseño, identidad y presencia digital. Cada uno sale primero como mail en el newsletter.</p>
+        <a href="#newsletter" class="hero-nl-link fi fi-d2">Recibilo en tu mail <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </div>
@@ -420,137 +422,33 @@
     </div>
   </section>
 
-  <!-- ══ RECURSOS ══ -->
+  <!-- ══ ARTÍCULOS ══ -->
   <section class="res-section">
-    <p class="res-label fi">[todos los recursos]</p>
-    <div class="res-list">
+    <p class="res-label fi">[artículos]</p>
+    <div class="res-list" id="articulos">
 
-      <!-- Recurso 1: Plantilla Canva -->
+      <!--
+        Cada artículo nuevo va acá arriba (el más reciente primero), con este formato:
+
       <article class="res-card fi">
         <div class="res-body">
-          <span class="res-tag">Plantilla Canva</span>
-          <h2 class="res-title">Plantilla editable en Canva.</h2>
-          <p class="res-desc">Presentá tu marca, tus servicios o tu trabajo de forma profesional, sin saber diseño.</p>
-          <p class="res-desc">La abrís en Canva, cambiás textos y colores, y listo. Te llega directo al mail.</p>
-          <button type="button" class="res-btn">Quiero mi plantilla <span aria-hidden="true">→</span></button>
-          <div class="res-form template-form">
-            <div id="mlb2-39892436" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-39892436">
-              <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
-                <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                  <div class="ml-form-embedContent" style="margin-bottom:0"></div>
-                  <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/184727028221609412/subscribe" data-code="" method="post" target="_blank">
-                    <div class="ml-form-formContent">
-                      <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
-                      <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
-                    </div>
-                    <input type="hidden" name="ml-submit" value="1">
-                    <div class="ml-form-embedSubmit"><button type="submit" class="primary">Quiero mi plantilla</button><button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
-                    <input type="hidden" name="anticsrf" value="true">
-                  </form>
-                </div>
-                <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Pronto te va a llegar la plantilla a tu casilla de email.</p></div></div>
-              </div></div>
-            </div>
-          </div>
+          <span class="res-tag">Identidad · 5 min</span>
+          <h2 class="res-title">Título del artículo</h2>
+          <p class="res-desc">Bajada de una o dos líneas.</p>
+          <a href="/blog/slug-del-articulo" class="res-btn">Leer artículo <span aria-hidden="true">→</span></a>
         </div>
         <div class="res-media">
-          <img src="mockup-plantilla.gif" alt="Plantilla gratuita de Canva de LIS Creative Studio" loading="lazy" />
-          <span class="res-badge">Gratis</span>
+          <img src="/blog/img/slug-del-articulo.jpg" alt="" loading="lazy" />
         </div>
       </article>
+      -->
 
-      <!-- Recurso 2: Notion Portfolio -->
-      <article class="res-card fi">
-        <div class="res-body">
-          <span class="res-tag">Template Notion</span>
-          <h2 class="res-title">Portfolio de diseño web + CV.</h2>
-          <p class="res-desc">Una plantilla 100% editable en Notion para mostrar tu trabajo de forma profesional, con tu CV incluido.</p>
-          <p class="res-desc">Cambiá banners, imágenes, textos y colores las veces que quieras.</p>
-          <button type="button" class="res-btn">Quiero mi template <span aria-hidden="true">→</span></button>
-          <div class="res-form template-form">
-                <div id="mlb2-40075675" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40075675">
-                  <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
-                    <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                      <div class="ml-form-embedContent" style="margin-bottom:0"></div>
-                      <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/185023786568910630/subscribe" data-code="" method="post" target="_blank">
-                        <div class="ml-form-formContent">
-                          <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
-                          <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
-                        </div>
-                        <input type="hidden" name="ml-submit" value="1">
-                        <div class="ml-form-embedSubmit"><button type="submit" class="primary">Quiero mi template</button><button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
-                        <input type="hidden" name="anticsrf" value="true">
-                      </form>
-                    </div>
-                    <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Pronto te va a llegar la plantilla a tu casilla de email.</p></div></div>
-                  </div></div>
-                </div>
-          </div>
-        </div>
-        <div class="res-media">
-          <div class="notion-mock lime" aria-hidden="true">
-            <div class="nm-window">
-              <div class="nm-bar"><i></i><i></i><i></i></div>
-              <div class="nm-cover"></div>
-              <div class="nm-page">
-                <p class="nm-title">Portfolio | Web Design</p>
-                <div class="nm-line m"></div>
-                <div class="nm-line s"></div>
-                <div class="nm-row"><span></span><span></span><span></span></div>
-              </div>
-            </div>
-            <span class="nm-logo">N</span>
-          </div>
-          <span class="res-badge">Gratis</span>
-        </div>
-      </article>
-
-      <!-- Recurso 3: Notion Planner -->
-      <article class="res-card fi">
-        <div class="res-body">
-          <span class="res-tag">Template Notion</span>
-          <h2 class="res-title">Planner para freelancers.</h2>
-          <p class="res-desc">Organizá tus proyectos de principio a fin: desde el primer contacto con el cliente hasta la entrega final.</p>
-          <p class="res-desc">Personalizalo con tus colores, tipografía y logo. Disponible en español e inglés.</p>
-          <button type="button" class="res-btn">Quiero mi planner <span aria-hidden="true">→</span></button>
-          <div class="res-form template-form">
-                <div id="mlb2-40075877" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-40075877">
-                  <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
-                    <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-                      <div class="ml-form-embedContent" style="margin-bottom:0"></div>
-                      <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/185024159604017013/subscribe" data-code="" method="post" target="_blank">
-                        <div class="ml-form-formContent">
-                          <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
-                          <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
-                        </div>
-                        <input type="hidden" name="ml-submit" value="1">
-                        <div class="ml-form-embedSubmit"><button type="submit" class="primary">Quiero mi planner</button><button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
-                        <input type="hidden" name="anticsrf" value="true">
-                      </form>
-                    </div>
-                    <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Muchas gracias!</h4><p>Pronto te va a llegar la plantilla a tu casilla de email.</p></div></div>
-                  </div></div>
-                </div>
-          </div>
-        </div>
-        <div class="res-media">
-          <div class="notion-mock stone" aria-hidden="true">
-            <div class="nm-window">
-              <div class="nm-bar"><i></i><i></i><i></i></div>
-              <div class="nm-cover"></div>
-              <div class="nm-page">
-                <p class="nm-title">Freelance Planner</p>
-                <div class="nm-check"><b class="on"></b><div class="nm-line m"></div></div>
-                <div class="nm-check"><b class="on"></b><div class="nm-line s"></div></div>
-                <div class="nm-check"><b></b><div class="nm-line m"></div></div>
-                <div class="nm-check"><b></b><div class="nm-line s"></div></div>
-              </div>
-            </div>
-            <span class="nm-logo">N</span>
-          </div>
-          <span class="res-badge">Gratis</span>
-        </div>
-      </article>
+      <div class="blog-empty fi">
+        <span class="res-tag">Muy pronto</span>
+        <h2 class="res-title">El primer artículo sale con el primer mail.</h2>
+        <p class="res-desc">Suscribite al newsletter y te llega a vos antes que a nadie.</p>
+        <a href="#newsletter" class="res-btn">Quiero recibirlo <span aria-hidden="true">↑</span></a>
+      </div>
 
     </div>
   </section>
@@ -626,25 +524,7 @@
       $('.ml-subscribe-form-38791848 .row-success').show();
       $('.ml-subscribe-form-38791848 .row-form').hide();
     }
-    function ml_webform_success_39892436() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-39892436 .row-success').show();
-      $('.ml-subscribe-form-39892436 .row-form').hide();
-    }
-    function ml_webform_success_40075675() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-40075675 .row-success').show();
-      $('.ml-subscribe-form-40075675 .row-form').hide();
-    }
-    function ml_webform_success_40075877() {
-      var $ = ml_jQuery || jQuery;
-      $('.ml-subscribe-form-40075877 .row-success').show();
-      $('.ml-subscribe-form-40075877 .row-form').hide();
-    }
     fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
-    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/184727028221609412/takel");
-    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/185023786568910630/takel");
-    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/185024159604017013/takel");
 
     const cur = document.getElementById('cursor');
     const ring = document.getElementById('cursorRing');
@@ -664,16 +544,6 @@
       hamburger.classList.remove('open');
       mobileMenu.classList.remove('open');
     }
-
-    // Recursos: el botón despliega el formulario de cada tarjeta
-    document.querySelectorAll('.res-card .res-btn').forEach(btn => {
-      btn.addEventListener('click', () => {
-        const card = btn.closest('.res-card');
-        card.classList.add('open');
-        const input = card.querySelector('.res-form input[type="text"], .res-form input[type="email"]');
-        if (input) input.focus();
-      });
-    });
 
     const fiObs = new IntersectionObserver(entries => {
       entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });

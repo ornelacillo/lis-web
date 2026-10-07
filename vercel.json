@@ -21,6 +21,11 @@
       "source": "/portfolio",
       "destination": "/#portfolio",
       "permanent": true
+    },
+    {
+      "source": "/newsletter",
+      "destination": "/freebies#newsletter",
+      "permanent": false
     }
   ]
 }

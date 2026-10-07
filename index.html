@@ -184,9 +184,6 @@
       display: flex; flex-direction: column; justify-content: center;
       padding: 140px 56px 120px;
     }
-    .home-pills { position: absolute; top: 96px; left: 56px; display: flex; flex-wrap: wrap; gap: 12px; }
-    .home-pill { border: 1.5px solid #dcf26a; border-radius: 100px; padding: 8px 18px; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: #dcf26a; text-decoration: none; transition: background .2s, color .2s; }
-    .home-pill:hover { background: #dcf26a; color: #1b1a17; }
     .home-title { font-size: clamp(3.6rem, 11vw, 11rem); color: #dcf26a; margin: 0; max-width: 1200px; }
     .home-title em { color: #f4ede3; }
     .home-sub { margin-top: 36px; max-width: 520px; font-size: 17px; line-height: 1.6; color: #e9e2d6; }
@@ -195,8 +192,7 @@
     .home-foot { position: absolute; left: 56px; right: 56px; bottom: 36px; display: flex; justify-content: space-between; font-size: 12px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; }
     @media (max-width: 768px) {
       #home { padding: 150px 20px 110px; }
-      .home-pills { left: 20px; right: 20px; top: 84px; }
-      .home-foot { left: 20px; right: 20px; }
+        .home-foot { left: 20px; right: 20px; }
       .home-sub { font-size: 15px; }
     }
 
@@ -553,11 +549,6 @@
   </svg>
 
   <section id="home" data-nav-theme="light">
-    <div class="home-pills">
-      <a class="home-pill" href="/identidad-visual">Identidad visual</a>
-      <a class="home-pill" href="/web">Diseño web</a>
-      <a class="home-pill" href="/asesoria">Asesoría 1:1</a>
-    </div>
     <h1 class="home-title fi">Design for<br>your <em>brand</em></h1>
     <p class="home-sub fi fi-d1">Estudio de diseño en Rosario para estudios de arquitectura, interiorismo y marcas creativas que quieren verse a la altura de lo que hacen</p>
     <a href="#services" class="home-btn fi fi-d2">Ver servicios <span aria-hidden="true">→</span></a>

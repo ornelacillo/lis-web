@@ -350,10 +350,8 @@
     ];
 
     const serviceLinks = [
-      { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
-      { label: 'Curaduría Visual',   href: '/curaduria-visual' },
       { label: 'Asesoría 1:1',       href: '/asesoria' },
     ];
 
@@ -399,10 +397,8 @@
     const base = getBase();
     const en = isEn();
     const serviceLinks = [
-      { label: 'Branding Completo',  href: '/branding' },
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
-      { label: 'Curaduría Visual',   href: '/curaduria-visual' },
       { label: 'Asesoría 1:1',       href: '/asesoria' },
     ];
 

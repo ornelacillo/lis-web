@@ -1,0 +1,152 @@
+/* ══════════════════════════════════════════════════════════
+   LIS. Creative Studio · sistema visual 2026 (Planta Libre)
+   Se carga después del CSS de cada página y lo sobreescribe.
+   Crema + tinta + lima, mayúsculas apretadas (Inter Tight)
+   con acentos en cursiva (Instrument Serif), píldoras y óvalos.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #f4ede3;
+  --ink: #1b1a17;
+  --lime: #dcf26a;
+  --rule: #1b1a17;
+  --soft: #d8cebf;
+  --black: #1b1a17;
+  --white: #f4ede3;
+  --light: #d8cebf;
+  --gray: #6f6b64;
+  --font-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+  --font-script: 'Instrument Serif', Georgia, serif;
+}
+
+body { background: var(--cream); color: var(--ink); }
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ── Títulos grandes: mayúsculas apretadas ── */
+.hero-title, .page-hero-title, .home-title, .post-title,
+.res-title, .nl-title, .section-title, .includes-title, .cta-title,
+.about-title, .test-title, .svc-name, .modality-title,
+.hero h1, .booking-head h2, .price-amount, .footer-tagline {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: -.045em !important;
+  line-height: .92 !important;
+}
+
+/* Palabra en cursiva dentro de un título */
+.hero-title em, .page-hero-title em, .home-title em, .post-title em,
+.res-title em, .nl-title em, .section-title em, .includes-title em, .cta-title em,
+.about-title em, .test-title em, .svc-name em, .modality-title em,
+.hero h1 em, .booking-head h2 em, .footer-tagline em, .section h2 em {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -.01em;
+}
+
+/* Títulos largos (frases): Inter Tight sin mayúsculas */
+.section h2, .modal-title, .post-body h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.03em !important;
+}
+
+/* Frase destacada: cursiva editorial */
+.callout-text {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.01em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Etiquetas: píldoras con borde fino ── */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker, .footer-social-label, .footer-nl-label {
+  display: inline-block !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 100px !important;
+  padding: 6px 15px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  line-height: 1.4 !important;
+}
+.page-hero .page-hero-label, .page-hero .hero-label { color: var(--lime) !important; }
+
+/* ── Botones ── */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn {
+  border-radius: 100px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+/* ── Encabezados oscuros con foto desenfocada ── */
+.page-hero {
+  background: #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
+}
+.page-hero .hero-x { display: none !important; }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title { color: var(--lime) !important; }
+.page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
+.page-hero .post-back { color: #cfc6b8; }
+
+/* ── Tarjetas y bordes ── */
+.res-card, .h-card, .modality-item, .modal-item, .process-step, .step, .flow-item,
+.price-inner, .booking-card, .nl-card {
+  border-color: var(--ink) !important;
+  background-color: transparent;
+}
+.res-card, .h-card { background: var(--cream) !important; }
+.faq-item, .faq-item:nth-child(even) { border-color: var(--soft) !important; background: transparent !important; }
+.faq-item:hover { border-color: var(--ink) !important; }
+
+/* Paneles que antes eran blancos */
+.modal-list li, .modality-features li, .chip, .nl-perks li { background: var(--cream) !important; }
+
+/* Cuadrícula para secciones claras destacadas */
+.grid-paper {
+  background-image: linear-gradient(rgba(27,26,23,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(27,26,23,.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Footer ── */
+footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink) !important; }
+.footer-tagline { color: var(--ink) !important; }
+.footer-tagline-sub { color: var(--ink) !important; }
+.footer-tagline-sub, .footer-tagline em {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -.01em !important;
+}
+.footer-geo-text { font-family: var(--font-display) !important; text-transform: uppercase; letter-spacing: -.04em !important; font-weight: 500 !important; }
+.footer-bottom-grid, .footer-bottom-left { border-color: var(--ink) !important; }
+.footer-ml-wrap .ml-form-fieldRow input { border-radius: 100px !important; border: 1.5px solid var(--ink) !important; padding: 11px 18px !important; }
+.footer-ml-wrap .ml-form-embedSubmit button { border-radius: 100px !important; background: var(--ink) !important; color: var(--cream) !important; }
+.we-badge { border-color: var(--ink) !important; border-radius: 100px !important; }
+
+/* ── Navegación compartida (nav.js) ── */
+#lis-nav.nav-dark #lis-nav-pill { background: rgba(244, 237, 227, .82) !important; border-color: rgba(27, 26, 23, .18) !important; }
+#lis-nav.nav-light #lis-nav-pill { background: rgba(27, 26, 23, .55) !important; }
+#lis-nav-pill a, #lis-nav-pill button.nav-link-btn { border-radius: 100px !important; }
+#lis-nav-pill { border-radius: 100px !important; }
+.nav-dropdown-inner { background: var(--ink) !important; border-radius: 18px !important; }
+
+/* Etiquetas sobre fondos oscuros */
+.includes-section .includes-label, #services .svc-label, #portfolio .portfolio-label { color: var(--lime) !important; }
+
+/* Botón de contacto de la home */
+#contact .cta-btn { background: var(--ink) !important; color: var(--cream) !important; padding: 16px 30px !important; border: 1.5px solid var(--ink) !important; gap: 10px; }
+#contact .cta-btn:hover { background: var(--lime) !important; color: var(--ink) !important; }
+#contact .cta-btn svg { stroke: currentColor; }
+.post-back { display: block !important; width: fit-content; margin-bottom: 26px !important; }

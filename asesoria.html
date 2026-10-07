@@ -236,7 +236,7 @@
     .pill-btn:hover { background: var(--white); color: var(--black); }
     .lime-badge {
       position: absolute; top: 18px; left: 18px; z-index: 2;
-      background: #c8f060; color: #111; font-size: 11px; font-weight: 600;
+      background: #dcf26a; color: #111; font-size: 11px; font-weight: 600;
       letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
     }
 
@@ -258,7 +258,7 @@
     .modal-tag { border: 1px solid var(--black); border-radius: 100px; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; padding: 5px 13px; margin-bottom: 22px; }
     .modal-title { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; }
     .modal-desc { font-size: 15px; max-width: 400px; }
-    .modal-panel { border-left: 1px solid var(--black); background: #c8f060; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .modal-panel { border-left: 1px solid var(--black); background: #dcf26a; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
     .modal-item:nth-child(2) .modal-panel { background: #e0ddd8; }
     .modal-panel-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
     .modal-list { display: flex; flex-direction: column; gap: 10px; }
@@ -276,7 +276,7 @@
     }
     .step:hover, .flow-item:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
     .step-time {
-      display: inline-block; background: #c8f060; color: #111; border-radius: 100px;
+      display: inline-block; background: #dcf26a; color: #111; border-radius: 100px;
       padding: 5px 12px; font-weight: 500; margin-bottom: 20px;
     }
     .step-title, .flow-title { font-size: 19px; font-weight: 500; }
@@ -293,7 +293,7 @@
     .price-detail { color: #555; }
     .price-conditions { max-width: none; background: var(--black); padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
     .price-conditions p { color: #bbb; padding-left: 22px; position: relative; }
-    .price-conditions p::before { content: '→'; position: absolute; left: 0; color: #c8f060; }
+    .price-conditions p::before { content: '→'; position: absolute; left: 0; color: #dcf26a; }
 
     /* No incluye */
     .no-list li { border-radius: 100px; border-color: var(--black); color: var(--black); padding: 9px 18px; }
@@ -311,7 +311,7 @@
     /* Reserva: CTA + formulario en tarjeta */
     .booking { max-width: 1100px; margin: 0 auto; padding: 40px 60px 100px; scroll-margin-top: 60px; }
     .booking-card { border: 1px solid var(--black); border-radius: 18px; overflow: hidden; }
-    .booking-head { background: #c8f060; padding: 48px; border-bottom: 1px solid var(--black); }
+    .booking-head { background: #dcf26a; padding: 48px; border-bottom: 1px solid var(--black); }
     .booking-head h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 14px; }
     .booking-head p { font-size: 15px; color: #222; max-width: 520px; line-height: 1.7; }
     .booking-form { padding: 24px; }
@@ -438,6 +438,9 @@
     ]
   }
   </script>
+  <!-- Sistema visual 2026 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">
 
@@ -447,8 +450,8 @@
   <!-- HERO -->
   <div class="hero">
     <div>
-      <p class="service-label">[03] — asesoría 1:1</p>
-      <h1>Asesoría 1:1.</h1>
+      <p class="service-label">03 — asesoría 1:1</p>
+      <h1>Asesoría <em>1:1</em></h1>
       <p class="hero-sub">
         Una sesión de trabajo de 2 horas para resolver un problema concreto. Sin vueltas, con foco, y con un plan claro para salir.
       </p>
@@ -462,7 +465,7 @@
 
   <!-- MODALIDADES -->
   <div class="section">
-    <p class="section-label">[modalidades]</p>
+    <p class="section-label">modalidades</p>
     <h2>Elegís el tipo de sesión según lo que necesitás resolver.</h2>
     <div class="modal-grid">
       <div class="modal-item">
@@ -504,7 +507,7 @@
 
   <!-- ESTRUCTURA -->
   <div class="section">
-    <p class="section-label">[estructura de la sesión]</p>
+    <p class="section-label">estructura de la sesión</p>
     <h2>Dos horas con foco total en tu problema.</h2>
     <div class="steps-grid">
       <div class="step">
@@ -544,7 +547,7 @@
 
   <!-- COMO FUNCIONA -->
   <div class="section">
-    <p class="section-label">[cómo funciona]</p>
+    <p class="section-label">cómo funciona</p>
     <div class="flow-grid">
       <div class="flow-item">
         <p class="flow-num">01</p>
@@ -566,7 +569,7 @@
 
   <!-- NO INCLUYE -->
   <div class="section">
-    <p class="section-label">[qué no incluye]</p>
+    <p class="section-label">qué no incluye</p>
     <h2>Para que sepas exactamente qué estás comprando.</h2>
     <ul class="no-list">
       <li>Seguimiento posterior</li>
@@ -580,8 +583,8 @@
   <!-- FAQ -->
   <section class="faq-section">
     <div class="faq-inner">
-      <p class="section-label fi">[preguntas frecuentes]</p>
-      <h2 class="section-title fi">Preguntas frecuentes.</h2>
+      <p class="section-label fi">preguntas frecuentes</p>
+      <h2 class="section-title fi">Preguntas <em>frecuentes</em></h2>
       <div class="faq-grid">
         <div class="faq-item fi fi-d1">
           <p class="faq-q">¿Qué se puede resolver en una asesoría?</p>
@@ -616,7 +619,7 @@
     <div class="booking-card">
       <div class="booking-head">
         <span class="pill-tag">Cupos limitados</span>
-        <h2>¿Querés reservar tu lugar?</h2>
+        <h2>¿Querés reservar <em>tu lugar?</em></h2>
         <p>Completá el formulario y te confirmo en las próximas 48 horas si podemos trabajar juntas.</p>
       </div>
       <div class="booking-form">

@@ -98,7 +98,7 @@
     }
     .hero-badge {
       position: absolute; top: -16px; right: -16px;
-      background: #c8f060; color: #111;
+      background: #dcf26a; color: #111;
       font-size: 12px; font-weight: 600; letter-spacing: .06em;
       padding: 8px 16px; border-radius: 100px;
       text-transform: uppercase;
@@ -137,13 +137,13 @@
     .res-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .res-badge {
       position: absolute; top: 18px; left: 18px; z-index: 2;
-      background: #c8f060; color: #111; font-size: 11px; font-weight: 600;
+      background: #dcf26a; color: #111; font-size: 11px; font-weight: 600;
       letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
     }
 
     /* Mockup Notion hecho en CSS */
     .notion-mock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 40px; }
-    .notion-mock.lime { background: #c8f060; }
+    .notion-mock.lime { background: #dcf26a; }
     .notion-mock.stone { background: #e0ddd8; }
     .nm-window {
       width: 82%; max-width: 380px; background: #fff; border-radius: 10px;
@@ -153,7 +153,7 @@
     .nm-bar { display: flex; gap: 5px; padding: 10px 12px; border-bottom: 1px solid #eee; }
     .nm-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
     .nm-cover { height: 64px; background: #111; }
-    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #c8f060 60%); }
+    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #dcf26a 60%); }
     .nm-page { padding: 16px 20px 22px; }
     .nm-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #111; line-height: 1.2; }
     .nm-line { height: 7px; background: #eee; border-radius: 4px; margin-bottom: 8px; }
@@ -208,7 +208,7 @@
       display: grid; grid-template-columns: 1.15fr 1fr;
       border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
     }
-    .nl-body { background: #c8f060; padding: 56px 52px; }
+    .nl-body { background: #dcf26a; padding: 56px 52px; }
     .nl-tag {
       display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
       padding: 5px 13px; border: 1px solid var(--black); border-radius: 100px; margin-bottom: 24px;
@@ -235,18 +235,18 @@
       border: 1px solid #444 !important; border-radius: 100px !important; padding: 13px 20px !important; outline: none;
     }
     .nl-form-side .ml-form-fieldRow input::placeholder { color: #888; }
-    .nl-form-side .ml-form-fieldRow input:focus { border-color: #c8f060 !important; }
+    .nl-form-side .ml-form-fieldRow input:focus { border-color: #dcf26a !important; }
     .nl-form-side .ml-form-embedSubmit { margin: 6px 0 0 !important; }
     .nl-form-side .ml-form-embedSubmit button {
       width: 100% !important; font-family: var(--font) !important; font-size: 14px !important; font-weight: 600 !important;
-      background: #c8f060 !important; color: #111 !important; border: 1px solid #c8f060 !important;
+      background: #dcf26a !important; color: #111 !important; border: 1px solid #dcf26a !important;
       border-radius: 100px !important; padding: 14px 20px !important; cursor: none;
     }
     .nl-form-side .ml-form-embedSubmit button:hover { background: var(--white) !important; border-color: var(--white) !important; }
     .nl-form-side .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 22px !important; font-weight: 400 !important; color: var(--white) !important; margin-bottom: 8px; }
     .nl-form-side .ml-form-successContent p { font-family: var(--font) !important; font-size: 14px !important; color: #999 !important; }
     .nl-note { font-size: 12px; color: #777; margin-top: 16px; }
-    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #c8f060; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #dcf26a; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
     @media (max-width: 860px) {
       .nl-section { padding: 64px 16px 0; }
       .nl-card { grid-template-columns: 1fr; }
@@ -338,6 +338,9 @@
   <meta name="twitter:title" content="Blog de Diseño y Marca | LIS. Creative Studio" />
   <meta name="twitter:description" content="Planta Libre, el newsletter semanal de LIS: diseño, arquitectura e interiorismo, agenda, recursos y columnas para estudios y marcas creativas." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <!-- Sistema visual 2026 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">
 
@@ -376,8 +379,8 @@
     </div>
     <div class="page-hero-inner">
       <div>
-        <p class="hero-label fi">[blog]</p>
-        <h1 class="hero-title fi fi-d1">El blog<br>de LIS.</h1>
+        <p class="hero-label fi">blog</p>
+        <h1 class="hero-title fi fi-d1">El blog<br><em>de LIS</em></h1>
         <p class="hero-desc fi fi-d2">Acá queda publicada cada edición de Planta Libre, el newsletter semanal de LIS sobre diseño, arquitectura y todo lo que pasa en el medio.</p>
         <a href="#newsletter" class="hero-nl-link fi fi-d2">Recibilo en tu mail <span aria-hidden="true">↓</span></a>
       </div>
@@ -389,7 +392,7 @@
     <div class="nl-card fi">
       <div class="nl-body">
         <span class="nl-tag">Planta Libre · Newsletter semanal</span>
-        <h2 class="nl-title">Diseño, arquitectura y todo lo que pasa en el medio.</h2>
+        <h2 class="nl-title">Diseño, arquitectura <em>y todo lo que pasa en el medio</em></h2>
         <p class="nl-desc"><strong>Planta Libre</strong> es el newsletter de LIS para estudios de arquitectura, interiorismo y marcas creativas, y llega cada semana a tu mail.</p>
         <ul class="nl-perks">
           <li>Proyectos y novedades del estudio</li>
@@ -425,7 +428,7 @@
 
   <!-- ══ ARTÍCULOS ══ -->
   <section class="res-section">
-    <p class="res-label fi">[artículos]</p>
+    <p class="res-label fi">artículos</p>
     <div class="res-list" id="articulos">
 
       <!--
@@ -447,7 +450,7 @@
       <article class="res-card fi">
         <div class="res-body">
           <span class="res-tag">Planta Libre N°01 · 7 min</span>
-          <h2 class="res-title">Tu estudio también es una marca.</h2>
+          <h2 class="res-title">Tu estudio también es <em>una marca</em></h2>
           <p class="res-desc">Dos webs nuevas para arquitectas, Casa FOA, la agenda de octubre y la prueba de los 5 segundos para tu web o tu Instagram.</p>
           <a href="/blog/planta-libre-01" class="res-btn">Leer edición <span aria-hidden="true">→</span></a>
         </div>

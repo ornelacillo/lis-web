@@ -194,24 +194,6 @@
     .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 10px; letter-spacing: -.01em; }
     .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
 
-    /* CTA */
-    .cta-section {
-      max-width: 1100px; margin: 0 auto; padding: 80px 60px;
-    }
-    .cta-section h2 {
-      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
-      font-weight: 400; letter-spacing: -.01em; margin-bottom: 16px;
-    }
-    .cta-section p {
-      font-size: 15px; color: #555; max-width: 520px;
-      line-height: 1.7; margin-bottom: 36px;
-    }
-    .cta-btn {
-      display: inline-block; background: var(--black); color: var(--white);
-      text-decoration: none; font-size: 13px; letter-spacing: .08em;
-      padding: 16px 36px; transition: opacity .2s;
-    }
-    .cta-btn:hover { opacity: .75; }
 
     footer {
       border-top: 1px solid var(--light); padding: 40px 60px;
@@ -229,7 +211,6 @@
       .hero { padding: 130px 24px 72px; }
       .section { padding: 64px 24px; }
       .modal-grid { grid-template-columns: 1fr; }
-      .modal-item { padding: 32px 0 !important; }
       .steps-grid, .flow-grid { grid-template-columns: 1fr; }
       .step, .flow-item { padding: 32px 0; }
       .price-block { padding: 60px 24px; }
@@ -237,8 +218,122 @@
       .faq-section { padding: 60px 24px; }
       .faq-grid { grid-template-columns: 1fr; }
       .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
-      .cta-section { padding: 60px 24px; }
       footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ══ REDISEÑO EN TARJETAS (mismo lenguaje que /freebies) ══ */
+    .pill-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid currentColor; border-radius: 100px; margin-bottom: 22px;
+    }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-size: 13px; font-weight: 500; letter-spacing: .03em; text-decoration: none;
+      padding: 12px 24px; border-radius: 100px; transition: background .2s, color .2s;
+    }
+    .pill-btn:hover { background: var(--white); color: var(--black); }
+    .lime-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #c8f060; color: #111; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Hero con imagen */
+    .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; border-bottom: none; }
+    .hero-card { position: relative; border: 1px solid var(--black); border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 5; max-height: 560px; }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero .pill-btn { margin-top: 32px; }
+
+    .section { border-bottom: none; padding-top: 60px; padding-bottom: 60px; }
+
+    /* Modalidades como tarjetas horizontales */
+    .modal-grid { grid-template-columns: 1fr; gap: 28px; }
+    .modal-item, .modal-item:last-child {
+      display: grid; grid-template-columns: 1fr 1fr; padding: 0;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .modal-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .modal-tag { border: 1px solid var(--black); border-radius: 100px; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; padding: 5px 13px; margin-bottom: 22px; }
+    .modal-title { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; }
+    .modal-desc { font-size: 15px; max-width: 400px; }
+    .modal-panel { border-left: 1px solid var(--black); background: #c8f060; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .modal-item:nth-child(2) .modal-panel { background: #e0ddd8; }
+    .modal-panel-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
+    .modal-list { display: flex; flex-direction: column; gap: 10px; }
+    .modal-list li, .modal-list li:last-child {
+      background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 11px 20px; font-size: 14px; color: var(--black);
+    }
+    .modal-list li::before { content: '→ '; color: var(--black); }
+
+    /* Pasos y flujo en tarjetas */
+    .steps-grid, .flow-grid { gap: 16px; }
+    .step, .flow-item {
+      border: 1px solid var(--black); border-radius: 18px; padding: 28px 26px 30px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .step:hover, .flow-item:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .step-time {
+      display: inline-block; background: #c8f060; color: #111; border-radius: 100px;
+      padding: 5px 12px; font-weight: 500; margin-bottom: 20px;
+    }
+    .step-title, .flow-title { font-size: 19px; font-weight: 500; }
+    .flow-num { font-size: 2.4rem; font-weight: 400; letter-spacing: -.03em; color: var(--black); line-height: 1; margin-bottom: 20px; }
+
+    /* Precio como tarjeta */
+    .price-block { background: none; color: var(--black); padding: 40px 60px 60px; }
+    .price-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .price-inner > div:first-child { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .price-label { color: var(--gray); margin-bottom: 18px; }
+    .price-detail { color: #555; }
+    .price-conditions { max-width: none; background: var(--black); padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .price-conditions p { color: #bbb; padding-left: 22px; position: relative; }
+    .price-conditions p::before { content: '→'; position: absolute; left: 0; color: #c8f060; }
+
+    /* No incluye */
+    .no-list li { border-radius: 100px; border-color: var(--black); color: var(--black); padding: 9px 18px; }
+    .no-list li::before { content: '✕  '; font-size: 11px; }
+
+    /* FAQ en tarjetas */
+    .faq-section .section-title { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 400; letter-spacing: -.01em; }
+    .faq-grid { border-top: none; gap: 16px; }
+    .faq-item, .faq-item:nth-child(even) {
+      border: 1px solid var(--light); border-radius: 18px; padding: 28px 30px; transition: border-color .3s;
+    }
+    .faq-item:hover { border-color: var(--black); }
+    .faq-a { color: #666; }
+
+    /* Reserva: CTA + formulario en tarjeta */
+    .booking { max-width: 1100px; margin: 0 auto; padding: 40px 60px 100px; scroll-margin-top: 60px; }
+    .booking-card { border: 1px solid var(--black); border-radius: 18px; overflow: hidden; }
+    .booking-head { background: #c8f060; padding: 48px; border-bottom: 1px solid var(--black); }
+    .booking-head h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 14px; }
+    .booking-head p { font-size: 15px; color: #222; max-width: 520px; line-height: 1.7; }
+    .booking-form { padding: 24px; }
+    .booking-form iframe { width: 100%; height: 900px; border: none; display: block; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 130px 16px 40px; }
+      .hero-card { aspect-ratio: 4 / 3; }
+      .section { padding: 48px 16px; }
+      .modal-item, .modal-item:last-child { grid-template-columns: 1fr; }
+      .modal-body, .modal-panel { padding: 30px 24px; }
+      .modal-panel { border-left: none; border-top: 1px solid var(--black); }
+      .modal-list li, .modal-list li:last-child { border-radius: 14px; }
+      .step, .flow-item { padding: 26px 24px !important; }
+      .price-block { padding: 24px 16px 48px; }
+      .price-inner { grid-template-columns: 1fr; }
+      .price-inner > div:first-child, .price-conditions { padding: 32px 24px; }
+      .faq-section { padding: 48px 16px; }
+      .faq-item, .faq-item:nth-child(even) { padding: 24px !important; }
+      .booking { padding: 24px 16px 72px; }
+      .booking-head { padding: 32px 24px; }
+      .booking-form { padding: 8px; }
     }
   </style>
   <!-- Meta Pixel Code -->
@@ -351,11 +446,18 @@
 
   <!-- HERO -->
   <div class="hero">
-    <p class="service-label">[05] — asesoría 1:1</p>
-    <h1>Asesoría 1:1.</h1>
-    <p class="hero-sub">
-      Una sesión de trabajo de 2 horas para resolver un problema concreto. Sin vueltas, con foco, y con un plan claro para salir.
-    </p>
+    <div>
+      <p class="service-label">[03] — asesoría 1:1</p>
+      <h1>Asesoría 1:1.</h1>
+      <p class="hero-sub">
+        Una sesión de trabajo de 2 horas para resolver un problema concreto. Sin vueltas, con foco, y con un plan claro para salir.
+      </p>
+      <a href="#reservar" class="pill-btn">Quiero mi asesoría <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-card">
+      <img src="ornela-new.jpg" alt="Ornela Cillo, fundadora de LIS Creative Studio" />
+      <span class="lime-badge">2 horas · Virtual</span>
+    </div>
   </div>
 
   <!-- MODALIDADES -->
@@ -364,26 +466,38 @@
     <h2>Elegís el tipo de sesión según lo que necesitás resolver.</h2>
     <div class="modal-grid">
       <div class="modal-item">
-        <span class="modal-tag">Técnica</span>
-        <p class="modal-title">Herramientas, procesos y tecnología.</p>
-        <p class="modal-desc">Para diseñadoras y creativos que quieren resolver algo concreto con IA o herramientas digitales.</p>
-        <ul class="modal-list">
-          <li>Incorporar IA a tu proceso de diseño</li>
-          <li>Hacer tu web o landing sin código</li>
-          <li>Optimizar tu flujo de trabajo digital</li>
-          <li>Entender cómo usar Claude, VS Code o Netlify</li>
-        </ul>
+        <div class="modal-body">
+          <span class="modal-tag">Técnica</span>
+          <p class="modal-title">Herramientas, procesos y tecnología.</p>
+          <p class="modal-desc">Para diseñadoras y creativos que quieren resolver algo concreto con IA o herramientas digitales.</p>
+          <a href="#reservar" class="pill-btn">Quiero esta sesión <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="modal-panel">
+          <p class="modal-panel-label">Ideal para</p>
+          <ul class="modal-list">
+            <li>Incorporar IA a tu proceso de diseño</li>
+            <li>Hacer tu web o landing sin código</li>
+            <li>Optimizar tu flujo de trabajo digital</li>
+            <li>Entender cómo usar Claude, VS Code o Netlify</li>
+          </ul>
+        </div>
       </div>
       <div class="modal-item">
-        <span class="modal-tag">Estratégica</span>
-        <p class="modal-title">Negocio, posicionamiento y comunicación.</p>
-        <p class="modal-desc">Para diseñadoras, freelancers y marcas creativas que necesitan claridad sobre su negocio o cómo comunicarlo.</p>
-        <ul class="modal-list">
-          <li>Ordenar servicios y precios</li>
-          <li>Definir posicionamiento y nicho</li>
-          <li>Comunicarte para atraer los clientes correctos</li>
-          <li>Ordenar tu propuesta de valor</li>
-        </ul>
+        <div class="modal-body">
+          <span class="modal-tag">Estratégica</span>
+          <p class="modal-title">Negocio, posicionamiento y comunicación.</p>
+          <p class="modal-desc">Para diseñadoras, freelancers y marcas creativas que necesitan claridad sobre su negocio o cómo comunicarlo.</p>
+          <a href="#reservar" class="pill-btn">Quiero esta sesión <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="modal-panel">
+          <p class="modal-panel-label">Ideal para</p>
+          <ul class="modal-list">
+            <li>Ordenar servicios y precios</li>
+            <li>Definir posicionamiento y nicho</li>
+            <li>Comunicarte para atraer los clientes correctos</li>
+            <li>Ordenar tu propuesta de valor</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -418,6 +532,7 @@
         <p class="price-label">[inversión]</p>
         <p class="price-amount">USD 200</p>
         <p class="price-detail">2 horas · Virtual · Cupos limitados</p>
+        <a href="#reservar" class="pill-btn">Reservar mi lugar <span aria-hidden="true">→</span></a>
       </div>
       <div class="price-conditions">
         <p>El pago se realiza en su totalidad antes de agendar la sesión.</p>
@@ -496,21 +611,23 @@
     </div>
   </section>
 
-  <!-- CTA -->
-  <div class="cta-section">
-    <h2>¿Querés reservar tu lugar?</h2>
-    <p>Los cupos son limitados. Completá el formulario y te confirmo en las próximas 48 horas si podemos trabajar juntas.</p>
-  </div>
-
-  <!-- Formulario Fillout -->
-  <div style="max-width: 1100px; margin: 0 auto; padding: 0 60px 80px;">
-    <iframe
-      src="https://forms.fillout.com/t/98UYZqbniZus"
-      style="width: 100%; height: 900px; border: none; border-radius: 8px;"
-      title="Formulario de asesoría 1:1"
-      allow="fullscreen"
-    ></iframe>
-  </div>
+  <!-- RESERVA -->
+  <section class="booking" id="reservar">
+    <div class="booking-card">
+      <div class="booking-head">
+        <span class="pill-tag">Cupos limitados</span>
+        <h2>¿Querés reservar tu lugar?</h2>
+        <p>Completá el formulario y te confirmo en las próximas 48 horas si podemos trabajar juntas.</p>
+      </div>
+      <div class="booking-form">
+        <iframe
+          src="https://forms.fillout.com/t/98UYZqbniZus"
+          title="Formulario de asesoría 1:1"
+          allow="fullscreen"
+        ></iframe>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <span class="footer-copy">LIS Creative Studio · Todos los derechos reservados</span>

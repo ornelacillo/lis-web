@@ -265,6 +265,108 @@
     }
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+
+    /* ══ REDISEÑO EN TARJETAS (mismo lenguaje que /freebies) ══ */
+    .pill-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid currentColor; border-radius: 100px; margin-bottom: 22px;
+    }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-size: 13px; font-weight: 500; letter-spacing: .03em; text-decoration: none;
+      padding: 12px 24px; border-radius: 100px; transition: background .2s, color .2s;
+    }
+    .pill-btn:hover { background: var(--white); color: var(--black); }
+    .lime-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #c8f060; color: #111; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Hero con imagen */
+    .page-hero-inner.has-img { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; }
+    .page-hero-inner.has-img .page-hero-title { margin-bottom: 28px; }
+    .hero-card { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid #333; aspect-ratio: 4 / 3; }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Tarjeta horizontal */
+    .h-card-wrap { max-width: 1100px; margin: 0 auto; padding: 100px 60px; }
+    .h-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden; background: var(--white);
+    }
+    .h-card-body { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .h-card-body .section-title { margin-bottom: 20px; }
+    .h-card-body .body-text { font-size: 15px; line-height: 1.75; margin-bottom: 12px; }
+    .h-card-media { position: relative; min-height: 420px; border-left: 1px solid var(--black); }
+    .h-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Proceso en tarjetas */
+    .process-grid { gap: 16px; }
+    .process-step {
+      border: 1px solid var(--black); border-radius: 18px; padding: 28px 24px 30px;
+      display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s;
+    }
+    .process-step:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .step-num { font-size: 2.4rem; font-weight: 400; letter-spacing: -.03em; color: var(--black); line-height: 1; margin-bottom: 22px; }
+    .step-duration {
+      order: -1; align-self: flex-start; margin-bottom: 22px;
+      font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--black);
+      padding: 5px 12px; border-radius: 100px; background: #c8f060;
+    }
+
+    /* Callout como panel lima */
+    .callout { border: none; padding: 0 60px 100px; }
+    .callout-inner { background: #c8f060; border-radius: 18px; padding: 64px 56px; }
+    .callout-text { color: #111; }
+
+    /* Entregables en tarjetas oscuras */
+    .includes-grid { gap: 16px; grid-template-columns: repeat(4, 1fr); }
+    .include-item { border: 1px solid #2e2e2e; border-radius: 18px; padding: 28px 26px 30px; transition: border-color .3s; }
+    .include-item:hover { border-color: #c8f060; }
+    .include-num {
+      display: inline-block; color: #c8f060; border: 1px solid #c8f060; border-radius: 100px;
+      padding: 4px 11px; font-weight: 500; margin-bottom: 20px;
+    }
+    .include-detail { color: #888; }
+
+    /* FAQ en tarjetas */
+    .faq-grid { border-top: none; gap: 16px; }
+    .faq-item, .faq-item:nth-child(even) {
+      border: 1px solid var(--light); border-radius: 18px; padding: 28px 30px;
+      transition: border-color .3s;
+    }
+    .faq-item:hover { border-color: var(--black); }
+    .faq-a { color: #666; }
+
+    /* CTA como tarjeta */
+    .cta-section { padding: 0 60px 120px; }
+    .cta-card { max-width: 1100px; margin: 0 auto; }
+    .cta-card .h-card-body { padding: 56px 48px; }
+    .cta-card .cta-title { font-size: clamp(2.2rem, 4vw, 3.6rem); margin-bottom: 18px; }
+    .cta-card .h-card-media { min-height: 380px; }
+
+    @media (max-width: 860px) {
+      .page-hero-inner.has-img { grid-template-columns: 1fr; gap: 48px; }
+      .h-card-wrap { padding: 72px 16px; }
+      .h-card { grid-template-columns: 1fr; }
+      .h-card-media { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .h-card-body, .cta-card .h-card-body { padding: 30px 24px 34px; }
+      .process-section { padding: 0 16px 72px; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .callout { padding: 0 16px 72px; }
+      .callout-inner { padding: 40px 28px; }
+      .includes-section { padding: 72px 16px; }
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+      .faq-section { padding: 72px 16px; }
+      .faq-item, .faq-item:nth-child(even) { padding: 24px; }
+      .cta-section { padding: 0 16px 80px; }
+    }
+    @media (max-width: 540px) {
+      .process-grid, .includes-grid { grid-template-columns: 1fr; }
+    }
   </style>
   <script src="/nav.js"></script>
   <meta name="description" content="Sistema de identidad visual completo: logo, paleta, tipografías y aplicaciones. Para marcas que necesitan consistencia en cada punto de contacto." />
@@ -360,24 +462,34 @@
         <line x1="1440" y1="0" x2="1160" y2="600" stroke="#fff" stroke-width="1.2"/>
       </svg>
     </div>
-    <div class="page-hero-inner">
-      <p class="page-hero-label fi">[02] — identidad visual</p>
-      <h1 class="page-hero-title fi fi-d1">Identidad<br>Visual.</h1>
-      <p class="page-hero-desc fi fi-d2">El sistema gráfico completo para que tu marca sea reconocible, coherente y memorable en cualquier soporte.</p>
+    <div class="page-hero-inner has-img">
+      <div>
+        <p class="page-hero-label fi">[01] — identidad visual</p>
+        <h1 class="page-hero-title fi fi-d1">Identidad<br>Visual.</h1>
+        <p class="page-hero-desc fi fi-d2">El sistema gráfico completo para que tu marca sea reconocible, coherente y memorable en cualquier soporte.</p>
+      </div>
+      <div class="hero-card fi fi-d2">
+        <img src="Slide_53.jpg" alt="Proyecto de identidad visual de LIS Creative Studio" />
+        <span class="lime-badge">4 a 7 semanas</span>
+      </div>
     </div>
   </div>
 
   <!-- ══ INTRO ══ -->
-  <div class="intro-split">
-    <div class="intro-split-left">
-      <p class="section-label fi">[qué es]</p>
-      <h2 class="section-title fi">Tu marca,<br>con sistema.</h2>
-    </div>
-    <div class="intro-split-right fi fi-d1">
-      <p class="body-text">La identidad visual es el lenguaje gráfico de tu marca. El conjunto de elementos que hacen que alguien te reconozca sin necesidad de leer tu nombre.</p>
-      <p class="body-text">Logo, colores, tipografías, elementos gráficos — pero pensados como un sistema coherente, no como piezas sueltas.</p>
-      <p class="body-text">Es el punto de partida para comunicar con intención. Y el paso previo natural antes de construir tu web o tu contenido de redes.</p>
-    </div>
+  <div class="h-card-wrap">
+    <article class="h-card fi">
+      <div class="h-card-body">
+        <span class="pill-tag">Qué es</span>
+        <h2 class="section-title">Tu marca,<br>con sistema.</h2>
+        <p class="body-text">La identidad visual es el lenguaje gráfico de tu marca. El conjunto de elementos que hacen que alguien te reconozca sin necesidad de leer tu nombre.</p>
+        <p class="body-text">Logo, colores, tipografías, elementos gráficos — pero pensados como un sistema coherente, no como piezas sueltas.</p>
+        <p class="body-text">Es el punto de partida para comunicar con intención. Y el paso previo natural antes de construir tu web o tu contenido de redes.</p>
+        <a href="/#contact" class="pill-btn">Quiero mi identidad <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="h-card-media">
+        <img src="bm-tshirt.jpg" alt="Identidad visual de Buenas Marcas aplicada en una remera" loading="lazy" />
+      </div>
+    </article>
   </div>
 
   <!-- ══ PROCESO ══ -->
@@ -401,7 +513,7 @@
           <p class="step-num">03</p>
           <p class="step-name">Diseño</p>
           <p class="step-duration">2 semanas</p>
-          <p class="step-desc">Desarrollamos todas las piezas de identidad: logo, sistema visual completo, aplicaciones y templates.</p>
+          <p class="step-desc">Desarrollamos todas las piezas de identidad: logo, sistema visual completo y aplicaciones.</p>
         </div>
         <div class="process-step fi fi-d4">
           <p class="step-num">04</p>
@@ -448,26 +560,21 @@
         </div>
         <div class="include-item fi fi-d2">
           <p class="include-num">05</p>
-          <p class="include-name">6 templates para redes</p>
-          <p class="include-detail">Piezas editables para comunicar en redes con coherencia, sin necesidad de diseñar cada publicación desde cero.</p>
+          <p class="include-name">Tu marca en la realidad</p>
+          <p class="include-detail">Mockups de tu identidad aplicada en soportes reales, para que veas cómo vive tu marca en el mundo antes de salir.</p>
         </div>
         <div class="include-item fi fi-d3">
           <p class="include-num">06</p>
-          <p class="include-name">4 mockups</p>
-          <p class="include-detail">Aplicaciones de la identidad en soportes reales para que veas cómo vive tu marca en el mundo.</p>
-        </div>
-        <div class="include-item fi fi-d1">
-          <p class="include-num">07</p>
           <p class="include-name">Manual de Identidad</p>
           <p class="include-detail">La guía de uso de tu marca: qué podés hacer, qué no, y cómo aplicar cada elemento con coherencia.</p>
         </div>
-        <div class="include-item fi fi-d2">
-          <p class="include-num">08</p>
+        <div class="include-item fi fi-d1">
+          <p class="include-num">07</p>
           <p class="include-name">Archivos editables</p>
           <p class="include-detail">Todo en PNG, JPG y PDF. Para imprimir, publicar y compartir desde el primer día.</p>
         </div>
-        <div class="include-item fi fi-d3">
-          <p class="include-num">09</p>
+        <div class="include-item fi fi-d2">
+          <p class="include-num">08</p>
           <p class="include-name">Portal del cliente y 2 rondas de cambios</p>
           <p class="include-detail">Seguimiento en Notion y Trello. Dos instancias de revisión incluidas para llegar al resultado que buscás.</p>
         </div>
@@ -507,10 +614,17 @@
 
   <!-- ══ CTA ══ -->
   <section class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title fi">¿Es hora de<br>construir tu marca?</h2>
-      <a href="/#contact" class="cta-btn fi">Escribime</a>
-    </div>
+    <article class="h-card cta-card fi">
+      <div class="h-card-body">
+        <span class="pill-tag">Cupos limitados</span>
+        <h2 class="cta-title">¿Es hora de<br>construir tu marca?</h2>
+        <p class="body-text">Contame en qué etapa está tu proyecto y te respondo con los próximos pasos.</p>
+        <a href="/#contact" class="pill-btn">Escribime <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="h-card-media">
+        <img src="bm-merch.jpg" alt="Aplicaciones de marca diseñadas por LIS Creative Studio" loading="lazy" />
+      </div>
+    </article>
   </section>
 
   <!-- ══ FOOTER ══ -->

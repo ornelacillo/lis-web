@@ -121,10 +121,7 @@
 
     /* ── CTA ── */
     .cta-section { padding: 120px 60px; }
-    .cta-inner { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; flex-wrap: wrap; }
     .cta-title { font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; }
-    .cta-btn { display: inline-block; padding: 18px 56px; border: 1px solid var(--black); border-radius: 100px; text-decoration: none; color: var(--black); font-size: 14px; letter-spacing: .04em; transition: background .3s, color .3s; white-space: nowrap; }
-    .cta-btn:hover { background: var(--black); color: var(--white); }
 
     /* ── FOOTER ── */
     footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
@@ -185,8 +182,7 @@
       nav a { font-size: 12px; }
       .process-grid { grid-template-columns: 1fr; }
       .includes-grid { grid-template-columns: 1fr; }
-      .cta-inner { flex-direction: column; align-items: flex-start; }
-      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+        .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
     }
 
     .lang-switcher {
@@ -199,6 +195,149 @@
     }
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+
+    /* ══ REDISEÑO EN TARJETAS (mismo lenguaje que /freebies) ══ */
+    .pill-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid currentColor; border-radius: 100px; margin-bottom: 22px;
+    }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-size: 13px; font-weight: 500; letter-spacing: .03em; text-decoration: none;
+      padding: 12px 24px; border-radius: 100px; transition: background .2s, color .2s;
+    }
+    .pill-btn:hover { background: var(--white); color: var(--black); }
+    .lime-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #c8f060; color: #111; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Hero con imagen */
+    .page-hero-inner.has-img { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; }
+    .page-hero-inner.has-img .page-hero-title { margin-bottom: 28px; }
+    .hero-card { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid #333; aspect-ratio: 4 / 3; }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Modalidades como tarjetas horizontales */
+    .section { padding-bottom: 0; }
+    .section-intro { margin-bottom: 48px; }
+    .modality-grid { grid-template-columns: 1fr; gap: 28px; }
+    .modality-item {
+      display: grid; grid-template-columns: 1fr 1fr; padding: 0;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .modality-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .modality-num {
+      font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--black);
+      border: 1px solid var(--black); border-radius: 100px; padding: 5px 13px; margin-bottom: 22px;
+    }
+    .modality-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); letter-spacing: -.02em; line-height: 1.12; }
+    .modality-desc { margin-bottom: 4px; max-width: 420px; }
+    .modality-panel { border-left: 1px solid var(--black); background: #c8f060; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .modality-item:nth-child(2) .modality-panel { background: #e0ddd8; }
+    .modality-ideal { color: #111; font-weight: 600; font-size: 11px; letter-spacing: .1em; margin-bottom: 16px; }
+    .modality-features { display: flex; flex-direction: column; gap: 10px; }
+    .modality-features li, .modality-features li:last-child {
+      background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 11px 20px; font-size: 14px; color: var(--black); line-height: 1.4;
+    }
+    .modality-features li::before { content: '→ '; }
+
+    /* Callout como panel lima */
+    .callout { border: none; padding: 0 60px 100px; }
+    .callout-inner { background: #c8f060; border-radius: 18px; padding: 64px 56px; }
+    .callout-text { color: #111; }
+
+    /* Entregables en tarjetas oscuras */
+    .includes-subtitle { color: #888; margin-bottom: 56px; }
+    .includes-grid { gap: 16px; }
+    .include-item { border: 1px solid #2e2e2e; border-radius: 18px; padding: 28px 26px 30px; transition: border-color .3s; }
+    .include-item:hover { border-color: #c8f060; }
+    .include-num {
+      display: inline-block; color: #c8f060; border: 1px solid #c8f060; border-radius: 100px;
+      padding: 4px 11px; font-weight: 500; margin-bottom: 20px;
+    }
+    .include-item.is-note { border-style: dashed; }
+    .include-item.is-note .include-num { color: #888; border-color: #555; }
+    .include-detail { color: #888; }
+
+    /* Proceso en tarjetas */
+    .process-section { border-bottom: none; }
+    .process-grid { gap: 14px; }
+    .process-step {
+      border: 1px solid var(--black); border-radius: 18px; padding: 26px 20px 28px;
+      display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s;
+    }
+    .process-step:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .step-num { font-size: 2.4rem; font-weight: 400; letter-spacing: -.03em; color: var(--black); line-height: 1; margin-bottom: 22px; }
+    .step-duration {
+      order: -1; align-self: flex-start; margin-bottom: 22px;
+      font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: var(--black);
+      padding: 5px 12px; border-radius: 100px; background: #c8f060; white-space: nowrap;
+    }
+
+    /* Adicionales en tarjetas */
+    .addons-section { border-bottom: none; padding-top: 0; }
+    .addons-inner { gap: 16px; }
+    .addons-inner > div { border: 1px solid var(--black); border-radius: 18px; padding: 36px 32px; height: 100%; }
+    .addons-inner > div:last-child { background: var(--black); color: var(--white); }
+    .addons-inner > div:last-child .section-label { color: #888; }
+    .addons-inner > div:last-child .addon-desc { color: #bbb; }
+    .addons-inner .section-label { margin-bottom: 20px; }
+    .addon-item { border-top: none; padding: 16px 0 0; }
+
+    /* FAQ en tarjetas */
+    .faq-grid { border-top: none; gap: 16px; }
+    .faq-item, .faq-item:nth-child(even) {
+      border: 1px solid var(--light); border-radius: 18px; padding: 28px 30px; transition: border-color .3s;
+    }
+    .faq-item:hover { border-color: var(--black); }
+    .faq-a { color: #666; }
+
+    /* CTA como tarjeta */
+    .cta-section { padding: 0 60px 120px; }
+    .h-card {
+      max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden; background: var(--white);
+    }
+    .h-card-body { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .h-card-body .cta-title { font-size: clamp(2.2rem, 4vw, 3.6rem); margin-bottom: 18px; }
+    .h-card-body .cta-text { font-size: 15px; color: #555; line-height: 1.75; max-width: 400px; }
+    .h-card-media { position: relative; min-height: 380px; border-left: 1px solid var(--black); }
+    .h-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @media (max-width: 1000px) {
+      .process-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .page-hero-inner.has-img { grid-template-columns: 1fr; gap: 48px; }
+      .section { padding: 72px 16px 0; }
+      .modalities-section { padding: 0 16px 72px; }
+      .modality-item { grid-template-columns: 1fr; padding: 0 !important; }
+      .modality-body, .modality-panel { padding: 30px 24px; }
+      .modality-panel { border-left: none; border-top: 1px solid var(--black); }
+      .modality-features li, .modality-features li:last-child { border-radius: 14px; }
+      .callout { padding: 0 16px 72px; }
+      .callout-inner { padding: 40px 28px; }
+      .includes-section { padding: 72px 16px; }
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+      .process-section { padding: 72px 16px; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .addons-section { padding: 0 16px 72px; }
+      .addons-inner { grid-template-columns: 1fr; }
+      .faq-section { padding: 72px 16px; }
+      .faq-item, .faq-item:nth-child(even) { padding: 24px !important; }
+      .cta-section { padding: 0 16px 80px; }
+      .h-card { grid-template-columns: 1fr; }
+      .h-card-media { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .h-card-body { padding: 30px 24px 34px; }
+    }
+    @media (max-width: 540px) {
+      .process-grid, .includes-grid { grid-template-columns: 1fr; }
+    }
   </style>
   <script src="/nav.js"></script>
   <meta name="description" content="Diseño y desarrollo web a medida: landing pages, sitios institucionales y tiendas online. No-code, responsive y listo para crecer. Cotizá tu proyecto." />
@@ -302,10 +441,16 @@
         <line x1="1080" y1="0" x2="800"  y2="600" stroke="#fff" stroke-width="1.2"/>
       </svg>
     </div>
-    <div class="page-hero-inner">
-      <p class="page-hero-label fi">[03] — diseño web</p>
-      <h1 class="page-hero-title fi fi-d1">Diseño<br>& Desarrollo Web.</h1>
-      <p class="page-hero-desc fi fi-d2">Sitios no-code, diseño 100% personalizado y responsive. Que tu presencia digital esté a la altura de lo que ofrecés.</p>
+    <div class="page-hero-inner has-img">
+      <div>
+        <p class="page-hero-label fi">[02] — diseño web</p>
+        <h1 class="page-hero-title fi fi-d1">Diseño<br>& Desarrollo Web.</h1>
+        <p class="page-hero-desc fi fi-d2">Sitios no-code, diseño 100% personalizado y responsive. Que tu presencia digital esté a la altura de lo que ofrecés.</p>
+      </div>
+      <div class="hero-card fi fi-d2">
+        <img src="bm-web.jpg" alt="Sitio web de Buenas Marcas diseñado por LIS Creative Studio" />
+        <span class="lime-badge">No-code · Responsive</span>
+      </div>
     </div>
   </div>
 
@@ -320,43 +465,61 @@
     <div class="modalities-inner">
       <div class="modality-grid">
 
-        <div class="modality-item fi fi-d1">
-          <p class="modality-num">01</p>
-          <h3 class="modality-title">Landing<br>/ One-Page</h3>
-          <p class="modality-ideal">Ideal para: servicios, lanzamientos, portfolios</p>
-          <p class="modality-desc">Una sola página con secciones bien definidas. Presencia rápida, efectiva y enfocada. Sin estructura de navegación compleja.</p>
-          <ul class="modality-features">
+        <div class="modality-item fi">
+          <div class="modality-body">
+            <p class="modality-num">01 — Landing</p>
+            <h3 class="modality-title">Landing<br>/ One-Page</h3>
+            <p class="modality-desc">Una sola página con secciones bien definidas. Presencia rápida, efectiva y enfocada. Sin estructura de navegación compleja.</p>
+            <p class="modality-desc" style="font-size:13px;color:var(--gray);">Ideal para: servicios, lanzamientos, portfolios</p>
+            <a href="/#contact" class="pill-btn">Quiero mi landing <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="modality-panel">
+            <p class="modality-ideal">Qué incluye</p>
+            <ul class="modality-features">
             <li>Una página, múltiples secciones</li>
             <li>Enfocada en un solo objetivo de conversión</li>
             <li>Tiempo de entrega más corto</li>
             <li>Ideal para arrancar con presencia digital</li>
           </ul>
+          </div>
         </div>
 
-        <div class="modality-item fi fi-d2">
-          <p class="modality-num">02</p>
-          <h3 class="modality-title">Web<br>Institucional</h3>
-          <p class="modality-ideal">Ideal para: estudios, agencias, marcas profesionales</p>
-          <p class="modality-desc">Sitio con múltiples páginas y navegación completa. Para marcas que necesitan comunicar servicios, proyectos, equipo y contacto de forma estructurada.</p>
-          <ul class="modality-features">
+        <div class="modality-item fi">
+          <div class="modality-body">
+            <p class="modality-num">02 — Institucional</p>
+            <h3 class="modality-title">Web<br>Institucional</h3>
+            <p class="modality-desc">Sitio con múltiples páginas y navegación completa. Para marcas que necesitan comunicar servicios, proyectos, equipo y contacto de forma estructurada.</p>
+            <p class="modality-desc" style="font-size:13px;color:var(--gray);">Ideal para: estudios, agencias, marcas profesionales</p>
+            <a href="/#contact" class="pill-btn">Quiero mi web <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="modality-panel">
+            <p class="modality-ideal">Qué incluye</p>
+            <ul class="modality-features">
             <li>Múltiples páginas con navegación</li>
             <li>Secciones: inicio, servicios, proyectos, contacto</li>
             <li>Estructura pensada para crecer</li>
             <li>Ideal para estudios de arquitectura, interiorismo, agencias</li>
           </ul>
+          </div>
         </div>
 
-        <div class="modality-item fi fi-d3">
-          <p class="modality-num">03</p>
-          <h3 class="modality-title">Tienda<br>Online</h3>
-          <p class="modality-ideal">Ideal para: marcas de productos, tiendas creativas</p>
-          <p class="modality-desc">E-commerce no-code con catálogo, carrito y pasarela de pago. Para marcas que venden productos físicos o digitales.</p>
-          <ul class="modality-features">
+        <div class="modality-item fi">
+          <div class="modality-body">
+            <p class="modality-num">03 — Tienda online</p>
+            <h3 class="modality-title">Tienda<br>Online</h3>
+            <p class="modality-desc">E-commerce no-code con catálogo, carrito y pasarela de pago. Para marcas que venden productos físicos o digitales.</p>
+            <p class="modality-desc" style="font-size:13px;color:var(--gray);">Ideal para: marcas de productos, tiendas creativas</p>
+            <a href="/#contact" class="pill-btn">Quiero mi tienda <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="modality-panel">
+            <p class="modality-ideal">Qué incluye</p>
+            <ul class="modality-features">
             <li>Catálogo de productos + carrito</li>
             <li>Integración de pasarela de pago</li>
             <li>Panel de administración de stock</li>
             <li>Ideal para tiendas de diseño, moda, accesorios</li>
           </ul>
+          </div>
         </div>
 
       </div>
@@ -417,8 +580,8 @@
           <p class="include-name">2 semanas de soporte post-entrega</p>
           <p class="include-detail">Para reportar errores funcionales o consultas una vez que el sitio esté publicado.</p>
         </div>
-        <div class="include-item fi fi-d3">
-          <p class="include-num">—</p>
+        <div class="include-item is-note fi fi-d3">
+          <p class="include-num">Aparte</p>
           <p class="include-name">Hosting y dominio</p>
           <p class="include-detail">No están incluidos en el precio. Podemos asesorarte para contratarlos o gestionarlos con nosotros.</p>
         </div>
@@ -526,10 +689,17 @@
 
   <!-- ══ CTA ══ -->
   <section class="cta-section">
-    <div class="cta-inner">
-      <h2 class="cta-title fi">¿Cuándo arrancamos<br>tu sitio?</h2>
-      <a href="/#contact" class="cta-btn fi">Escribime</a>
-    </div>
+    <article class="h-card fi">
+      <div class="h-card-body">
+        <span class="pill-tag">Cupos limitados</span>
+        <h2 class="cta-title">¿Cuándo arrancamos<br>tu sitio?</h2>
+        <p class="cta-text">Contame qué tipo de sitio necesitás y te respondo con una propuesta a medida.</p>
+        <a href="/#contact" class="pill-btn">Escribime <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="h-card-media">
+        <img src="disegna-web-v2.jpg" alt="Sitio web de Estudio Disegna diseñado por LIS Creative Studio" loading="lazy" />
+      </div>
+    </article>
   </section>
 
   <!-- ══ FOOTER ══ -->

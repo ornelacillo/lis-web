@@ -9,6 +9,15 @@
   gtag('js', new Date());
   gtag('config', 'G-0B637X5C7R');
 </script>
+<!-- Meta Pixel Code (en el head para que cuente la visita apenas abre la página) -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1091344163708905');
+fbq('track', 'PageView');
+fbq('track', 'ViewContent', { value: 10999, currency: 'ARS', content_name: 'Kit Mi día' });
+</script>
+<noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1091344163708905&ev=PageView&noscript=1"/></noscript>
+<!-- End Meta Pixel Code -->
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="p:domain_verify" content="2c4d933dd0c7c0666b4d03330c43b320"/>
@@ -755,7 +764,6 @@
   // ===== CONFIG: todo lo que se cambia está acá =====
   const CONFIG = {
     checkoutUrl: "https://peque-studio.tiendup.com/p/mi-dia-tarjetas-de-rutina-ilustradas",
-    metaPixelId: "1091344163708905", // píxel de Meta (portfolio Peque Studio)
     price: 10999,
     currency: "ARS"
   };
@@ -770,13 +778,6 @@
   })();
   document.querySelectorAll("[data-checkout]").forEach(a => { a.href = buyUrl; });
 
-  // Píxel de Meta (solo se carga si hay ID)
-  if (CONFIG.metaPixelId) {
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version="2.0";n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,"script","https://connect.facebook.net/en_US/fbevents.js");
-    fbq("init", CONFIG.metaPixelId);
-    fbq("track", "PageView");
-    fbq("track", "ViewContent", { value: CONFIG.price, currency: CONFIG.currency, content_name: "Kit Mi día" });
-  }
   document.querySelectorAll("[data-checkout]").forEach(a => a.addEventListener("click", () => {
     if (window.fbq) fbq("track", "InitiateCheckout", { value: CONFIG.price, currency: CONFIG.currency });
   }));

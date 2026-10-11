@@ -249,6 +249,9 @@ fbq('track', 'ViewContent', { value: 10999, currency: 'ARS', content_name: 'Kit 
   .steps h3 { font-size: 20px; margin: 2px 0 6px; }
   .steps p { font-size: 15.5px; color: var(--soft); }
   .real { margin-top: 34px; }
+  .demo { margin: 30px auto 0; max-width: 340px; text-align: center; }
+  .demo video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--radius); background: var(--paper); display: block; box-shadow: 0 14px 30px rgba(31,43,26,.18); }
+  .demo p { font-size: 14px; color: #1F2B1A; margin-top: 10px; }
   .real-title { font-family: var(--hand); font-size: 26px; color: #fff; text-align: center; margin-bottom: 14px; }
   .real-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
   .real-grid > * { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border-radius: var(--radius); background: var(--paper); display: block; }
@@ -601,6 +604,11 @@ fbq('track', 'ViewContent', { value: 10999, currency: 'ARS', content_name: 'Kit 
         <li class="reveal"><h3>Imprimís</h3><p>En casa o en cualquier librería. A4, a color, mejor en papel grueso.</p></li>
         <li class="reveal"><h3>Armás y usás</h3><p>Recortás, plastificás y le ponés imán o abrojo. ¡Listo para su día!</p></li>
       </ol>
+      <div class="demo reveal">
+        <p class="real-title">Mirá cómo se usa</p>
+        <video src="/peque/img/como-se-usa.mp4" poster="/peque/img/como-se-usa-poster.webp" controls playsinline preload="none" aria-label="Video con voz explicando cómo se usa el tablero Para hacer y ¡Listo!"></video>
+        <p>Tocá play y subí el volumen 🔊</p>
+      </div>
       <div class="real reveal">
         <p class="real-title">Así queda en casa</p>
         <div class="real-grid">

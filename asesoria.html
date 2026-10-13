@@ -242,8 +242,8 @@
 
     /* Hero con imagen */
     .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; border-bottom: none; }
-    .hero-card { position: relative; border: 1px solid var(--black); border-radius: 18px; overflow: hidden; aspect-ratio: 4 / 5; max-height: 560px; }
-    .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .hero-card { position: relative; border: 1px solid var(--black); border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 4; max-height: 620px; }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
     .hero .pill-btn { margin-top: 32px; }
 
     .section { border-bottom: none; padding-top: 60px; padding-bottom: 60px; }
@@ -319,7 +319,7 @@
 
     @media (max-width: 860px) {
       .hero { grid-template-columns: 1fr; gap: 40px; padding: 130px 16px 40px; }
-      .hero-card { aspect-ratio: 4 / 3; }
+      .hero-card { aspect-ratio: 3 / 4; max-height: none; }
       .section { padding: 48px 16px; }
       .modal-item, .modal-item:last-child { grid-template-columns: 1fr; }
       .modal-body, .modal-panel { padding: 30px 24px; }
@@ -398,7 +398,7 @@
             "name": "¿Qué se puede resolver en una asesoría 1:1?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Problemas concretos de diseño, posicionamiento o herramientas digitales. Por ejemplo: incorporar IA al proceso de diseño, hacer un sitio web sin código, ordenar servicios y precios, definir posicionamiento y nicho, o mejorar la comunicación para atraer mejores clientes."
+              "text": "Problemas concretos de diseño, posicionamiento o herramientas digitales. Por ejemplo: incorporar IA al proceso de diseño, armar tu web o tu landing, ordenar servicios y precios, definir posicionamiento y nicho, o mejorar la comunicación para atraer mejores clientes."
             }
           },
           {
@@ -430,7 +430,7 @@
             "name": "¿Cuánto tiempo hay que esperar para conseguir turno?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Los cupos son limitados. Después de completar el formulario, la confirmación llega en las próximas 48 horas."
+              "text": "Los cupos son limitados y, después de completar el formulario, la confirmación te llega en las próximas 48 horas."
             }
           }
         ]
@@ -453,12 +453,12 @@
       <p class="service-label">03 — asesoría 1:1</p>
       <h1>Asesoría <em>1:1</em></h1>
       <p class="hero-sub">
-        Una sesión de trabajo de 2 horas para resolver un problema concreto. Sin vueltas, con foco, y con un plan claro para salir.
+        Una sesión de trabajo de 2 horas para resolver un problema concreto, sin vueltas, con foco y con un plan claro para salir.
       </p>
       <a href="#reservar" class="pill-btn">Quiero mi asesoría <span aria-hidden="true">→</span></a>
     </div>
     <div class="hero-card">
-      <img src="ornela-new.jpg" alt="Ornela Cillo, fundadora de LIS Creative Studio" />
+      <img src="ornela.jpg" alt="Ornela Cillo, fundadora de LIS Creative Studio, sentada en el sillón de su estudio" />
       <span class="lime-badge">2 horas · Virtual</span>
     </div>
   </div>
@@ -479,9 +479,9 @@
           <p class="modal-panel-label">Ideal para</p>
           <ul class="modal-list">
             <li>Incorporar IA a tu proceso de diseño</li>
-            <li>Hacer tu web o landing sin código</li>
+            <li>Armar tu web o tu landing, con o sin código</li>
             <li>Optimizar tu flujo de trabajo digital</li>
-            <li>Entender cómo usar Claude, VS Code o Netlify</li>
+            <li>Entender cómo usar Claude, GitHub y Vercel</li>
           </ul>
         </div>
       </div>
@@ -513,12 +513,12 @@
       <div class="step">
         <p class="step-time">0 — 30 min</p>
         <p class="step-title">Diagnóstico</p>
-        <p class="step-desc">Escucho el problema, hago preguntas, entiendo el contexto. La base para que la sesión tenga sentido.</p>
+        <p class="step-desc">Escucho el problema, hago preguntas y entiendo el contexto, que es la base para que la sesión tenga sentido.</p>
       </div>
       <div class="step">
         <p class="step-time">30 — 90 min</p>
         <p class="step-title">Trabajo en vivo</p>
-        <p class="step-desc">Trabajamos juntas sobre el problema. No te explico cómo hacerlo — lo hacemos.</p>
+        <p class="step-desc">Trabajamos juntas sobre el problema y lo resolvemos en vivo, en lugar de que te lleves una explicación para hacerlo sola después.</p>
       </div>
       <div class="step">
         <p class="step-time">90 — 120 min</p>
@@ -540,7 +540,7 @@
       <div class="price-conditions">
         <p>El pago se realiza en su totalidad antes de agendar la sesión.</p>
         <p>Una vez acreditado el pago, coordinamos el horario de la reunión virtual.</p>
-        <p>Los cupos son limitados. Antes de pagar, completás un formulario para confirmar que podemos trabajar juntas.</p>
+        <p>Los cupos son limitados, así que antes de pagar completás un formulario para confirmar que podemos trabajar juntas.</p>
       </div>
     </div>
   </div>
@@ -552,12 +552,12 @@
       <div class="flow-item">
         <p class="flow-num">01</p>
         <p class="flow-title">Completás el formulario</p>
-        <p class="flow-desc">Contás qué necesitás resolver. Así evalúo si puedo ayudarte y llegamos preparadas a la sesión.</p>
+        <p class="flow-desc">Contás qué necesitás resolver y así evalúo si puedo ayudarte, para que las dos lleguemos preparadas a la sesión.</p>
       </div>
       <div class="flow-item">
         <p class="flow-num">02</p>
         <p class="flow-title">Confirmás y abonás</p>
-        <p class="flow-desc">Una vez confirmada la sesión, el pago se realiza antes de agendar. Sin pago, no hay turno.</p>
+        <p class="flow-desc">Una vez confirmada la sesión, el pago se realiza antes de agendar, porque sin pago no hay turno.</p>
       </div>
       <div class="flow-item">
         <p class="flow-num">03</p>
@@ -588,7 +588,7 @@
       <div class="faq-grid">
         <div class="faq-item fi fi-d1">
           <p class="faq-q">¿Qué se puede resolver en una asesoría?</p>
-          <p class="faq-a">Problemas concretos de diseño, posicionamiento o herramientas digitales. Por ejemplo: incorporar IA al proceso de diseño, ordenar servicios y precios, definir nicho, o mejorar la comunicación para atraer mejores clientes.</p>
+          <p class="faq-a">Problemas concretos de diseño, posicionamiento o herramientas digitales, por ejemplo incorporar IA a tu proceso de diseño, ordenar servicios y precios, definir tu nicho o mejorar la comunicación para atraer mejores clientes.</p>
         </div>
         <div class="faq-item fi fi-d2">
           <p class="faq-q">¿Cómo es la estructura de la sesión?</p>
@@ -596,7 +596,7 @@
         </div>
         <div class="faq-item fi fi-d3">
           <p class="faq-q">¿Es presencial o virtual?</p>
-          <p class="faq-a">Virtual, por videollamada. Incluye un documento de entrega con el resumen de lo trabajado y la hoja de ruta definida en la sesión.</p>
+          <p class="faq-a">Es virtual, por videollamada, e incluye un documento de entrega con el resumen de lo trabajado y la hoja de ruta que definimos en la sesión.</p>
         </div>
         <div class="faq-item fi fi-d4">
           <p class="faq-q">¿Para quién es?</p>
@@ -604,7 +604,7 @@
         </div>
         <div class="faq-item fi fi-d1">
           <p class="faq-q">¿Cuánto hay que esperar para conseguir turno?</p>
-          <p class="faq-a">Los cupos son limitados. Después de completar el formulario, la confirmación llega en las próximas 48 horas.</p>
+          <p class="faq-a">Los cupos son limitados y, después de completar el formulario, la confirmación te llega en las próximas 48 horas.</p>
         </div>
         <div class="faq-item fi fi-d2">
           <p class="faq-q">¿Incluye entregable?</p>

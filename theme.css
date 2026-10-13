@@ -150,3 +150,6 @@ footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink)
 #contact .cta-btn:hover { background: var(--lime) !important; color: var(--ink) !important; }
 #contact .cta-btn svg { stroke: currentColor; }
 .post-back { display: block !important; width: fit-content; margin-bottom: 26px !important; }
+
+/* Logo del menú en celular: negro sobre las secciones claras */
+#lis-nav-mobile-logo.mobile-logo-dark img { filter: brightness(0) !important; }

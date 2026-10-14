@@ -32,5 +32,22 @@
       "destination": "/#contact",
       "permanent": true
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/pinterest-733ea.html",
+      "destination": "/pinterest-733ea.htm"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/pinterest-733ea.htm",
+      "headers": [
+        {
+          "key": "Content-Type",
+          "value": "text/html; charset=utf-8"
+        }
+      ]
+    }
   ]
 }

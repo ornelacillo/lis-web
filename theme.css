@@ -8,7 +8,10 @@
 :root {
   --cream: #f4ede3;
   --ink: #1b1a17;
-  --lime: #dcf26a;
+  --lime: #b8b2a7;   /* (antes lima) acento de texto: hormigón */
+  --orange: #e8693a;
+  --blue: #2b4c86;
+  --stone: #b8b2a7;   /* hormigón · gris neutro */
   --rule: #1b1a17;
   --soft: #d8cebf;
   --black: #1b1a17;
@@ -91,11 +94,15 @@ body { background: var(--cream); color: var(--ink); }
 }
 
 /* ── Encabezados oscuros con foto desenfocada ── */
-.page-hero {
-  background: #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
+.page-hero, #home {
+  background:
+    radial-gradient(55% 75% at 88% 18%, rgba(43, 76, 134, .9) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
+    #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
 }
 .page-hero .hero-x { display: none !important; }
-.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title { color: var(--lime) !important; }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
+.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
 .page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
 .page-hero .post-back { color: #cfc6b8; }
 
@@ -153,3 +160,75 @@ footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink)
 
 /* Logo del menú en celular: negro sobre las secciones claras */
 #lis-nav-mobile-logo.mobile-logo-dark img { filter: brightness(0) !important; }
+
+/* ══════════════════════════════════════════════════════════
+   Sin píldoras (oct 2026): las etiquetas son texto en mayúscula
+   espaciada sin recuadro, las listas van en renglones con línea
+   fina y los botones y campos tienen esquinas casi rectas.
+══════════════════════════════════════════════════════════ */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.modal-list li, .modal-list li:last-child, .modality-features li, .modality-features li:last-child,
+.nl-perks li, .no-list li {
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 10px 0 !important;
+}
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn, .we-badge,
+#lis-nav-pill, #lis-nav-pill a, #lis-nav-pill button.nav-link-btn,
+.footer-ml-wrap .ml-form-fieldRow input, .footer-ml-wrap .ml-form-embedSubmit button,
+.nl-form-side .ml-form-fieldRow input, .nl-form-side .ml-form-embedSubmit button,
+.res-form input, .res-form .ml-form-fieldRow input, .res-form .ml-form-embedSubmit button {
+  border-radius: 4px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Bloques destacados con luz (oct 2026): fondo tinta con luz azul
+   y naranja como en la dirección creativa, texto en crema.
+   El naranja plano queda solo para los botones de adentro.
+══════════════════════════════════════════════════════════ */
+.callout-inner, .modality-panel, .modal-panel, .booking-head {
+  background:
+    radial-gradient(75% 95% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 85% at 0% 100%, rgba(232, 105, 58, .7) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) *:not(input):not(textarea):not(select) {
+  color: inherit !important;
+  border-color: rgba(244, 237, 227, .28) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(button, .pill-btn, .res-btn, .cta-btn) {
+  background: var(--blue) !important;
+  color: var(--cream) !important;
+  border-color: var(--blue) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(input, textarea, select) {
+  color: var(--ink) !important;
+}
+
+/* Tarjeta de la newsletter: gris neutro, sin luces ni naranja */
+.nl-body { background: var(--stone) !important; color: var(--ink) !important; }
+.nl-body *:not(input):not(textarea):not(select) { color: var(--ink) !important; border-color: rgba(27, 26, 23, .35) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+
+/* Botones: azul con texto crema */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+.res-btn:hover, .pill-btn:hover, .cta-btn:hover, .hero-center-btn:hover, .home-btn:hover, #contact .cta-btn:hover { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Ubicación y año, al pie del footer */
+.footer-legal { display: flex; justify-content: space-between; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--ink); font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+@media (max-width: 768px) { .footer-legal { padding: 16px 24px; flex-direction: column; } }
+.footer-ml-wrap .ml-form-embedSubmit button, .nl-form-side .ml-form-embedSubmit button, .res-form .ml-form-embedSubmit button { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }

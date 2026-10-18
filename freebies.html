@@ -98,7 +98,7 @@
     }
     .hero-badge {
       position: absolute; top: -16px; right: -16px;
-      background: #dcf26a; color: #111;
+      background: #2b4c86; color: #f4ede3;
       font-size: 12px; font-weight: 600; letter-spacing: .06em;
       padding: 8px 16px; border-radius: 100px;
       text-transform: uppercase;
@@ -138,13 +138,13 @@
     .res-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
     .res-badge {
       position: absolute; top: 18px; left: 18px; z-index: 2;
-      background: #dcf26a; color: #111; font-size: 11px; font-weight: 600;
+      background: #2b4c86; color: #f4ede3; font-size: 11px; font-weight: 600;
       letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
     }
 
     /* Mockup Notion hecho en CSS */
     .notion-mock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 40px; }
-    .notion-mock.lime { background: #dcf26a; }
+    .notion-mock.lime { background: #2b4c86; }
     .notion-mock.stone { background: #e0ddd8; }
     .nm-window {
       width: 82%; max-width: 380px; background: #fff; border-radius: 10px;
@@ -154,7 +154,7 @@
     .nm-bar { display: flex; gap: 5px; padding: 10px 12px; border-bottom: 1px solid #eee; }
     .nm-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
     .nm-cover { height: 64px; background: #111; }
-    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #dcf26a 60%); }
+    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #2b4c86 60%); }
     .nm-page { padding: 16px 20px 22px; }
     .nm-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #111; line-height: 1.2; }
     .nm-line { height: 7px; background: #eee; border-radius: 4px; margin-bottom: 8px; }
@@ -204,10 +204,10 @@
       display: grid; grid-template-columns: 1.15fr 1fr;
       border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
     }
-    .nl-body { background: #dcf26a; padding: 56px 52px; }
+    .nl-body { background: #b8b2a7; padding: 56px 52px; }
     .nl-tag {
       display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
-      padding: 5px 13px; border: 1px solid var(--black); border-radius: 100px; margin-bottom: 24px;
+      padding: 0; border: 0; border-radius: 0; margin-bottom: 24px;
     }
     .nl-title { font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 20px; }
     .nl-desc { font-size: 16px; color: #222; line-height: 1.7; max-width: 440px; margin-bottom: 28px; }
@@ -231,18 +231,18 @@
       border: 1px solid #444 !important; border-radius: 100px !important; padding: 13px 20px !important; outline: none;
     }
     .nl-form-side .ml-form-fieldRow input::placeholder { color: #888; }
-    .nl-form-side .ml-form-fieldRow input:focus { border-color: #dcf26a !important; }
+    .nl-form-side .ml-form-fieldRow input:focus { border-color: #2b4c86 !important; }
     .nl-form-side .ml-form-embedSubmit { margin: 6px 0 0 !important; }
     .nl-form-side .ml-form-embedSubmit button {
       width: 100% !important; font-family: var(--font) !important; font-size: 14px !important; font-weight: 600 !important;
-      background: #dcf26a !important; color: #111 !important; border: 1px solid #dcf26a !important;
+      background: #2b4c86 !important; color: #f4ede3 !important; border: 1px solid #2b4c86 !important;
       border-radius: 100px !important; padding: 14px 20px !important; cursor: none;
     }
     .nl-form-side .ml-form-embedSubmit button:hover { background: var(--white) !important; border-color: var(--white) !important; }
     .nl-form-side .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 22px !important; font-weight: 400 !important; color: var(--white) !important; margin-bottom: 8px; }
     .nl-form-side .ml-form-successContent p { font-family: var(--font) !important; font-size: 14px !important; color: #999 !important; }
     .nl-note { font-size: 12px; color: #777; margin-top: 16px; }
-    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #dcf26a; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #b8b2a7; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
     @media (max-width: 860px) {
       .nl-section { padding: 64px 16px 0; }
       .nl-card { grid-template-columns: 1fr; }
@@ -418,7 +418,7 @@
                 <input type="hidden" name="anticsrf" value="true">
               </form>
             </div>
-            <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="color:#dcf26a;font-weight:600;text-decoration:underline;">descargala acá →</a>, y el próximo mail te llega a tu casilla, así que revisá promociones o spam por las dudas.</p></div></div>
+            <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="color:#b8b2a7;font-weight:600;text-decoration:underline;">descargala acá →</a>, y el próximo mail te llega a tu casilla, así que revisá promociones o spam por las dudas.</p></div></div>
           </div></div>
         </div>
         <p class="nl-note">Podés darte de baja con un clic desde cualquier mail.</p>
@@ -661,6 +661,7 @@
         </div>
       </div>
     </div>
+    <div class="footer-legal"><span>Rosario · Worldwide</span><span>© 2026 LIS. Creative Studio</span></div>
   </footer>
 
   <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>

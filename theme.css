@@ -232,3 +232,15 @@ footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink)
 .footer-legal { display: flex; justify-content: space-between; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--ink); font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
 @media (max-width: 768px) { .footer-legal { padding: 16px 24px; flex-direction: column; } }
 .footer-ml-wrap .ml-form-embedSubmit button, .nl-form-side .ml-form-embedSubmit button, .res-form .ml-form-embedSubmit button { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Etiquetas como nota al margen (oct 2026): cursiva, minúscula, sin letras separadas */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon, .footer-legal {
+  font-family: 'Instrument Serif', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; text-transform: none !important; letter-spacing: 0 !important;
+  font-size: 19px !important;
+  line-height: 1.3 !important;
+}
+.footer-legal { font-size: 16px !important; }

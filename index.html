@@ -196,6 +196,39 @@
       .home-sub { font-size: 15px; }
     }
 
+
+    /* ══════════════════════════════
+       HERO REEL — al bajar, la tira de proyectos se desliza,
+       la imagen del centro crece y el fondo cambia con ella
+    ══════════════════════════════ */
+    section#home.reel { display: block; min-height: 0; padding: 0; height: calc(100vh + var(--n, 10) * 38vh); overflow: visible; background: #1b1a17 !important; }
+    .reel-stick { position: sticky; top: 0; height: 100vh; overflow: hidden; }
+    .reel-bg { position: absolute; inset: 0; }
+    .reel-bg img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; transform: scale(1.06); transition: opacity .7s ease, transform 1.2s ease; }
+    .reel-bg img.on { opacity: 1; transform: scale(1); }
+    .reel-bg img.soft { filter: blur(6px); }
+    .reel-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(27,26,23,.72) 0%, rgba(27,26,23,.35) 50%, rgba(27,26,23,.8) 100%); }
+    .reel-head { position: absolute; left: 56px; right: 56px; top: 13vh; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+    .reel-head .home-title { font-size: clamp(3.4rem, min(8.6vw, 12vh), 9rem) !important; line-height: .86 !important; }
+    .reel-note { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: clamp(18px, 1.6vw, 26px); color: #f4ede3; white-space: nowrap; text-align: right; padding-bottom: 8px; }
+    .reel-note span { display: block; color: #b8b2a7; }
+    .reel-track { position: absolute; left: 0; top: 43vh; z-index: 2; display: flex; align-items: flex-start; gap: 8px; will-change: transform; }
+    .reel-card { flex: none; width: clamp(150px, min(15.5vw, 24vh), 300px); height: clamp(100px, min(10.5vw, 16vh), 200px); overflow: hidden; transition: height .5s cubic-bezier(.2,.7,.2,1); background: #2a2926; }
+    .reel-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .reel-card.on { height: clamp(170px, min(21vw, 32vh), 400px); }
+    .reel-foot { position: absolute; left: 56px; right: 56px; bottom: 6vh; z-index: 2; display: flex; justify-content: space-between; align-items: flex-end; gap: 40px; }
+    .reel-foot .home-sub { margin: 0; max-width: 460px; }
+    .reel-foot .home-btn { margin: 0; }
+    @media (max-width: 768px) {
+      section#home.reel { height: calc(100vh + var(--n, 10) * 30vh); }
+      .reel-head { left: 20px; right: 20px; top: 14vh; flex-direction: column; align-items: flex-start; gap: 14px; }
+      .reel-note { text-align: left; }
+      .reel-track { top: 42vh; }
+      .reel-card { width: 34vw; height: 23vw; }
+      .reel-card.on { height: 46vw; }
+      .reel-foot { left: 20px; right: 20px; bottom: 5vh; flex-direction: column; align-items: flex-start; gap: 18px; }
+    }
+
     /* ══════════════════════════════
        SERVICES — RevealImageList (dark)
     ══════════════════════════════ */
@@ -548,10 +581,19 @@
     </filter>
   </svg>
 
-  <section id="home" data-nav-theme="light">
-    <h1 class="home-title fi">Design for<br>your <em>brand</em></h1>
-    <p class="home-sub fi fi-d1">Estudio de diseño en Rosario para estudios de arquitectura, interiorismo y marcas creativas que quieren verse a la altura de lo que hacen</p>
-    <a href="#services" class="home-btn fi fi-d2">Ver servicios <span aria-hidden="true">→</span></a>
+  <section id="home" class="reel" data-nav-theme="light">
+    <div class="reel-stick">
+      <div class="reel-bg" id="reel-bg"></div>
+      <div class="reel-head">
+        <h1 class="home-title fi">Design for<br>your <em>brand</em></h1>
+        <p class="reel-note" id="reel-note"></p>
+      </div>
+      <div class="reel-track" id="reel-track"></div>
+      <div class="reel-foot">
+        <p class="home-sub fi fi-d1">Estudio de diseño en Rosario para estudios de arquitectura, interiorismo y marcas creativas que quieren verse a la altura de lo que hacen</p>
+        <a href="#services" class="home-btn fi fi-d2">Ver servicios <span aria-hidden="true">→</span></a>
+      </div>
+    </div>
   </section>
 
   <!-- ══ SERVICES ══ -->
@@ -793,5 +835,47 @@
     document.querySelectorAll('.fi').forEach(function (el) { obs.observe(el); });
   </script>
 
+
+  <script>
+  /* Hero reel: proyectos que pasan con el scroll */
+  (function () {
+    const P = [
+      ['Slide_53.jpg', 'Buenas Marcas', 'identidad visual'],
+      ['disegna-web-v2.jpg', 'Estudio Disegna', 'diseño web'],
+      ['bm-merch.jpg', 'Buenas Marcas', 'packaging', 1],
+      ['bwild-web.jpg', 'BWILD', 'diseño web'],
+      ['Slide_53__3_.jpg', 'Buenas Marcas', 'aplicaciones'],
+      ['santo-pastel-portada.gif', 'Santo Pastel', 'identidad visual'],
+      ['Valentina_landing.jpg', 'Valentina Ruiz', 'diseño web'],
+      ['remera_imagen.png', 'Buenas Marcas', 'merch', 1],
+      ['yeet_portfolio.jpg', 'Yeet', 'diseño web'],
+      ['bm-web.jpg', 'Buenas Marcas', 'diseño web'],
+      ['Slide_53__1_.jpg', 'Buenas Marcas', 'merch'],
+    ];
+    const sec = document.getElementById('home'), bg = document.getElementById('reel-bg'),
+          track = document.getElementById('reel-track'), note = document.getElementById('reel-note');
+    sec.style.setProperty('--n', P.length);
+    bg.innerHTML = P.map((p, i) => `<img src="${p[0]}" alt="" ${i > 1 ? 'loading="lazy"' : ''} class="${p[3] ? 'soft' : ''}">`).join('');
+    track.innerHTML = P.map((p, i) => `<div class="reel-card"><img src="${p[0]}" alt="${p[1]}, ${p[2]}" ${i > 4 ? 'loading="lazy"' : ''}></div>`).join('');
+    const bgs = bg.children, cards = track.children;
+    let cur = -1;
+    function update() {
+      const r = sec.getBoundingClientRect(), total = sec.offsetHeight - innerHeight;
+      const prog = Math.min(1, Math.max(0, -r.top / total));
+      const f = prog * (P.length - 1), i = Math.round(f);
+      const w = cards[0].offsetWidth + 8;
+      track.style.transform = `translateX(${innerWidth / 2 - w / 2 - f * w}px)`;
+      if (i !== cur) {
+        if (cur >= 0) { bgs[cur].classList.remove('on'); cards[cur].classList.remove('on'); }
+        bgs[i].classList.add('on'); cards[i].classList.add('on');
+        note.innerHTML = `${P[i][1]}<span>${P[i][2]}</span>`;
+        cur = i;
+      }
+    }
+    addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
+    addEventListener('resize', update);
+    update();
+  })();
+  </script>
 </body>
 </html>

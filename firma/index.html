@@ -25,6 +25,7 @@
 <div class="wrap">
   <h1>Firma <em>de mail</em></h1>
   <p class="note">Para pegar en Gmail, se ve igual en la compu y en el celu</p>
+  <p class="note" style="margin-top:-24px;color:#1b1a17">La tuya</p>
 
   <div class="mail">
     <p class="fake">Hola, ¿cómo va? Te paso la propuesta así la vemos con calma, cualquier cosa me escribís.</p>
@@ -58,28 +59,60 @@
     <!-- ═══ hasta acá ═══ -->
   </div>
 
-  <button id="copy">Copiar firma</button><span class="ok" id="ok">copiada, ahora pegala en Gmail</span>
+  <button data-copy="firma">Copiar mi firma</button><span class="ok">copiada, ahora pegala en Gmail</span>
+
+  <p class="note" style="margin:64px 0 18px;color:#1b1a17">La del estudio</p>
+  <div class="mail">
+    <p class="fake">Hola, gracias por escribirnos. Te respondemos en el día con toda la información.</p>
+    <div id="firma-lis">
+    <table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#1b1a17;">
+      <tr>
+        <td style="padding:0 18px 0 0;vertical-align:middle;">
+          <a href="https://liscreativestudio.com" style="text-decoration:none;"><img src="https://liscreativestudio.com/firma/lis-logo.png" width="80" height="42" alt="LIS." style="display:block;width:80px;height:42px;border:0;"></a>
+        </td>
+        <td style="padding:0 0 0 18px;vertical-align:middle;border-left:1.5px solid #b8b2a7;">
+          <img src="https://liscreativestudio.com/firma/estudio.png" width="204" height="26" alt="LIS. Creative Studio" style="display:block;width:204px;height:26px;border:0;margin:0 0 6px 0;">
+          <p style="margin:0 0 8px 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;line-height:18px;color:#6f6b64;">Diseño de marcas y webs para estudios y marcas creativas</p>
+          <p style="margin:0;font-size:12px;line-height:19px;color:#1b1a17;">
+            <a href="mailto:hello@liscreativestudio.com" style="color:#1b1a17;text-decoration:none;">hello@liscreativestudio.com</a>
+            <span style="color:#b8b2a7;">&nbsp;·&nbsp;</span>
+            <a href="https://wa.me/5493413780854" style="color:#1b1a17;text-decoration:none;">+54 9 341 378 0854</a>
+          </p>
+          <p style="margin:0;font-size:12px;line-height:19px;">
+            <a href="https://liscreativestudio.com" style="color:#1b1a17;text-decoration:underline;">liscreativestudio.com</a>
+            <span style="color:#b8b2a7;">&nbsp;·&nbsp;</span>
+            <a href="https://www.instagram.com/liscreative.studio/" style="color:#1b1a17;text-decoration:underline;">Instagram</a>
+            <span style="color:#b8b2a7;">&nbsp;·&nbsp;</span>
+            <a href="https://liscreativestudio.com/newsletter" style="color:#2b4c86;text-decoration:underline;">Planta Libre, nuestra newsletter</a>
+          </p>
+          <p style="margin:8px 0 0 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:12px;line-height:16px;color:#6f6b64;">Rosario, Argentina, y donde estés</p>
+        </td>
+      </tr>
+    </table>
+    </div>
+  </div>
+  <button data-copy="firma-lis">Copiar firma del estudio</button><span class="ok">copiada, ahora pegala en Gmail</span>
 
   <ol>
-    <li>Tocá <strong>Copiar firma</strong>.</li>
+    <li>Tocá <strong>Copiar</strong> en la firma que quieras usar.</li>
     <li>En Gmail, andá a la rueda de arriba a la derecha → <strong>Ver todos los ajustes</strong>.</li>
-    <li>En la pestaña <strong>General</strong>, bajá hasta <strong>Firma</strong>, tocá <strong>Crear nueva</strong> y ponele un nombre, por ejemplo "LIS".</li>
+    <li>En la pestaña <strong>General</strong>, bajá hasta <strong>Firma</strong>, tocá <strong>Crear nueva</strong> y ponele un nombre, por ejemplo "Orne" o "Estudio". Si usás las dos, en <strong>Opciones predeterminadas</strong> elegís cuál va por defecto y la otra la cambiás desde el lapicito al escribir un mail.</li>
     <li>Hacé clic en el recuadro de la firma y pegá con <strong>Cmd + V</strong>.</li>
     <li>Abajo, en <strong>Opciones predeterminadas de firma</strong>, elegila para correos nuevos y para respuestas.</li>
     <li>Bajá hasta el final y tocá <strong>Guardar cambios</strong>.</li>
   </ol>
 </div>
 <script>
-document.getElementById('copy').addEventListener('click', async () => {
-  const el = document.getElementById('firma');
+document.querySelectorAll('[data-copy]').forEach(b => b.addEventListener('click', async () => {
+  const el = document.getElementById(b.dataset.copy);
   try {
     const html = el.innerHTML, text = el.innerText;
     await navigator.clipboard.write([new ClipboardItem({ 'text/html': new Blob([html], { type: 'text/html' }), 'text/plain': new Blob([text], { type: 'text/plain' }) })]);
   } catch (e) {
     const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
   }
-  document.getElementById('ok').style.opacity = 1;
-});
+  b.nextElementSibling.style.opacity = 1;
+}));
 </script>
 </body>
 </html>

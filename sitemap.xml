@@ -36,6 +36,11 @@
     <loc>https://liscreativestudio.com/blog/en-voz-alta-02</loc>
   </url>
   <url>
+    <loc>https://liscreativestudio.com/blog/en-voz-alta-02</loc>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://liscreativestudio.com/blog/en-voz-alta-01</loc>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>

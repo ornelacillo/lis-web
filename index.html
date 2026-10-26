@@ -407,9 +407,9 @@
     }
     .test-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
-      max-width: 980px;
+      max-width: 1180px;
       margin: 0 auto 40px;
     }
     .test-card {
@@ -428,6 +428,7 @@
     }
     .test-avatar.a1 { background: #1a73e8; }
     .test-avatar.a2 { background: #d93025; }
+    .test-avatar.a3 { background: #188038; }
     .test-name { font-family: var(--font-body); font-size: 14px; font-weight: 500; color: #202124; }
     .test-meta { font-family: var(--font-body); font-size: 12px; color: #70757a; margin-top: 1px; }
     .test-rating { display: flex; align-items: center; gap: 6px; margin-bottom: 10px; }
@@ -739,6 +740,25 @@
     <h2 class="test-title fi">Lo que dicen <em>sobre LIS</em></h2>
 
     <div class="test-grid">
+      <div class="test-card fi">
+        <div class="test-head">
+          <div class="test-avatar a3">C</div>
+          <div>
+            <div class="test-name">Club Conecta</div>
+            <div class="test-meta">Reseña de Google</div>
+          </div>
+        </div>
+        <div class="test-rating">
+          <span class="test-stars">★★★★★</span>
+          <span class="test-time">Octubre 2026</span>
+        </div>
+        <p class="test-body">Fue excelente trabajar con Ornela. Muy responsable con su trabajo y siempre tratando de entender mis peticiones con éxito. Muchas gracias por tu dedicación, estoy muy entusiasmada por todo lo que se viene.</p>
+        <div class="test-reply">
+          <div class="test-reply-label">Respuesta del propietario · Octubre 2026</div>
+          <div class="test-reply-body">Muchas gracias Flor por tomarte el tiempo de escribir esta reseña. Nos encantó trabajar juntas, este es el comienzo de muchos logros más!</div>
+        </div>
+      </div>
+
       <div class="test-card fi">
         <div class="test-head">
           <div class="test-avatar a1">A</div>

@@ -14,7 +14,7 @@
     },
     {
       "source": "/contact",
-      "destination": "/#contact",
+      "destination": "/contacto",
       "permanent": true
     },
     {
@@ -26,11 +26,6 @@
       "source": "/newsletter",
       "destination": "/freebies#newsletter",
       "permanent": false
-    },
-    {
-      "source": "/contacto",
-      "destination": "/#contact",
-      "permanent": true
     }
   ]
 }

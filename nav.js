@@ -347,7 +347,7 @@
       { label: 'portfolio', href: '/#portfolio' },
       { label: 'freebies',  href: '/freebies' },
       { label: 'blog',      href: '/blog' },
-      { label: 'contact',   href: '/#contact', cta: true },
+      { label: 'contact',   href: '/contacto', cta: true },
     ];
 
     const serviceLinks = [
@@ -425,7 +425,7 @@
       <a href="${en ? base + 'index.html#portfolio' : '/#portfolio'}">portfolio</a>
       <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
       <a href="/blog">blog</a>
-      <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
+      <a href="${en ? base + 'index.html#contact' : '/contacto'}">contact</a>
 
     `;
   }

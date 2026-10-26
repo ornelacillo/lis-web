@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trabajemos juntas | LIS. Creative Studio — Rosario</title>
+  <meta name="description" content="Contame sobre tu marca o tu estudio y reservá una llamada de diagnóstico de 30 minutos con Orne, de LIS. Creative Studio." />
+  <link rel="canonical" href="https://liscreativestudio.com/contacto" />
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta name="theme-color" content="#1b1a17" />
+  <meta property="og:title" content="Trabajemos juntas · LIS. Creative Studio" />
+  <meta property="og:description" content="Contame sobre tu marca y reservá una llamada de diagnóstico de 30 minutos." />
+  <meta property="og:image" content="https://liscreativestudio.com/og-image.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --ink: #1b1a17; --cream: #f4ede3; --paper: #faf8f4; --stone: #b8b2a7; --muted: #6f6b64;
+      --blue: #2b4c86; --orange: #e8693a; --sky: #a9bde2; --line: #ddd6cb;
+      --display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+      --script: 'Instrument Serif', Georgia, serif;
+      --body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    html { -webkit-font-smoothing: antialiased; }
+    body { min-height: 100vh; background: var(--ink); color: var(--ink); font-family: var(--body); font-size: 15px; line-height: 1.5; position: relative; overflow-x: hidden; }
+
+    /* Luces azul y naranja sobre la tinta */
+    .light { position: fixed; border-radius: 50%; filter: blur(90px); pointer-events: none; z-index: 0; }
+    .light-blue { width: 620px; height: 620px; background: var(--blue); opacity: .55; top: -180px; left: -160px; }
+    .light-orange { width: 520px; height: 520px; background: var(--orange); opacity: .32; bottom: -200px; right: -140px; }
+
+    main { position: relative; z-index: 1; max-width: 1120px; margin: 0 auto; padding: 120px 24px 80px; display: grid; grid-template-columns: 1fr 1.25fr; gap: 64px; align-items: start; }
+    .intro { color: var(--cream); position: sticky; top: 120px; }
+    .eyebrow { font-family: var(--script); font-style: italic; font-size: 20px; color: var(--sky); margin-bottom: 18px; }
+    .intro h1 { font-family: var(--display); font-weight: 500; text-transform: uppercase; letter-spacing: -.045em; line-height: .92; font-size: clamp(2.8rem, 5.4vw, 4.8rem); }
+    .intro h1 em { font-family: var(--script); font-weight: 400; font-style: italic; text-transform: none; letter-spacing: -.01em; color: var(--sky); }
+    .intro p { margin-top: 24px; max-width: 400px; color: #d8cebf; font-size: 16px; }
+    .intro ol { margin-top: 36px; list-style: none; display: grid; gap: 14px; max-width: 400px; }
+    .intro li { display: grid; grid-template-columns: 28px 1fr; gap: 8px; color: #d8cebf; font-size: 14px; }
+    .intro li span { font-family: var(--script); font-style: italic; color: var(--sky); font-size: 18px; line-height: 1.1; }
+
+    .card { background: var(--paper); border-radius: 20px; padding: 40px; box-shadow: 0 30px 80px rgba(0,0,0,.35); }
+    .progress { display: flex; gap: 6px; margin-bottom: 28px; }
+    .progress i { flex: 1; height: 3px; border-radius: 2px; background: var(--line); transition: background .3s; }
+    .progress i.on { background: var(--blue); }
+    .step-label { font-family: var(--script); font-style: italic; font-size: 18px; color: var(--blue); }
+    .step h2 { font-family: var(--display); font-weight: 500; font-size: 28px; letter-spacing: -.03em; line-height: 1.1; margin: 4px 0 26px; }
+    .step { display: none; }
+    .step.active { display: block; animation: in .35s ease; }
+    @keyframes in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+
+    .field { display: block; margin-bottom: 20px; }
+    .field > span, fieldset legend { display: block; font-weight: 500; font-size: 14.5px; margin-bottom: 8px; }
+    .field small { display: block; color: var(--muted); font-size: 12.5px; margin-top: -4px; margin-bottom: 8px; }
+    input[type=text], input[type=email], textarea, select {
+      width: 100%; font: inherit; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    textarea { min-height: 120px; resize: vertical; }
+    select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%), linear-gradient(135deg, var(--muted) 50%, transparent 50%); background-position: calc(100% - 20px) 52%, calc(100% - 15px) 52%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
+    input:focus, textarea:focus, select:focus { border-color: var(--blue); box-shadow: 0 0 0 3px rgba(43,76,134,.15); }
+    .invalid { border-color: var(--orange) !important; }
+    fieldset { border: 0; margin-bottom: 20px; }
+    .options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .options label { display: flex; align-items: center; gap: 10px; border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 12px 14px; cursor: pointer; font-size: 14px; transition: border-color .2s, background .2s; }
+    .options label:has(input:checked) { border-color: var(--blue); background: #eef2f9; }
+    .options input { accent-color: var(--blue); width: 16px; height: 16px; }
+    .options.invalid { outline: 1px solid var(--orange); outline-offset: 4px; border-radius: 10px; }
+    .trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+    .actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+    .btn { font: 500 14px var(--body); letter-spacing: .02em; border: 0; border-radius: 10px; padding: 14px 26px; cursor: pointer; background: var(--blue); color: #fff; transition: opacity .2s, transform .2s; }
+    .btn:hover { transform: translateY(-1px); }
+    .btn:disabled { opacity: .5; cursor: wait; transform: none; }
+    .back { background: none; border: 0; font: inherit; color: var(--muted); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .error { color: #b4441d; font-size: 13.5px; margin-top: 14px; min-height: 1em; }
+
+    .done p { color: var(--muted); margin-bottom: 20px; }
+    #cal { width: 100%; min-height: 560px; overflow: auto; border-radius: 12px; }
+    .fallback { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 20px; }
+
+    footer { position: relative; z-index: 1; text-align: center; color: var(--stone); font-size: 13px; padding: 0 24px 40px; }
+    footer a { color: var(--sky); }
+
+    @media (max-width: 860px) {
+      main { grid-template-columns: 1fr; gap: 36px; padding-top: 100px; }
+      .intro { position: static; }
+      .intro ol { display: none; }
+      .card { padding: 28px 20px; }
+      .options { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="/nav.js"></script>
+</head>
+<body data-nav-page="contacto" data-nav-theme="light">
+  <div class="light light-blue"></div>
+  <div class="light light-orange"></div>
+
+  <main>
+    <section class="intro">
+      <p class="eyebrow">Contacto</p>
+      <h1>Trabajemos <em>juntas</em></h1>
+      <p>Contame un poco sobre tu marca o tu estudio. Te lleva cinco minutos, y al terminar elegís un horario para una llamada de diagnóstico de 30 minutos conmigo.</p>
+      <ol>
+        <li><span>01</span>Completás el formulario, en cuatro pasos cortos.</li>
+        <li><span>02</span>Reservás la llamada en el horario que te quede cómodo.</li>
+        <li><span>03</span>Charlamos sobre lo que necesitás y te digo cómo podemos seguir.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <div class="progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+      <form id="form" novalidate>
+        <div class="trap" aria-hidden="true"><label>No completar <input type="text" name="empresa_web" tabindex="-1" autocomplete="off" /></label></div>
+
+        <div class="step active" data-step="1">
+          <p class="step-label">Paso 1 de 4</p>
+          <h2>Primero, vos</h2>
+          <label class="field"><span>¿Cómo es tu nombre?</span><input type="text" name="nombre" required autocomplete="name" /></label>
+          <label class="field"><span>¿De dónde sos?</span><input type="text" name="lugar" required placeholder="Ciudad y país" /></label>
+          <label class="field"><span>¿Cómo se llama tu marca, estudio o proyecto?</span><input type="text" name="marca" required autocomplete="organization" /></label>
+          <label class="field"><span>¿Cuál es tu mail?</span><input type="email" name="email" required autocomplete="email" /></label>
+        </div>
+
+        <div class="step" data-step="2">
+          <p class="step-label">Paso 2 de 4</p>
+          <h2>Contame sobre tu marca</h2>
+          <label class="field"><span>¿A qué se dedica y qué objetivos tenés para este proyecto?</span><small>El rubro, qué ofrecés y qué te gustaría lograr.</small><textarea name="sobre" required></textarea></label>
+          <label class="field"><span>¿Tenés web?</span><small>Si no tenés, escribí “no”.</small><input type="text" name="web" required placeholder="www.tuestudio.com" /></label>
+          <label class="field"><span>¿Y redes?</span><small>Si no tenés, escribí “no”.</small><input type="text" name="redes" required placeholder="@tuestudio" /></label>
+        </div>
+
+        <div class="step" data-step="3">
+          <p class="step-label">Paso 3 de 4</p>
+          <h2>Lo que estás buscando</h2>
+          <fieldset>
+            <legend>¿Qué te gustaría trabajar conmigo?</legend>
+            <div class="options" data-required="servicios">
+              <label><input type="checkbox" name="servicios" value="Branding o identidad visual" />Branding o identidad visual</label>
+              <label><input type="checkbox" name="servicios" value="Diseño web" />Diseño web</label>
+              <label><input type="checkbox" name="servicios" value="Curaduría visual" />Curaduría visual</label>
+              <label><input type="checkbox" name="servicios" value="Asesoría 1:1" />Asesoría 1:1</label>
+              <label><input type="checkbox" name="servicios" value="Otro" />Otra cosa</label>
+            </div>
+          </fieldset>
+          <label class="field"><span>¿Qué sentís que le falta a tu marca?</span>
+            <select name="falta" required>
+              <option value="">Elegí una opción</option>
+              <option>Claridad en el branding</option><option>Coherencia visual</option><option>Posicionamiento</option>
+              <option>Profesionalismo</option><option>Estrategia</option><option>No sé, por eso te escribo</option>
+            </select></label>
+          <label class="field"><span>¿Cómo te gustaría trabajar el proceso?</span>
+            <select name="proceso" required>
+              <option value="">Elegí una opción</option>
+              <option>Paso a paso, con feedback en cada etapa</option><option>Rápido, que me entregues todo listo</option><option>Me da igual, me importa el resultado</option>
+            </select></label>
+        </div>
+
+        <div class="step" data-step="4">
+          <p class="step-label">Paso 4 de 4</p>
+          <h2>Para cerrar</h2>
+          <label class="field"><span>¿Cuál es tu presupuesto?</span>
+            <select name="presupuesto" required>
+              <option value="">Elegí una opción</option>
+              <option>200 - 450 USD</option><option>500 - 1.000 USD</option><option>1.000 - 2.000 USD</option>
+              <option>2.000 - 3.000 USD</option><option>Más de 3.000 USD</option><option>Todavía no lo sé</option>
+            </select></label>
+          <label class="field"><span>¿Cómo llegaste a mí?</span>
+            <select name="origen" required>
+              <option value="">Elegí una opción</option>
+              <option>Recomendación</option><option>Instagram</option><option>Podcast En voz alta</option><option>Newsletter Planta Libre</option>
+              <option>LinkedIn</option><option>Google o la web</option><option>TikTok</option><option>YouTube</option><option>Otro</option>
+            </select></label>
+        </div>
+
+        <div class="actions" id="actions">
+          <button type="button" class="back" id="back" hidden>Volver</button>
+          <button type="submit" class="btn" id="next">Siguiente</button>
+        </div>
+        <p class="error" id="error" role="alert"></p>
+      </form>
+
+      <div class="step done" id="done">
+        <p class="step-label">¡Listo!</p>
+        <h2>Ahora elegí un horario</h2>
+        <p>Ya me llegó todo. Elegí el día y la hora que te queden cómodos para la llamada de diagnóstico.</p>
+        <div id="cal"></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>LIS. Creative Studio · Rosario · <a href="mailto:hello@liscreativestudio.com">hello@liscreativestudio.com</a></footer>
+
+  <script>
+    // Evento de Cal.com para la llamada de diagnóstico (usuario/evento). Vacío = sin calendario todavía
+    const CAL_LINK = '';
+    const API = location.hostname === 'localhost' ? 'http://localhost:3000/api/consulta' : 'https://portal.liscreativestudio.com/api/consulta';
+
+    const form = document.getElementById('form');
+    const steps = [...form.querySelectorAll('.step')];
+    const bars = [...document.querySelectorAll('.progress i')];
+    const back = document.getElementById('back');
+    const next = document.getElementById('next');
+    const error = document.getElementById('error');
+    let current = 0;
+
+    function show(i) {
+      steps.forEach((s, n) => s.classList.toggle('active', n === i));
+      bars.forEach((b, n) => b.classList.toggle('on', n <= i));
+      back.hidden = i === 0;
+      next.textContent = i === steps.length - 1 ? 'Enviar' : 'Siguiente';
+      error.textContent = '';
+      current = i;
+      const first = steps[i].querySelector('input:not([type=checkbox]), textarea, select');
+      if (first && window.innerWidth > 860) first.focus();
+    }
+
+    function valid(step) {
+      let ok = true;
+      step.querySelectorAll('[required]').forEach((el) => {
+        const bad = !el.value.trim() || (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value));
+        el.classList.toggle('invalid', bad);
+        if (bad) ok = false;
+      });
+      step.querySelectorAll('[data-required]').forEach((group) => {
+        const bad = !group.querySelector('input:checked');
+        group.classList.toggle('invalid', bad);
+        if (bad) ok = false;
+      });
+      if (!ok) error.textContent = 'Te falta completar lo que está marcado.';
+      return ok;
+    }
+
+    back.addEventListener('click', () => show(current - 1));
+    form.addEventListener('input', (e) => e.target.classList?.remove('invalid'));
+    form.addEventListener('change', (e) => e.target.closest('.options')?.classList.remove('invalid'));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!valid(steps[current])) return;
+      if (current < steps.length - 1) return show(current + 1);
+
+      const data = Object.fromEntries(new FormData(form));
+      data.servicios = new FormData(form).getAll('servicios');
+      next.disabled = true;
+      next.textContent = 'Enviando…';
+      try {
+        const res = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error((await res.json().catch(() => ({}))).error || 'Error');
+        if (typeof gtag === 'function') gtag('event', 'contacto_enviado');
+        if (typeof fbq === 'function') fbq('track', 'Lead');
+        finish(data);
+      } catch (err) {
+        error.textContent = 'No se pudo enviar. Probá de nuevo o escribime a hello@liscreativestudio.com.';
+        next.disabled = false;
+        next.textContent = 'Enviar';
+      }
+    });
+
+    function finish(data) {
+      form.hidden = true;
+      bars.forEach((b) => b.classList.add('on'));
+      document.getElementById('done').classList.add('active');
+      const cal = document.getElementById('cal');
+      if (!CAL_LINK) {
+        document.querySelector('#done h2').textContent = 'Gracias por escribirme';
+        document.querySelector('#done p:not(.step-label)').textContent = 'Ya me llegó todo. Te escribo en las próximas 48 horas para coordinar la llamada.';
+        cal.remove();
+        return;
+      }
+      // Calendario de Cal.com dentro de la página, con el nombre y el mail ya cargados
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+      Cal('init', 'llamada', { origin: 'https://cal.com' });
+      Cal.ns.llamada('inline', {
+        elementOrSelector: '#cal',
+        calLink: CAL_LINK,
+        config: { layout: 'month_view', name: data.nombre, email: data.email, notes: `${data.marca} · ${data.servicios.join(', ')}` },
+      });
+      Cal.ns.llamada('ui', { hideEventTypeDetails: false, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#2b4c86' } } });
+    }
+  </script>
+</body>
+</html>

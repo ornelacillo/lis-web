@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es-AR">
+<head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0B637X5C7R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0B637X5C7R');
+</script>
+<!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '1091344163708905');
+fbq('track', 'PageView');
+</script>
+<!-- End Meta Pixel Code -->
+<script>
+  // Compra: se avisa una sola vez por navegador, aunque recargue la página
+  (function () {
+    var key = 'peque-compra-mi-dia', done = false;
+    try { done = localStorage.getItem(key) === '1'; } catch (e) {}
+    if (done) return;
+    fbq('track', 'Purchase', { value: 10999, currency: 'ARS', content_name: 'Kit Mi día' });
+    gtag('event', 'purchase', { value: 10999, currency: 'ARS', items: [{ item_name: 'Kit Mi día', price: 10999 }] });
+    try { localStorage.setItem(key, '1'); } catch (e) {}
+  })();
+</script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>¡Gracias por tu compra! | Peque Studio</title>
+<meta name="theme-color" content="#FBF6EC">
+<link rel="icon" href="/peque/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FBF6EC;
+    --paper: #FFFDF8;
+    --terra: #C0704F;
+    --terra-dark: #9E5539;
+    --sage: #9DAF8F;
+    --sage-dark: #5F7654;
+    --sage-soft: #E4EADD;
+    --mustard: #D2A44A;
+    --mustard-soft: #F4E6C6;
+    --ink: #4A3429;
+    --soft: #7D6A5C;
+    --line: #E8DCCB;
+    --radius: 18px;
+    --hand: "Gochi Hand", cursive;
+    --sans: "Manrope", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 17px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  img { display: block; max-width: 100%; height: auto; }
+  a { color: inherit; }
+  .wrap { width: 100%; max-width: 1120px; margin: 0 auto; padding: 0 20px; }
+  .hand { font-family: var(--hand); font-weight: 400; }
+  section { padding: 72px 0; }
+  .eyebrow {
+    display: inline-block;
+    font-size: 13px; font-weight: 800; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--terra-dark);
+  }
+  h1, h2, h3 { line-height: 1.12; font-weight: 800; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(30px, 6vw, 46px); margin: 10px 0 18px; }
+  h2 .hand { color: var(--terra); font-size: 1.15em; letter-spacing: 0; }
+  .lead { font-size: 18px; color: var(--soft); max-width: 620px; }
+
+  /* ---------- botones ---------- */
+  .btn {
+    display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+    min-height: 56px; padding: 0 28px;
+    border-radius: 999px; border: 0;
+    font: 800 17px/1 var(--sans);
+    text-decoration: none; cursor: pointer;
+    transition: transform .15s ease, box-shadow .15s ease, background .15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-buy { background: var(--terra-dark); color: #fff; box-shadow: 0 6px 0 #7A3F28; }
+  .btn-buy:hover { background: #8E4B31; }
+  .btn-soft { background: transparent; color: var(--ink); border: 2px solid var(--ink); }
+  .btn-soft:hover { background: var(--ink); color: var(--cream); }
+  :focus-visible { outline: 3px solid var(--terra); outline-offset: 3px; border-radius: 8px; }
+
+  .logo { font-family: var(--hand); font-size: 30px; color: var(--terra); text-decoration: none; line-height: 1; }
+  .logo small { font-family: var(--sans); font-size: 11px; font-weight: 800; letter-spacing: .14em; color: var(--soft); display: block; text-transform: uppercase; margin-top: 2px; }
+  header { padding: 18px 0; }
+  .gift { padding: 20px 0 64px; }
+  .gift h1 { font-size: clamp(32px, 7vw, 46px); margin: 6px 0 14px; }
+  .gift h1 .hand { color: var(--terra); font-size: 1.15em; letter-spacing: 0; }
+  .more { text-align: center; padding: 0 0 72px; }
+  .more p { color: var(--soft); max-width: 560px; margin: 0 auto 18px; }
+  .more img { width: min(380px, 90%); margin: 0 auto 8px; }
+  
+  .thanks { padding: 16px 0 56px; text-align: center; }
+  .thanks img.kids { width: min(420px, 92%); margin: 0 auto 10px; }
+  .thanks h1 { font-size: clamp(34px, 7vw, 50px); margin: 6px 0 12px; }
+  .thanks h1 .hand { color: var(--terra); font-size: 1.15em; letter-spacing: 0; }
+  .thanks .lead { margin: 0 auto 26px; }
+  .thanks .btn { width: min(420px, 100%); }
+  .thanks .note { font-size: 14px; color: var(--soft); margin-top: 12px; }
+  .files { padding: 0 0 56px; }
+  .box { max-width: 760px; margin: 0 auto; background: var(--paper); border-radius: 28px; padding: 30px 22px; outline: 2.5px dashed var(--sage); outline-offset: -12px; }
+  .box h2 { font-size: clamp(24px, 4.5vw, 30px); margin: 0 0 6px; }
+  .box > p { color: var(--soft); font-size: 15.5px; margin-bottom: 18px; }
+  .group { margin-top: 18px; }
+  .group h3 { font-family: var(--hand); font-weight: 400; font-size: 26px; color: var(--terra); margin-bottom: 8px; }
+  .list { display: grid; gap: 10px; }
+  .list a { display: flex; justify-content: space-between; align-items: center; gap: 12px; background: #fff; border: 1.5px solid var(--line); border-radius: 14px; padding: 13px 16px; text-decoration: none; font-weight: 700; font-size: 15.5px; }
+  .list a:hover { border-color: var(--terra); }
+  .list a span { color: var(--terra-dark); font-size: 13.5px; white-space: nowrap; }
+  .tips { padding: 0 0 72px; }
+  .tips ol { max-width: 760px; margin: 0 auto; display: grid; gap: 12px; list-style: none; counter-reset: s; }
+  .tips li { background: var(--paper); border-radius: var(--radius); padding: 18px 20px; counter-increment: s; color: var(--soft); font-size: 15.5px; }
+  .tips li::before { content: "Paso " counter(s); font-family: var(--hand); font-size: 22px; color: var(--sage-dark); display: block; }
+  .tips li b { color: var(--ink); }
+  .tips h2 { text-align: center; font-size: clamp(26px, 5vw, 34px); margin-bottom: 18px; }
+  footer { padding: 36px 0 48px; border-top: 1.5px solid var(--line); font-size: 14px; color: var(--soft); }
+  footer .wrap { display: flex; flex-wrap: wrap; gap: 10px 24px; justify-content: space-between; align-items: center; }
+  footer a { color: var(--ink); font-weight: 700; }
+  @media (min-width: 760px) { .box { padding: 44px; } .list { grid-template-columns: 1fr 1fr; } }
+</style>
+</head>
+<body>
+<header><div class="wrap"><a class="logo" href="/">Peque Studio<small>por Ornela Cillo</small></a></div></header>
+<main>
+  <section class="thanks">
+    <div class="wrap">
+      <img class="kids" src="/peque/img/peque-y-perrita.webp" alt="" width="1200" height="620">
+      <span class="eyebrow">Compra confirmada</span>
+      <h1>¡Gracias por tu compra, <span class="hand">ya es tuyo!</span></h1>
+      <p class="lead">Acá tenés tu kit Mi día completo, con la versión con nena y la versión con nene y los 4 bonus, así que descargalo ahora y guardalo en tu compu o en tu celu.</p>
+      <a class="btn btn-buy" href="/peque/descargas/mi-dia-7f9aa2246d/kit-mi-dia-peque-studio.zip" download>Descargar el kit completo (ZIP)</a>
+      <p class="note">Si en el celu no podés abrir el ZIP, descargá los archivos de a uno acá abajo.</p>
+    </div>
+  </section>
+
+  <section class="files">
+    <div class="wrap">
+      <div class="box">
+        <h2>Tus archivos, de a uno</h2>
+        <p>Todos en PDF, listos para imprimir en A4.</p>
+        <div class="group">
+          <h3>El kit</h3>
+          <div class="list">
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/mi-dia-nena.pdf" download>Mi día · con nena <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/mi-dia-nene.pdf" download>Mi día · con nene <span>PDF ↓</span></a>
+          </div>
+        </div>
+        <div class="group">
+          <h3>Los bonus</h3>
+          <div class="list">
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-mi-semana-nena.pdf" download>Mi semana · nena <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-mi-semana-nene.pdf" download>Mi semana · nene <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-lo-logre-nena.pdf" download>¡Lo logré! · nena <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-lo-logre-nene.pdf" download>¡Lo logré! · nene <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-para-pintar-nena.pdf" download>Para pintar · nena <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-para-pintar-nene.pdf" download>Para pintar · nene <span>PDF ↓</span></a>
+            <a href="/peque/descargas/mi-dia-7f9aa2246d/bonus-hacelas-tuyas.pdf" download>Hacelas tuyas (plantilla de Canva) <span>PDF ↓</span></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="tips">
+    <div class="wrap">
+      <h2>¿Y ahora?</h2>
+      <ol>
+        <li><b>Imprimí</b> en A4, a color y en tamaño real, mejor en papel grueso, en casa o en cualquier librería.</li>
+        <li><b>Recortá y plastificá</b> las tarjetas, o forralas con contact, y ponele un imán o abrojo atrás.</li>
+        <li><b>Armá el tablero</b> a la altura de sus ojos, ponele las tarjetas del día en "Para hacer" y dejá que las pase a "¡Listo!" cuando termina.</li>
+      </ol>
+      <p class="note" style="text-align:center;margin-top:22px">¿Algún problema con la descarga? Escribime por Instagram a <a href="https://www.instagram.com/pequestudiostore/" target="_blank" rel="noopener">@pequestudiostore</a> y te lo mando.</p>
+    </div>
+  </section>
+</main>
+<footer>
+  <div class="wrap">
+    <span><span class="hand" style="font-size:22px;color:var(--terra)">Peque Studio</span> · Diseñado por Ornela Cillo en Argentina</span>
+    <span><a href="https://www.instagram.com/pequestudiostore/" target="_blank" rel="noopener">@pequestudiostore</a> · <a href="https://liscreativestudio.com/">LIS Creative Studio</a></span>
+  </div>
+</footer>
+</body>
+</html>

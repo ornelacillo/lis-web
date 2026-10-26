@@ -1,0 +1,764 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Planta Libre N°04: una web linda no alcanza | Blog LIS. Creative Studio</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" /></noscript>
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1460085');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px; line-height: 1.6; cursor: none;
+    }
+
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: left .12s ease, top .12s ease, width .25s, height .25s; }
+    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none !important; } body { cursor: auto; } }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 48px;
+      padding: 22px 0; align-items: center;
+      transition: background .35s, box-shadow .35s;
+    }
+    nav.scrolled { background: var(--black); box-shadow: 0 1px 0 #222; }
+    nav a { text-decoration: none; color: var(--white); font-family: var(--font); font-size: 13px; letter-spacing: .06em; transition: opacity .2s; }
+    nav a:hover { opacity: .45; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { cursor: default; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; min-width: 180px; z-index: 200; }
+    .nav-dropdown-menu-inner { background: #181818; border: 1px solid #2a2a2a; padding: 8px 0; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 9px 20px; font-size: 12px; letter-spacing: .06em; color: var(--white) !important; text-decoration: none; transition: opacity .2s; pointer-events: auto !important; }
+    .nav-dropdown-menu a:hover { opacity: .45; }
+    /* ── HAMBURGER ── */
+    .nav-hamburger { display: none; position: fixed; top: 16px; right: 20px; z-index: 1001; background: none; border: none; cursor: none; padding: 6px; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .nav-mobile-overlay.open { display: flex; }
+    .nav-mobile-overlay a { text-decoration: none; color: var(--white); font-size: 22px; letter-spacing: .04em; transition: opacity .2s; }
+    .nav-mobile-overlay a:hover { opacity: .45; }
+    .nav-mobile-overlay .mob-sub { display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 8px; border-top: 1px solid #2a2a2a; width: 220px; }
+    .nav-mobile-overlay .mob-sub a { font-size: 15px; color: #888; }
+    @media (max-width: 860px) { nav { display: none; } .nav-hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--black); color: var(--white);
+      padding: 180px 60px 100px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-x { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .1; }
+    .hero-x svg { width: 100%; height: 100%; }
+    .hero-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 32px; }
+    .hero-title { font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 24px; }
+    .hero-desc { font-size: 17px; color: #888; line-height: 1.8; margin-bottom: 0; }
+    .hero-img-wrap {
+      position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%; display: block;
+      border-radius: 4px;
+    }
+    .hero-badge {
+      position: absolute; top: -16px; right: -16px;
+      background: #2b4c86; color: #f4ede3;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em;
+      padding: 8px 16px; border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    /* ── RECURSOS (cards) ── */
+    .res-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px; }
+    .res-label { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 40px; }
+    .res-list { display: flex; flex-direction: column; gap: 28px; }
+    .res-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px;
+      overflow: hidden; background: var(--white);
+      transition: box-shadow .3s, transform .3s;
+    }
+    .res-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.06); transform: translateY(-2px); }
+    .res-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .res-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid var(--black); border-radius: 100px; margin-bottom: 22px;
+    }
+    .res-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 16px; }
+    .res-desc { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 12px; max-width: 420px; }
+    .res-btn {
+      margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-family: var(--font); font-size: 13px; font-weight: 500; letter-spacing: .03em;
+      padding: 12px 24px; border-radius: 100px; cursor: none; transition: background .2s, color .2s;
+    }
+    .res-btn:hover { background: var(--white); color: var(--black); }
+    .res-form { display: none; width: 100%; max-width: 380px; margin-top: 20px; }
+    .res-card.open .res-form { display: block; }
+    .res-card.open .res-btn { display: none; }
+    .res-media { position: relative; min-height: 380px; border-left: 1px solid var(--black); overflow: hidden; }
+    .res-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .res-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #2b4c86; color: #f4ede3; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Mockup Notion hecho en CSS */
+    .notion-mock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 40px; }
+    .notion-mock.lime { background: #2b4c86; }
+    .notion-mock.stone { background: #e0ddd8; }
+    .nm-window {
+      width: 82%; max-width: 380px; background: #fff; border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.14); overflow: hidden; transform: rotate(-2deg);
+    }
+    .notion-mock.stone .nm-window { transform: rotate(2deg); }
+    .nm-bar { display: flex; gap: 5px; padding: 10px 12px; border-bottom: 1px solid #eee; }
+    .nm-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
+    .nm-cover { height: 64px; background: #111; }
+    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #2b4c86 60%); }
+    .nm-page { padding: 16px 20px 22px; }
+    .nm-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #111; line-height: 1.2; }
+    .nm-line { height: 7px; background: #eee; border-radius: 4px; margin-bottom: 8px; }
+    .nm-line.s { width: 55%; } .nm-line.m { width: 78%; }
+    .nm-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+    .nm-row span { height: 42px; border-radius: 6px; background: #f3f2ef; border: 1px solid #eee; }
+    .nm-check { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .nm-check b { width: 10px; height: 10px; border: 1px solid #bbb; border-radius: 2px; flex-shrink: 0; }
+    .nm-check b.on { background: #111; border-color: #111; }
+    .nm-check .nm-line { margin: 0; flex: 1; }
+    .nm-logo {
+      position: absolute; top: 22px; right: 22px; width: 54px; height: 54px;
+      background: #fff; border: 2px solid #111; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: 700; color: #111;
+      box-shadow: 3px 3px 0 #111; transform: rotate(8deg);
+    }
+
+    /* Hide MailerLite branding if any */
+    .ml-form-embedWrapper .ml-form-embedContent { display: none !important; }
+
+    /* MailerLite mini forms inside template cards */
+    .template-form { margin-top: 20px; border-top: 1px solid var(--light); padding-top: 20px; }
+    .template-form p { font-size: 12px; color: var(--gray); margin-bottom: 10px; }
+    .template-form .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .template-form .ml-form-embedBody { padding: 0 !important; }
+    .template-form .ml-form-embedContent { display: none !important; }
+    .template-form .ml-form-formContent { margin: 0 !important; }
+    .template-form .ml-form-fieldRow { margin-bottom: 6px !important; }
+    .template-form .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: var(--font) !important; font-size: 13px !important; padding: 8px 10px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+    .template-form .ml-form-embedSubmit { margin: 0 !important; }
+    .template-form .ml-form-embedSubmit button { border-radius: 0 !important; font-family: var(--font) !important; font-size: 12px !important; font-weight: 500 !important; background-color: #111 !important; color: #fff !important; padding: 8px 16px !important; width: 100% !important; }
+    .template-form .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 14px !important; font-weight: 500 !important; }
+    .template-form .ml-form-successContent p { font-family: var(--font) !important; font-size: 12px !important; }
+
+    /* Formularios dentro de las tarjetas de recursos */
+    .res-form.template-form { border-top: none; padding-top: 0; margin-top: 18px; }
+    .res-form input { border-radius: 100px !important; padding-left: 18px !important; }
+    .res-form .ml-form-fieldRow input { border: 1px solid #ccc !important; border-radius: 100px !important; padding: 11px 18px !important; outline: none; }
+    .res-form .ml-form-fieldRow input:focus { border-color: var(--black) !important; }
+    .res-form .ml-form-embedSubmit button { border: 1px solid #111 !important; border-radius: 100px !important; padding: 12px 20px !important; }
+
+
+    /* ── ARTÍCULO ── */
+    .post-head { max-width: 760px; }
+    .post-back { display: inline-block; color: #888; text-decoration: none; font-size: 13px; margin-bottom: 40px; transition: color .2s; }
+    .post-back:hover { color: var(--white); }
+    .post-title { font-size: clamp(2.4rem, 5vw, 4.4rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 24px; }
+    .post { max-width: 760px; margin: 0 auto; padding: 72px 24px 0; }
+    .post-cover { border: 1px solid var(--black); border-radius: 18px; overflow: hidden; margin-bottom: 56px; aspect-ratio: 16 / 9; }
+    .post-cover img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .post-body { font-size: 18px; line-height: 1.8; color: #333; }
+    .post-body > * + * { margin-top: 1.2em; }
+    .post-body h2 { font-size: clamp(1.5rem, 2.6vw, 2rem); font-weight: 400; letter-spacing: -.02em; line-height: 1.2; color: var(--black); margin-top: 2em; }
+    .post-body h3 { font-size: 1.2rem; font-weight: 500; color: var(--black); margin-top: 1.6em; }
+    .post-body a { color: var(--black); text-underline-offset: 3px; }
+    .post-body strong { color: var(--black); font-weight: 600; }
+    .post-body ul, .post-body ol { padding-left: 1.3em; }
+    .post-body li + li { margin-top: .4em; }
+    .post-body blockquote { background: #2b4c86; border-radius: 18px; padding: 28px 32px; font-size: 1.3rem; line-height: 1.45; color: #f4ede3; letter-spacing: -.01em; }
+    .post-body img { width: 100%; border-radius: 18px; border: 1px solid var(--black); display: block; }
+    .post-author { display: flex; align-items: center; gap: 16px; margin-top: 56px; padding: 20px; border: 1px solid var(--light); border-radius: 18px; }
+    .post-author img { width: 56px; height: 56px; border-radius: 50%; object-fit: cover; }
+    .post-author-name { font-weight: 500; font-size: 15px; }
+    .post-author-role { font-size: 13px; color: var(--gray); }
+
+    /* Bloques de Planta Libre */
+    .post-intro { display: grid; grid-template-columns: 140px 1fr; gap: 28px; align-items: start; }
+    .post-intro img { width: 140px; height: 170px; object-fit: cover; border-radius: 18px; border: 1px solid var(--black); }
+    .post-intro p + p { margin-top: 1em; }
+    .post-toc { border: 1px solid var(--black); border-radius: 18px; padding: 26px 30px; font-size: 16px; }
+    .post-toc p:first-child { font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); margin-bottom: 10px; }
+    .post-toc ol { list-style: none; padding: 0; counter-reset: toc; }
+    .post-toc li { counter-increment: toc; padding: 6px 0; border-top: 1px solid var(--light); }
+    .post-toc li::before { content: '0' counter(toc) '  '; font-weight: 600; white-space: pre; }
+    .post-toc a { text-decoration: none; }
+    .post-kicker { display: inline-block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--black); border: 1px solid var(--black); border-radius: 100px; padding: 5px 13px; margin-top: 3em; }
+    .post-kicker + h2 { margin-top: .5em; }
+    .post-project { border: 1px solid var(--black); border-radius: 18px; overflow: hidden; }
+    .post-project img { border: none; border-radius: 0; border-bottom: 1px solid var(--black); }
+    .post-project-body { padding: 26px 30px 28px; }
+    .post-project-body h3 { margin-top: 0; }
+    .post-project-body p { margin-top: .6em; font-size: 17px; }
+    .post-project-name { background: var(--black); color: var(--white); text-align: center; padding: 60px 24px; border-bottom: 1px solid var(--black); }
+    .post-project-name b { display: block; font-size: 52px; font-weight: 600; letter-spacing: -.03em; line-height: 1; }
+    .post-project-name span { display: block; margin-top: 12px; font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: #b8b2a7; }
+    .post-link { font-weight: 600; font-size: 15px; }
+    .radar { display: flex; flex-direction: column; gap: 14px; }
+    .radar-item { display: grid; grid-template-columns: 52px 1fr; gap: 18px; border: 1px solid var(--light); border-radius: 18px; padding: 24px 26px; }
+    .radar-item > span { width: 44px; height: 44px; border-radius: 50%; background: #2b4c86; display: flex; align-items: center; justify-content: center; font-weight: 600; color: #f4ede3; font-size: 17px; }
+    .radar-item h3 { margin-top: 0; font-size: 1.1rem; line-height: 1.35; }
+    .radar-item p { margin-top: .5em; font-size: 16px; line-height: 1.7; }
+    .radar-item a { display: inline-block; margin-top: .6em; font-weight: 600; font-size: 14px; }
+    .agenda { background: var(--black); color: var(--white); border-radius: 18px; padding: 10px 30px; }
+    .agenda-row { display: grid; grid-template-columns: 130px 1fr; gap: 18px; padding: 18px 0; border-top: 1px solid #2e2e2e; font-size: 16px; line-height: 1.55; }
+    .agenda-row:first-child { border-top: none; }
+    .agenda-row b { color: #b8b2a7; font-weight: 600; }
+    .agenda-row strong { color: var(--white); }
+    .agenda-row span { color: #aaa; }
+    .checklist { background: #2b4c86; border-radius: 18px; padding: 30px 32px; color: #f4ede3; }
+    .checklist h3 { margin-top: 0; }
+    .checklist ul { list-style: none; padding: 0; margin-top: .8em; }
+    .checklist li { padding-left: 34px; position: relative; font-size: 17px; }
+    .checklist li::before { content: ''; position: absolute; left: 0; top: .35em; width: 18px; height: 18px; border: 1.5px solid #111; border-radius: 5px; background: var(--white); }
+    .checklist p { margin-top: 1em; font-weight: 600; }
+    .swatches { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .swatch { border: 1px solid var(--black); border-radius: 14px; overflow: hidden; font-size: 13px; line-height: 1.4; }
+    .swatch i { display: block; height: 110px; border-bottom: 1px solid var(--black); }
+    .swatch div { padding: 10px 12px; }
+    .swatch b { display: block; color: var(--black); }
+    .tips { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .tips > div { border: 1px solid var(--light); border-radius: 18px; padding: 22px 24px; font-size: 16px; line-height: 1.65; }
+    .tips small { display: block; font-size: 11px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--gray); margin-bottom: 8px; }
+    .post-services { border: 1px solid var(--black); border-radius: 18px; overflow: hidden; }
+    .post-services > div { padding: 22px 28px; border-top: 1px solid var(--black); font-size: 16px; line-height: 1.6; }
+    .post-services > div:first-child { border-top: none; background: #2b4c86; }
+    .post-services h3 { margin-top: 0; font-size: 1.4rem; }
+    .post-services strong { display: block; }
+    .post-sign { border-top: 1px solid var(--light); padding-top: 1.4em; }
+    @media (max-width: 620px) {
+      .post-intro { grid-template-columns: 1fr; }
+      .post-intro img { width: 120px; height: 140px; }
+      .agenda { padding: 6px 20px; }
+      .agenda-row { grid-template-columns: 1fr; gap: 4px; }
+      .swatches { grid-template-columns: repeat(3, 1fr); }
+      .tips { grid-template-columns: 1fr; }
+      .post-body { font-size: 17px; }
+    }
+
+    /* ── BLOG ── */
+    .blog-empty { border: 1px dashed var(--black); border-radius: 18px; padding: 48px; }
+    a.res-btn { text-decoration: none; }
+    .page-hero-inner { grid-template-columns: 1fr !important; }
+
+    /* ── NEWSLETTER DESTACADO ── */
+    .nl-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px 0; scroll-margin-top: 40px; }
+    .nl-card {
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .nl-body { background: #b8b2a7; padding: 56px 52px; }
+    .nl-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      padding: 0; border: 0; border-radius: 0; margin-bottom: 24px;
+    }
+    .nl-title { font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 20px; }
+    .nl-desc { font-size: 16px; color: #222; line-height: 1.7; max-width: 440px; margin-bottom: 28px; }
+    .nl-perks { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .nl-perks li {
+      align-self: flex-start; background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 9px 18px; font-size: 14px;
+    }
+    .nl-perks li::before { content: '→ '; }
+    .nl-form-side { background: var(--black); color: var(--white); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .nl-form-title { font-size: 22px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+    .nl-form-sub { font-size: 14px; color: #999; line-height: 1.6; margin-bottom: 28px; }
+    .nl-form-side .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .nl-form-side .ml-form-embedBody { padding: 0 !important; }
+    .nl-form-side .ml-form-embedContent { display: none !important; }
+    .nl-form-side .ml-form-formContent { margin: 0 !important; }
+    .nl-form-side .ml-form-fieldRow { margin-bottom: 10px !important; }
+    .nl-form-side .ml-form-fieldRow input {
+      width: 100% !important; box-sizing: border-box !important; font-family: var(--font) !important; font-size: 14px !important;
+      background: transparent !important; color: var(--white) !important;
+      border: 1px solid #444 !important; border-radius: 100px !important; padding: 13px 20px !important; outline: none;
+    }
+    .nl-form-side .ml-form-fieldRow input::placeholder { color: #888; }
+    .nl-form-side .ml-form-fieldRow input:focus { border-color: #2b4c86 !important; }
+    .nl-form-side .ml-form-embedSubmit { margin: 6px 0 0 !important; }
+    .nl-form-side .ml-form-embedSubmit button {
+      width: 100% !important; font-family: var(--font) !important; font-size: 14px !important; font-weight: 600 !important;
+      background: #2b4c86 !important; color: #f4ede3 !important; border: 1px solid #2b4c86 !important;
+      border-radius: 100px !important; padding: 14px 20px !important; cursor: none;
+    }
+    .nl-form-side .ml-form-embedSubmit button:hover { background: var(--white) !important; border-color: var(--white) !important; }
+    .nl-form-side .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 22px !important; font-weight: 400 !important; color: var(--white) !important; margin-bottom: 8px; }
+    .nl-form-side .ml-form-successContent p { font-family: var(--font) !important; font-size: 14px !important; color: #999 !important; }
+    .nl-note { font-size: 12px; color: #777; margin-top: 16px; }
+    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #b8b2a7; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    @media (max-width: 860px) {
+      .nl-section { padding: 64px 16px 0; }
+      .nl-card { grid-template-columns: 1fr; }
+      .nl-body { padding: 36px 24px; }
+      .nl-form-side { padding: 36px 24px; }
+      .nl-perks li { border-radius: 14px; }
+      .blog-empty { padding: 32px 24px; }
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-family: var(--font); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-family: var(--font); font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .we-badge { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 4px; padding: 6px 12px 6px 6px; border: 1px solid var(--light); border-radius: 8px; width: fit-content; font-size: 14px !important; opacity: 1 !important; transition: border-color .2s, background .2s; }
+    .we-badge:hover { border-color: #ccc; background: #fafafa; opacity: 1 !important; }
+    .we-badge-icon { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+    .fi-d3 { transition-delay: .3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-hero { padding: 140px 24px 80px; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .res-section { padding: 72px 16px; }
+      .res-card { grid-template-columns: 1fr; }
+      .res-media { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .res-body { padding: 28px 24px 32px; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      .hero-badge { display: none; }
+      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: .08em;
+    }
+    .lang-btn {
+      text-decoration: none; color: rgba(17,17,17,0.4);
+      transition: color .2s; padding: 2px 4px;
+    }
+    .lang-btn.lang-active { color: #111; font-weight: 500; }
+    .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+  </style>
+  <script src="/nav.js"></script>
+  <meta name="description" content="Argentina busca su pabellón para Venecia 2027, Dezeen estrena web, Apple Music suena distinto y cinco cosas que tu web puede hacer sola mientras estás en obra." />
+  <link rel="canonical" href="https://liscreativestudio.com/blog/planta-libre-04" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- hreflang -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Planta Libre N°04: una web linda no alcanza" />
+  <meta property="og:description" content="Argentina busca su pabellón para Venecia 2027, Dezeen estrena web, Apple Music suena distinto y cinco cosas que tu web puede hacer sola mientras estás en obra." />
+  <meta property="og:url" content="https://liscreativestudio.com/blog/planta-libre-04" />
+  <meta property="og:type" content="article" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/blog/img/planta-libre-04-portada.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="760" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Planta Libre N°04: una web linda no alcanza" />
+  <meta name="twitter:description" content="Argentina busca su pabellón para Venecia 2027, Dezeen estrena web, Apple Music suena distinto y cinco cosas que tu web puede hacer sola mientras estás en obra." />
+  <meta name="twitter:image" content="https://liscreativestudio.com/blog/img/planta-libre-04-portada.jpg" />
+  <!-- Sistema visual 2026 -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="/theme.css" />
+</head>
+<body data-nav-theme="dark">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Hamburger button (mobile) -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile overlay -->
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="/" onclick="closeMenu()">home</a>
+    <a href="/#about" onclick="closeMenu()">about</a>
+    <div class="mob-sub">
+      <a href="/identidad-visual" onclick="closeMenu()">Identidad Visual</a>
+      <a href="/web" onclick="closeMenu()">Diseño Web</a>
+    </div>
+    <a href="/#portfolio" onclick="closeMenu()">portfolio</a>
+    <a href="/freebies" onclick="closeMenu()">freebies</a>
+    <a href="/blog" onclick="closeMenu()" style="opacity:.45">blog</a>
+    <a href="/#contact" onclick="closeMenu()">contact</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <div class="page-hero">
+    <div class="hero-x">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="80"   y1="0" x2="360"  y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="360"  y1="0" x2="80"   y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1160" y1="0" x2="1440" y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1440" y1="0" x2="1160" y2="600" stroke="#fff" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="page-hero-inner">
+      <div class="post-head">
+        <a href="/blog" class="post-back fi">← Volver al blog</a>
+        <p class="hero-label fi">planta libre n°04 — octubre 2026 · 7 min de lectura</p>
+        <h1 class="post-title fi fi-d1">Una web linda no alcanza <em>tiene que trabajar por vos</em></h1>
+        <p class="hero-desc fi fi-d2">Argentina busca su pabellón para Venecia 2027, Dezeen estrena web, Apple Music suena distinto y cinco cosas que tu web puede hacer sola mientras estás en obra.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ ARTÍCULO ══ -->
+  <article class="post">
+    <figure class="post-cover fi">
+      <img src="/blog/img/planta-libre-04-portada.jpg" alt="Planta Libre N°04: una web linda no alcanza" />
+    </figure>
+
+    <div class="post-body">
+      <div class="post-intro">
+        <img src="/ornela.jpg" alt="Orne, fundadora de LIS" />
+        <div>
+          <h2 style="margin-top:0;">Hola, ¿cómo va?</h2>
+          <p>Esta semana Dezeen estrenó su web nueva después de diez años, y lo que más me llamó la atención es que casi no tocaron cómo se ve sino cómo se usa: el buscador, los filtros y la forma de recorrerla.</p>
+          <p>Justo estoy en plena web de Astrolapsus, que además de contar quién es tiene que dar turnos, cobrar y abrirle un aula a cada alumno, así que esta edición va de eso, de webs que además de mostrar trabajan por vos.</p>
+        </div>
+      </div>
+
+      <div class="post-toc" role="navigation" aria-label="En esta edición">
+        <p>En esta edición</p>
+        <ol>
+          <li><a href="#en-el-estudio">En el estudio</a></li>
+          <li><a href="#radar">Radar: lo que pasó esta semana</a></li>
+          <li><a href="#agenda">Agenda hasta noviembre</a></li>
+          <li><a href="#la-columna">La columna: una web linda no alcanza</a></li>
+          <li><a href="#para-guardar">Para guardar</a></li>
+        </ol>
+      </div>
+
+      <!-- 01 -->
+      <span class="post-kicker">01 · En el estudio</span>
+      <h2 id="en-el-estudio">Astrolapsus <em>una web que hace de todo</em></h2>
+      <p>En el estudio estoy con la web de Astrolapsus, un proyecto de astrología que ofrece sesiones uno a uno, una formación en vivo por niveles y, más adelante, cursos grabados para hacer a tu ritmo. Lo primero que me mandaron fue un documento con todo lo que tenía que tener el sitio y el recorrido que imaginan para cada persona, desde que conoce la propuesta hasta que entra a su aula, y me encantó, porque es justo lo que hay que pensar antes de diseñar una sola pantalla.</p>
+      <p>La web tiene que contar quién está detrás y cómo trabaja, pero también cobrar, dar turnos, mandar un formulario antes de cada sesión, armar listas de espera para los próximos grupos y darle a cada alumno acceso a lo que compró. El desafío es que todo eso se recorra fácil y que después se puedan sumar talleres o niveles nuevos sin depender de nadie. Por eso la columna de hoy va de webs que trabajan.</p>
+
+      <!-- 02 -->
+      <span class="post-kicker">02 · Radar</span>
+      <h2 id="radar">Lo que pasó esta semana</h2>
+      <div class="radar">
+        <div class="radar-item">
+          <span>A</span>
+          <div>
+            <h3>Argentina busca su pabellón para Venecia 2027</h3>
+            <p>El 21 de octubre la Secretaría de Cultura de la Nación, junto con Cancillería y PromArgentina, abrió el concurso de anteproyectos para elegir qué va a mostrar el país en la 20.ª Bienal de Arquitectura de Venecia, que se hace del 8 de mayo al 21 de noviembre de 2027 en la Sala de Armas del Arsenale. El lema lo propusieron los curadores Wang Shu y Lu Wenyu (<em>Do architecture: for the possibility of coexistence facing a real reality</em>) y la inscripción está abierta hasta el 16 de noviembre. Ojo con un detalle, porque Cancillería cubre los gastos operativos del pabellón pero el proyecto ganador tiene que armar su presupuesto y conseguir los fondos para producirlo.</p>
+            <a href="https://www.argentina.gob.ar/noticias/convocan-arquitectos-argentinos-para-participar-de-la-bienal-de-venecia-2027" target="_blank" rel="noopener">Ver la convocatoria →</a>
+          </div>
+        </div>
+        <div class="radar-item">
+          <span>B</span>
+          <div>
+            <h3>Dezeen estrena web después de diez años</h3>
+            <p>El 21 de octubre Dezeen lanzó su web nueva, la primera renovación desde 2016, rehecha desde cero por el estudio Made by On. Conservaron la tipografía y las imágenes cuadradas que la identifican desde hace casi veinte años, y lo que cambió es todo lo que no se ve a primera vista: un menú, un buscador y unos filtros nuevos para todas sus secciones, más formatos para mostrar imágenes grandes, galerías y video vertical, y un sitio más rápido. Ellos mismos cuentan que la web anterior había ido sumando secciones sobre la marcha y se sentía fragmentada, algo que veo muchísimo en las webs de estudios.</p>
+            <a href="https://www.dezeen.com/2026/10/21/dezeen-launches-new-website-2026/" target="_blank" rel="noopener">Leer en Dezeen →</a>
+          </div>
+        </div>
+        <div class="radar-item">
+          <span>C</span>
+          <div>
+            <h3>Apple Music, una identidad hecha con sonido</h3>
+            <p>El 21 de octubre Apple presentó la nueva identidad de Apple Music, que deja el rojo y pasa al blanco y negro. Para armarla hicieron vibrar agua con música, junto al productor Fred Again, y pusieron los elementos de la marca detrás de esa superficie en movimiento, así que todo tiene un aspecto líquido que conversa con Liquid Glass, la interfaz que Apple usa en sus sistemas. Me gusta porque la idea sale de lo que la marca hace, que es la música, y no de un efecto aplicado de afuera.</p>
+            <a href="https://www.macrumors.com/2026/10/21/apple-music-new-look-announced/" target="_blank" rel="noopener">Leer en MacRumors →</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 -->
+      <span class="post-kicker">03 · Agenda</span>
+      <h2 id="agenda">Para agendar hasta noviembre</h2>
+      <div class="agenda">
+        <div class="agenda-row"><b>Mié 28 oct</b><div><strong>Noche del Diseño en Arenales</strong><br><span>Recorrido por los showrooms de la calle Arenales, en Recoleta, con propuestas como la de Diderot en Grand Brizo Bel Air (Arenales 1462)</span></div></div>
+        <div class="agenda-row"><b>Hasta 1 nov</b><div><strong>Casa FOA 2026</strong><br><span>Última semana en el Palacio Molina, Av. Regimiento de Patricios 1053, Barracas, todos los días de 12 a 20 h</span></div></div>
+        <div class="agenda-row"><b>30 oct — 1 nov</b><div><strong>arteBA</strong><br><span>La edición de los 35 años, con casi 70 galerías en el Pabellón Amarillo de La Rural</span></div></div>
+        <div class="agenda-row"><b>Mar 3 nov</b><div><strong>DArA iD 2026</strong><br><span>Encuentro de interiorismo y diseño con Masquespacio, Francisco Gómez Paz y Brunno Jahara, entre otros, en el Auditorio Ballena Azul del Palacio Libertad, gratis con inscripción en Eventbrite</span></div></div>
+        <div class="agenda-row"><b>Hasta 16 nov</b><div><strong>Concurso para Venecia 2027</strong><br><span>Inscripción al concurso del pabellón argentino, con consultas hasta el 9 de noviembre a argentinaenlabienal@gmail.com</span></div></div>
+      </div>
+
+      <!-- 04 -->
+      <span class="post-kicker">04 · La columna</span>
+      <h2 id="la-columna">Una web linda no alcanza, tiene que trabajar por vos</h2>
+      <p>Cuando un estudio me pide una web, casi siempre lo primero que me muestra son referencias de webs lindas, y está perfecto, porque obviamente tiene que verse bien. Lo que pocas veces aparece en esa primera charla es qué tiene que pasar cuando alguien entra, y ahí es donde se quedan cortas la mayoría de las webs de estudios: muestran las obras y nada más.</p>
+      <blockquote>Una web puede hacer mucho más mientras vos estás en obra o en una reunión.</blockquote>
+      <p>Puede responder las preguntas que te hacen siempre, filtrar las consultas que no son para vos, dejarte agendada una primera reunión y hasta cobrar una seña, sin que tengas que estar pegada al WhatsApp. Lo que veo muchísimo es lo contrario: un formulario que pide nombre, mail y mensaje, y después diez idas y vueltas para saber qué necesita la persona, dónde es la obra y para cuándo la quiere.</p>
+      <p>Me hizo pensar en esto el rediseño de Dezeen, que después de diez años no cambió su tipografía ni su espíritu sino cómo se busca, se filtra y se recorre. Con la web de tu estudio pasa lo mismo, porque a veces no hace falta empezar de cero, alcanza con que haga su trabajo.</p>
+
+      <div class="checklist">
+        <h3>Lo que tu web puede hacer sola</h3>
+        <p style="font-weight:400; margin-top:.6em;">Cinco tareas que hoy seguro hacés a mano:</p>
+        <ul>
+          <li>Un formulario con tres o cuatro preguntas clave, como tipo de proyecto, ubicación, plazos y presupuesto aproximado, te ahorra la primera llamada.</li>
+          <li>Un link para agendar la primera reunión, conectado a tu calendario, evita el ida y vuelta de "¿te queda bien el jueves?".</li>
+          <li>Una sección que cuente cómo trabajás, con las etapas y qué incluye cada una, responde las preguntas de siempre antes de que te las hagan.</li>
+          <li>Una respuesta automática que diga cuándo vas a contestar y qué viene después deja tranquila a la persona del otro lado.</li>
+          <li>Si vendés algo concreto, como una asesoría o una consulta, la web puede cobrarlo directo con Mercado Pago.</li>
+        </ul>
+        <p>No hace falta sumar todo junto, elegí la que hoy más tiempo te come y empezá por ahí.</p>
+      </div>
+
+      <!-- 05 -->
+      <span class="post-kicker">05 · Para guardar</span>
+      <h2 id="para-guardar">Paleta de la semana: Arsenale</h2>
+      <p>Inspirada en Venecia y el Arsenale, donde va a estar el pabellón argentino: el ladrillo de sus naves, el verde agua de la laguna, la piedra clara de los muelles y el negro de las góndolas. Va muy bien para estudios que trabajan con materiales nobles y quieren una paleta con historia.</p>
+      <div class="swatches">
+        <div class="swatch"><i style="background:#a4553b"></i><div><b>Ladrillo</b>#A4553B</div></div>
+        <div class="swatch"><i style="background:#3e6e70"></i><div><b>Laguna</b>#3E6E70</div></div>
+        <div class="swatch"><i style="background:#ece6da"></i><div><b>Istria</b>#ECE6DA</div></div>
+        <div class="swatch"><i style="background:#9fb7b0"></i><div><b>Bruma</b>#9FB7B0</div></div>
+        <div class="swatch"><i style="background:#1e2626"></i><div><b>Góndola</b>#1E2626</div></div>
+      </div>
+      <div class="tips">
+        <div><small>Tipografía</small><a href="https://fonts.google.com/specimen/Schibsted+Grotesk" target="_blank" rel="noopener"><strong>Schibsted Grotesk</strong></a>: una grotesca gratuita de Google Fonts pensada para un grupo de medios, muy legible en pantalla y con un aire editorial que queda muy bien en la web de un estudio.</div>
+        <div><small>Para mirar</small><a href="https://godly.website" target="_blank" rel="noopener"><strong>Godly</strong></a>: una galería de webs muy bien diseñadas, con un video de cada una, así ves cómo se mueven y se recorren y no solo cómo se ven.</div>
+      </div>
+
+      <div class="post-services" style="margin-top:3em;">
+        <div><h3>¿Tu estudio necesita una mano?</h3>Elegí según el momento en el que estás:</div>
+        <div><strong>"Siento que algo no funciona, pero no sé qué"</strong>Asesoría 1:1: revisamos tu marca, web y redes, y salís con un plan claro. <a class="post-link" href="/asesoria">Asesoría →</a></div>
+        <div><strong>"Mi marca ya no me representa"</strong>Identidad visual: rediseño o marca nueva, con logo, paleta, tipografías y un sistema coherente. <a class="post-link" href="/identidad-visual">Identidad visual →</a></div>
+        <div><strong>"Necesito una web que muestre mis obras"</strong>Diseño web a medida, como las de Disegna y BWILD. <a class="post-link" href="/web">Diseño web →</a></div>
+      </div>
+      <p><a href="mailto:hello@liscreativestudio.com?subject=Quiero%20charlar%20sobre%20mi%20estudio" class="pill-btn" style="display:inline-flex; background:#111; color:#fff; text-decoration:none; border-radius:4px; padding:14px 26px; font-size:15px; font-weight:500;">Escribime y charlamos →</a></p>
+
+      <span class="post-kicker">Por si te la perdiste</span>
+      <h2>Un estudio que se ve como trabaja</h2>
+      <p>La guía sigue disponible gratis: 11 páginas con lo que veo una y otra vez trabajando con estudios, ordenadas en cuatro pasos (tu marca, tus proyectos, tu web y tus redes) y con un checklist final para que sepas por dónde empezar.</p>
+      <p><a href="/freebies" style="display:inline-flex; background:#111; color:#b8b2a7; text-decoration:none; border-radius:4px; padding:14px 26px; font-size:15px; font-weight:600;">Descargar la guía gratis →</a></p>
+
+      <div class="post-sign">
+        <p>Gracias por leer hasta acá. Si tu web hoy solo muestra y querés que empiece a trabajar por vos, escribime y lo charlamos, que leo todo.</p>
+        <p>Nos vemos la semana que viene,<br><strong>Orne</strong></p>
+        <p style="font-size:16px; color:#555;"><strong>P.D.</strong> Si te vas a presentar al concurso para Venecia, ojo que las consultas cierran el 9 de noviembre, una semana antes que la inscripción.</p>
+      </div>
+    </div>
+
+    <div class="post-author">
+      <img src="/ornela.jpg" alt="Ornela Cillo" />
+      <div>
+        <p class="post-author-name">Ornela Cillo</p>
+        <p class="post-author-role">Diseñadora y fundadora de LIS. Creative Studio</p>
+      </div>
+    </div>
+  </article>
+
+  <!-- ══ NEWSLETTER DESTACADO ══ -->
+  <section class="nl-section" id="newsletter">
+    <div class="nl-card fi">
+      <div class="nl-body">
+        <span class="nl-tag">Planta Libre · Newsletter semanal</span>
+        <h2 class="nl-title">¿Te sirvió?<br><em>Recibí el próximo</em></h2>
+        <p class="nl-desc"><strong>Planta Libre</strong> es el newsletter de LIS para estudios de arquitectura, interiorismo y marcas creativas, y llega cada semana a tu mail.</p>
+        <ul class="nl-perks">
+          <li>De regalo, la guía <em>Un estudio que se ve como trabaja</em></li>
+          <li>Proyectos y novedades del estudio</li>
+          <li>Radar, agenda y una columna en cada edición</li>
+          <li>Paletas y recursos para guardar</li>
+          <li>Sin spam y te das de baja cuando quieras</li>
+        </ul>
+      </div>
+      <div class="nl-form-side">
+        <p class="nl-form-title">Sumate gratis</p>
+        <p class="nl-form-sub">Dejá tu nombre y email y te regalo la guía <em>Un estudio que se ve como trabaja</em>.</p>
+        <div id="mlb2-38791848-destacado" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+          <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+            <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+              <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+              <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                <div class="ml-form-formContent">
+                  <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                  <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                </div>
+                <input type="hidden" name="ml-submit" value="1">
+                <div class="ml-form-embedSubmit"><button type="submit" class="primary">Quiero sumarme →</button><button disabled style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                <input type="hidden" name="anticsrf" value="true">
+              </form>
+            </div>
+            <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="color:#b8b2a7;font-weight:600;text-decoration:underline;">descargala acá →</a>, y el próximo mail te llega a tu casilla, así que revisá promociones o spam por las dudas.</p></div></div>
+          </div></div>
+        </div>
+        <p class="nl-note">Podés darte de baja con un clic desde cualquier mail.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
+    </div>
+    <div class="footer-geo">
+      <span class="footer-geo-text">Argentina</span>
+      <div class="footer-geo-img"><img src="/lis-web.png" alt="LIS" /></div>
+      <span class="footer-geo-text">Worldwide</span>
+    </div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left">
+        <div class="footer-sillon-img"><img src="/sillon-globo.webp" alt="LIS" /></div>
+        <div class="footer-social-block">
+          <p class="footer-social-label">Social media</p>
+          <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
+          <a href="https://we.directory/liscreativestudio" target="_blank" rel="noopener" class="we-badge">
+            <img src="/wedirectory-logo.svg" alt="" class="we-badge-icon">
+            Featured on WeDirectory
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Planta Libre · Newsletter semanal</p>
+        <p style="font-size:13px;line-height:1.5;margin:-6px 0 14px;">Cada semana en tu mail, y de regalo la guía <em>Un estudio que se ve como trabaja</em> para estudios de arquitectura e interiorismo.</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Sumate gratis</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal"><span>Rosario · Worldwide</span><span>© 2026 LIS. Creative Studio</span></div>
+  </footer>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script>
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    const fiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  </script>
+
+</body>
+</html>

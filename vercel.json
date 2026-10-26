@@ -13,11 +13,6 @@
       "permanent": true
     },
     {
-      "source": "/contact",
-      "destination": "/contacto",
-      "permanent": true
-    },
-    {
       "source": "/portfolio",
       "destination": "/#portfolio",
       "permanent": true
@@ -26,6 +21,16 @@
       "source": "/newsletter",
       "destination": "/freebies#newsletter",
       "permanent": false
+    },
+    {
+      "source": "/contact",
+      "destination": "/#contact",
+      "permanent": true
+    },
+    {
+      "source": "/contacto",
+      "destination": "/#contact",
+      "permanent": true
     }
   ]
 }

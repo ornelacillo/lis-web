@@ -487,6 +487,47 @@
       .cta-title { font-size: clamp(2.5rem, 10vw, 4rem); }
     }
 
+    /* ── Formulario de contacto (dentro de #contact) ── */
+    .cf-lead { max-width: 460px; font-size: 15px; line-height: 1.6; color: #6f6b64; margin-top: 8px; }
+    .cf-card { width: 100%; max-width: 640px; margin-top: 32px; text-align: left; background: #faf8f4; border: 1px solid #e3dccf; border-radius: 20px; padding: 40px; box-shadow: 0 24px 60px rgba(27,26,23,.08); color: #1b1a17; font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif; font-size: 15px; line-height: 1.5; }
+    .cf-progress { display: flex; gap: 6px; margin-bottom: 28px; }
+    .cf-progress i { flex: 1; height: 3px; border-radius: 2px; background: #ddd6cb; transition: background .3s; }
+    .cf-progress i.on { background: #2b4c86; }
+    .cf-label { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 18px; color: #2b4c86; }
+    .cf-step h3 { font-family: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif; font-weight: 500; font-size: 28px; letter-spacing: -.03em; line-height: 1.1; margin: 4px 0 26px; text-transform: none; }
+    .cf-step { display: none; }
+    .cf-step.active { display: block; animation: cf-in .35s ease; }
+    @keyframes cf-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
+    .cf-field { display: block; margin-bottom: 20px; }
+    .cf-field > span, .cf-card fieldset legend { display: block; font-weight: 500; font-size: 14.5px; margin-bottom: 8px; }
+    .cf-field small { display: block; color: #6f6b64; font-size: 12.5px; margin-top: -4px; margin-bottom: 8px; }
+    .cf-card input[type=text], .cf-card input[type=email], .cf-card textarea, .cf-card select {
+      width: 100%; font: inherit; color: #1b1a17; background: #fff; border: 1px solid #ddd6cb; border-radius: 10px; padding: 12px 14px; outline: none; transition: border-color .2s, box-shadow .2s;
+    }
+    .cf-card textarea { min-height: 120px; resize: vertical; }
+    .cf-card select { appearance: none; background-image: linear-gradient(45deg, transparent 50%, #6f6b64 50%), linear-gradient(135deg, #6f6b64 50%, transparent 50%); background-position: calc(100% - 20px) 52%, calc(100% - 15px) 52%; background-size: 5px 5px; background-repeat: no-repeat; padding-right: 40px; }
+    .cf-card input:focus, .cf-card textarea:focus, .cf-card select:focus { border-color: #2b4c86; box-shadow: 0 0 0 3px rgba(43,76,134,.15); }
+    .cf-card .invalid { border-color: #e8693a !important; }
+    .cf-card fieldset { border: 0; margin: 0 0 20px; padding: 0; }
+    .cf-options { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+    .cf-options label { display: flex; align-items: center; gap: 10px; border: 1px solid #ddd6cb; background: #fff; border-radius: 10px; padding: 12px 14px; cursor: pointer; font-size: 14px; transition: border-color .2s, background .2s; }
+    .cf-options label:has(input:checked) { border-color: #2b4c86; background: #eef2f9; }
+    .cf-options input { accent-color: #2b4c86; width: 16px; height: 16px; }
+    .cf-options.invalid { outline: 1px solid #e8693a; outline-offset: 4px; border-radius: 10px; }
+    .cf-trap { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+    .cf-actions { display: flex; align-items: center; justify-content: space-between; gap: 16px; margin-top: 8px; }
+    .cf-btn { font: 500 14px 'Inter', Helvetica, Arial, sans-serif; letter-spacing: .02em; border: 0; border-radius: 10px; padding: 14px 26px; cursor: pointer; background: #2b4c86; color: #fff; margin-left: auto; transition: opacity .2s, transform .2s; }
+    .cf-btn:hover { transform: translateY(-1px); }
+    .cf-btn:disabled { opacity: .5; cursor: wait; transform: none; }
+    .cf-back { background: none; border: 0; font: inherit; color: #6f6b64; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+    .cf-error { color: #b4441d; font-size: 13.5px; margin-top: 14px; min-height: 1em; }
+    .cf-done p:not(.cf-label) { color: #6f6b64; margin-bottom: 20px; }
+    #cf-cal { width: 100%; min-height: 560px; overflow: auto; border-radius: 12px; }
+    @media (max-width: 768px) {
+      .cf-card { padding: 28px 20px; }
+      .cf-options { grid-template-columns: 1fr; }
+    }
+
     /* ══════════════════════════════
        FOOTER
     ══════════════════════════════ */
@@ -743,10 +784,89 @@
   <section id="contact" data-nav-theme="dark">
     <p class="cta-sub fi">¿Empezamos?</p>
     <h2 class="cta-title fi">Trabajemos<br><em>juntos</em></h2>
-   <a href="/contacto" class="cta-btn fi" onclick="if(typeof gtag==='function'){gtag('event','contacto_click');}">
-      Contacto
-      <svg viewBox="0 0 14 14"><path d="M1 7h12M7 1l6 6-6 6"/></svg>
-    </a>
+    <p class="cf-lead fi">Contame un poco sobre tu marca o tu estudio. Te lleva cinco minutos, y al terminar elegís un horario para una llamada de diagnóstico de 30 minutos conmigo.</p>
+
+    <!-- Formulario de contacto: cada respuesta entra como lead en el portal y al final aparece el calendario de Cal.com -->
+    <div class="cf-card fi">
+      <div class="cf-progress" aria-hidden="true"><i class="on"></i><i></i><i></i><i></i><i></i></div>
+
+      <form id="cf-form" novalidate>
+        <div class="cf-trap" aria-hidden="true"><label>No completar <input type="text" name="empresa_web" tabindex="-1" autocomplete="off" /></label></div>
+
+        <div class="cf-step active">
+          <p class="cf-label">Paso 1 de 4</p>
+          <h3>Primero, vos</h3>
+          <label class="cf-field"><span>¿Cómo es tu nombre?</span><input type="text" name="nombre" required autocomplete="name" /></label>
+          <label class="cf-field"><span>¿De dónde sos?</span><input type="text" name="lugar" required placeholder="Ciudad y país" /></label>
+          <label class="cf-field"><span>¿Cómo se llama tu marca, estudio o proyecto?</span><input type="text" name="marca" required autocomplete="organization" /></label>
+          <label class="cf-field"><span>¿Cuál es tu mail?</span><input type="email" name="email" required autocomplete="email" /></label>
+        </div>
+
+        <div class="cf-step">
+          <p class="cf-label">Paso 2 de 4</p>
+          <h3>Contame sobre tu marca</h3>
+          <label class="cf-field"><span>¿A qué se dedica y qué objetivos tenés para este proyecto?</span><small>El rubro, qué ofrecés y qué te gustaría lograr.</small><textarea name="sobre" required></textarea></label>
+          <label class="cf-field"><span>¿Tenés web?</span><small>Si no tenés, escribí “no”.</small><input type="text" name="web" required placeholder="www.tuestudio.com" /></label>
+          <label class="cf-field"><span>¿Y redes?</span><small>Si no tenés, escribí “no”.</small><input type="text" name="redes" required placeholder="@tuestudio" /></label>
+        </div>
+
+        <div class="cf-step">
+          <p class="cf-label">Paso 3 de 4</p>
+          <h3>Lo que estás buscando</h3>
+          <fieldset>
+            <legend>¿Qué te gustaría trabajar conmigo?</legend>
+            <div class="cf-options" data-required="servicios">
+              <label><input type="checkbox" name="servicios" value="Branding o identidad visual" />Branding o identidad visual</label>
+              <label><input type="checkbox" name="servicios" value="Diseño web" />Diseño web</label>
+              <label><input type="checkbox" name="servicios" value="Curaduría visual" />Curaduría visual</label>
+              <label><input type="checkbox" name="servicios" value="Asesoría 1:1" />Asesoría 1:1</label>
+              <label><input type="checkbox" name="servicios" value="Otro" />Otra cosa</label>
+            </div>
+          </fieldset>
+          <label class="cf-field"><span>¿Qué sentís que le falta a tu marca?</span>
+            <select name="falta" required>
+              <option value="">Elegí una opción</option>
+              <option>Claridad en el branding</option><option>Coherencia visual</option><option>Posicionamiento</option>
+              <option>Profesionalismo</option><option>Estrategia</option><option>No sé, por eso te escribo</option>
+            </select></label>
+          <label class="cf-field"><span>¿Cómo te gustaría trabajar el proceso?</span>
+            <select name="proceso" required>
+              <option value="">Elegí una opción</option>
+              <option>Paso a paso, con feedback en cada etapa</option><option>Rápido, que me entregues todo listo</option><option>Me da igual, me importa el resultado</option>
+            </select></label>
+        </div>
+
+        <div class="cf-step">
+          <p class="cf-label">Paso 4 de 4</p>
+          <h3>Para cerrar</h3>
+          <label class="cf-field"><span>¿Cuál es tu presupuesto?</span>
+            <select name="presupuesto" required>
+              <option value="">Elegí una opción</option>
+              <option>200 - 450 USD</option><option>500 - 1.000 USD</option><option>1.000 - 2.000 USD</option>
+              <option>2.000 - 3.000 USD</option><option>Más de 3.000 USD</option><option>Todavía no lo sé</option>
+            </select></label>
+          <label class="cf-field"><span>¿Cómo llegaste a mí?</span>
+            <select name="origen" required>
+              <option value="">Elegí una opción</option>
+              <option>Recomendación</option><option>Instagram</option><option>Podcast En voz alta</option><option>Newsletter Planta Libre</option>
+              <option>LinkedIn</option><option>Google o la web</option><option>TikTok</option><option>YouTube</option><option>Otro</option>
+            </select></label>
+        </div>
+
+        <div class="cf-actions">
+          <button type="button" class="cf-back" id="cf-back" hidden>Volver</button>
+          <button type="submit" class="cf-btn" id="cf-next">Siguiente</button>
+        </div>
+        <p class="cf-error" id="cf-error" role="alert"></p>
+      </form>
+
+      <div class="cf-step cf-done" id="cf-done">
+        <p class="cf-label">¡Listo!</p>
+        <h3>Ahora elegí un horario</h3>
+        <p>Ya me llegó todo. Elegí el día y la hora que te queden cómodos para la llamada de diagnóstico.</p>
+        <div id="cf-cal"></div>
+      </div>
+    </div>
   </section>
 
   <!-- ══ FOOTER ══ -->
@@ -875,6 +995,89 @@
     addEventListener('scroll', () => requestAnimationFrame(update), { passive: true });
     addEventListener('resize', update);
     update();
+  })();
+  </script>
+  <script>
+  // Formulario de contacto: pasos, envío al portal (lead en Ventas) y calendario de Cal.com al final
+  (function () {
+    const CAL_LINK = 'liscreativestudio/llamada';
+    const API = location.hostname === 'localhost' ? 'http://localhost:3000/api/consulta' : 'https://portal.liscreativestudio.com/api/consulta';
+    const form = document.getElementById('cf-form');
+    if (!form) return;
+    const steps = [...form.querySelectorAll('.cf-step')];
+    const bars = [...document.querySelectorAll('.cf-progress i')];
+    const back = document.getElementById('cf-back');
+    const next = document.getElementById('cf-next');
+    const error = document.getElementById('cf-error');
+    let current = 0;
+
+    function show(i) {
+      steps.forEach((s, n) => s.classList.toggle('active', n === i));
+      bars.forEach((b, n) => b.classList.toggle('on', n <= i));
+      back.hidden = i === 0;
+      next.textContent = i === steps.length - 1 ? 'Enviar' : 'Siguiente';
+      error.textContent = '';
+      current = i;
+      form.closest('.cf-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function valid(step) {
+      let ok = true;
+      step.querySelectorAll('[required]').forEach((el) => {
+        const bad = !el.value.trim() || (el.type === 'email' && !/^\S+@\S+\.\S+$/.test(el.value));
+        el.classList.toggle('invalid', bad);
+        if (bad) ok = false;
+      });
+      step.querySelectorAll('[data-required]').forEach((group) => {
+        const bad = !group.querySelector('input:checked');
+        group.classList.toggle('invalid', bad);
+        if (bad) ok = false;
+      });
+      if (!ok) error.textContent = 'Te falta completar lo que está marcado.';
+      return ok;
+    }
+
+    back.addEventListener('click', () => show(current - 1));
+    form.addEventListener('input', (e) => e.target.classList?.remove('invalid'));
+    form.addEventListener('change', (e) => e.target.closest('.cf-options')?.classList.remove('invalid'));
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      if (!valid(steps[current])) return;
+      if (current < steps.length - 1) return show(current + 1);
+
+      const data = Object.fromEntries(new FormData(form));
+      data.servicios = new FormData(form).getAll('servicios');
+      next.disabled = true;
+      next.textContent = 'Enviando…';
+      try {
+        const res = await fetch(API, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
+        if (!res.ok) throw new Error('Error');
+        if (typeof gtag === 'function') gtag('event', 'contacto_enviado');
+        if (typeof fbq === 'function') fbq('track', 'Lead');
+        finish(data);
+      } catch (err) {
+        error.textContent = 'No se pudo enviar. Probá de nuevo o escribime a hello@liscreativestudio.com.';
+        next.disabled = false;
+        next.textContent = 'Enviar';
+      }
+    });
+
+    function finish(data) {
+      form.hidden = true;
+      bars.forEach((b) => b.classList.add('on'));
+      document.getElementById('cf-done').classList.add('active');
+      form.closest('.cf-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      // Calendario de Cal.com dentro de la página, con el nombre y el mail ya cargados
+      (function (C, A, L) { let p = function (a, ar) { a.q.push(ar); }; let d = C.document; C.Cal = C.Cal || function () { let cal = C.Cal; let ar = arguments; if (!cal.loaded) { cal.ns = {}; cal.q = cal.q || []; d.head.appendChild(d.createElement('script')).src = A; cal.loaded = true; } if (ar[0] === L) { const api = function () { p(api, arguments); }; const namespace = ar[1]; api.q = api.q || []; if (typeof namespace === 'string') { cal.ns[namespace] = cal.ns[namespace] || api; p(cal.ns[namespace], ar); p(cal, ['initNamespace', namespace]); } else p(cal, ar); return; } p(cal, ar); }; })(window, 'https://app.cal.com/embed/embed.js', 'init');
+      Cal('init', 'llamada', { origin: 'https://cal.com' });
+      Cal.ns.llamada('inline', {
+        elementOrSelector: '#cf-cal',
+        calLink: CAL_LINK,
+        config: { layout: 'month_view', theme: 'light', name: data.nombre, email: data.email, notes: `${data.marca} · ${data.servicios.join(', ')}` },
+      });
+      Cal.ns.llamada('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#2b4c86' } } });
+    }
   })();
   </script>
 </body>

@@ -771,12 +771,12 @@ fbq('track', 'ViewContent', { value: 10999, currency: 'ARS', content_name: 'Kit 
 <script>
   // ===== CONFIG: todo lo que se cambia está acá =====
   const CONFIG = {
-    checkoutUrl: "https://mpago.la/2bwgKHi", // link de pago de Mercado Pago
+    checkoutUrl: "/api/comprar", // crea el pago en Mercado Pago y vuelve sola a la página de gracias
     price: 10999,
     currency: "ARS"
   };
 
-  // Links de compra: van directo al link de pago (sin parámetros extra, Mercado Pago no los usa)
+  // Links de compra: van al pago de Mercado Pago
   document.querySelectorAll("[data-checkout]").forEach(a => { a.href = CONFIG.checkoutUrl; });
 
   document.querySelectorAll("[data-checkout]").forEach(a => a.addEventListener("click", () => {

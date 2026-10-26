@@ -195,7 +195,7 @@
 
   <script>
     // Evento de Cal.com para la llamada de diagnóstico (usuario/evento). Vacío = sin calendario todavía
-    const CAL_LINK = '';
+    const CAL_LINK = 'liscreativestudio/llamada';
     const API = location.hostname === 'localhost' ? 'http://localhost:3000/api/consulta' : 'https://portal.liscreativestudio.com/api/consulta';
 
     const form = document.getElementById('form');
@@ -276,9 +276,9 @@
       Cal.ns.llamada('inline', {
         elementOrSelector: '#cal',
         calLink: CAL_LINK,
-        config: { layout: 'month_view', name: data.nombre, email: data.email, notes: `${data.marca} · ${data.servicios.join(', ')}` },
+        config: { layout: 'month_view', theme: 'light', name: data.nombre, email: data.email, notes: `${data.marca} · ${data.servicios.join(', ')}` },
       });
-      Cal.ns.llamada('ui', { hideEventTypeDetails: false, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#2b4c86' } } });
+      Cal.ns.llamada('ui', { theme: 'light', hideEventTypeDetails: false, layout: 'month_view', cssVarsPerTheme: { light: { 'cal-brand': '#2b4c86' } } });
     }
   </script>
 </body>

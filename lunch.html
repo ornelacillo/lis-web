@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lunch Empresarial · Networking para mujeres en Rosario</title>
+  <meta name="description" content="Lunch Empresarial es un encuentro de networking creativo que reúne a mujeres profesionales, emprendedoras y creativas en Rosario para inspirarse, generar conexiones reales y potenciar sus proyectos en comunidad." />
+  <link rel="canonical" href="https://liscreativestudio.com/lunch" />
+  <link rel="icon" href="/lunch/logo-icono.png" type="image/png">
+  <meta property="og:title" content="Lunch Empresarial · Donde las ideas se encuentran" />
+  <meta property="og:description" content="Un encuentro de networking creativo para mujeres profesionales, emprendedoras y creativas en Rosario." />
+  <meta property="og:url" content="https://liscreativestudio.com/lunch" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:image" content="https://liscreativestudio.com/lunch/hero.jpg" />
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=Overpass:wght@300;400;500&display=swap" rel="stylesheet" />
+  <!-- Lunch tiene su propia identidad (lila + Archivo), por eso esta página no carga /theme.css -->
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root { --lila: #c79ef5; --violeta: #8e62be; --tinta: #1e1e2d; --gris: #5b6570; --claro: #f2f1f4; --blanco: #ffffff; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--blanco); color: var(--tinta); font-family: 'Overpass', sans-serif; font-size: 17px; line-height: 1.65; }
+    img, video { display: block; max-width: 100%; }
+    a { color: inherit; }
+    h1, h2, h3 { font-family: 'Archivo', sans-serif; font-weight: 600; letter-spacing: -.02em; line-height: 1.1; }
+    h2 { font-size: clamp(2rem, 4.5vw, 3rem); }
+    .wrap { max-width: 1140px; margin: 0 auto; padding: 0 32px; }
+    .btn { display: inline-block; font-family: 'Archivo', sans-serif; font-weight: 500; font-size: 15px; text-decoration: none; padding: 13px 26px; border-radius: 999px; border: 1.5px solid currentColor; transition: background .2s, color .2s; }
+    .btn-lila { background: var(--lila); border-color: var(--lila); color: var(--tinta); }
+    .btn-lila:hover { background: var(--violeta); border-color: var(--violeta); color: var(--blanco); }
+    .btn-line:hover { background: var(--blanco); color: var(--tinta); }
+    .tag { display: inline-block; font-family: 'Archivo', sans-serif; font-size: 13px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; color: var(--violeta); margin-bottom: 16px; }
+
+    /* nav */
+    nav { position: absolute; top: 0; left: 0; right: 0; z-index: 10; }
+    nav .wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 22px; padding-bottom: 22px; }
+    nav img { width: 120px; }
+    nav ul { list-style: none; display: flex; gap: 28px; font-family: 'Archivo', sans-serif; font-size: 15px; }
+    nav ul a { color: var(--blanco); text-decoration: none; opacity: .9; }
+    nav ul a:hover { opacity: 1; text-decoration: underline; }
+
+    /* hero */
+    .hero { position: relative; min-height: min(92vh, 820px); display: flex; align-items: center; justify-content: center; text-align: center; color: var(--blanco); background: url('/lunch/hero.jpg') center / cover; }
+    .hero::before { content: ''; position: absolute; inset: 0; background: linear-gradient(rgba(30,30,45,.55), rgba(30,30,45,.7)); }
+    .hero .inner { position: relative; padding: 120px 24px 80px; max-width: 760px; }
+    .hero h1 { font-size: clamp(2.6rem, 7vw, 5rem); }
+    .hero p { margin: 22px auto 34px; font-size: 19px; max-width: 560px; opacity: .92; }
+
+    /* secciones */
+    section { padding: 110px 0; }
+    .about { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .about p + p { margin-top: 16px; }
+    .about p { color: var(--gris); }
+    .quote { margin-top: 30px; font-family: 'Archivo', sans-serif; font-size: 26px; font-weight: 600; line-height: 1.25; color: var(--tinta); }
+    .quote span { color: var(--violeta); }
+    .stack { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .stack img { width: 100%; height: 100%; object-fit: cover; border-radius: 4px; }
+    .stack img:first-child { grid-row: span 2; aspect-ratio: 3 / 4.4; }
+    .stack img:not(:first-child) { aspect-ratio: 1; }
+
+    .ediciones { background: var(--claro); }
+    .ediciones .head { display: flex; justify-content: space-between; align-items: flex-end; gap: 30px; margin-bottom: 44px; }
+    .ediciones .head p { max-width: 420px; color: var(--gris); }
+    .videos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .videos video { width: 100%; aspect-ratio: 9 / 16; object-fit: cover; border: 4px solid var(--lila); border-radius: 4px; background: var(--tinta); }
+
+    .exp { display: grid; grid-template-columns: 1fr 1fr; gap: 70px; align-items: center; }
+    .checks { list-style: none; margin-top: 28px; }
+    .checks li { display: flex; gap: 14px; margin-bottom: 14px; color: var(--gris); }
+    .checks li::before { content: '✓'; flex: none; width: 24px; height: 24px; border-radius: 4px; background: var(--lila); color: var(--tinta); font-size: 14px; display: flex; align-items: center; justify-content: center; margin-top: 2px; }
+    .checks b { color: var(--tinta); font-weight: 600; }
+    .exp img { width: 100%; aspect-ratio: 3 / 2; object-fit: cover; border-radius: 4px; }
+
+    .agenda { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 40px; }
+    .agenda div { border: 1px solid #e6e3ec; border-radius: 4px; padding: 26px 22px; }
+    .agenda small { color: var(--violeta); font-size: 13px; }
+    .agenda h3 { font-size: 19px; margin: 10px 0; }
+    .agenda p { font-size: 15px; color: var(--gris); line-height: 1.5; }
+    .fotos-ed { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 16px; }
+    .fotos-ed img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+
+    .speakers { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 40px; }
+    .speaker { display: flex; gap: 22px; align-items: center; background: var(--claro); border-radius: 4px; padding: 22px; }
+    .speaker img { width: 120px; height: 120px; object-fit: cover; border-radius: 50%; flex: none; }
+    .speaker h3 { font-size: 20px; }
+    .speaker p { font-size: 15px; color: var(--gris); line-height: 1.5; margin: 6px 0 10px; }
+    .speaker a { font-size: 14px; color: var(--violeta); margin-right: 14px; }
+
+    .aliadas { background: var(--tinta); color: var(--blanco); }
+    .aliadas .grid { display: grid; grid-template-columns: 1.1fr .9fr; gap: 70px; align-items: center; }
+    .aliadas p { opacity: .85; }
+    .aliadas p + p { margin-top: 14px; }
+    .aliadas ul { margin: 18px 0 0 20px; opacity: .85; }
+    .aliadas li { margin-bottom: 6px; }
+    .aliadas img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+    .aliadas .btn { margin-top: 30px; }
+
+    .partners { display: grid; grid-template-columns: repeat(8, 1fr); gap: 12px; margin-top: 40px; }
+    .partners div { background: var(--claro); border-radius: 4px; aspect-ratio: 1; display: flex; align-items: center; justify-content: center; padding: 14px; }
+    .partners div.oscuro { background: var(--tinta); }
+    .partners div { min-width: 0; }
+    .partners img { max-height: 70px; max-width: 100%; width: auto; object-fit: contain; }
+
+    .proxima { background: var(--lila); text-align: center; }
+    .proxima h2 { max-width: 720px; margin: 0 auto; }
+    .proxima p { max-width: 560px; margin: 20px auto 32px; }
+    .proxima .btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+    .proxima .btn-line:hover { background: var(--tinta); color: var(--lila); }
+
+    footer { padding: 34px 0; font-size: 14px; color: var(--gris); }
+    footer .wrap { display: flex; justify-content: space-between; gap: 20px; flex-wrap: wrap; }
+
+    @media (max-width: 860px) {
+      .wrap { padding: 0 16px; }
+      nav ul { display: none; }
+      section { padding: 72px 0; }
+      .about, .exp, .aliadas .grid { grid-template-columns: 1fr; gap: 40px; }
+      .ediciones .head { flex-direction: column; align-items: flex-start; }
+      .videos { grid-template-columns: 1fr 1fr; }
+      .videos video:last-child { display: none; }
+      .agenda, .fotos-ed { grid-template-columns: 1fr 1fr; }
+      .speakers { grid-template-columns: 1fr; }
+      .partners { grid-template-columns: repeat(4, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .speaker { flex-direction: column; align-items: flex-start; }
+      .agenda { grid-template-columns: 1fr; }
+      .partners { grid-template-columns: repeat(3, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="wrap">
+      <a href="/lunch"><img src="/lunch/logo-blanco.png" alt="Lunch Empresarial" /></a>
+      <ul>
+        <li><a href="#de-que-se-trata">¿De qué se trata?</a></li>
+        <li><a href="#ediciones">Ediciones</a></li>
+        <li><a href="#aliadas">Aliadas</a></li>
+        <li><a href="#proxima">Próxima edición</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="inner">
+      <h1>Donde las ideas se encuentran</h1>
+      <p>Un encuentro de networking creativo para mujeres profesionales, emprendedoras y creativas en Rosario.</p>
+      <a class="btn btn-line" href="#proxima">Quiero enterarme de la próxima</a>
+    </div>
+  </header>
+
+  <section id="de-que-se-trata">
+    <div class="wrap about">
+      <div>
+        <span class="tag">De qué se trata el Lunch</span>
+        <p>Es un encuentro de networking creativo que reúne a mujeres profesionales, emprendedoras y creativas para conectarse, inspirarse y compartir experiencias en un entorno cálido y cercano.</p>
+        <p>Nace con la idea de que los mejores proyectos, ideas y oportunidades surgen cuando nos animamos a conversar con propósito. Porque más allá del trabajo, los títulos o los roles, todas necesitamos espacios donde podamos hablar en confianza, descubrir nuevas miradas y construir comunidad.</p>
+        <p>En cada edición, el Lunch propone una experiencia sensorial y humana: buena comida, conversaciones honestas, historias inspiradoras y la posibilidad de tejer redes reales entre mujeres que están haciendo que las cosas pasen.</p>
+        <p class="quote">El lunch es la excusa.<br><span>Conectar, la necesidad.</span></p>
+      </div>
+      <div class="stack">
+        <img src="/lunch/grupo.jpg" alt="Asistentes del Lunch Empresarial" loading="lazy" />
+        <img src="/lunch/mesa.jpg" alt="La mesa del Lunch" loading="lazy" />
+        <img src="/lunch/abrazo.jpg" alt="Dos asistentes abrazadas" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  <section id="ediciones" class="ediciones">
+    <div class="wrap">
+      <div class="head">
+        <div><span class="tag">Ediciones anteriores</span><h2>Así se vive el Lunch</h2></div>
+        <p>La última edición fue el 29 de noviembre de 2025 en Tiendas Naturales, sobre Bv. Oroño, en Rosario.</p>
+      </div>
+      <div class="videos">
+        <video src="/lunch/video-1.mp4" poster="/lunch/video-1.jpg" muted loop playsinline preload="none" controls></video>
+        <video src="/lunch/video-2.mp4" poster="/lunch/video-2.jpg" muted loop playsinline preload="none" controls></video>
+        <video src="/lunch/video-3.mp4" poster="/lunch/video-3.jpg" muted loop playsinline preload="none" controls></video>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap exp">
+      <div>
+        <h2>Una experiencia para inspirarte y conectar</h2>
+        <ul class="checks">
+          <li><span><b>Inspiración real:</b> charlas y experiencias que dejan huella.</span></li>
+          <li><span><b>Conexiones valiosas:</b> nuevas alianzas, colaboraciones y amistades.</span></li>
+          <li><span><b>Comunidad:</b> seguí conectada después del evento a través de "La red".</span></li>
+        </ul>
+      </div>
+      <img src="/lunch/charla.jpg" alt="Una charla en un encuentro para mujeres emprendedoras" loading="lazy" />
+    </div>
+  </section>
+
+  <section style="padding-top:0">
+    <div class="wrap">
+      <span class="tag">La edición de noviembre 2025</span>
+      <h2>Qué pasó en el último Lunch</h2>
+      <div class="agenda">
+        <div><small>17.15 – 17.45</small><h3>Dinámica de presentación</h3><p>Actividad de presentación y networking creativo entre las asistentes.</p></div>
+        <div><small>17.45 – 18.15</small><h3>Hablemos de dinero</h3><p>Grace nos invitó a reflexionar sobre cómo nuestras decisiones financieras reflejan la forma en que lideramos y soñamos nuestros proyectos.</p></div>
+        <div><small>18.15 – 18.40</small><h3>Taller de técnicas de bienestar</h3><p>Bienestar integral y mindfulness, y después el sorteo emprendedor.</p></div>
+        <div><small>18.40 – hasta el final</small><h3>El bingo de la tarde</h3><p>Una dinámica pensada para reírnos, reconocernos y conectar desde lo que todas vivimos como emprendedoras.</p></div>
+      </div>
+      <div class="fotos-ed">
+        <img src="/lunch/tarjeta.jpg" alt="Tarjeta del Lunch sobre la mesa" loading="lazy" />
+        <img src="/lunch/cafe.jpg" alt="Café del Lunch" loading="lazy" />
+        <img src="/lunch/taza.jpg" alt="Una asistente con su taza" loading="lazy" />
+        <img src="/lunch/hero.jpg" alt="Las asistentes en la mesa" loading="lazy" />
+      </div>
+
+      <div class="speakers">
+        <div class="speaker">
+          <img src="/lunch/grace.jpg" alt="Graciela Vargas Landriel" loading="lazy" />
+          <div><h3>Graciela (Grace) Vargas Landriel</h3><p>Coach financiera. Contadora pública y asesora en finanzas para negocios.</p>
+            <a href="https://www.instagram.com/gracielavargaslandriel/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/in/graciela-vargas-landriel/" target="_blank" rel="noopener">LinkedIn</a></div>
+        </div>
+        <div class="speaker">
+          <img src="/lunch/mariana.jpg" alt="Mariana Cecilia Rosell" loading="lazy" />
+          <div><h3>Mariana Cecilia Rosell</h3><p>Profesora de yoga, profesora experta de Identidad Argentina en la Diplomatura en Bienestar Integral y capacitadora en bienestar en ámbitos laborales.</p>
+            <a href="https://www.instagram.com/identidad.argentina/" target="_blank" rel="noopener">Instagram</a><a href="https://www.linkedin.com/company/identidad-argentina/" target="_blank" rel="noopener">LinkedIn</a></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="aliadas" class="aliadas">
+    <div class="wrap grid">
+      <div>
+        <h2>¿Te gustaría ser parte del Lunch como aliada?</h2>
+        <p style="margin-top:22px">Si tenés un emprendimiento, marca o proyecto y te gustaría que más personas lo conozcan, podés participar como colaboradora aportando algo simbólico de tu marca: un producto, una experiencia, un servicio o un detalle para el sorteo. Así:</p>
+        <ul>
+          <li>Sos parte activa de la experiencia.</li>
+          <li>Conectás directamente con otras emprendedoras y profesionales.</li>
+          <li>Aparecés con tu logo en la difusión del evento.</li>
+          <li>Y sobre todo, más personas conocen tu marca desde la cercanía y la conversación.</li>
+        </ul>
+        <p style="margin-top:18px">No es obligatorio, pero sí una oportunidad genuina de poner tu trabajo en movimiento.</p>
+        <a class="btn btn-lila" href="https://api.whatsapp.com/send?phone=5493413780854&text=Hola%21%20Me%20gustar%C3%ADa%20ser%20aliada%20del%20Lunch%20Empresarial" target="_blank" rel="noopener">Contanos tu idea por WhatsApp</a>
+      </div>
+      <img src="/lunch/video-1.jpg" alt="" loading="lazy" />
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <span class="tag">Media partners</span>
+      <h2>Marcas que acompañaron</h2>
+      <div class="partners">
+        <div><img src="/lunch/partners/Tiendas-Naturales.png" alt="Tiendas Naturales" loading="lazy" /></div>
+        <div><img src="/lunch/partners/3-marias.png" alt="3 Marías" loading="lazy" /></div>
+        <div><img src="/lunch/partners/lis.png" alt="LIS. Creative Studio" loading="lazy" /></div>
+        <div><img src="/lunch/partners/unioversidad.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/gml.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/identidad-argentina.png" alt="Identidad Argentina" loading="lazy" /></div>
+        <div><img src="/lunch/partners/arbanit.png" alt="" loading="lazy" /></div>
+        <div class="oscuro"><img src="/lunch/partners/Logo-Kyra-Blanco-Colores-scaled.png" alt="Kyra" loading="lazy" /></div>
+        <div><img src="/lunch/partners/Logo-alternativo-25.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/logo-1423832749-1738181462-482b835445e633c284be28c6d168acb41738181463-480-0.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/Recurso-1.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/logo-662063663-1730741675-69114752ce385f3669a2e635ec6415dc1730741676-640-0.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/turmalina.png" alt="Turmalina" loading="lazy" /></div>
+        <div><img src="/lunch/partners/bitmap.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/redes.png" alt="" loading="lazy" /></div>
+        <div><img src="/lunch/partners/marce.png" alt="" loading="lazy" /></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="proxima" class="proxima">
+    <div class="wrap">
+      <h2>Todavía no hay fecha para el próximo Lunch</h2>
+      <p>Cuando la tengamos la vas a ver primero en Instagram. Si querés que te avisemos, escribinos y te sumamos a la lista.</p>
+      <div class="btns">
+        <a class="btn btn-line" href="https://www.instagram.com/lunch.empresarial/" target="_blank" rel="noopener">Seguinos en Instagram</a>
+        <a class="btn btn-line" href="https://api.whatsapp.com/send?phone=5493413780854&text=Hola%21%20Quiero%20que%20me%20avisen%20del%20pr%C3%B3ximo%20Lunch%20Empresarial" target="_blank" rel="noopener">Avisame por WhatsApp</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="wrap">
+      <span>Lunch Empresarial · Rosario, Argentina</span>
+      <span>Un proyecto de <a href="/">Ornela Cillo · LIS. Creative Studio</a> · <a href="mailto:hello@liscreativestudio.com?subject=Lunch%20Empresarial">hello@liscreativestudio.com</a></span>
+    </div>
+  </footer>
+
+  <script>
+    // Los videos arrancan solos (sin sonido) cuando aparecen en pantalla
+    var vids = document.querySelectorAll('.videos video');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) e.target.play().catch(function(){}); else e.target.pause(); });
+      }, { threshold: .4 });
+      vids.forEach(function (v) { io.observe(v); });
+    }
+  </script>
+</body>
+</html>

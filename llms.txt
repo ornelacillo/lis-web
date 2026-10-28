@@ -1,9 +1,8 @@
 # LIS. Creative Studio
 
-> Estudio de diseño gráfico y web en Rosario, Argentina, fundado en febrero de 2025 por Ornela Cillo, diseñadora gráfica con más de 10 años de experiencia. Especializado en branding, identidad visual y diseño web para estudios de arquitectura, interiorismo, real estate y marcas creativas. Trabaja de forma remota con clientes en Argentina, España, Uruguay y otros países.
+> Estudio de diseño gráfico y web en Rosario, Argentina, fundado en febrero de 2025 por Ornela Cillo, diseñadora gráfica con más de 10 años de experiencia. Especializado en identidad visual y diseño web para estudios de arquitectura, interiorismo, real estate y marcas creativas. Trabaja de forma remota con clientes en Argentina, España, Uruguay y otros países.
 
 ## Servicios
-- Branding completo: construcción integral de marca desde cero (estrategia, naming, identidad visual, aplicaciones)
 - Identidad visual: logo, paleta, tipografía, sistema de marca
 - Diseño web: sitios a medida, landing pages, experiencias digitales
 
@@ -19,7 +18,6 @@
 - Behance: https://www.behance.net/ornelacillo
 
 ## Páginas
-- /branding — Branding completo
 - /identidad-visual — Identidad Visual
 - /web — Diseño Web
 - /freebies — Recursos gratuitos

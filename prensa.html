@@ -3,17 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Prensa · Ornela Cillo y LIS. Creative Studio</title>
-  <meta name="description" content="Kit de prensa de Ornela Cillo y LIS. Creative Studio: bio, datos, fotos, logo y contacto para periodistas." />
+  <title>Prensa · Ornela Cillo, LIS. Creative Studio y Lunch Empresarial</title>
+  <meta name="description" content="Kit de prensa de Ornela Cillo, LIS. Creative Studio y Lunch Empresarial: bio, datos, fotos en alta, notas y contacto para periodistas." />
   <link rel="canonical" href="https://liscreativestudio.com/prensa" />
   <link rel="icon" href="/favicon.png" type="image/png">
-  <meta property="og:title" content="Prensa · Ornela Cillo y LIS. Creative Studio" />
-  <meta property="og:description" content="Bio, datos, fotos, logo y contacto para periodistas." />
+  <meta property="og:title" content="Prensa · Ornela Cillo" />
+  <meta property="og:description" content="Bio, datos, fotos en alta, notas y contacto para periodistas." />
   <meta property="og:url" content="https://liscreativestudio.com/prensa" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="es_AR" />
   <meta property="og:site_name" content="LIS. Creative Studio" />
-  <meta property="og:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <meta property="og:image" content="https://liscreativestudio.com/prensa/ornela-cillo-retrato.jpg" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32"></script>
   <script>
@@ -24,201 +24,310 @@
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
   <style>
+    /* Prensa · con el sistema del manual de marca v2: palabras gigantes a sangre,
+       contraste de peso por palabra (Inter Tight 150 contra 800), cursiva de Instrument Serif,
+       fondos plenos y el lomo vertical con la etiqueta girada. Sin píldoras ni óvalos. */
+    :root {
+      --ink: #1b1a17; --cream: #f4ede3; --stone: #b8b2a7; --paper: #e6e2dc; --muted: #6f6b64;
+      --blue: #2b4c86; --orange: #e8693a;
+      --f-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+      --f-script: 'Instrument Serif', Georgia, serif;
+      --f-text: 'Inter', Helvetica, Arial, sans-serif;
+      --gutter: clamp(16px, 5vw, 72px);
+      --spine: clamp(0px, 6vw, 96px);
+    }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-    :root { --black: #1b1a17; --white: #f4ede3; --gray: #6f6b64; --light: #d8cebf; }
-    body { background: var(--white); color: var(--black); font-family: 'Inter', sans-serif; font-size: 15px; line-height: 1.7; }
-    nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      display: flex; justify-content: space-between; align-items: center;
-      padding: 22px 60px; background: var(--white); border-bottom: 1px solid var(--light);
-    }
-    .nav-logo { text-decoration: none; color: var(--black); font-size: 15px; font-weight: 500; }
-    .nav-back { text-decoration: none; color: var(--gray); font-size: 13px; letter-spacing: .04em; }
-    .nav-back:hover { opacity: .5; }
-    main { max-width: 1080px; margin: 0 auto; padding: 150px 60px 100px; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--f-text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+    img { display: block; max-width: 100%; }
 
-    .page-label {
-      display: inline-block; font-size: 12px; letter-spacing: .1em; text-transform: uppercase;
-      border: 1px solid var(--black); border-radius: 999px; padding: 6px 14px; margin-bottom: 32px;
-    }
-    h1 {
-      font-family: 'Inter Tight', sans-serif; font-weight: 500; text-transform: uppercase;
-      font-size: clamp(3rem, 9vw, 7rem); letter-spacing: -.045em; line-height: .92;
-    }
-    h1 em, h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.01em; }
-    .intro { max-width: 620px; margin-top: 28px; font-size: 18px; color: #3d3a35; }
+    .d { font-family: var(--f-display); text-transform: uppercase; letter-spacing: -.045em; line-height: .84; font-weight: 800; }
+    .t { font-weight: 150; letter-spacing: -.03em; }
+    .s { font-family: var(--f-script); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.02em; }
+    .note { font-family: var(--f-script); font-style: italic; font-size: clamp(20px, 2vw, 28px); line-height: 1.2; }
 
-    section { border-top: 1px solid var(--black); margin-top: 80px; padding-top: 28px; display: grid; grid-template-columns: 260px 1fr; gap: 40px; }
-    h2 { font-family: 'Inter Tight', sans-serif; font-weight: 500; text-transform: uppercase; font-size: 15px; letter-spacing: .02em; }
-    .content p { margin-bottom: 16px; color: #3d3a35; max-width: 680px; }
-    .content p.lead { font-size: 19px; color: var(--black); }
-    .copy { margin-top: 4px; font-size: 13px; background: none; border: 1px solid var(--black); border-radius: 999px; padding: 6px 14px; cursor: pointer; font-family: inherit; color: var(--black); }
-    .copy:hover { background: var(--black); color: var(--white); }
+    /* Cada bloque es una "página" del manual, a sangre */
+    .page { position: relative; padding: clamp(72px, 10vw, 140px) var(--gutter) clamp(72px, 10vw, 140px) calc(var(--gutter) + var(--spine)); overflow: hidden; }
+    .page.ink { background: var(--ink); color: var(--cream); }
+    .page.blue { background: var(--blue); color: var(--cream); }
+    .page.orange { background: var(--orange); color: var(--ink); }
+    .page.paper { background: var(--paper); }
+    .page.stone { background: var(--stone); }
 
-    .facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--light); border: 1px solid var(--light); }
-    .fact { background: var(--white); padding: 22px 20px; }
-    .fact b { display: block; font-family: 'Inter Tight', sans-serif; font-weight: 500; font-size: 30px; letter-spacing: -.03em; line-height: 1.1; }
-    .fact span { font-size: 13px; color: var(--gray); }
+    /* Lomo: línea vertical, sección en cursiva girada y número */
+    .side { position: absolute; left: 0; top: 0; bottom: 0; width: calc(var(--gutter) + var(--spine) - 24px); }
+    .side::before { content: ""; position: absolute; right: 0; top: 48px; bottom: 48px; width: 1.5px; background: currentColor; opacity: .5; }
+    .side .lab { position: absolute; right: 14px; bottom: 90px; writing-mode: vertical-rl; transform: rotate(180deg); white-space: nowrap; font-family: var(--f-script); font-style: italic; font-size: 22px; opacity: .85; }
+    .side .num { position: absolute; right: 18px; bottom: 44px; font-size: 14px; font-variant-numeric: tabular-nums; opacity: .75; }
 
-    .topics { list-style: none; display: flex; flex-wrap: wrap; gap: 10px; }
-    .topics li { border: 1px solid var(--black); border-radius: 20px; padding: 8px 16px; font-size: 14px; }
+    /* Nav */
+    nav { position: absolute; top: 0; left: 0; right: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 26px var(--gutter); }
+    nav svg { width: 74px; height: auto; color: var(--ink); }
+    nav a.back { font-size: 14px; text-decoration: none; opacity: .7; }
+    nav a.back:hover { opacity: 1; }
 
-    .photos { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-    .photos figure img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; display: block; filter: grayscale(1); }
-    .photos figcaption { margin-top: 8px; font-size: 13px; display: flex; justify-content: space-between; color: var(--gray); }
-    .photos a, .links a { color: var(--black); }
-    .logo-box { background: var(--black); aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; }
-    .photos .logo-box img { width: 60%; height: auto; aspect-ratio: auto; object-fit: contain; filter: none; }
+    /* Portada */
+    .cover { min-height: 100vh; display: grid; grid-template-columns: 1.15fr .85fr; gap: clamp(24px, 4vw, 64px); align-items: end; padding-top: 140px; }
+    .cover h1 { font-size: clamp(64px, 13vw, 210px); }
+    .cover h1 .s { display: block; font-size: .62em; letter-spacing: -.03em; margin-top: .12em; line-height: .9; }
+    .cover .lead { margin-top: 36px; font-size: clamp(19px, 1.8vw, 26px); line-height: 1.4; max-width: 620px; letter-spacing: -.01em; }
+    .cover .slogan { margin-top: 40px; font-family: var(--f-display); text-transform: uppercase; font-size: 18px; letter-spacing: -.02em; }
+    .cover .slogan b { font-weight: 800; } .cover .slogan i { font-weight: 150; font-style: normal; }
+    .cover .slogan em { font-family: var(--f-script); text-transform: none; font-size: 1.15em; }
+    .cover figure { align-self: stretch; position: relative; min-height: 560px; }
+    .cover figure img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.05); }
+    .cover figcaption { position: absolute; left: 0; bottom: -34px; font-family: var(--f-script); font-style: italic; font-size: 18px; opacity: .8; }
 
-    .links { list-style: none; columns: 2; column-gap: 40px; }
-    .links li { padding: 10px 0; border-bottom: 1px solid var(--light); break-inside: avoid; }
-    .links small { display: block; color: var(--gray); font-size: 13px; }
+    /* Bio */
+    .bio h2 { font-size: clamp(56px, 10vw, 160px); }
+    .bio .grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 5vw, 90px); margin-top: clamp(40px, 6vw, 80px); }
+    .bio .short { font-size: clamp(22px, 2.4vw, 34px); line-height: 1.32; letter-spacing: -.015em; }
+    .bio .long p { font-size: 18px; line-height: 1.65; opacity: .9; }
+    .bio .long p + p { margin-top: 16px; }
+    .copy { margin-top: 22px; background: none; border: 0; border-bottom: 1.5px solid currentColor; padding: 0 0 4px; color: inherit; font-family: var(--f-script); font-style: italic; font-size: 22px; cursor: pointer; }
+    .copy:hover { opacity: .6; }
 
-    .contact { font-family: 'Inter Tight', sans-serif; font-size: clamp(1.6rem, 4vw, 2.6rem); letter-spacing: -.03em; color: var(--black); }
+    /* Datos */
+    .facts { display: grid; grid-template-columns: repeat(3, 1fr); column-gap: clamp(24px, 4vw, 64px); margin-top: clamp(40px, 6vw, 72px); }
+    .fact { border-top: 1.5px solid currentColor; padding: 22px 0 46px; }
+    .fact b { display: block; white-space: nowrap; font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: -.05em; line-height: .85; font-size: clamp(64px, 9vw, 150px); }
+    .fact b small { font-weight: 150; font-size: .5em; letter-spacing: -.03em; }
+    .fact span { display: block; margin-top: 14px; font-family: var(--f-script); font-style: italic; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.2; }
+    .h-xl { font-size: clamp(56px, 10vw, 160px); }
 
-    /* Datos que Orne tiene que completar antes de publicar: se ven en naranja */
-    .falta { background: #e8693a22; outline: 1px dashed #e8693a; padding: 0 4px; border-radius: 3px; }
+    /* Temas */
+    .topics { list-style: none; margin-top: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(3, 1fr); column-gap: clamp(24px, 4vw, 64px); }
+    .topics li { border-top: 1.5px solid currentColor; padding: 18px 0 40px; display: grid; grid-template-columns: 56px 1fr; font-size: 19px; line-height: 1.4; }
+    .topics li span { font-family: var(--f-display); font-weight: 150; font-size: 34px; line-height: 1; letter-spacing: -.03em; }
 
-    footer { border-top: 1px solid var(--light); padding: 40px 60px; display: flex; justify-content: space-between; font-size: 12px; color: var(--gray); }
-    footer a { color: var(--gray); text-decoration: none; }
-    footer a:hover { color: var(--black); }
+    /* Medios */
+    .press { list-style: none; margin-top: clamp(40px, 6vw, 72px); }
+    .press li { border-top: 1.5px solid currentColor; }
+    .press li:last-child { border-bottom: 1.5px solid currentColor; }
+    .press a { display: grid; grid-template-columns: minmax(180px, .9fr) 2fr auto; gap: 24px; align-items: baseline; padding: 26px 0; text-decoration: none; transition: padding .25s; }
+    .press a:hover { padding-left: 14px; }
+    .press .outlet { font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: -.04em; font-size: clamp(26px, 3vw, 44px); line-height: .9; }
+    .press .ttl { font-size: clamp(18px, 1.6vw, 22px); line-height: 1.35; }
+    .press .when { font-family: var(--f-script); font-style: italic; font-size: 20px; white-space: nowrap; }
 
-    @media (max-width: 760px) {
-      nav { padding: 18px 16px; }
-      main { padding: 110px 16px 80px; }
-      section { grid-template-columns: 1fr; gap: 18px; margin-top: 56px; }
-      .facts { grid-template-columns: 1fr 1fr; }
+    /* Fotos */
+    .photos { margin-top: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(12, 1fr); gap: 14px; }
+    .photos figure { position: relative; }
+    .photos figure:nth-child(1) { grid-column: span 5; grid-row: span 2; }
+    .photos figure:nth-child(2) { grid-column: span 3; }
+    .photos figure:nth-child(3) { grid-column: span 4; }
+    .photos figure:nth-child(4) { grid-column: span 3; }
+    .photos figure:nth-child(5) { grid-column: span 4; }
+    .photos img { width: 100%; height: 100%; object-fit: cover; aspect-ratio: 4 / 5; }
+    .photos figure:nth-child(1) img { aspect-ratio: auto; min-height: 100%; }
+    .photos figure:nth-child(3) img, .photos figure:nth-child(5) img { aspect-ratio: 4 / 3.75; }
+    .photos figcaption { position: absolute; left: 0; right: 0; bottom: 0; display: flex; justify-content: space-between; align-items: flex-end; padding: 40px 16px 14px; color: var(--cream); background: linear-gradient(transparent, rgba(27,26,23,.65)); }
+    .photos figcaption span { font-family: var(--f-script); font-style: italic; font-size: 20px; }
+    .photos figcaption a { font-size: 13px; text-decoration: none; border-bottom: 1px solid currentColor; }
+    .logos { margin-top: 14px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .logos div { display: flex; justify-content: space-between; align-items: center; padding: 22px 24px; }
+    .logos div:first-child { background: var(--ink); color: var(--cream); }
+    .logos div:last-child { background: var(--cream); color: var(--ink); }
+    .logos svg { width: 120px; height: auto; }
+    .logos a { font-size: 13px; text-decoration: none; border-bottom: 1px solid currentColor; }
+
+    /* Links */
+    .links { list-style: none; margin-top: clamp(40px, 6vw, 72px); display: grid; grid-template-columns: repeat(4, 1fr); column-gap: clamp(20px, 3vw, 48px); }
+    .links li { border-top: 1.5px solid currentColor; padding: 16px 0 32px; }
+    .links a { font-family: var(--f-display); font-weight: 700; text-transform: uppercase; letter-spacing: -.03em; font-size: 22px; text-decoration: none; }
+    .links a:hover { font-weight: 150; }
+    .links small { display: block; margin-top: 6px; font-family: var(--f-script); font-style: italic; font-size: 18px; opacity: .8; }
+
+    /* Contacto */
+    .contact { min-height: 80vh; display: flex; flex-direction: column; justify-content: space-between; }
+    .contact a.mail { display: block; margin-top: 40px; font-family: var(--f-display); text-transform: uppercase; letter-spacing: -.05em; line-height: .86; font-size: clamp(24px, 6.6vw, 112px); text-decoration: none; }
+    .contact a.mail b { font-weight: 800; } .contact a.mail i { font-weight: 150; font-style: normal; }
+    .contact a.mail:hover i { font-weight: 800; }
+    .contact .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-top: 80px; }
+    .contact .foot svg { width: clamp(140px, 22vw, 320px); height: auto; color: var(--cream); }
+    .contact .foot p { font-size: 14px; opacity: .7; text-align: right; line-height: 1.6; }
+
+    /* Datos que Orne tiene que confirmar antes de publicar */
+    .falta { background: rgba(232,105,58,.25); outline: 1px dashed var(--orange); }
+
+    /* Aparición suave al hacer scroll */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.on { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+
+    @media (max-width: 900px) {
+      :root { --spine: 0px; }
+      .side { display: none; }
+      .cover { grid-template-columns: 1fr; min-height: 0; padding-top: 120px; }
+      .cover figure { min-height: 460px; order: -1; }
+      .cover figcaption { bottom: 10px; left: 12px; color: var(--cream); text-shadow: 0 1px 6px rgba(0,0,0,.6); }
+      .bio .grid { grid-template-columns: 1fr; }
+      .facts, .topics { grid-template-columns: 1fr 1fr; }
+      .press a { grid-template-columns: 1fr; gap: 8px; }
       .photos { grid-template-columns: 1fr 1fr; }
-      .links { columns: 1; }
-      footer { padding: 32px 16px; flex-direction: column; gap: 12px; }
+      .photos figure:nth-child(n) { grid-column: span 1; grid-row: auto; }
+      .photos figure:nth-child(1) { grid-column: span 2; }
+      .photos figure:nth-child(n) img { aspect-ratio: 4 / 5; }
+      .logos { grid-template-columns: 1fr; }
+      .links { grid-template-columns: 1fr 1fr; }
+      .contact .foot { flex-direction: column; align-items: flex-start; }
+      .contact .foot p { text-align: left; }
+    }
+    @media (max-width: 520px) {
+      .facts, .topics, .links { grid-template-columns: 1fr; }
+      .fact { padding-bottom: 30px; }
     }
   </style>
-  <link rel="stylesheet" href="/theme.css" />
 </head>
 <body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 1006.3 525.6"><path fill="currentColor" d="M0 0H188V339.9H369.6V0H557.6V339.9C826.8 339.9 638.4 0.0 1006.3 0.0V184.2C856.2 184.2 964.6 525.6 589.3 525.6H0Z M914 432.9H1006.3V525.6H914Z"/></symbol></svg>
 
   <nav>
-    <a href="https://liscreativestudio.com" class="nav-logo">LIS.</a>
-    <a href="https://liscreativestudio.com" class="nav-back">← volver al inicio</a>
+    <a href="/" aria-label="LIS. Creative Studio"><svg viewBox="0 0 1006.3 525.6"><use href="#logo"/></svg></a>
+    <a class="back" href="/">← volver al inicio</a>
   </nav>
 
-  <main>
-    <span class="page-label">Prensa</span>
-    <h1>Kit de <em>prensa</em></h1>
-    <p class="intro">Todo lo que necesitás para escribir sobre Ornela Cillo y LIS. Creative Studio: bio, datos, fotos, logo y contacto. Si te falta algo, escribime y te lo mando en el día.</p>
+  <!-- 01 · Portada -->
+  <header class="page cover">
+    <div class="side"><span class="lab">Kit de prensa</span><span class="num">01</span></div>
+    <div class="reveal">
+      <h1 class="d"><span class="t">Kit de</span> prensa<span class="s">Ornela Cillo</span></h1>
+      <p class="lead">Diseñadora gráfica, fundadora de LIS. Creative Studio y creadora de Lunch Empresarial. Acá tenés su bio, sus datos, fotos en alta, notas y contacto, todo listo para usar.</p>
+      <p class="slogan"><b>Design</b> <i>for</i> <b>your</b> <em>brand</em></p>
+    </div>
+    <figure class="reveal">
+      <img src="/prensa/ornela-cillo-retrato-byn-web.jpg" alt="Ornela Cillo" />
+      <figcaption>Rosario, Argentina</figcaption>
+    </figure>
+  </header>
 
-    <section>
-      <h2>Bio corta</h2>
-      <div class="content">
-        <p class="lead" id="bio-corta">Ornela Cillo es diseñadora gráfica y fundadora de LIS. Creative Studio, un estudio de identidad visual y diseño web para estudios de arquitectura e interiorismo, con base en Rosario y clientes en Argentina, España y Uruguay.</p>
-        <button class="copy" data-copy="bio-corta">Copiar</button>
+  <!-- 02 · Bio -->
+  <section class="page ink bio">
+    <div class="side"><span class="lab">Quién es</span><span class="num">02</span></div>
+    <h2 class="d reveal"><span class="t">Quién</span> es <span class="s">Ornela</span></h2>
+    <div class="grid">
+      <div class="reveal">
+        <p class="short" id="bio-corta">Ornela Cillo es diseñadora gráfica, fundadora de LIS. Creative Studio y creadora de Lunch Empresarial. Desde Rosario diseña marcas y webs para estudios de arquitectura, interiorismo y negocios de Argentina, España y Uruguay.</p>
+        <button class="copy" data-copy="bio-corta">copiar bio corta</button>
       </div>
-    </section>
-
-    <section>
-      <h2>Bio larga</h2>
-      <div class="content">
-        <div id="bio-larga">
-          <p>Ornela Cillo es diseñadora gráfica, con más de diez años de experiencia, y fundadora de LIS. Creative Studio, el estudio de identidad visual y diseño web que creó en 2025 en Rosario. Trabaja de forma remota con estudios de arquitectura, interiorismo y marcas creativas de Argentina, España y Uruguay, y también diseñó la marca y la web de un espacio de congresos y eventos en Barcelona.</p>
-          <p>Creó Lunch Empresarial, un encuentro de networking para mujeres profesionales, emprendedoras y creativas que ya tuvo dos ediciones, la primera en Funes junto a Florencia Massaccesi y la segunda en Rosario, y en 2023 cofundó con Florencia Massaccesi Conecta con Nosotras (hoy Club Conecta), una comunidad de mujeres emprendedoras por cuyas charlas y eventos pasaron más de 3.000 mujeres. Además, todos los lunes escribe Planta Libre, una newsletter sobre diseño y arquitectura para estudios, y conduce el podcast En voz alta.</p>
+      <div class="reveal">
+        <div class="long" id="bio-larga">
+          <p>Ornela Cillo es diseñadora gráfica, tiene más de diez años de experiencia y en 2025 fundó en Rosario LIS. Creative Studio, un estudio de identidad visual y diseño web que ya trabajó con más de 20 clientes de Argentina, España y Uruguay, desde estudios de arquitectura e interiorismo hasta un espacio de congresos en Barcelona y un festival de cultura digital joven en España. Trabaja de forma remota, con un equipo de colaboradoras que suma gestión de proyectos y desarrollo web.</p>
+          <p>En paralelo creó Lunch Empresarial, un encuentro de networking para mujeres profesionales, emprendedoras y creativas que ya tuvo dos ediciones: la primera en Funes, junto a Florencia Massaccesi, con quien en 2023 había cofundado la comunidad Conecta con Nosotras, y la segunda en Rosario, en noviembre de 2025.</p>
+          <p>Es egresada de la <span class="falta">Academy for Women Entrepreneurs (AWE), el programa para emprendedoras del Departamento de Estado de EE.UU. [confirmar nombre, año y ciudad]</span>, donde dio el discurso en nombre de las alumnas. Todos los lunes escribe Planta Libre, una newsletter de diseño y arquitectura para estudios, y conduce el podcast En voz alta.</p>
         </div>
-        <button class="copy" data-copy="bio-larga">Copiar</button>
+        <button class="copy" data-copy="bio-larga">copiar bio larga</button>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section>
-      <h2>En datos</h2>
-      <div class="content">
-        <div class="facts">
-          <div class="fact"><b>2025</b><span>Año en que fundó LIS, en Rosario</span></div>
-          <div class="fact"><b>3 países</b><span>Clientes en Argentina, España y Uruguay</span></div>
-          <div class="fact"><b>5.0</b><span>Calificación en las reseñas de Google</span></div>
-          <div class="fact"><b>+20</b><span>Clientes de marca y web</span></div>
-          <div class="fact"><b>+3.000</b><span>Mujeres en las charlas y eventos de Conecta con Nosotras</span></div>
-          <div class="fact"><b>2</b><span>Ediciones de Lunch Empresarial, en Funes y en Rosario</span></div>
-        </div>
-      </div>
-    </section>
+  <!-- 03 · Datos -->
+  <section class="page blue">
+    <div class="side"><span class="lab">En datos</span><span class="num">03</span></div>
+    <h2 class="d h-xl reveal"><span class="t">En</span> datos</h2>
+    <div class="facts">
+      <div class="fact reveal"><b>+10 <small>años</small></b><span>diseñando marcas y webs</span></div>
+      <div class="fact reveal"><b>+20</b><span>clientes de marca y web</span></div>
+      <div class="fact reveal"><b>3 <small>países</small></b><span>Argentina, España y Uruguay</span></div>
+      <div class="fact reveal"><b>2025</b><span>el año en que fundó LIS, en Rosario</span></div>
+      <div class="fact reveal"><b>2</b><span>ediciones de Lunch Empresarial, en Funes y en Rosario</span></div>
+      <div class="fact reveal"><b>5.0</b><span>en las reseñas de Google</span></div>
+    </div>
+  </section>
 
-    <section>
-      <h2>Temas sobre los que puedo hablar</h2>
-      <div class="content">
-        <ul class="topics">
-          <li>Marca y web para estudios de arquitectura e interiorismo</li>
-          <li>Exportar servicios de diseño desde Rosario</li>
-          <li>Emprender siendo mamá</li>
-          <li>Comunidades y eventos para mujeres emprendedoras</li>
-          <li>Cómo se muestra un estudio en redes</li>
-          <li>Webs que encuentran Google y la inteligencia artificial</li>
-        </ul>
-      </div>
-    </section>
+  <!-- 04 · Temas -->
+  <section class="page">
+    <div class="side"><span class="lab">Temas</span><span class="num">04</span></div>
+    <h2 class="d h-xl reveal"><span class="t">De qué</span> puede <span class="s">hablar</span></h2>
+    <ol class="topics">
+      <li class="reveal"><span>01</span>Marca y web para estudios de arquitectura e interiorismo</li>
+      <li class="reveal"><span>02</span>Exportar servicios de diseño desde Rosario</li>
+      <li class="reveal"><span>03</span>Emprender siendo mamá</li>
+      <li class="reveal"><span>04</span>Networking y eventos para mujeres emprendedoras</li>
+      <li class="reveal"><span>05</span>Cómo se muestra un estudio en redes</li>
+      <li class="reveal"><span>06</span>Webs que encuentran Google y la inteligencia artificial</li>
+    </ol>
+  </section>
 
-    <section>
-      <h2>Fotos y logo</h2>
-      <div class="content">
-        <div class="photos">
-          <figure>
-            <img src="/ornela-new.jpg" alt="Ornela Cillo, retrato" />
-            <figcaption><span>Retrato</span><a href="/ornela-new.jpg" download>Descargar</a></figcaption>
-          </figure>
-          <figure>
-            <img src="/ornela.jpg" alt="Ornela Cillo en su estudio" />
-            <figcaption><span>En el estudio</span><a href="/ornela.jpg" download>Descargar</a></figcaption>
-          </figure>
-          <figure>
-            <div class="logo-box"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="Logo de LIS. Creative Studio" /></div>
-            <figcaption><span>Logo (PNG)</span><a href="/Branding_2026_logo_blanco_sin_fondo.png" download>Descargar</a></figcaption>
-          </figure>
-        </div>
-        <p style="margin-top:16px;font-size:13px;color:var(--gray)">Fotos de uso libre para notas sobre Ornela Cillo y LIS. Creative Studio.</p>
-      </div>
-    </section>
+  <!-- 05 · Medios -->
+  <section class="page orange">
+    <div class="side"><span class="lab">En los medios</span><span class="num">05</span></div>
+    <h2 class="d h-xl reveal"><span class="t">En los</span> medios</h2>
+    <ul class="press">
+      <li class="reveal"><a href="https://puntobiz.com.ar/gestion/un-evento-pensado-para-mujeres-emprendedoras-y-creativas-de-la-ciudad-20251125500" target="_blank" rel="noopener"><span class="outlet">Punto Biz</span><span class="ttl">Un evento pensado para mujeres emprendedoras y creativas de la ciudad</span><span class="when">nov. 2025</span></a></li>
+      <li class="reveal"><a href="https://www.rosario3.com/ecos365/noticias/Rosarinas-idearon-una-comunidad-para-empoderar-mujeres-e-impulsar-sus-negocios-20231116-0001.html" target="_blank" rel="noopener"><span class="outlet">Rosario3</span><span class="ttl">Rosarinas idearon una comunidad para empoderar mujeres e impulsar sus negocios</span><span class="when">nov. 2023</span></a></li>
+      <li class="reveal"><a href="https://portalpellegrinense.com.ar/charlas-para-el-bienestar-en-expo-rosa-tu-salud-en-primer-plano/" target="_blank" rel="noopener"><span class="outlet">Portal Pellegrinense</span><span class="ttl">Charlas para el bienestar en Expo Rosa: tu salud en primer plano</span><span class="when">oct. 2023</span></a></li>
+      <li class="reveal"><a href="https://portalsanjorge.com.ar/gran-encuentro-de-mujeres-en-el-trebol-un-exito-total-en-conecta-con-nosotras/" target="_blank" rel="noopener"><span class="outlet">Portal San Jorge</span><span class="ttl">Gran encuentro de mujeres en El Trébol: un éxito total en Conecta con Nosotras</span><span class="when">jul. 2023</span></a></li>
+    </ul>
+  </section>
 
-    <section>
-      <h2>Proyectos y links</h2>
-      <div class="content">
-        <ul class="links">
-          <li><a href="https://liscreativestudio.com">LIS. Creative Studio</a><small>Identidad visual y diseño web</small></li>
-          <li><a href="https://liscreativestudio.com/blog">Planta Libre</a><small>Newsletter semanal de diseño y arquitectura</small></li>
-          <li><a href="https://youtu.be/vjsIuK1KZl0">En voz alta</a><small>El podcast, también en Spotify</small></li>
-          <li><a href="https://liscreativestudio.com/lunch">Lunch Empresarial</a><small>Networking para mujeres profesionales en Rosario</small></li>
-          <li><a href="https://clubconecta.com.ar">Club Conecta</a><small>Comunidad de mujeres emprendedoras (antes Conecta con Nosotras)</small></li>
-          <li><a href="https://www.behance.net/ornelacillo">Behance</a><small>Portfolio</small></li>
-          <li><a href="https://www.linkedin.com/company/liscreative-studio/">LinkedIn</a><small>LIS. Creative Studio</small></li>
-          <li><a href="https://www.instagram.com/liscreative.studio/">Instagram</a><small>@liscreative.studio</small></li>
-        </ul>
-      </div>
-    </section>
+  <!-- 06 · Fotos -->
+  <section class="page paper">
+    <div class="side"><span class="lab">Fotos en alta</span><span class="num">06</span></div>
+    <h2 class="d h-xl reveal"><span class="t">Fotos</span> en <span class="s">alta</span></h2>
+    <div class="photos">
+      <figure class="reveal"><img src="/prensa/ornela-cillo-retrato-web.jpg" alt="Ornela Cillo, retrato" /><figcaption><span>Retrato</span><a href="/prensa/ornela-cillo-retrato.jpg" download>descargar</a></figcaption></figure>
+      <figure class="reveal"><img src="/prensa/ornela-cillo-presentacion-web.jpg" alt="Ornela Cillo presentando su proyecto" /><figcaption><span>Presentando</span><a href="/prensa/ornela-cillo-presentacion.jpg" download>descargar</a></figcaption></figure>
+      <figure class="reveal"><img src="/prensa/ornela-cillo-lunch-empresarial-web.jpg" alt="Ornela Cillo en Lunch Empresarial" /><figcaption><span>En Lunch Empresarial</span><a href="/prensa/ornela-cillo-lunch-empresarial.jpg" download>descargar</a></figcaption></figure>
+      <figure class="reveal"><img src="/prensa/ornela-cillo-retrato-byn-web.jpg" alt="Ornela Cillo, retrato en blanco y negro" /><figcaption><span>Retrato byn</span><a href="/prensa/ornela-cillo-retrato-byn.jpg" download>descargar</a></figcaption></figure>
+      <figure class="reveal"><img src="/prensa/ornela-cillo-discurso-web.jpg" alt="Ornela Cillo dando el discurso de las egresadas" /><figcaption><span>Discurso de egresadas</span><a href="/prensa/ornela-cillo-discurso.jpg" download>descargar</a></figcaption></figure>
+    </div>
+    <div class="logos reveal">
+      <div><svg viewBox="0 0 1006.3 525.6" aria-label="Logo LIS"><use href="#logo"/></svg><a href="/Branding_2026_logo_blanco_sin_fondo.png" download>logo claro · png</a></div>
+      <div><svg viewBox="0 0 1006.3 525.6" aria-label="Logo LIS"><use href="#logo"/></svg><a href="/prensa/lis-logo.svg" download>logo oscuro · svg</a></div>
+    </div>
+    <p class="note reveal" style="margin-top:22px">Fotos de uso libre para notas sobre Ornela Cillo, LIS. Creative Studio y Lunch Empresarial.</p>
+  </section>
 
-    <!-- Cuando salga la primera nota, sumá acá una sección "Apariciones en prensa" con el medio, el título, la fecha y el link. -->
+  <!-- 07 · Links -->
+  <section class="page">
+    <div class="side"><span class="lab">Proyectos</span><span class="num">07</span></div>
+    <h2 class="d h-xl reveal"><span class="t">Sus</span> proyectos</h2>
+    <ul class="links">
+      <li class="reveal"><a href="/">LIS. Creative Studio</a><small>identidad visual y diseño web</small></li>
+      <li class="reveal"><a href="/lunch">Lunch Empresarial</a><small>networking para mujeres</small></li>
+      <li class="reveal"><a href="/blog">Planta Libre</a><small>newsletter de los lunes</small></li>
+      <li class="reveal"><a href="https://youtu.be/vjsIuK1KZl0" target="_blank" rel="noopener">En voz alta</a><small>el podcast</small></li>
+      <li class="reveal"><a href="https://www.behance.net/ornelacillo" target="_blank" rel="noopener">Behance</a><small>portfolio</small></li>
+      <li class="reveal"><a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a><small>@liscreative.studio</small></li>
+      <li class="reveal"><a href="https://www.instagram.com/lunch.empresarial/" target="_blank" rel="noopener">Instagram Lunch</a><small>@lunch.empresarial</small></li>
+      <li class="reveal"><a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a><small>LIS. Creative Studio</small></li>
+    </ul>
+  </section>
 
-    <section>
-      <h2>Contacto</h2>
-      <div class="content">
-        <a class="contact" href="mailto:hello@liscreativestudio.com?subject=Prensa">hello@liscreativestudio.com</a>
-        <p style="margin-top:12px">Ornela Cillo · Rosario, Argentina</p>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <span>© 2026 LIS. Creative Studio · Rosario, Argentina</span>
-    <a href="/privacidad">Privacidad</a>
+  <!-- 08 · Contacto -->
+  <footer class="page ink contact">
+    <div class="side"><span class="lab">Contacto</span><span class="num">08</span></div>
+    <div class="reveal">
+      <p class="note">Para notas, entrevistas o fotos, escribile directo a Ornela:</p>
+      <a class="mail" href="mailto:hello@liscreativestudio.com?subject=Prensa"><b>hello</b><i>@lis</i><br><b>creative</b><i>studio.com</i></a>
+    </div>
+    <div class="foot">
+      <svg viewBox="0 0 1006.3 525.6" aria-label="LIS. Creative Studio"><use href="#logo"/></svg>
+      <p>Ornela Cillo · Rosario, Argentina<br>© 2026 LIS. Creative Studio · <a href="/privacidad">Privacidad</a></p>
+    </div>
   </footer>
 
   <script>
     document.querySelectorAll('.copy').forEach(function (btn) {
       btn.addEventListener('click', function () {
-        var text = document.getElementById(btn.dataset.copy).innerText.trim();
-        navigator.clipboard.writeText(text).then(function () {
-          btn.textContent = 'Copiado';
-          setTimeout(function () { btn.textContent = 'Copiar'; }, 1600);
+        var label = btn.textContent;
+        navigator.clipboard.writeText(document.getElementById(btn.dataset.copy).innerText.trim()).then(function () {
+          btn.textContent = 'copiada ✓';
+          setTimeout(function () { btn.textContent = label; }, 1600);
         });
       });
     });
+    var els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+      }, { threshold: .12 });
+      els.forEach(function (el) { io.observe(el); });
+    } else { els.forEach(function (el) { el.classList.add('on'); }); }
   </script>
 </body>
 </html>

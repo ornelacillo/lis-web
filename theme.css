@@ -261,3 +261,8 @@ footer .footer-ml-wrap .ml-form-embedSubmit button, footer .footer-ml-wrap .ml-f
 
 /* Sin la marca "Nuevo" sobre las tarjetas: era una etiqueta y se pisaba con la portada */
 .res-badge { display: none !important; }
+
+/* Cursor: flechita azul con "(You)", en toda la web; los campos de texto conservan la barrita */
+html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
+body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), body textarea, body [contenteditable] { cursor: text !important; }
+.cursor, .cursor-ring { display: none !important; }

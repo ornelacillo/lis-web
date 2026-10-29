@@ -22,7 +22,7 @@
   <meta name="twitter:description" content="Estudio de diseño en Rosario que hace identidad visual y páginas web para estudios de arquitectura e interiorismo de Argentina, España y Uruguay." />
   <meta name="twitter:image" content="https://liscreativestudio.com/og-lis.jpg" />
   <link rel="icon" href="favicon.png" type="image/png">
-  <link rel="preload" as="image" href="Slide_53.webp" fetchpriority="high" />
+  <link rel="preload" as="image" href="Slide_53.webp" imagesrcset="Slide_53-m.webp 900w, Slide_53.webp 1400w" imagesizes="100vw" fetchpriority="high" />
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32"></script>
   <script>
@@ -636,7 +636,7 @@
 
   <section id="home" class="reel" data-nav-theme="light">
     <div class="reel-stick">
-      <div class="reel-bg" id="reel-bg"><img src="Slide_53.webp" alt="" fetchpriority="high" class="on"></div>
+      <div class="reel-bg" id="reel-bg"><img src="Slide_53.webp" srcset="Slide_53-m.webp 900w, Slide_53.webp 1400w" sizes="100vw" alt="" fetchpriority="high" class="on"></div>
       <div class="reel-head">
         <h1 class="home-title">Design for<br>your <em>brand</em></h1>
         <p class="reel-note" id="reel-note"></p>
@@ -989,8 +989,9 @@
     const sec = document.getElementById('home'), bg = document.getElementById('reel-bg'),
           track = document.getElementById('reel-track'), note = document.getElementById('reel-note');
     sec.style.setProperty('--n', P.length);
-    bg.insertAdjacentHTML('beforeend', P.slice(1).map((p, i) => `<img src="${p[0]}" alt="" ${i > 0 ? 'loading="lazy"' : ''} class="${p[3] ? 'soft' : ''}">`).join(''));
-    track.innerHTML = P.map((p, i) => `<div class="reel-card"><img src="${p[0]}" alt="${p[1]}, ${p[2]}" ${i > 4 ? 'loading="lazy"' : ''}></div>`).join('');
+    const v = (f, s) => f.replace(/\.webp$/, s + '.webp');
+    bg.insertAdjacentHTML('beforeend', P.slice(1).map((p, i) => `<img src="${p[0]}" srcset="${v(p[0], '-m')} 900w, ${p[0]} 1400w" sizes="100vw" alt="" ${i > 0 ? 'loading="lazy"' : ''} class="${p[3] ? 'soft' : ''}">`).join(''));
+    track.innerHTML = P.map((p, i) => `<div class="reel-card"><img src="${v(p[0], '-s')}" alt="${p[1]}, ${p[2]}" width="520" height="347" ${i > 4 ? 'loading="lazy"' : ''}></div>`).join('');
     const bgs = bg.children, cards = track.children;
     let cur = -1;
     function update() {

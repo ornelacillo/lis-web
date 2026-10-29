@@ -6,7 +6,7 @@
  *
  * Per-page config via data attributes on the <body>:
  *   data-nav-page="home|branding|web|identidad|curaduria|asesoria|freebies|blog"
- *   data-nav-lang="es|en"  (default: es)
+ *   Language comes from the URL: pages under /en get the English menu.
  *
  * Automatic theme switching:
  *   The nav pill switches between "light" (white text on dark) and "dark"
@@ -311,62 +311,100 @@
     return `<svg class="nav-chevron" viewBox="0 0 10 10" fill="none" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3.5l3 3 3-3"/></svg>`;
   }
 
-  /* Determine base path prefix depending on current location */
-  function getBase() {
-    return '/';
+  /* Spanish page ↔ English page (/en). Pages without an English version switch to /en */
+  const LANG_PAIRS = [
+    ['/', '/en'],
+    ['/identidad-visual', '/en/visual-identity'],
+    ['/web', '/en/web-design'],
+    ['/paquetes', '/en/packages'],
+    ['/asesoria', '/en/consulting'],
+    ['/prensa', '/en/press'],
+    ['/privacidad', '/en/privacy'],
+  ];
+
+  function currentPath() {
+    return window.location.pathname.replace(/\.html$/, '').replace(/\/index$/, '').replace(/\/$/, '') || '/';
   }
 
   function isEn() {
-    return false;
+    const path = currentPath();
+    return path === '/en' || path.startsWith('/en/');
+  }
+
+  function langHrefs() {
+    const path = currentPath();
+    const pair = LANG_PAIRS.find(p => p[0] === path || p[1] === path);
+    return { es: pair ? pair[0] : '/', en: pair ? pair[1] : '/en' };
+  }
+
+  function langSwitch(cls) {
+    const h = langHrefs(), en = isEn();
+    return `<div class="${cls}">
+        <a href="${h.es}" hreflang="es" lang="es"${en ? '' : ' class="lang-active" aria-current="true"'}>ES</a>${cls === 'nav-lang' ? '<span class="nav-lang-sep">/</span>' : ''}
+        <a href="${h.en}" hreflang="en" lang="en"${en ? ' class="lang-active" aria-current="true"' : ''}>EN</a>
+      </div>`;
+  }
+
+  /* Menu links for each language: the English site has no freebies or blog, since both are in Spanish */
+  function navLinks() {
+    if (isEn()) return {
+      links: [
+        { label: 'home',      href: '/en' },
+        { label: 'about',     href: '/en#about' },
+        { label: 'services',  href: '/en#services', dropdown: true },
+        { label: 'portfolio', href: '/en#portfolio' },
+        { label: 'contact',   href: '/en#contact', cta: true },
+      ],
+      services: [
+        { label: 'Visual Identity', href: '/en/visual-identity' },
+        { label: 'Web Design',      href: '/en/web-design' },
+        { label: 'Packages',        href: '/en/packages' },
+      ],
+    };
+    return {
+      links: [
+        { label: 'home',      href: '/' },
+        { label: 'about',     href: '/#about' },
+        { label: 'services',  href: '/#services', dropdown: true },
+        { label: 'portfolio', href: '/#portfolio' },
+        { label: 'freebies',  href: '/freebies' },
+        { label: 'blog',      href: '/blog' },
+        { label: 'contact',   href: '/#contact', cta: true },
+      ],
+      services: [
+        { label: 'Identidad Visual', href: '/identidad-visual' },
+        { label: 'Diseño Web',       href: '/web' },
+        { label: 'Paquetes',         href: '/paquetes' },
+      ],
+    };
   }
 
   /* Mark active link */
   function markActive(pill) {
-    const path = window.location.pathname.replace(/\/$/, '') || '/';
+    const path = currentPath();
     pill.querySelectorAll('a').forEach(a => {
+      if (a.closest('.nav-lang')) return;
       const href = a.getAttribute('href') || '';
-      // exact match or hash-less match
-      const aPath = href.split('#')[0].replace(/\/$/, '') || '/';
-      if (aPath && aPath !== '/' && path.endsWith(aPath)) {
-        a.classList.add('nav-active');
-      } else if (aPath === '/' && path === '/') {
-        a.classList.add('nav-active');
-      }
+      if (href.includes('#')) return;
+      const aPath = href.replace(/\/$/, '') || '/';
+      if (aPath === path) a.classList.add('nav-active');
     });
   }
 
   /* ─── Build pill HTML ─────────────────────────────────────── */
   function buildPill() {
-    const base = getBase();
-    const en = isEn();
-
-    const links = [
-      { label: 'home',      href: '/' },
-      { label: 'about',     href: '/#about' },
-      { label: 'services',  href: '/#services', dropdown: true },
-      { label: 'portfolio', href: '/#portfolio' },
-      { label: 'freebies',  href: '/freebies' },
-      { label: 'blog',      href: '/blog' },
-      { label: 'contact',   href: '/#contact', cta: true },
-    ];
-
-    const serviceLinks = [
-      { label: 'Identidad Visual',   href: '/identidad-visual' },
-      { label: 'Diseño Web',         href: '/web' },
-      { label: 'Paquetes',           href: '/paquetes' },
-    ];
-
+    const { links, services } = navLinks();
     let html = '';
 
-    links.forEach((link, i) => {
+    links.forEach(link => {
       // Add sep before contact
-      if (link.label === 'contact') {
+      if (link.cta) {
         html += `<span class="nav-sep"></span>`;
       }
 
       if (link.dropdown) {
         // Services dropdown
-        const ddItems = serviceLinks.map(s =>
+        const ddItems = services.map(s =>
           `<a href="${s.href}">${s.label}</a>`
         ).join('');
 
@@ -388,45 +426,33 @@
       }
     });
 
-
-
+    html += `<span class="nav-sep"></span>` + langSwitch('nav-lang');
     return html;
   }
 
   /* ─── Build mobile overlay ────────────────────────────────── */
   function buildOverlay() {
-    const base = getBase();
-    const en = isEn();
-    const serviceLinks = [
-      { label: 'Identidad Visual',   href: '/identidad-visual' },
-      { label: 'Diseño Web',         href: '/web' },
-      { label: 'Paquetes',           href: '/paquetes' },
-    ];
-
-    const subItems = serviceLinks.map(s => `<a href="${s.href}">${s.label}</a>`).join('');
+    const { links, services } = navLinks();
+    const subItems = services.map(s => `<a href="${s.href}">${s.label}</a>`).join('');
 
     return `
-      <button id="lis-nav-overlay-close" aria-label="Cerrar menú">
+      <button id="lis-nav-overlay-close" aria-label="${isEn() ? 'Close menu' : 'Cerrar menú'}">
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M18 6L6 18M6 6l12 12"/>
         </svg>
       </button>
-      <a href="${en ? base + 'index.html' : '/'}">home</a>
-      <a href="${en ? base + 'index.html#about' : '/#about'}">about</a>
+      ${links.map(link => link.dropdown ? `
       <button class="overlay-services-toggle" id="overlay-services-btn">
-        services
+        ${link.label}
         <svg viewBox="0 0 16 16" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
           <path d="M4 6l4 4 4-4"/>
         </svg>
       </button>
       <div class="overlay-sub" id="overlay-sub">
         ${subItems}
-      </div>
-      <a href="${en ? base + 'index.html#portfolio' : '/#portfolio'}">portfolio</a>
-      <a href="${en ? base + 'freebies.html' : '/freebies'}">freebies</a>
-      <a href="/blog">blog</a>
-      <a href="${en ? base + 'index.html#contact' : '/#contact'}">contact</a>
-
+      </div>` : `
+      <a href="${link.href}">${link.label}</a>`).join('')}
+      ${langSwitch('overlay-lang')}
     `;
   }
 
@@ -531,7 +557,7 @@
     const nav = document.createElement('nav');
     nav.id = 'lis-nav';
     nav.setAttribute('role', 'navigation');
-    nav.setAttribute('aria-label', 'Menú principal');
+    nav.setAttribute('aria-label', isEn() ? 'Main menu' : 'Menú principal');
 
     const pill = document.createElement('div');
     pill.id = 'lis-nav-pill';
@@ -545,14 +571,14 @@
     // ── Mobile logo ──
     const mobileLogo = document.createElement('div');
     mobileLogo.id = 'lis-nav-mobile-logo';
-    var _mhref = '/';
+    var _mhref = isEn() ? '/en' : '/';
     mobileLogo.innerHTML = '<a href="'+_mhref+'"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." style="height:26px;width:auto;display:block;filter:brightness(0) invert(1);opacity:0.9;"></a>';
     document.body.insertBefore(mobileLogo, document.body.firstChild);
 
     // ── Hamburger button ──
     const hamburger = document.createElement('button');
     hamburger.id = 'lis-nav-hamburger';
-    hamburger.setAttribute('aria-label', 'Abrir menú');
+    hamburger.setAttribute('aria-label', isEn() ? 'Open menu' : 'Abrir menú');
     hamburger.innerHTML = `
       <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round">
         <path d="M4 6h16M4 12h16M4 18h16"/>

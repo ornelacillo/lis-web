@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>1:1 Design Consulting | LIS. Creative Studio</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+  <!-- Analytics, Clarity y Meta se cargan al primer scroll o toque, o 2,5 s después de la carga, para no frenar la página -->
+  <script>
+    (function () {
+      var done = false;
+      function add(src) { var t = document.createElement('script'); t.async = true; t.src = src; document.head.appendChild(t); }
+      function go() {
+        if (done) return; done = true;
+        add('https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32');
+        if (window.__clarity) add('https://www.clarity.ms/tag/z3r50bv2sr');
+        if (window.__fbq) add('https://connect.facebook.net/en_US/fbevents.js');
+      }
+      ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'].forEach(function (e) { addEventListener(e, go, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(go, 2500); });
+    })();
+  </script>
+  <!-- Microsoft Clarity: grabaciones y mapas de calor -->
+  <script>
+    window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    window.__clarity = true;
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" /></noscript>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font-body: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--white); color: var(--black);
+      font-family: var(--font-body); font-size: 15px;
+      line-height: 1.6; cursor: none;
+    }
+    .cursor {
+      position: fixed; width: 8px; height: 8px;
+      background: var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9999;
+      transform: translate(-50%, -50%);
+    }
+    .cursor-ring {
+      position: fixed; width: 30px; height: 30px;
+      border: 1px solid var(--black); border-radius: 50%;
+      pointer-events: none; z-index: 9998;
+      transform: translate(-50%, -50%);
+      transition: left .12s ease, top .12s ease, width .25s, height .25s;
+    }
+    body:has(a:hover) .cursor-ring,
+    body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) {
+      .cursor, .cursor-ring { display: none !important; }
+      body { cursor: auto; }
+    }
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 22px 60px;
+    }
+    .nav-logo {
+      text-decoration: none; color: var(--black);
+      font-size: 15px; font-weight: 500;
+    }
+    .nav-back {
+      text-decoration: none; color: var(--gray);
+      font-size: 13px; letter-spacing: .04em; transition: opacity .2s;
+    }
+    .nav-back:hover { opacity: .5; }
+
+    /* HERO */
+    .hero {
+      padding: 160px 60px 100px;
+      max-width: 1100px; margin: 0 auto;
+      border-bottom: 1px solid var(--light);
+    }
+    .service-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: var(--gray); margin-bottom: 40px;
+    }
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.8rem);
+      font-weight: 400; line-height: 1.1;
+      letter-spacing: -.02em; max-width: 700px; margin-bottom: 32px;
+    }
+    .hero-sub {
+      font-size: 17px; color: #555; max-width: 560px; line-height: 1.7;
+    }
+
+    /* SECTIONS */
+    .section {
+      max-width: 1100px; margin: 0 auto;
+      padding: 80px 60px; border-bottom: 1px solid var(--light);
+    }
+    .section-label {
+      font-size: 12px; letter-spacing: .14em;
+      color: var(--gray); margin-bottom: 48px;
+    }
+    .section h2 {
+      font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+      font-weight: 400; letter-spacing: -.01em; margin-bottom: 48px;
+    }
+
+    /* MODALIDADES */
+    .modal-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 2px;
+    }
+    .modal-item {
+      border-top: 1px solid var(--light); padding: 40px 40px 40px 0;
+    }
+    .modal-item:last-child { padding-right: 0; padding-left: 40px; }
+    .modal-tag {
+      display: inline-block;
+      font-size: 11px; letter-spacing: .1em;
+      border: 1px solid var(--light);
+      padding: 4px 12px; margin-bottom: 20px;
+    }
+    .modal-title {
+      font-size: 18px; font-weight: 500; margin-bottom: 16px;
+    }
+    .modal-desc {
+      font-size: 14px; color: #555; line-height: 1.7; margin-bottom: 16px;
+    }
+    .modal-list {
+      list-style: none; padding: 0;
+    }
+    .modal-list li {
+      font-size: 13px; color: var(--gray);
+      padding: 6px 0; border-bottom: 1px solid #f0ece8;
+    }
+    .modal-list li:last-child { border-bottom: none; }
+    .modal-list li::before {
+      content: '→ '; color: #bbb;
+    }
+
+    /* ESTRUCTURA */
+    .steps-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .step {
+      border-top: 1px solid var(--light); padding: 40px 40px 40px 0;
+    }
+    .step-time {
+      font-size: 11px; letter-spacing: .1em; color: var(--gray);
+      margin-bottom: 12px;
+    }
+    .step-title {
+      font-size: 16px; font-weight: 500; margin-bottom: 10px;
+    }
+    .step-desc { font-size: 14px; color: #555; line-height: 1.7; }
+
+    /* PRECIO */
+    .price-block {
+      background: var(--black); color: var(--white);
+      padding: 80px 60px; max-width: 1100px; margin: 0 auto;
+    }
+    .price-inner {
+      display: flex; justify-content: space-between;
+      align-items: flex-end; flex-wrap: wrap; gap: 40px;
+    }
+    .price-label {
+      font-size: 12px; letter-spacing: .14em; color: #555; margin-bottom: 24px;
+    }
+    .price-amount {
+      font-size: clamp(2.8rem, 5vw, 5rem);
+      font-weight: 300; letter-spacing: -.03em; line-height: 1;
+    }
+    .price-detail { font-size: 13px; color: #888; margin-top: 12px; }
+    .price-conditions { max-width: 380px; }
+    .price-conditions p {
+      font-size: 14px; color: #aaa; line-height: 1.8; margin-bottom: 10px;
+    }
+    .price-conditions p:last-child { margin-bottom: 0; }
+
+    /* COMO FUNCIONA */
+    .flow-grid {
+      display: grid; grid-template-columns: repeat(3,1fr); gap: 2px;
+    }
+    .flow-item {
+      border-top: 1px solid var(--light); padding: 40px 40px 40px 0;
+    }
+    .flow-num {
+      font-size: 11px; letter-spacing: .12em; color: var(--gray); margin-bottom: 16px;
+    }
+    .flow-title { font-size: 16px; font-weight: 500; margin-bottom: 10px; }
+    .flow-desc { font-size: 14px; color: #555; line-height: 1.7; }
+
+    /* NO INCLUYE */
+    .no-list {
+      display: flex; flex-wrap: wrap; gap: 10px; list-style: none;
+    }
+    .no-list li {
+      font-size: 13px; color: var(--gray);
+      border: 1px solid var(--light); padding: 8px 16px;
+    }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 80px 60px; background: var(--white); max-width: 100%; }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 48px; border-top: 1px solid var(--light); }
+    .faq-item { padding: 28px 40px 28px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--light); }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 10px; letter-spacing: -.01em; }
+    .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+
+    footer {
+      border-top: 1px solid var(--light); padding: 40px 60px;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy { font-size: 12px; color: var(--gray); letter-spacing: .04em; }
+    .footer-link {
+      font-size: 12px; color: var(--gray); text-decoration: none;
+      letter-spacing: .04em; transition: color .2s;
+    }
+    .footer-link:hover { color: var(--black); }
+
+    @media (max-width: 768px) {
+      nav { padding: 20px 24px; }
+      .hero { padding: 130px 24px 72px; }
+      .section { padding: 64px 24px; }
+      .modal-grid { grid-template-columns: 1fr; }
+      .steps-grid, .flow-grid { grid-template-columns: 1fr; }
+      .step, .flow-item { padding: 32px 0; }
+      .price-block { padding: 60px 24px; }
+      .price-inner { flex-direction: column; align-items: flex-start; }
+      .faq-section { padding: 60px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
+      footer { padding: 32px 24px; flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ══ REDISEÑO EN TARJETAS (mismo lenguaje que /freebies) ══ */
+    .pill-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid currentColor; border-radius: 100px; margin-bottom: 22px;
+    }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 20px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-size: 13px; font-weight: 500; letter-spacing: .03em; text-decoration: none;
+      padding: 12px 24px; border-radius: 100px; transition: background .2s, color .2s;
+    }
+    .pill-btn:hover { background: var(--white); color: var(--black); }
+    .lime-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #2b4c86; color: #f4ede3; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Hero con imagen */
+    .hero { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; border-bottom: none; }
+    .hero-card { position: relative; border: 1px solid var(--black); border-radius: 18px; overflow: hidden; aspect-ratio: 3 / 4; max-height: 620px; }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; display: block; }
+    .hero .pill-btn { margin-top: 32px; }
+
+    .section { border-bottom: none; padding-top: 60px; padding-bottom: 60px; }
+
+    /* Modalidades como tarjetas horizontales */
+    .modal-grid { grid-template-columns: 1fr; gap: 28px; }
+    .modal-item, .modal-item:last-child {
+      display: grid; grid-template-columns: 1fr 1fr; padding: 0;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .modal-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .modal-tag { border: 1px solid var(--black); border-radius: 100px; font-size: 11px; font-weight: 500; text-transform: uppercase; letter-spacing: .08em; padding: 5px 13px; margin-bottom: 22px; }
+    .modal-title { font-size: clamp(1.5rem, 2.4vw, 2rem); font-weight: 400; line-height: 1.15; letter-spacing: -.02em; }
+    .modal-desc { font-size: 15px; max-width: 400px; }
+    .modal-panel { border-left: 1px solid var(--black); background: #2b4c86; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .modal-item:nth-child(2) .modal-panel { background: #e0ddd8; }
+    .modal-panel-label { font-size: 11px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; margin-bottom: 16px; }
+    .modal-list { display: flex; flex-direction: column; gap: 10px; }
+    .modal-list li, .modal-list li:last-child {
+      background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 11px 20px; font-size: 14px; color: var(--black);
+    }
+    .modal-list li::before { content: '→ '; color: var(--black); }
+
+    /* Pasos y flujo en tarjetas */
+    .steps-grid, .flow-grid { gap: 16px; }
+    .step, .flow-item {
+      border: 1px solid var(--black); border-radius: 18px; padding: 28px 26px 30px;
+      transition: transform .3s, box-shadow .3s;
+    }
+    .step:hover, .flow-item:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .step-time {
+      display: inline-block; background: #2b4c86; color: #f4ede3; border-radius: 100px;
+      padding: 5px 12px; font-weight: 500; margin-bottom: 20px;
+    }
+    .step-title, .flow-title { font-size: 19px; font-weight: 500; }
+    .flow-num { font-size: 2.4rem; font-weight: 400; letter-spacing: -.03em; color: var(--black); line-height: 1; margin-bottom: 20px; }
+
+    /* Precio como tarjeta */
+    .price-block { background: none; color: var(--black); padding: 40px 60px 60px; }
+    .price-inner {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0; align-items: stretch;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .price-inner > div:first-child { padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .price-label { color: var(--gray); margin-bottom: 18px; }
+    .price-detail { color: #555; }
+    .price-conditions { max-width: none; background: var(--black); padding: 52px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .price-conditions p { color: #bbb; padding-left: 22px; position: relative; }
+    .price-conditions p::before { content: '→'; position: absolute; left: 0; color: #b8b2a7; }
+
+    /* No incluye */
+    .no-list li { border-radius: 100px; border-color: var(--black); color: var(--black); padding: 9px 18px; }
+    .no-list li::before { content: '✕  '; font-size: 11px; }
+
+    /* FAQ en tarjetas */
+    .faq-section .section-title { font-size: clamp(1.5rem, 2.5vw, 2.2rem); font-weight: 400; letter-spacing: -.01em; }
+    .faq-grid { border-top: none; gap: 16px; }
+    .faq-item, .faq-item:nth-child(even) {
+      border: 1px solid var(--light); border-radius: 18px; padding: 28px 30px; transition: border-color .3s;
+    }
+    .faq-item:hover { border-color: var(--black); }
+    .faq-a { color: #666; }
+
+    /* Reserva: CTA + formulario en tarjeta */
+    .booking { max-width: 1100px; margin: 0 auto; padding: 40px 60px 100px; scroll-margin-top: 60px; }
+    .booking-card { border: 1px solid var(--black); border-radius: 18px; overflow: hidden; }
+    .booking-head { background: #2b4c86; padding: 48px; border-bottom: 1px solid var(--black); }
+    .booking-head h2 { font-size: clamp(1.8rem, 3vw, 2.6rem); font-weight: 400; letter-spacing: -.02em; line-height: 1.1; margin-bottom: 14px; }
+    .booking-head p { font-size: 15px; color: #222; max-width: 520px; line-height: 1.7; }
+    .booking-form { padding: 24px; }
+    .booking-form iframe { width: 100%; height: 900px; border: none; display: block; }
+
+    @media (max-width: 860px) {
+      .hero { grid-template-columns: 1fr; gap: 40px; padding: 130px 16px 40px; }
+      .hero-card { aspect-ratio: 3 / 4; max-height: none; }
+      .section { padding: 48px 16px; }
+      .modal-item, .modal-item:last-child { grid-template-columns: 1fr; }
+      .modal-body, .modal-panel { padding: 30px 24px; }
+      .modal-panel { border-left: none; border-top: 1px solid var(--black); }
+      .modal-list li, .modal-list li:last-child { border-radius: 14px; }
+      .step, .flow-item { padding: 26px 24px !important; }
+      .price-block { padding: 24px 16px 48px; }
+      .price-inner { grid-template-columns: 1fr; }
+      .price-inner > div:first-child, .price-conditions { padding: 32px 24px; }
+      .faq-section { padding: 48px 16px; }
+      .faq-item, .faq-item:nth-child(even) { padding: 24px !important; }
+      .booking { padding: 24px 16px 72px; }
+      .booking-head { padding: 32px 24px; }
+      .booking-form { padding: 8px; }
+    }
+  </style>
+  <!-- Meta Pixel Code -->
+  <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '2559356064485053');
+    fbq('track', 'PageView');
+  </script>
+  <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
+  <!-- End Meta Pixel Code -->
+  <script src="/nav.js" defer></script>
+  <meta name="description" content="A personalized 2-hour online session to solve a specific design or brand strategy problem, with a written summary and a roadmap." />
+  <link rel="canonical" href="https://liscreativestudio.com/en/consulting" />
+  <link rel="alternate" hreflang="es" href="https://liscreativestudio.com/asesoria" />
+  <link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en/consulting" />
+  <link rel="alternate" hreflang="x-default" href="https://liscreativestudio.com/asesoria" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="1:1 Design Consulting | LIS. Creative Studio" />
+  <meta property="og:description" content="A personalized 2-hour online session to solve a specific design or brand strategy problem, with a written summary and a roadmap." />
+  <meta property="og:url" content="https://liscreativestudio.com/en/consulting" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="1:1 Design Consulting | LIS. Creative Studio" />
+  <meta name="twitter:description" content="A personalized 2-hour online session to solve a specific design or brand strategy problem, with a written summary and a roadmap." />
+  <meta name="twitter:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Service",
+      "@id": "https://liscreativestudio.com/en/consulting#service",
+      "name": "1:1 Consulting",
+      "description": "A 2-hour one-on-one working session to solve a specific problem around design, positioning, digital tools or creative business strategy.",
+      "url": "https://liscreativestudio.com/en/consulting",
+      "provider": {
+        "@id": "https://liscreativestudio.com/#studio"
+      },
+      "areaServed": [
+        {
+          "@type": "Country",
+          "name": "Argentina"
+        },
+        {
+          "@type": "Country",
+          "name": "Spain"
+        },
+        {
+          "@type": "Country",
+          "name": "Uruguay"
+        }
+      ],
+      "serviceType": "Design and creative strategy consulting"
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What can be solved in a 1:1 session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Specific problems around design, positioning or digital tools, for example bringing AI into your design process, building your website or landing page, organizing your services and prices, defining your positioning and niche, or improving how you communicate to attract better clients."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How is the session structured?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The session lasts 2 hours and has three parts: the first 30 minutes are for diagnosis so I understand the problem in depth, the next 60 minutes are hands-on work on the problem, and in the last 30 minutes we define the next steps with a concrete plan."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is the session in person or online?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "It's online, over a video call, and it includes a document summarizing what we worked on and the roadmap we defined in the session."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Who is the 1:1 session for?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "For freelance designers, creative founders and independent professionals who need clarity about their business, their positioning or how to bring digital tools and artificial intelligence into their work."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How long is the wait for a session?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Spots are limited, and once you fill in the form you'll get a confirmation within 48 hours."
+          }
+        }
+      ]
+    }
+  ]
+}
+  </script>
+  <!-- Sistema visual 2026 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+  <link rel="stylesheet" href="/theme.css" />
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body data-nav-lang="en" data-nav-theme="dark">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div>
+      <h1>Consulting <em>1:1</em></h1>
+      <p class="hero-sub">
+        A 2-hour working session to solve one specific problem, straight to the point, fully focused and with a clear plan to walk away with.
+      </p>
+      <a href="#reservar" class="pill-btn">Book my session <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="hero-card">
+      <img src="/ornela.webp" alt="Ornela Cillo, founder of LIS Creative Studio, sitting in the armchair of her studio" />
+      <span class="lime-badge">2 hours · Online</span>
+    </div>
+  </div>
+
+  <!-- MODALIDADES -->
+  <div class="section">
+    <h2>You choose the type of session depending on what you need to solve.</h2>
+    <div class="modal-grid">
+      <div class="modal-item">
+        <div class="modal-body">
+          <span class="modal-tag">Technical</span>
+          <p class="modal-title">Tools, processes and technology.</p>
+          <p class="modal-desc">For designers and creatives who want to solve something specific with AI or digital tools.</p>
+          <a href="#reservar" class="pill-btn">I want this session <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="modal-panel">
+          <p class="modal-panel-label">Ideal for</p>
+          <ul class="modal-list">
+            <li>Bringing AI into your design process</li>
+            <li>Building your website or landing page, with or without code</li>
+            <li>Streamlining your digital workflow</li>
+            <li>Understanding how to use Claude, GitHub and Vercel</li>
+          </ul>
+        </div>
+      </div>
+      <div class="modal-item">
+        <div class="modal-body">
+          <span class="modal-tag">Strategic</span>
+          <p class="modal-title">Business, positioning and communication.</p>
+          <p class="modal-desc">For designers, freelancers and creative brands who need clarity about their business or how to communicate it.</p>
+          <a href="#reservar" class="pill-btn">I want this session <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="modal-panel">
+          <p class="modal-panel-label">Ideal for</p>
+          <ul class="modal-list">
+            <li>Organizing your services and prices</li>
+            <li>Defining your positioning and niche</li>
+            <li>Communicating in a way that attracts the right clients</li>
+            <li>Sharpening your value proposition</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ESTRUCTURA -->
+  <div class="section">
+    <h2>Two hours fully focused on your problem.</h2>
+    <div class="steps-grid">
+      <div class="step">
+        <p class="step-time">0 — 30 min</p>
+        <p class="step-title">Diagnosis</p>
+        <p class="step-desc">I listen to the problem, ask questions and understand the context, which is the base for the session to make sense.</p>
+      </div>
+      <div class="step">
+        <p class="step-time">30 — 90 min</p>
+        <p class="step-title">Hands-on work</p>
+        <p class="step-desc">We work on the problem together and solve it live, instead of you leaving with an explanation to figure out on your own later.</p>
+      </div>
+      <div class="step">
+        <p class="step-time">90 — 120 min</p>
+        <p class="step-title">Roadmap</p>
+        <p class="step-desc">Concrete next steps, what to do first and how to keep going on your own after the session.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRECIO -->
+  <div class="price-block">
+    <div class="price-inner">
+      <div>
+        <p class="price-amount">USD 200</p>
+        <p class="price-detail">2 hours · Online · Limited spots</p>
+        <a href="#reservar" class="pill-btn">Book my spot <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="price-conditions">
+        <p>Payment is made in full before scheduling the session.</p>
+        <p>Once the payment comes through, we set a time for the video call.</p>
+        <p>Spots are limited, so before paying you fill in a form to confirm we're a good fit to work together.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA -->
+  <div class="section">
+    <div class="flow-grid">
+      <div class="flow-item">
+        <p class="flow-num">01</p>
+        <p class="flow-title">You fill in the form</p>
+        <p class="flow-desc">You tell me what you need to solve so I can see whether I can help, and that way we both come to the session prepared.</p>
+      </div>
+      <div class="flow-item">
+        <p class="flow-num">02</p>
+        <p class="flow-title">You confirm and pay</p>
+        <p class="flow-desc">Once the session is confirmed, payment is made before scheduling, because without payment there's no booking.</p>
+      </div>
+      <div class="flow-item">
+        <p class="flow-num">03</p>
+        <p class="flow-title">We schedule and get to work</p>
+        <p class="flow-desc">We set up the video call and spend the 2 hours fully focused on your problem.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- NO INCLUYE -->
+  <div class="section">
+    <h2>So you know exactly what you're buying.</h2>
+    <ul class="no-list">
+      <li>Follow-up afterwards</li>
+      <li>Work reviews</li>
+      <li>Implementation</li>
+      <li>Additional sessions</li>
+      <li>Support via WhatsApp or email</li>
+    </ul>
+  </div>
+
+  <!-- FAQ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2 class="section-title fi">Frequently asked <em>questions</em></h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">What can be solved in a session?</p>
+          <p class="faq-a">Specific problems around design, positioning or digital tools, for example bringing AI into your design process, organizing your services and prices, defining your niche or improving how you communicate to attract better clients.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">How is the session structured?</p>
+          <p class="faq-a">2 hours in total: 30 minutes of diagnosis, 60 minutes of hands-on work on the problem, and 30 minutes to define the next steps with a concrete plan.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">Is it in person or online?</p>
+          <p class="faq-a">It's online, over a video call, and includes a document summarizing what we worked on and the roadmap we defined in the session.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">Who is it for?</p>
+          <p class="faq-a">Freelance designers, creative founders and independent professionals who need clarity about their business, their positioning or how to bring digital tools and AI into their work.</p>
+        </div>
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">How long is the wait for a session?</p>
+          <p class="faq-a">Spots are limited, and once you fill in the form you'll get a confirmation within 48 hours.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">Is there a deliverable?</p>
+          <p class="faq-a">Yes, the session includes a document summarizing what we worked on and the next steps we defined, so you can put them into practice on your own.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- RESERVA -->
+  <section class="booking" id="reservar">
+    <div class="booking-card">
+      <div class="booking-head">
+        <span class="pill-tag">Limited spots</span>
+        <h2>Want to book <em>your spot?</em></h2>
+        <p>Fill in the form (it's in Spanish, but feel free to answer in English) and within 48 hours I'll confirm whether we can work together.</p>
+      </div>
+      <div class="booking-form">
+        <iframe
+          src="https://forms.fillout.com/t/98UYZqbniZus"
+          title="1:1 consulting form"
+          allow="fullscreen"
+        ></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-copy">LIS Creative Studio · All rights reserved</span>
+    <a href="https://liscreativestudio.com/en" class="footer-link">liscreativestudio.com</a>
+  </footer>
+
+  <script>
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px';
+      cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => {
+        ring.style.left = e.clientX + 'px';
+        ring.style.top = e.clientY + 'px';
+      });
+    });
+  </script>
+
+</body>
+</html>

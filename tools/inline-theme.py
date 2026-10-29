@@ -6,14 +6,14 @@ Editá siempre theme.css y después corré:  python3 tools/inline-theme.py
 import glob, os, re
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-SALTEAR = {'asesoria.html', 'curaduria-visual.html'}  # páginas que no se usan
+SALTEAR = {'asesoria.html', 'curaduria-visual.html', 'consulting.html'}  # páginas que no se usan
 LINK = '<link rel="stylesheet" href="/theme.css" />'
 INICIO, FIN = '<!-- THEME-CSS: copia de theme.css, no editar acá -->', '<!-- /THEME-CSS -->'
 
 css = open(os.path.join(RAIZ, 'theme.css'), encoding='utf-8').read().strip()
 bloque = f'{INICIO}\n  <style>\n{css}\n  </style>\n  {FIN}'
 cambiadas = []
-for ruta in sorted(glob.glob(os.path.join(RAIZ, '*.html')) + glob.glob(os.path.join(RAIZ, 'blog', '*.html'))):
+for ruta in sorted(glob.glob(os.path.join(RAIZ, '*.html')) + glob.glob(os.path.join(RAIZ, 'blog', '*.html')) + glob.glob(os.path.join(RAIZ, 'en', '*.html'))):
     nombre = os.path.relpath(ruta, RAIZ)
     if os.path.basename(ruta) in SALTEAR:
         continue

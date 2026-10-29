@@ -636,9 +636,9 @@
 
   <section id="home" class="reel" data-nav-theme="light">
     <div class="reel-stick">
-      <div class="reel-bg" id="reel-bg"></div>
+      <div class="reel-bg" id="reel-bg"><img src="Slide_53.webp" alt="" fetchpriority="high" class="on"></div>
       <div class="reel-head">
-        <h1 class="home-title fi">Design for<br>your <em>brand</em></h1>
+        <h1 class="home-title">Design for<br>your <em>brand</em></h1>
         <p class="reel-note" id="reel-note"></p>
       </div>
       <div class="reel-track" id="reel-track"></div>
@@ -949,7 +949,7 @@
     <div class="footer-legal"><span>Rosario · Worldwide</span><span>© 2026 LIS. Creative Studio</span></div>
   </footer>
 
-  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript"></script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript" defer></script>
   <script>
     function ml_webform_success_38791848() {
       var $ = ml_jQuery || jQuery;
@@ -989,7 +989,7 @@
     const sec = document.getElementById('home'), bg = document.getElementById('reel-bg'),
           track = document.getElementById('reel-track'), note = document.getElementById('reel-note');
     sec.style.setProperty('--n', P.length);
-    bg.innerHTML = P.map((p, i) => `<img src="${p[0]}" alt="" ${i > 1 ? 'loading="lazy"' : ''} class="${p[3] ? 'soft' : ''}">`).join('');
+    bg.insertAdjacentHTML('beforeend', P.slice(1).map((p, i) => `<img src="${p[0]}" alt="" ${i > 0 ? 'loading="lazy"' : ''} class="${p[3] ? 'soft' : ''}">`).join(''));
     track.innerHTML = P.map((p, i) => `<div class="reel-card"><img src="${p[0]}" alt="${p[1]}, ${p[2]}" ${i > 4 ? 'loading="lazy"' : ''}></div>`).join('');
     const bgs = bg.children, cards = track.children;
     let cur = -1;

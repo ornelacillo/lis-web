@@ -502,7 +502,278 @@
   <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
-  <link rel="stylesheet" href="/theme.css" />
+  <!-- THEME-CSS: copia de theme.css, no editar acá -->
+  <style>
+/* ══════════════════════════════════════════════════════════
+   LIS. Creative Studio · sistema visual 2026 (Planta Libre)
+   Se carga después del CSS de cada página y lo sobreescribe.
+   Crema + tinta + lima, mayúsculas apretadas (Inter Tight)
+   con acentos en cursiva (Instrument Serif), píldoras y óvalos.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #f4ede3;
+  --ink: #1b1a17;
+  --lime: #b8b2a7;   /* (antes lima) acento de texto: hormigón */
+  --orange: #e8693a;
+  --blue: #2b4c86;
+  --stone: #b8b2a7;   /* hormigón · gris neutro */
+  --rule: #1b1a17;
+  --soft: #d8cebf;
+  --black: #1b1a17;
+  --white: #f4ede3;
+  --light: #d8cebf;
+  --gray: #6f6b64;
+  --font-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+  --font-script: 'Instrument Serif', Georgia, serif;
+}
+
+body { background: var(--cream); color: var(--ink); }
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ── Títulos grandes: mayúsculas apretadas ── */
+.hero-title, .page-hero-title, .home-title, .post-title,
+.res-title, .nl-title, .section-title, .includes-title, .cta-title,
+.about-title, .test-title, .svc-name, .modality-title,
+.hero h1, .booking-head h2, .price-amount, .footer-tagline {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: -.045em !important;
+  line-height: .92 !important;
+}
+
+/* Palabra en cursiva dentro de un título */
+.hero-title em, .page-hero-title em, .home-title em, .post-title em,
+.res-title em, .nl-title em, .section-title em, .includes-title em, .cta-title em,
+.about-title em, .test-title em, .svc-name em, .modality-title em,
+.hero h1 em, .booking-head h2 em, .footer-tagline em, .section h2 em {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -.01em;
+}
+
+/* Títulos largos (frases): Inter Tight sin mayúsculas */
+.section h2, .modal-title, .post-body h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.03em !important;
+}
+
+/* Frase destacada: cursiva editorial */
+.callout-text {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.01em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Etiquetas: píldoras con borde fino ── */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker, .footer-social-label, .footer-nl-label {
+  display: inline-block !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 100px !important;
+  padding: 6px 15px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  line-height: 1.4 !important;
+}
+.page-hero .page-hero-label, .page-hero .hero-label { color: var(--lime) !important; }
+
+/* ── Botones ── */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn {
+  border-radius: 100px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+/* ── Encabezados oscuros con foto desenfocada ── */
+.page-hero, #home {
+  background:
+    radial-gradient(55% 75% at 88% 18%, rgba(43, 76, 134, .9) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
+    #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
+}
+.page-hero .hero-x { display: none !important; }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
+.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
+.page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
+.page-hero .post-back { color: #cfc6b8; }
+
+/* ── Tarjetas y bordes ── */
+.res-card, .h-card, .modality-item, .modal-item, .process-step, .step, .flow-item,
+.price-inner, .booking-card, .nl-card {
+  border-color: var(--ink) !important;
+  background-color: transparent;
+}
+.res-card, .h-card { background: var(--cream) !important; }
+.faq-item, .faq-item:nth-child(even) { border-color: var(--soft) !important; background: transparent !important; }
+.faq-item:hover { border-color: var(--ink) !important; }
+
+/* Paneles que antes eran blancos */
+.modal-list li, .modality-features li, .chip, .nl-perks li { background: var(--cream) !important; }
+
+/* Cuadrícula para secciones claras destacadas */
+.grid-paper {
+  background-image: linear-gradient(rgba(27,26,23,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(27,26,23,.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Footer ── */
+footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink) !important; }
+.footer-tagline { color: var(--ink) !important; }
+.footer-tagline-sub { color: var(--ink) !important; }
+.footer-tagline-sub, .footer-tagline em {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -.01em !important;
+}
+.footer-geo-text { font-family: var(--font-display) !important; text-transform: uppercase; letter-spacing: -.04em !important; font-weight: 500 !important; }
+.footer-bottom-grid, .footer-bottom-left { border-color: var(--ink) !important; }
+.footer-ml-wrap .ml-form-fieldRow input { border-radius: 100px !important; border: 1.5px solid var(--ink) !important; padding: 11px 18px !important; }
+.footer-ml-wrap .ml-form-embedSubmit button { border-radius: 100px !important; background: var(--ink) !important; color: var(--cream) !important; }
+.we-badge { border-color: var(--ink) !important; border-radius: 100px !important; }
+
+/* ── Navegación compartida (nav.js) ── */
+#lis-nav.nav-dark #lis-nav-pill { background: rgba(244, 237, 227, .82) !important; border-color: rgba(27, 26, 23, .18) !important; }
+#lis-nav.nav-light #lis-nav-pill { background: rgba(27, 26, 23, .55) !important; }
+#lis-nav-pill a, #lis-nav-pill button.nav-link-btn { border-radius: 100px !important; }
+#lis-nav-pill { border-radius: 100px !important; }
+.nav-dropdown-inner { background: var(--ink) !important; border-radius: 18px !important; }
+
+/* Etiquetas sobre fondos oscuros */
+.includes-section .includes-label, #services .svc-label, #portfolio .portfolio-label { color: var(--lime) !important; }
+
+/* Botón de contacto de la home */
+#contact .cta-btn { background: var(--ink) !important; color: var(--cream) !important; padding: 16px 30px !important; border: 1.5px solid var(--ink) !important; gap: 10px; }
+#contact .cta-btn:hover { background: var(--lime) !important; color: var(--ink) !important; }
+#contact .cta-btn svg { stroke: currentColor; }
+.post-back { display: block !important; width: fit-content; margin-bottom: 26px !important; }
+
+/* Logo del menú en celular: negro sobre las secciones claras */
+#lis-nav-mobile-logo.mobile-logo-dark img { filter: brightness(0) !important; }
+
+/* ══════════════════════════════════════════════════════════
+   Sin píldoras (oct 2026): las etiquetas son texto en mayúscula
+   espaciada sin recuadro, las listas van en renglones con línea
+   fina y los botones y campos tienen esquinas casi rectas.
+══════════════════════════════════════════════════════════ */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.modal-list li, .modal-list li:last-child, .modality-features li, .modality-features li:last-child,
+.nl-perks li, .no-list li {
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 10px 0 !important;
+}
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn, .we-badge,
+#lis-nav-pill, #lis-nav-pill a, #lis-nav-pill button.nav-link-btn,
+.footer-ml-wrap .ml-form-fieldRow input, .footer-ml-wrap .ml-form-embedSubmit button,
+.nl-form-side .ml-form-fieldRow input, .nl-form-side .ml-form-embedSubmit button,
+.res-form input, .res-form .ml-form-fieldRow input, .res-form .ml-form-embedSubmit button {
+  border-radius: 4px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Bloques destacados con luz (oct 2026): fondo tinta con luz azul
+   y naranja como en la dirección creativa, texto en crema.
+   El naranja plano queda solo para los botones de adentro.
+══════════════════════════════════════════════════════════ */
+.callout-inner, .modality-panel, .modal-panel, .booking-head {
+  background:
+    radial-gradient(75% 95% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 85% at 0% 100%, rgba(232, 105, 58, .7) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) *:not(input):not(textarea):not(select) {
+  color: inherit !important;
+  border-color: rgba(244, 237, 227, .28) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(button, .pill-btn, .res-btn, .cta-btn) {
+  background: var(--blue) !important;
+  color: var(--cream) !important;
+  border-color: var(--blue) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(input, textarea, select) {
+  color: var(--ink) !important;
+}
+
+/* Tarjeta de la newsletter: gris neutro, sin luces ni naranja */
+.nl-body { background: var(--stone) !important; color: var(--ink) !important; }
+.nl-body *:not(input):not(textarea):not(select) { color: var(--ink) !important; border-color: rgba(27, 26, 23, .35) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+
+/* Botones: azul con texto crema */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+.res-btn:hover, .pill-btn:hover, .cta-btn:hover, .hero-center-btn:hover, .home-btn:hover, #contact .cta-btn:hover { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Ubicación y año, al pie del footer */
+.footer-legal { display: flex; justify-content: space-between; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--ink); font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+@media (max-width: 768px) { .footer-legal { padding: 16px 24px; flex-direction: column; } }
+.footer-ml-wrap .ml-form-embedSubmit button, .nl-form-side .ml-form-embedSubmit button, .res-form .ml-form-embedSubmit button { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Etiquetas como nota al margen (oct 2026): cursiva, minúscula, sin letras separadas */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon, .footer-legal {
+  font-family: 'Instrument Serif', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; text-transform: none !important; letter-spacing: 0 !important;
+  font-size: 19px !important;
+  line-height: 1.3 !important;
+}
+.footer-legal { font-size: 16px !important; }
+
+/* Cita destacada de los artículos: tinta con luz y cursiva, como el resto de los bloques */
+.post-body blockquote {
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 110% at 0% 100%, rgba(232, 105, 58, .6) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+  font-family: var(--font-script) !important; font-style: italic !important;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem) !important; line-height: 1.25 !important; letter-spacing: -.01em !important;
+  border: 0 !important; border-radius: 18px !important; padding: 36px 40px !important;
+}
+/* Botón del formulario del footer (cada página trae su propio estilo después del theme) */
+footer .footer-ml-wrap .ml-form-embedSubmit button, footer .footer-ml-wrap .ml-form-embedSubmit button.primary { background-color: var(--blue) !important; background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Sin la marca "Nuevo" sobre las tarjetas: era una etiqueta y se pisaba con la portada */
+.res-badge { display: none !important; }
+
+/* Cursor: flechita azul con "(You)", en toda la web; los campos de texto conservan la barrita */
+html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
+body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), body textarea, body [contenteditable] { cursor: text !important; }
+.cursor, .cursor-ring { display: none !important; }
+  </style>
+  <!-- /THEME-CSS -->
 </head>
 <body data-nav-theme="dark">
 

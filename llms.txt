@@ -20,5 +20,6 @@
 ## Páginas
 - /identidad-visual — Identidad Visual
 - /web — Diseño Web
+- /paquetes — Paquetes para estudios de arquitectura: Obra nueva (identidad + web en 8 semanas, $1.265.000 o USD 2.400) y Refacción (web nueva con la marca existente en 5 semanas, $765.000 o USD 1.400)
 - /freebies — Recursos gratuitos
 - /blog — Blog: artículos semanales sobre diseño, identidad y presencia digital

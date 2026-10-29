@@ -353,6 +353,7 @@
     const serviceLinks = [
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
+      { label: 'Paquetes',           href: '/paquetes' },
     ];
 
     let html = '';
@@ -399,6 +400,7 @@
     const serviceLinks = [
       { label: 'Identidad Visual',   href: '/identidad-visual' },
       { label: 'Diseño Web',         href: '/web' },
+      { label: 'Paquetes',           href: '/paquetes' },
     ];
 
     const subItems = serviceLinks.map(s => `<a href="${s.href}">${s.label}</a>`).join('');

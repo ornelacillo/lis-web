@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Identidad y web para arquitectos | LIS. Creative Studio</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+  <!-- Analytics, Clarity y Meta se cargan al primer scroll o toque, o 2,5 s después de la carga, para no frenar la página -->
+  <script>
+    (function () {
+      var done = false;
+      function add(src) { var t = document.createElement('script'); t.async = true; t.src = src; document.head.appendChild(t); }
+      function go() {
+        if (done) return; done = true;
+        add('https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32');
+        if (window.__clarity) add('https://www.clarity.ms/tag/z3r50bv2sr');
+        if (window.__fbq) add('https://connect.facebook.net/en_US/fbevents.js');
+      }
+      ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'].forEach(function (e) { addEventListener(e, go, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(go, 2500); });
+    })();
+  </script>
+  <!-- Microsoft Clarity: grabaciones y mapas de calor -->
+  <script>
+    window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    window.__clarity = true;
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" /></noscript>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px; line-height: 1.6; cursor: none;
+    }
+
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: left .12s ease, top .12s ease, width .25s, height .25s; }
+    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none !important; } body { cursor: auto; } }
+
+    nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: center; gap: 48px; padding: 22px 0; }
+    nav a { text-decoration: none; color: var(--black); font-family: var(--font); font-size: 13px; letter-spacing: .06em; transition: opacity .2s; }
+    nav a:hover { opacity: .45; }
+    nav.light a { color: var(--white); }
+
+    /* ── HERO ── */
+    .page-hero { background: var(--black); color: var(--white); padding: 180px 60px 120px; position: relative; overflow: hidden; }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; }
+    .page-hero-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 40px; }
+    .page-hero-title { font-size: clamp(3rem, 6vw, 6rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; max-width: 720px; margin-bottom: 40px; }
+    .page-hero-desc { font-size: 18px; color: #888; line-height: 1.75; max-width: 560px; }
+    .hero-x { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .12; }
+    .hero-x svg { width: 100%; height: 100%; }
+
+    /* ── SECTION BASE ── */
+    .section { max-width: 1100px; margin: 0 auto; padding: 100px 60px; }
+    .section-label { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 56px; }
+    .section-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; margin-bottom: 24px; }
+    .section-intro { font-size: 17px; color: #555; line-height: 1.8; max-width: 620px; margin-bottom: 72px; }
+
+    /* ── MODALITIES ── */
+    .modalities-section { padding: 0 60px 100px; }
+    .modalities-inner { max-width: 1100px; margin: 0 auto; }
+    .modality-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 2px; }
+    .modality-item {
+      border-top: 1px solid var(--light);
+      padding: 48px 40px 48px 0;
+    }
+    .modality-num { font-size: 11px; letter-spacing: .12em; color: var(--gray); margin-bottom: 24px; }
+    .modality-title { font-size: clamp(1.6rem, 2.2vw, 2rem); font-weight: 400; line-height: 1.2; margin-bottom: 16px; }
+    .modality-ideal { font-size: 12px; letter-spacing: .06em; color: var(--gray); text-transform: uppercase; margin-bottom: 20px; }
+    .modality-desc { font-size: 15px; color: #555; line-height: 1.75; margin-bottom: 28px; }
+    .modality-features { list-style: none; }
+    .modality-features li {
+      font-size: 14px; color: #666; line-height: 1.65;
+      padding: 8px 0; border-top: 1px solid #f0f0f0;
+    }
+    .modality-features li:last-child { border-bottom: 1px solid #f0f0f0; }
+
+    /* ── CALLOUT ── */
+    .callout { padding: 100px 60px; border-top: 1px solid var(--light); border-bottom: 1px solid var(--light); }
+    .callout-inner { max-width: 1100px; margin: 0 auto; }
+    .callout-text { font-size: clamp(1.5rem, 2.8vw, 2.4rem); font-weight: 400; line-height: 1.35; letter-spacing: -.02em; color: #333; max-width: 820px; }
+
+    /* ── INCLUDES ── */
+    .includes-section { background: var(--black); padding: 100px 60px; }
+    .includes-inner { max-width: 1100px; margin: 0 auto; }
+    .includes-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 56px; }
+    .includes-title { font-size: clamp(2rem, 3.5vw, 3rem); font-weight: 400; line-height: 1.1; letter-spacing: -.02em; color: var(--white); margin-bottom: 16px; }
+    .includes-subtitle { font-size: 16px; color: #555; margin-bottom: 72px; }
+    .includes-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .include-item { border-top: 1px solid #2a2a2a; padding: 36px 32px 36px 0; }
+    .include-num { font-size: 11px; letter-spacing: .1em; color: #444; margin-bottom: 16px; }
+    .include-name { font-size: 17px; font-weight: 400; color: var(--white); line-height: 1.4; margin-bottom: 10px; }
+    .include-detail { font-size: 14px; color: #666; line-height: 1.65; }
+
+    /* ── PROCESS ── */
+    .process-section { padding: 100px 60px; border-bottom: 1px solid var(--light); }
+    .process-inner { max-width: 1100px; margin: 0 auto; }
+    .process-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 2px; }
+    .process-step { border-top: 1px solid #e0e0e0; padding: 36px 28px 36px 0; }
+    .step-num { font-size: 11px; letter-spacing: .12em; color: var(--gray); margin-bottom: 20px; }
+    .step-name { font-size: 18px; font-weight: 500; line-height: 1.3; margin-bottom: 12px; }
+    .step-duration { font-size: 12px; color: var(--gray); letter-spacing: .06em; margin-bottom: 16px; }
+    .step-desc { font-size: 14px; color: #666; line-height: 1.7; }
+
+    /* ── ADD-ONS ── */
+    .addons-section { padding: 80px 60px; border-bottom: 1px solid var(--light); }
+    .addons-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+    .addon-item { padding: 32px 0; border-top: 1px solid var(--light); }
+    .addon-name { font-size: 16px; font-weight: 500; margin-bottom: 8px; }
+    .addon-desc { font-size: 14px; color: var(--gray); line-height: 1.65; }
+
+    /* ── FAQ ── */
+    .faq-section { padding: 100px 60px; background: var(--white); }
+    .faq-inner { max-width: 1100px; margin: 0 auto; }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 56px; border-top: 1px solid var(--light); }
+    .faq-item { padding: 32px 40px 32px 0; border-bottom: 1px solid var(--light); }
+    .faq-item:nth-child(even) { padding-left: 40px; padding-right: 0; border-left: 1px solid var(--light); }
+    .faq-q { font-size: 15px; font-weight: 500; color: var(--black); margin-bottom: 12px; letter-spacing: -.01em; }
+    .faq-a { font-size: 14px; color: var(--gray); line-height: 1.7; }
+
+    /* ── CTA ── */
+    .cta-section { padding: 120px 60px; }
+    .cta-title { font-size: clamp(2.8rem, 5.5vw, 5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-family: var(--font); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-family: var(--font); font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+    .fi-d3 { transition-delay: .3s; }
+    .fi-d4 { transition-delay: .4s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      nav { gap: 20px; }
+      .page-hero { padding: 140px 24px 80px; }
+      .section { padding: 72px 24px; }
+      .modalities-section { padding: 0 24px 72px; }
+      .modality-grid { grid-template-columns: 1fr; }
+      .callout { padding: 72px 24px; }
+      .includes-section { padding: 72px 24px; }
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+      .process-section { padding: 72px 24px; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .addons-section { padding: 60px 24px; }
+      .addons-inner { grid-template-columns: 1fr; gap: 0; }
+      .faq-section { padding: 72px 24px; }
+      .faq-grid { grid-template-columns: 1fr; }
+      .faq-item:nth-child(even) { padding-left: 0; border-left: none; }
+      .cta-section { padding: 80px 24px; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      nav { gap: 10px; flex-wrap: wrap; padding: 14px 16px; }
+      nav a { font-size: 12px; }
+      .process-grid { grid-template-columns: 1fr; }
+      .includes-grid { grid-template-columns: 1fr; }
+        .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: .08em;
+    }
+    .lang-btn {
+      text-decoration: none; color: rgba(17,17,17,0.4);
+      transition: color .2s; padding: 2px 4px;
+    }
+    .lang-btn.lang-active { color: #111; font-weight: 500; }
+    .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+
+    /* ══ REDISEÑO EN TARJETAS (mismo lenguaje que /freebies) ══ */
+    .pill-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid currentColor; border-radius: 100px; margin-bottom: 22px;
+    }
+    .pill-btn {
+      display: inline-flex; align-items: center; gap: 8px; margin-top: 16px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-size: 13px; font-weight: 500; letter-spacing: .03em; text-decoration: none;
+      padding: 12px 24px; border-radius: 100px; transition: background .2s, color .2s;
+    }
+    .pill-btn:hover { background: var(--white); color: var(--black); }
+    .lime-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #2b4c86; color: #f4ede3; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Hero con imagen */
+    .page-hero-inner.has-img { display: grid; grid-template-columns: 1.1fr 1fr; gap: 72px; align-items: center; }
+    .page-hero-inner.has-img .page-hero-title { margin-bottom: 28px; }
+    .hero-card { position: relative; border-radius: 18px; overflow: hidden; border: 1px solid #333; aspect-ratio: 4 / 3; }
+    .hero-card img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    /* Modalidades como tarjetas horizontales */
+    .section { padding-bottom: 0; }
+    .section-intro { margin-bottom: 48px; }
+    .modality-grid { grid-template-columns: 1fr; gap: 28px; }
+    .modality-item {
+      display: grid; grid-template-columns: 1fr 1fr; padding: 0;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .modality-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .modality-num {
+      font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--black);
+      border: 1px solid var(--black); border-radius: 100px; padding: 5px 13px; margin-bottom: 22px;
+    }
+    .modality-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); letter-spacing: -.02em; line-height: 1.12; }
+    .modality-desc { margin-bottom: 4px; max-width: 420px; }
+    .modality-panel { border-left: 1px solid var(--black); background: #2b4c86; padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .modality-item:nth-child(2) .modality-panel { background: #e0ddd8; }
+    .modality-ideal { color: #111; font-weight: 600; font-size: 11px; letter-spacing: .1em; margin-bottom: 16px; }
+    .modality-features { display: flex; flex-direction: column; gap: 10px; }
+    .modality-features li, .modality-features li:last-child {
+      background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 11px 20px; font-size: 14px; color: var(--black); line-height: 1.4;
+    }
+    .modality-features li::before { content: '→ '; }
+
+    /* Callout como panel lima */
+    .callout { border: none; padding: 0 60px 100px; }
+    .callout-inner { background: #2b4c86; border-radius: 18px; padding: 64px 56px; }
+    .callout-text { color: #111; }
+
+    /* Entregables en tarjetas oscuras */
+    .includes-subtitle { color: #888; margin-bottom: 56px; }
+    .includes-grid { gap: 16px; }
+    .include-item { border: 1px solid #2e2e2e; border-radius: 18px; padding: 28px 26px 30px; transition: border-color .3s; }
+    .include-item:hover { border-color: #2b4c86; }
+    .include-num {
+      display: inline-block; color: #b8b2a7; border: 1px solid #2b4c86; border-radius: 100px;
+      padding: 4px 11px; font-weight: 500; margin-bottom: 20px;
+    }
+    .include-item.is-note { border-style: dashed; }
+    .include-item.is-note .include-num { color: #888; border-color: #555; }
+    .include-detail { color: #888; }
+
+    /* Proceso en tarjetas */
+    .process-section { border-bottom: none; }
+    .process-grid { gap: 14px; }
+    .process-step {
+      border: 1px solid var(--black); border-radius: 18px; padding: 26px 20px 28px;
+      display: flex; flex-direction: column; transition: transform .3s, box-shadow .3s;
+    }
+    .process-step:hover { transform: translateY(-2px); box-shadow: 0 10px 30px rgba(0,0,0,.06); }
+    .step-num { font-size: 2.4rem; font-weight: 400; letter-spacing: -.03em; color: var(--black); line-height: 1; margin-bottom: 22px; }
+    .step-duration {
+      order: -1; align-self: flex-start; margin-bottom: 22px;
+      font-size: 11px; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; color: #f4ede3;
+      padding: 5px 12px; border-radius: 100px; background: #2b4c86; white-space: nowrap;
+    }
+
+    /* Adicionales en tarjetas */
+    .addons-section { border-bottom: none; padding-top: 0; }
+    .addons-inner { gap: 16px; }
+    .addons-inner > div { border: 1px solid var(--black); border-radius: 18px; padding: 36px 32px; height: 100%; }
+    .addons-inner > div:last-child { background: var(--black); color: var(--white); }
+    .addons-inner > div:last-child .section-label { color: #888; }
+    .addons-inner > div:last-child .addon-desc { color: #bbb; }
+    .addons-inner .section-label { margin-bottom: 20px; }
+    .addon-item { border-top: none; padding: 16px 0 0; }
+
+    /* FAQ en tarjetas */
+    .faq-grid { border-top: none; gap: 16px; }
+    .faq-item, .faq-item:nth-child(even) {
+      border: 1px solid var(--light); border-radius: 18px; padding: 28px 30px; transition: border-color .3s;
+    }
+    .faq-item:hover { border-color: var(--black); }
+    .faq-a { color: #666; }
+
+    /* CTA como tarjeta */
+    .cta-section { padding: 0 60px 120px; }
+    .h-card {
+      max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden; background: var(--white);
+    }
+    .h-card-body { padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .h-card-body .cta-title { font-size: clamp(2.2rem, 4vw, 3.6rem); margin-bottom: 18px; }
+    .h-card-body .cta-text { font-size: 15px; color: #555; line-height: 1.75; max-width: 400px; }
+    .h-card-media { position: relative; min-height: 380px; border-left: 1px solid var(--black); }
+    .h-card-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+
+    @media (max-width: 1000px) {
+      .process-grid { grid-template-columns: repeat(3, 1fr); }
+    }
+    @media (max-width: 860px) {
+      .page-hero-inner.has-img { grid-template-columns: 1fr; gap: 48px; }
+      .section { padding: 72px 16px 0; }
+      .modalities-section { padding: 0 16px 72px; }
+      .modality-item { grid-template-columns: 1fr; padding: 0 !important; }
+      .modality-body, .modality-panel { padding: 30px 24px; }
+      .modality-panel { border-left: none; border-top: 1px solid var(--black); }
+      .modality-features li, .modality-features li:last-child { border-radius: 14px; }
+      .callout { padding: 0 16px 72px; }
+      .callout-inner { padding: 40px 28px; }
+      .includes-section { padding: 72px 16px; }
+      .includes-grid { grid-template-columns: 1fr 1fr; }
+      .process-section { padding: 72px 16px; }
+      .process-grid { grid-template-columns: 1fr 1fr; }
+      .addons-section { padding: 0 16px 72px; }
+      .addons-inner { grid-template-columns: 1fr; }
+      .faq-section { padding: 72px 16px; }
+      .faq-item, .faq-item:nth-child(even) { padding: 24px !important; }
+      .cta-section { padding: 0 16px 80px; }
+      .h-card { grid-template-columns: 1fr; }
+      .h-card-media { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .h-card-body { padding: 30px 24px 34px; }
+    }
+    @media (max-width: 540px) {
+      .process-grid, .includes-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+  <script src="/nav.js" defer></script>
+  <meta name="description" content="Dos paquetes cerrados para estudios de arquitectura e interiorismo: identidad + web en 8 semanas, o web nueva con tu marca en 5. Precio y plazos claros." />
+  <link rel="canonical" href="https://liscreativestudio.com/paquetes" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- hreflang -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Identidad y web para arquitectos | LIS. Creative Studio" />
+  <meta property="og:description" content="Dos paquetes cerrados para estudios de arquitectura e interiorismo: identidad + web en 8 semanas, o web nueva con tu marca en 5. Precio y plazos claros." />
+  <meta property="og:url" content="https://liscreativestudio.com/paquetes" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Identidad y web para arquitectos | LIS. Creative Studio" />
+  <meta name="twitter:description" content="Dos paquetes cerrados para estudios de arquitectura e interiorismo: identidad + web en 8 semanas, o web nueva con tu marca en 5. Precio y plazos claros." />
+  <meta name="twitter:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "OfferCatalog",
+    "name": "Paquetes para estudios de arquitectura e interiorismo",
+    "url": "https://liscreativestudio.com/paquetes",
+    "provider": { "@type": "Organization", "name": "LIS. Creative Studio", "url": "https://liscreativestudio.com" },
+    "itemListElement": [
+      { "@type": "Offer", "name": "Obra nueva · identidad + web en 8 semanas", "price": "1265000", "priceCurrency": "ARS",
+        "itemOffered": { "@type": "Service", "name": "Identidad visual y web portfolio para estudios de arquitectura" } },
+      { "@type": "Offer", "name": "Refacción · web nueva con tu marca en 5 semanas", "price": "765000", "priceCurrency": "ARS",
+        "itemOffered": { "@type": "Service", "name": "Web portfolio para estudios de arquitectura" } }
+    ]
+  }
+  </script>
+  <!-- Sistema visual 2026 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+  <!-- THEME-CSS: copia de theme.css, no editar acá -->
+  <style>
+/* ══════════════════════════════════════════════════════════
+   LIS. Creative Studio · sistema visual 2026 (Planta Libre)
+   Se carga después del CSS de cada página y lo sobreescribe.
+   Crema + tinta + lima, mayúsculas apretadas (Inter Tight)
+   con acentos en cursiva (Instrument Serif), píldoras y óvalos.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #f4ede3;
+  --ink: #1b1a17;
+  --lime: #b8b2a7;   /* (antes lima) acento de texto: hormigón */
+  --orange: #e8693a;
+  --blue: #2b4c86;
+  --stone: #b8b2a7;   /* hormigón · gris neutro */
+  --rule: #1b1a17;
+  --soft: #d8cebf;
+  --black: #1b1a17;
+  --white: #f4ede3;
+  --light: #d8cebf;
+  --gray: #6f6b64;
+  --font-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+  --font-script: 'Instrument Serif', Georgia, serif;
+}
+
+body { background: var(--cream); color: var(--ink); }
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ── Títulos grandes: mayúsculas apretadas ── */
+.hero-title, .page-hero-title, .home-title, .post-title,
+.res-title, .nl-title, .section-title, .includes-title, .cta-title,
+.about-title, .test-title, .svc-name, .modality-title,
+.hero h1, .booking-head h2, .price-amount, .footer-tagline {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: -.045em !important;
+  line-height: .92 !important;
+}
+
+/* Palabra en cursiva dentro de un título */
+.hero-title em, .page-hero-title em, .home-title em, .post-title em,
+.res-title em, .nl-title em, .section-title em, .includes-title em, .cta-title em,
+.about-title em, .test-title em, .svc-name em, .modality-title em,
+.hero h1 em, .booking-head h2 em, .footer-tagline em, .section h2 em {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -.01em;
+}
+
+/* Títulos largos (frases): Inter Tight sin mayúsculas */
+.section h2, .modal-title, .post-body h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.03em !important;
+}
+
+/* Frase destacada: cursiva editorial */
+.callout-text {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.01em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Etiquetas: píldoras con borde fino ── */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker, .footer-social-label, .footer-nl-label {
+  display: inline-block !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 100px !important;
+  padding: 6px 15px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  line-height: 1.4 !important;
+}
+.page-hero .page-hero-label, .page-hero .hero-label { color: var(--lime) !important; }
+
+/* ── Botones ── */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn {
+  border-radius: 100px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+/* ── Encabezados oscuros con foto desenfocada ── */
+.page-hero, #home {
+  background:
+    radial-gradient(55% 75% at 88% 18%, rgba(43, 76, 134, .9) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
+    #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
+}
+.page-hero .hero-x { display: none !important; }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
+.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
+.page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
+.page-hero .post-back { color: #cfc6b8; }
+
+/* ── Tarjetas y bordes ── */
+.res-card, .h-card, .modality-item, .modal-item, .process-step, .step, .flow-item,
+.price-inner, .booking-card, .nl-card {
+  border-color: var(--ink) !important;
+  background-color: transparent;
+}
+.res-card, .h-card { background: var(--cream) !important; }
+.faq-item, .faq-item:nth-child(even) { border-color: var(--soft) !important; background: transparent !important; }
+.faq-item:hover { border-color: var(--ink) !important; }
+
+/* Paneles que antes eran blancos */
+.modal-list li, .modality-features li, .chip, .nl-perks li { background: var(--cream) !important; }
+
+/* Cuadrícula para secciones claras destacadas */
+.grid-paper {
+  background-image: linear-gradient(rgba(27,26,23,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(27,26,23,.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Footer ── */
+footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink) !important; }
+.footer-tagline { color: var(--ink) !important; }
+.footer-tagline-sub { color: var(--ink) !important; }
+.footer-tagline-sub, .footer-tagline em {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -.01em !important;
+}
+.footer-geo-text { font-family: var(--font-display) !important; text-transform: uppercase; letter-spacing: -.04em !important; font-weight: 500 !important; }
+.footer-bottom-grid, .footer-bottom-left { border-color: var(--ink) !important; }
+.footer-ml-wrap .ml-form-fieldRow input { border-radius: 100px !important; border: 1.5px solid var(--ink) !important; padding: 11px 18px !important; }
+.footer-ml-wrap .ml-form-embedSubmit button { border-radius: 100px !important; background: var(--ink) !important; color: var(--cream) !important; }
+.we-badge { border-color: var(--ink) !important; border-radius: 100px !important; }
+
+/* ── Navegación compartida (nav.js) ── */
+#lis-nav.nav-dark #lis-nav-pill { background: rgba(244, 237, 227, .82) !important; border-color: rgba(27, 26, 23, .18) !important; }
+#lis-nav.nav-light #lis-nav-pill { background: rgba(27, 26, 23, .55) !important; }
+#lis-nav-pill a, #lis-nav-pill button.nav-link-btn { border-radius: 100px !important; }
+#lis-nav-pill { border-radius: 100px !important; }
+.nav-dropdown-inner { background: var(--ink) !important; border-radius: 18px !important; }
+
+/* Etiquetas sobre fondos oscuros */
+.includes-section .includes-label, #services .svc-label, #portfolio .portfolio-label { color: var(--lime) !important; }
+
+/* Botón de contacto de la home */
+#contact .cta-btn { background: var(--ink) !important; color: var(--cream) !important; padding: 16px 30px !important; border: 1.5px solid var(--ink) !important; gap: 10px; }
+#contact .cta-btn:hover { background: var(--lime) !important; color: var(--ink) !important; }
+#contact .cta-btn svg { stroke: currentColor; }
+.post-back { display: block !important; width: fit-content; margin-bottom: 26px !important; }
+
+/* Logo del menú en celular: negro sobre las secciones claras */
+#lis-nav-mobile-logo.mobile-logo-dark img { filter: brightness(0) !important; }
+
+/* ══════════════════════════════════════════════════════════
+   Sin píldoras (oct 2026): las etiquetas son texto en mayúscula
+   espaciada sin recuadro, las listas van en renglones con línea
+   fina y los botones y campos tienen esquinas casi rectas.
+══════════════════════════════════════════════════════════ */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.modal-list li, .modal-list li:last-child, .modality-features li, .modality-features li:last-child,
+.nl-perks li, .no-list li {
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 10px 0 !important;
+}
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn, .we-badge,
+#lis-nav-pill, #lis-nav-pill a, #lis-nav-pill button.nav-link-btn,
+.footer-ml-wrap .ml-form-fieldRow input, .footer-ml-wrap .ml-form-embedSubmit button,
+.nl-form-side .ml-form-fieldRow input, .nl-form-side .ml-form-embedSubmit button,
+.res-form input, .res-form .ml-form-fieldRow input, .res-form .ml-form-embedSubmit button {
+  border-radius: 4px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Bloques destacados con luz (oct 2026): fondo tinta con luz azul
+   y naranja como en la dirección creativa, texto en crema.
+   El naranja plano queda solo para los botones de adentro.
+══════════════════════════════════════════════════════════ */
+.callout-inner, .modality-panel, .modal-panel, .booking-head {
+  background:
+    radial-gradient(75% 95% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 85% at 0% 100%, rgba(232, 105, 58, .7) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) *:not(input):not(textarea):not(select) {
+  color: inherit !important;
+  border-color: rgba(244, 237, 227, .28) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(button, .pill-btn, .res-btn, .cta-btn) {
+  background: var(--blue) !important;
+  color: var(--cream) !important;
+  border-color: var(--blue) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(input, textarea, select) {
+  color: var(--ink) !important;
+}
+
+/* Tarjeta de la newsletter: gris neutro, sin luces ni naranja */
+.nl-body { background: var(--stone) !important; color: var(--ink) !important; }
+.nl-body *:not(input):not(textarea):not(select) { color: var(--ink) !important; border-color: rgba(27, 26, 23, .35) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+
+/* Botones: azul con texto crema */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+.res-btn:hover, .pill-btn:hover, .cta-btn:hover, .hero-center-btn:hover, .home-btn:hover, #contact .cta-btn:hover { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Ubicación y año, al pie del footer */
+.footer-legal { display: flex; justify-content: space-between; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--ink); font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+@media (max-width: 768px) { .footer-legal { padding: 16px 24px; flex-direction: column; } }
+.footer-ml-wrap .ml-form-embedSubmit button, .nl-form-side .ml-form-embedSubmit button, .res-form .ml-form-embedSubmit button { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Etiquetas como nota al margen (oct 2026): cursiva, minúscula, sin letras separadas */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon, .footer-legal {
+  font-family: 'Instrument Serif', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; text-transform: none !important; letter-spacing: 0 !important;
+  font-size: 19px !important;
+  line-height: 1.3 !important;
+}
+.footer-legal { font-size: 16px !important; }
+
+/* Cita destacada de los artículos: tinta con luz y cursiva, como el resto de los bloques */
+.post-body blockquote {
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 110% at 0% 100%, rgba(232, 105, 58, .6) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+  font-family: var(--font-script) !important; font-style: italic !important;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem) !important; line-height: 1.25 !important; letter-spacing: -.01em !important;
+  border: 0 !important; border-radius: 18px !important; padding: 36px 40px !important;
+}
+/* Botón del formulario del footer (cada página trae su propio estilo después del theme) */
+footer .footer-ml-wrap .ml-form-embedSubmit button, footer .footer-ml-wrap .ml-form-embedSubmit button.primary { background-color: var(--blue) !important; background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Sin la marca "Nuevo" sobre las tarjetas: era una etiqueta y se pisaba con la portada */
+.res-badge { display: none !important; }
+
+/* Cursor: flechita azul con "(You)", en toda la web; los campos de texto conservan la barrita */
+html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
+body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), body textarea, body [contenteditable] { cursor: text !important; }
+.cursor, .cursor-ring { display: none !important; }
+  </style>
+  <!-- /THEME-CSS -->
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body data-nav-theme="dark">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ══ HERO ══ -->
+
+  <!-- ══ HERO ══ -->
+  <div class="page-hero">
+    <div class="hero-x">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="80"   y1="0" x2="360"  y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="360"  y1="0" x2="80"   y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="800"  y1="0" x2="1080" y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1080" y1="0" x2="800"  y2="600" stroke="#fff" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="page-hero-inner has-img">
+      <div>
+        <h1 class="page-hero-title fi fi-d1">Paquetes para<br><em>estudios</em></h1>
+        <p class="page-hero-desc fi fi-d2">Dos formas de trabajar juntos, con lo que te llevás, cuánto tarda y cuánto sale definidos desde el primer mensaje, así la charla es para conocernos y no para negociar.</p>
+      </div>
+      <div class="hero-card fi fi-d2">
+        <img src="disegna-web-v2.webp" alt="Sitio web de Estudio Disegna diseñado por LIS Creative Studio" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ PAQUETES ══ -->
+  <section class="section">
+    <h2 class="section-title fi">Dos paquetes, <em>precio cerrado</em></h2>
+    <p class="section-intro fi">Primero la marca y después la web, porque si lanzás la web antes de tener tu identidad vas a terminar pagando dos veces. Por eso Obra nueva incluye las dos cosas, y Refacción es para cuando ya tenés una marca que te representa.</p>
+  </section>
+
+  <div class="modalities-section">
+    <div class="modalities-inner">
+      <div class="modality-grid">
+
+        <div class="modality-item fi" id="obra-nueva">
+          <div class="modality-body">
+            <h3 class="modality-title">Obra<br>nueva</h3>
+            <p class="modality-desc">Identidad visual completa y web portfolio en 8 semanas, para estudios que tienen buena obra y una imagen que no está a la altura, o que arrancan y quieren hacerlo bien desde el principio.</p>
+            <p class="modality-desc"><strong>$1.265.000</strong> en 2 pagos · USD 2.400 fuera de Argentina</p>
+            <a href="/#contact" class="pill-btn">Quiero Obra nueva <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="modality-panel">
+            <p class="modality-ideal">Qué te llevás</p>
+            <ul class="modality-features">
+            <li>Logo y sus variables, paleta, tipografías y recursos gráficos</li>
+            <li>Manual de marca para que todo el equipo la use bien</li>
+            <li>Firma de mail y plantilla para presentar proyectos</li>
+            <li>Web portfolio con el primer año de hosting y dominio .com</li>
+          </ul>
+          </div>
+        </div>
+
+        <div class="modality-item fi" id="refaccion">
+          <div class="modality-body">
+            <h3 class="modality-title">Refacción</h3>
+            <p class="modality-desc">Web nueva con la marca que ya tenés, en 5 semanas, para cuando tu web quedó vieja, no muestra bien la obra o seguís mandando un PDF.</p>
+            <p class="modality-desc"><strong>$765.000</strong> en 2 pagos · USD 1.400 fuera de Argentina</p>
+            <a href="/#contact" class="pill-btn">Quiero Refacción <span aria-hidden="true">→</span></a>
+          </div>
+          <div class="modality-panel">
+            <p class="modality-ideal">Qué te llevás</p>
+            <ul class="modality-features">
+            <li>Una guía de estilo web armada a partir de tu marca</li>
+            <li>Portada, estudio, proyectos, servicios y contacto</li>
+            <li>Primer año de hosting y dominio .com incluidos</li>
+            <li>Un sitio que actualizás vos, sin depender de nadie</li>
+          </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ CALLOUT ══ -->
+  <div class="callout">
+    <div class="callout-inner">
+      <p class="callout-text fi">Tu próximo cliente no va a pisar tu obra antes de contratarte, la va a ver en una pantalla</p>
+    </div>
+  </div>
+
+  <!-- ══ INCLUYE ══ -->
+  <section class="includes-section">
+    <div class="includes-inner">
+      <h2 class="includes-title fi">Qué incluyen<br><em>los dos</em></h2>
+      <p class="includes-subtitle fi">Elijas el que elijas, esto siempre viene.</p>
+      <div class="includes-grid">
+        <div class="include-item fi fi-d1">
+          <p class="include-num">01</p>
+          <p class="include-name">Cuestionario y reunión de arranque</p>
+          <p class="include-detail">Para entender cómo trabaja tu estudio, a quién le querés hablar y qué obras querés que te pidan.</p>
+        </div>
+        <div class="include-item fi fi-d2">
+          <p class="include-num">02</p>
+          <p class="include-name">Portal del cliente</p>
+          <p class="include-detail">Ves en todo momento en qué etapa está el proyecto, qué falta y qué tenés que revisar vos.</p>
+        </div>
+        <div class="include-item fi fi-d3">
+          <p class="include-num">03</p>
+          <p class="include-name">Dos rondas de cambios por etapa</p>
+          <p class="include-detail">Suficientes para ajustar todo con calma, sin que el proyecto se estire meses.</p>
+        </div>
+        <div class="include-item fi fi-d1">
+          <p class="include-num">04</p>
+          <p class="include-name">Web responsive con SEO básico</p>
+          <p class="include-detail">Se ve bien en el celular, tiene Google Analytics y está armada para que te encuentren en buscadores.</p>
+        </div>
+        <div class="include-item fi fi-d2">
+          <p class="include-num">05</p>
+          <p class="include-name">Tu primer proyecto cargado</p>
+          <p class="include-detail">Cargo el primero con la plantilla de proyecto y te paso el tutorial en video para que cargues vos el resto de tus obras.</p>
+        </div>
+        <div class="include-item fi fi-d3">
+          <p class="include-num">06</p>
+          <p class="include-name">2 semanas de soporte</p>
+          <p class="include-detail">Arrancan cuando se abona el 50% final, para cualquier error o duda que aparezca con la web ya publicada.</p>
+        </div>
+        <div class="include-item is-note fi fi-d1">
+          <p class="include-num">Aparte</p>
+          <p class="include-name">Hosting y dominio, el primer año</p>
+          <p class="include-detail">El primer año de hosting y el dominio .com están incluidos, y desde el segundo año la renovación queda a tu cargo. Las fotos y los textos de la web los pasás vos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PROCESO ══ -->
+  <section class="process-section">
+    <div class="process-inner">
+      <h2 class="section-title fi">Cómo son <em>las 8 semanas</em></h2>
+      <p class="section-intro fi">Así se reparte Obra nueva. Refacción arranca directo en el diseño de la web y dura 5 semanas.</p>
+      <div class="process-grid" style="margin-top:56px">
+        <div class="process-step fi fi-d1">
+          <p class="step-num">01</p>
+          <p class="step-name">Arranque</p>
+          <p class="step-duration">Semana 0</p>
+          <p class="step-desc">Completás el cuestionario y hacemos la reunión para conocer el estudio.</p>
+        </div>
+        <div class="process-step fi fi-d2">
+          <p class="step-num">02</p>
+          <p class="step-name">Dirección</p>
+          <p class="step-duration">Semanas 1 y 2</p>
+          <p class="step-desc">Te presento dos caminos creativos distintos y elegís hacia dónde va tu marca.</p>
+        </div>
+        <div class="process-step fi fi-d3">
+          <p class="step-num">03</p>
+          <p class="step-name">Identidad</p>
+          <p class="step-duration">Semanas 3 y 4</p>
+          <p class="step-desc">Desarrollamos la marca completa, el manual y la papelería del día a día.</p>
+        </div>
+        <div class="process-step fi fi-d4">
+          <p class="step-num">04</p>
+          <p class="step-name">Diseño web</p>
+          <p class="step-duration">Semanas 5 y 6</p>
+          <p class="step-desc">Diseñamos la web con la marca ya aprobada, así no hay nada que rehacer.</p>
+        </div>
+        <div class="process-step fi fi-d4">
+          <p class="step-num">05</p>
+          <p class="step-name">Desarrollo y entrega</p>
+          <p class="step-duration">Semanas 7 y 8</p>
+          <p class="step-desc">Llevamos el diseño al sitio, cargamos tu primer proyecto y te lo entregamos funcionando con el tutorial.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CONDICIONES ══ -->
+  <section class="addons-section">
+    <div class="addons-inner">
+      <div>
+        <div class="addon-item fi fi-d1">
+          <p class="addon-name">Pagos</p>
+          <p class="addon-desc">Los dos paquetes se pagan en 2 partes: 50% al comenzar y 50% al finalizar. Las dos semanas de soporte arrancan cuando se abona el 50% final.</p>
+        </div>
+        <div class="addon-item fi fi-d2">
+          <p class="addon-name">Extras</p>
+          <p class="addon-desc">Que cargue más proyectos por vos, plantillas para redes, cartel de obra o versión en inglés de la web se cotizan aparte.</p>
+        </div>
+      </div>
+      <div>
+        <div class="addon-item fi fi-d1">
+          <p class="addon-name">Tiempos</p>
+          <p class="addon-desc">Los plazos corren mientras las devoluciones lleguen en una semana. Si pasa más tiempo, el calendario se corre para no apurar el resto de los proyectos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ FAQ ══ -->
+  <section class="faq-section">
+    <div class="faq-inner">
+      <h2 class="section-title fi">Preguntas <em>frecuentes</em></h2>
+      <div class="faq-grid">
+        <div class="faq-item fi fi-d1">
+          <p class="faq-q">¿Y si necesito algo que no está en el paquete?</p>
+          <p class="faq-a">Lo sumamos como extra y te paso el valor antes de arrancar, así el paquete no cambia y vos sabés exactamente qué estás pagando.</p>
+        </div>
+        <div class="faq-item fi fi-d2">
+          <p class="faq-q">¿Puedo hacer solo la identidad?</p>
+          <p class="faq-a">Sí, escribime y lo charlamos, aunque para un estudio lo que más rinde es que la marca y la web salgan juntas y hablen el mismo idioma.</p>
+        </div>
+        <div class="faq-item fi fi-d3">
+          <p class="faq-q">¿Qué pasa si no tengo buenas fotos de mis obras?</p>
+          <p class="faq-a">Se trabaja con lo que hay, y si son renders también sirven. Mostramos solo lo mejor y lo que querés que te pidan, y si hace falta te recomiendo fotógrafos de arquitectura.</p>
+        </div>
+        <div class="faq-item fi fi-d4">
+          <p class="faq-q">¿Trabajan con estudios fuera de Argentina?</p>
+          <p class="faq-a">Sí, trabajamos de forma remota con estudios de Argentina, España y Uruguay, y todo el proceso es digital.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CTA ══ -->
+  <section class="cta-section">
+    <article class="h-card fi">
+      <div class="h-card-body">
+        <span class="pill-tag">2 lugares por mes</span>
+        <h2 class="cta-title">¿Cuál es<br><em>para tu estudio?</em></h2>
+        <p class="cta-text">Contame en qué momento está tu estudio y en una llamada corta vemos cuál de los dos te sirve.</p>
+        <a href="/#contact" class="pill-btn">Escribime <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="h-card-media">
+        <img src="bm-web.webp" alt="Sitio web de Buenas Marcas diseñado por LIS Creative Studio" loading="lazy" />
+      </div>
+    </article>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
+    </div>
+    <div class="footer-geo">
+      <span class="footer-geo-text">Argentina</span>
+      <div class="footer-geo-img"><img src="lis-web.webp" alt="LIS" /></div>
+      <span class="footer-geo-text">Worldwide</span>
+    </div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left">
+        <div class="footer-sillon-img"><img src="sillon-globo.webp" alt="LIS" /></div>
+        <div class="footer-social-block">
+          <p class="footer-social-label">Social media</p>
+          <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Planta Libre · Newsletter semanal</p>
+        <p style="font-size:13px;line-height:1.5;margin:-6px 0 14px;">Cada semana en tu mail, y de regalo la guía <em>Un estudio que se ve como trabaja</em> para estudios de arquitectura e interiorismo.</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Sumate gratis</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal"><span>Rosario · Worldwide</span><span>© 2026 LIS. Creative Studio</span></div>
+  </footer>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript" defer></script>
+  <script>
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    });
+    const fiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  </script>
+</body>
+</html>

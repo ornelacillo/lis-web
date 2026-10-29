@@ -420,7 +420,7 @@
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
   </style>
-  <script src="/nav.js"></script>
+  <script src="/nav.js" defer></script>
   <meta name="description" content="Casa FOA, Puro Diseño, dos webs nuevas para arquitectas, la agenda de octubre y por qué tu estudio también es una marca. Primera edición de Planta Libre." />
   <link rel="canonical" href="https://liscreativestudio.com/blog/planta-libre-01" />
   <script type="application/ld+json">
@@ -470,7 +470,10 @@
   <meta name="twitter:description" content="Casa FOA, Puro Diseño, dos webs nuevas para arquitectas, la agenda de octubre y por qué tu estudio también es una marca. Primera edición de Planta Libre." />
   <meta name="twitter:image" content="https://liscreativestudio.com/disegna-web-v2.jpg" />
   <!-- Sistema visual 2026 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">
@@ -519,12 +522,12 @@
   <!-- ══ ARTÍCULO ══ -->
   <article class="post">
     <figure class="post-cover fi">
-      <img src="/disegna-web-v2.jpg" alt="Web de Estudio Disegna diseñada por LIS Creative Studio" />
+      <img src="/disegna-web-v2.webp" alt="Web de Estudio Disegna diseñada por LIS Creative Studio" />
     </figure>
 
     <div class="post-body">
       <div class="post-intro">
-        <img src="/ornela.jpg" alt="Orne, fundadora de LIS" />
+        <img src="/ornela.webp" alt="Orne, fundadora de LIS" />
         <div>
           <h2 style="margin-top:0;">Hola, ¿cómo va?</h2>
           <p>Soy Orne, diseñadora gráfica y web, fundé LIS en Rosario y trabajo con estudios de arquitectura e interiorismo de Argentina, España y Uruguay para que su marca y su web estén a la altura de sus proyectos.</p>
@@ -547,7 +550,7 @@
       <p>Estos meses trabajé con dos estudios que tienen algo en común: hacen proyectos hermosos y, hasta ahora, su presencia online no lo reflejaba.</p>
 
       <div class="post-project">
-        <a href="https://estudiodisegna.com" target="_blank" rel="noopener"><img src="/disegna-web-v2.jpg" alt="Web de Estudio Disegna" loading="lazy" /></a>
+        <a href="https://estudiodisegna.com" target="_blank" rel="noopener"><img src="/disegna-web-v2.webp" alt="Web de Estudio Disegna" loading="lazy" /></a>
         <div class="post-project-body">
           <h3>Estudio Disegna · Funes, Santa Fe</h3>
           <p>Genoveva Yerkovich diseña arquitectura e interiores residenciales pensados desde la vida cotidiana y ofrece una consultoría online de 90 minutos para decisiones puntuales, así que la web tenía que mostrar sus obras con calma y explicar con claridad cómo se trabaja con ella, con un espacio para cada servicio y un recorrido que lleva naturalmente al contacto.</p>
@@ -556,7 +559,7 @@
       </div>
 
       <div class="post-project">
-        <a href="https://bwild.com.ar" target="_blank" rel="noopener"><img src="/bwild-web.jpg" alt="Web de BWILD diseñada por LIS Creative Studio" loading="lazy" /></a>
+        <a href="https://bwild.com.ar" target="_blank" rel="noopener"><img src="/bwild-web.webp" alt="Web de BWILD diseñada por LIS Creative Studio" loading="lazy" /></a>
         <div class="post-project-body">
           <h3>BWILD · Buenos Aires</h3>
           <p>Josefina es arquitecta y diseñadora, y su estudio hace interiorismo y reformas de casas y espacios de trabajo bajo un lema que lo dice todo, "creatividad al servicio del diseño y diseño al servicio del bienestar", por eso diseñamos una web bilingüe, sofisticada pero cercana, que habla de espacios pensados para cómo vive la gente de verdad y no para una foto de revista.</p>
@@ -658,7 +661,7 @@
     </div>
 
     <div class="post-author">
-      <img src="/ornela.jpg" alt="Ornela Cillo" />
+      <img src="/ornela.webp" alt="Ornela Cillo" />
       <div>
         <p class="post-author-name">Ornela Cillo</p>
         <p class="post-author-role">Diseñadora y fundadora de LIS. Creative Studio</p>

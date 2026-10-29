@@ -400,7 +400,7 @@
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
   </style>
-  <script src="/nav.js"></script>
+  <script src="/nav.js" defer></script>
   <meta name="description" content="Construimos la marca de tu estudio de arquitectura o interiorismo desde cero, con estrategia, identidad visual, brand book y aplicaciones reales." />
   <link rel="canonical" href="https://liscreativestudio.com/branding" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -487,7 +487,10 @@
   }
   </script>
   <!-- Sistema visual 2026 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">

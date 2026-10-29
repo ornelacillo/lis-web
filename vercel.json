@@ -37,5 +37,25 @@
       "destination": "/curaduria-visual",
       "permanent": true
     }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)\\.(webp|jpg|jpeg|png|gif|svg|ico|mp4|webm|woff2|woff|ttf|otf)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=2592000, stale-while-revalidate=86400"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.(css|js)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400, stale-while-revalidate=604800"
+        }
+      ]
+    }
   ]
 }

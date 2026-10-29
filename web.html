@@ -355,7 +355,7 @@
       .process-grid, .includes-grid { grid-template-columns: 1fr; }
     }
   </style>
-  <script src="/nav.js"></script>
+  <script src="/nav.js" defer></script>
   <meta name="description" content="Páginas web a medida para estudios de arquitectura e interiorismo, con portfolio de obras, responsive y fáciles de actualizar sin programador." />
   <link rel="canonical" href="https://liscreativestudio.com/web" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -442,7 +442,10 @@
   }
   </script>
   <!-- Sistema visual 2026 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">
@@ -466,7 +469,7 @@
         <p class="page-hero-desc fi fi-d2">Sitios no-code, diseño 100% personalizado y responsive. Que tu presencia digital esté a la altura de lo que ofrecés.</p>
       </div>
       <div class="hero-card fi fi-d2">
-        <img src="bm-web.jpg" alt="Sitio web de Buenas Marcas diseñado por LIS Creative Studio" />
+        <img src="bm-web.webp" alt="Sitio web de Buenas Marcas diseñado por LIS Creative Studio" />
         <span class="lime-badge">No-code · Responsive</span>
       </div>
     </div>
@@ -706,7 +709,7 @@
         <a href="/#contact" class="pill-btn">Escribime <span aria-hidden="true">→</span></a>
       </div>
       <div class="h-card-media">
-        <img src="disegna-web-v2.jpg" alt="Sitio web de Estudio Disegna diseñado por LIS Creative Studio" loading="lazy" />
+        <img src="disegna-web-v2.webp" alt="Sitio web de Estudio Disegna diseñado por LIS Creative Studio" loading="lazy" />
       </div>
     </article>
   </section>

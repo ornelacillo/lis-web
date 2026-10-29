@@ -420,7 +420,7 @@
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
   </style>
-  <script src="/nav.js"></script>
+  <script src="/nav.js" defer></script>
   <meta name="description" content="Alpargatas se vuelve barrio, RCR abre un museo en las fábricas de Renault y cómo saber si conviene rediseñar tu marca o empezar de cero." />
   <link rel="canonical" href="https://liscreativestudio.com/blog/planta-libre-03" />
   <script type="application/ld+json">
@@ -470,7 +470,10 @@
   <meta name="twitter:description" content="Alpargatas se vuelve barrio, RCR abre un museo en las fábricas de Renault y cómo saber si conviene rediseñar tu marca o empezar de cero." />
   <meta name="twitter:image" content="https://liscreativestudio.com/blog/img/planta-libre-03-portada.jpg" />
   <!-- Sistema visual 2026 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">
@@ -524,7 +527,7 @@
 
     <div class="post-body">
       <div class="post-intro">
-        <img src="/ornela.jpg" alt="Orne, fundadora de LIS" />
+        <img src="/ornela.webp" alt="Orne, fundadora de LIS" />
         <div>
           <h2 style="margin-top:0;">Hola, ¿cómo va?</h2>
           <p>Esta semana me quedé pensando en las fábricas. En Barracas, el predio de Alpargatas donde hoy funciona Casa FOA ya tiene aprobado el proyecto para convertirse en viviendas y oficinas, y en París abrió un centro de arte justo donde estaban las fábricas de Renault.</p>
@@ -649,7 +652,7 @@
     </div>
 
     <div class="post-author">
-      <img src="/ornela.jpg" alt="Ornela Cillo" />
+      <img src="/ornela.webp" alt="Ornela Cillo" />
       <div>
         <p class="post-author-name">Ornela Cillo</p>
         <p class="post-author-role">Diseñadora y fundadora de LIS. Creative Studio</p>

@@ -384,7 +384,7 @@
       .process-grid, .includes-grid { grid-template-columns: 1fr; }
     }
   </style>
-  <script src="/nav.js"></script>
+  <script src="/nav.js" defer></script>
   <meta name="description" content="Logo, paleta, tipografías y sistema visual para estudios de arquitectura e interiorismo que quieren verse tan cuidados como sus obras." />
   <link rel="canonical" href="https://liscreativestudio.com/identidad-visual" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -463,7 +463,10 @@
   }
   </script>
   <!-- Sistema visual 2026 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">
@@ -487,7 +490,7 @@
         <p class="page-hero-desc fi fi-d2">El sistema gráfico completo para que tu marca sea reconocible, coherente y memorable en cualquier soporte.</p>
       </div>
       <div class="hero-card fi fi-d2">
-        <img src="Slide_53.jpg" alt="Proyecto de identidad visual de LIS Creative Studio" />
+        <img src="Slide_53.webp" alt="Proyecto de identidad visual de LIS Creative Studio" />
         <span class="lime-badge">4 a 7 semanas</span>
       </div>
     </div>
@@ -636,7 +639,7 @@
         <a href="/#contact" class="pill-btn">Escribime <span aria-hidden="true">→</span></a>
       </div>
       <div class="h-card-media">
-        <img src="bm-merch.jpg" alt="Aplicaciones de marca diseñadas por LIS Creative Studio" loading="lazy" />
+        <img src="bm-merch.webp" alt="Aplicaciones de marca diseñadas por LIS Creative Studio" loading="lazy" />
       </div>
     </article>
   </section>

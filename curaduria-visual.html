@@ -315,7 +315,7 @@
   <noscript><img height="1" width="1" style="display:none"
     src="https://www.facebook.com/tr?id=2559356064485053&ev=PageView&noscript=1"/></noscript>
   <!-- End Meta Pixel Code -->
-  <script src="/nav.js"></script>
+  <script src="/nav.js" defer></script>
   <meta name="description" content="Ordenamos la imagen de tu estudio en un proceso corto, con fotos de obra, redes y piezas coherentes entre sí, sin hacer la marca desde cero." />
   <meta name="robots" content="noindex, follow" />
   <link rel="canonical" href="https://liscreativestudio.com/curaduria-visual" />
@@ -403,7 +403,10 @@
   }
   </script>
   <!-- Sistema visual 2026 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
   <link rel="stylesheet" href="/theme.css" />
 </head>
 <body data-nav-theme="dark">

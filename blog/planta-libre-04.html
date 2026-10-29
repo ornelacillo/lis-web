@@ -239,6 +239,7 @@
     .post-body a { color: var(--black); text-underline-offset: 3px; }
     .post-body strong { color: var(--black); font-weight: 600; }
     .post-body ul, .post-body ol { padding-left: 1.3em; }
+    .post-lead { font-size: 1.3rem; line-height: 1.5; letter-spacing: -.01em; color: var(--black); }
     .post-body li + li { margin-top: .4em; }
     .post-body blockquote { background: #2b4c86; border-radius: 18px; padding: 28px 32px; font-size: 1.3rem; line-height: 1.45; color: #f4ede3; letter-spacing: -.01em; }
     .post-body img { width: 100%; border-radius: 18px; border: 1px solid var(--black); display: block; }
@@ -440,17 +441,26 @@
     "@type": "BlogPosting",
     "headline": "Lo que tu web hace sola · Planta Libre N°04",
     "description": "Argentina busca pabellón para Venecia 2027, ChatGPT ya muestra anuncios y cinco cosas que la web de tu estudio puede hacer sola.",
+    "abstract": "La web de un estudio de arquitectura puede hacer mucho más que mostrar obras: filtrar consultas con un formulario de tres o cuatro preguntas, agendar la primera reunión, contar cómo trabajás, avisar cuándo vas a responder y hasta cobrar una asesoría con Mercado Pago. No hace falta sumar todo junto, alcanza con empezar por la tarea que hoy más tiempo te come.",
     "image": "https://liscreativestudio.com/blog/img/planta-libre-04-portada.jpg",
     "url": "https://liscreativestudio.com/blog/planta-libre-04",
     "mainEntityOfPage": "https://liscreativestudio.com/blog/planta-libre-04",
     "inLanguage": "es-AR",
     "datePublished": "2026-10-26",
-    "dateModified": "2026-10-26",
+    "dateModified": "2026-10-29",
     "author": {
       "@type": "Person",
+      "@id": "https://liscreativestudio.com/#ornela",
       "name": "Ornela Cillo",
       "jobTitle": "Diseñadora gráfica y directora creativa",
-      "url": "https://liscreativestudio.com/#about"
+      "description": "Diseñadora gráfica con más de 10 años de experiencia en identidad visual y diseño web para estudios de arquitectura e interiorismo.",
+      "url": "https://liscreativestudio.com/#about",
+      "image": "https://liscreativestudio.com/ornela.jpg",
+      "sameAs": [
+        "https://www.behance.net/ornelacillo",
+        "https://www.youtube.com/@ornecillo"
+      ],
+      "worksFor": { "@id": "https://liscreativestudio.com/#business" }
     },
     "publisher": {
       "@type": "Organization",
@@ -462,6 +472,32 @@
       }
     }
   }
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://liscreativestudio.com/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://liscreativestudio.com/blog"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Lo que tu web hace sola · Planta Libre N°04",
+      "item": "https://liscreativestudio.com/blog/planta-libre-04"
+    }
+  ]
+}
   </script>
   <meta name="theme-color" content="#0a0a0a" />
   <!-- hreflang -->
@@ -883,6 +919,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 
       <!-- 04 -->
       <h2 id="la-columna">Una web linda no alcanza, tiene que trabajar por vos</h2>
+      <p class="post-lead">La web de un estudio de arquitectura puede hacer mucho más que mostrar obras: filtrar consultas con un formulario de tres o cuatro preguntas, agendar la primera reunión, contar cómo trabajás, avisar cuándo vas a responder y hasta cobrar una asesoría con Mercado Pago. No hace falta sumar todo junto, alcanza con empezar por la tarea que hoy más tiempo te come.</p>
       <p>Cuando un estudio me pide una web, casi siempre lo primero que me muestra son referencias de webs lindas, y está perfecto, porque obviamente tiene que verse bien. Lo que pocas veces aparece en esa primera charla es qué tiene que pasar cuando alguien entra, y ahí es donde se quedan cortas la mayoría de las webs de estudios: muestran las obras y nada más.</p>
       <blockquote>Una web puede hacer mucho más mientras vos estás en obra o en una reunión.</blockquote>
       <p>Puede responder las preguntas que te hacen siempre, filtrar las consultas que no son para vos, dejarte agendada una primera reunión y hasta cobrar una seña, sin que tengas que estar pegada al WhatsApp. Lo que veo muchísimo es lo contrario: un formulario que pide nombre, mail y mensaje, y después diez idas y vueltas para saber qué necesita la persona, dónde es la obra y para cuándo la quiere.</p>

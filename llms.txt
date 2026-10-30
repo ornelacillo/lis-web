@@ -20,7 +20,7 @@
 ## Páginas
 - /identidad-visual — Identidad Visual
 - /web — Diseño Web
-- /paquetes — Paquetes para estudios de arquitectura: Obra nueva (identidad + web en 8 semanas, $1.265.000 o USD 2.400) y Refacción (web nueva con la marca existente en 5 semanas, $765.000 o USD 1.400)
+- /paquetes — Paquetes para estudios de arquitectura: Obra nueva (identidad + web en 8 semanas, $1.249.000 o USD 2.390) y Refacción (web nueva con la marca existente en 5 semanas, $749.000 o USD 1.390)
 - /freebies — Recursos gratuitos
 - /blog — Blog: artículos semanales sobre diseño, identidad y presencia digital
 
@@ -41,5 +41,5 @@ LIS. Creative Studio also has an English version for clients outside Argentina, 
 - /en — Home: visual identity and web design for architecture and interior design studios
 - /en/visual-identity — Visual Identity
 - /en/web-design — Web Design
-- /en/packages — Packages for architecture studios: New Build (identity + website in 8 weeks, USD 2,400) and Renovation (new website with your current brand in 5 weeks, USD 1,400)
+- /en/packages — Packages for architecture studios: New Build (identity + website in 8 weeks, USD 2,390) and Renovation (new website with your current brand in 5 weeks, USD 1,390)
 - /en/press — Press kit

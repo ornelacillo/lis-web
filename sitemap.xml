@@ -172,6 +172,41 @@
     <priority>0.4</priority>
   </url>
   <url>
+    <loc>https://liscreativestudio.com/en/blog</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+  <url>
+    <loc>https://liscreativestudio.com/en/blog/architecture-studio-brand</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://liscreativestudio.com/en/blog/architecture-project-photography</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://liscreativestudio.com/en/blog/rebrand-or-start-from-scratch</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
+    <loc>https://liscreativestudio.com/en/blog/architecture-studio-website</loc>
+    <lastmod>2026-10-29</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <url>
     <loc>https://liscreativestudio.com/en/privacy</loc>
     <lastmod>2026-10-29</lastmod>
     <changefreq>monthly</changefreq>

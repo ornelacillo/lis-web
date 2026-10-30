@@ -320,6 +320,11 @@
     ['/asesoria', '/en/consulting'],
     ['/prensa', '/en/press'],
     ['/privacidad', '/en/privacy'],
+    ['/blog', '/en/blog'],
+    ['/blog/marca-estudio-de-arquitectura', '/en/blog/architecture-studio-brand'],
+    ['/blog/fotos-de-obra-arquitectura', '/en/blog/architecture-project-photography'],
+    ['/blog/redisenar-marca-o-empezar-de-cero', '/en/blog/rebrand-or-start-from-scratch'],
+    ['/blog/web-estudio-arquitectura', '/en/blog/architecture-studio-website'],
   ];
 
   function currentPath() {
@@ -345,7 +350,7 @@
       </div>`;
   }
 
-  /* Menu links for each language: the English site has no freebies or blog, since both are in Spanish */
+  /* Menu links for each language: the English site has no freebies, since they are in Spanish */
   function navLinks() {
     if (isEn()) return {
       links: [
@@ -353,6 +358,7 @@
         { label: 'about',     href: '/en#about' },
         { label: 'services',  href: '/en#services', dropdown: true },
         { label: 'portfolio', href: '/en#portfolio' },
+        { label: 'blog',      href: '/en/blog' },
         { label: 'contact',   href: '/en#contact', cta: true },
       ],
       services: [

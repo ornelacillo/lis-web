@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog: brand and web design for architecture studios · LIS</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+  <!-- Analytics, Clarity y Meta se cargan al primer scroll o toque, o 2,5 s después de la carga, para no frenar la página -->
+  <script>
+    (function () {
+      var done = false;
+      function add(src) { var t = document.createElement('script'); t.async = true; t.src = src; document.head.appendChild(t); }
+      function go() {
+        if (done) return; done = true;
+        add('https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32');
+        if (window.__clarity) add('https://www.clarity.ms/tag/z3r50bv2sr');
+        if (window.__fbq) add('https://connect.facebook.net/en_US/fbevents.js');
+      }
+      ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'].forEach(function (e) { addEventListener(e, go, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(go, 2500); });
+    })();
+  </script>
+  <!-- Microsoft Clarity: grabaciones y mapas de calor -->
+  <script>
+    window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    window.__clarity = true;
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" /></noscript>
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1460085');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px; line-height: 1.6; cursor: none;
+    }
+
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: left .12s ease, top .12s ease, width .25s, height .25s; }
+    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none !important; } body { cursor: auto; } }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 48px;
+      padding: 22px 0; align-items: center;
+      transition: background .35s, box-shadow .35s;
+    }
+    nav.scrolled { background: var(--black); box-shadow: 0 1px 0 #222; }
+    nav a { text-decoration: none; color: var(--white); font-family: var(--font); font-size: 13px; letter-spacing: .06em; transition: opacity .2s; }
+    nav a:hover { opacity: .45; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { cursor: default; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; min-width: 180px; z-index: 200; }
+    .nav-dropdown-menu-inner { background: #181818; border: 1px solid #2a2a2a; padding: 8px 0; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 9px 20px; font-size: 12px; letter-spacing: .06em; color: var(--white) !important; text-decoration: none; transition: opacity .2s; pointer-events: auto !important; }
+    .nav-dropdown-menu a:hover { opacity: .45; }
+    /* ── HAMBURGER ── */
+    .nav-hamburger { display: none; position: fixed; top: 16px; right: 20px; z-index: 1001; background: none; border: none; cursor: none; padding: 6px; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .nav-mobile-overlay.open { display: flex; }
+    .nav-mobile-overlay a { text-decoration: none; color: var(--white); font-size: 22px; letter-spacing: .04em; transition: opacity .2s; }
+    .nav-mobile-overlay a:hover { opacity: .45; }
+    .nav-mobile-overlay .mob-sub { display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 8px; border-top: 1px solid #2a2a2a; width: 220px; }
+    .nav-mobile-overlay .mob-sub a { font-size: 15px; color: #888; }
+    @media (max-width: 860px) { nav { display: none; } .nav-hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--black); color: var(--white);
+      padding: 180px 60px 100px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-x { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .1; }
+    .hero-x svg { width: 100%; height: 100%; }
+    .hero-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 32px; }
+    .hero-title { font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 24px; }
+    .hero-desc { font-size: 17px; color: #888; line-height: 1.8; margin-bottom: 0; }
+    .hero-img-wrap {
+      position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%; display: block;
+      border-radius: 4px;
+    }
+    .hero-badge {
+      position: absolute; top: -16px; right: -16px;
+      background: #2b4c86; color: #f4ede3;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em;
+      padding: 8px 16px; border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    /* ── RECURSOS (cards) ── */
+    .res-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px; }
+    .res-label { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 40px; }
+    .res-list { display: flex; flex-direction: column; gap: 28px; }
+    .res-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px;
+      overflow: hidden; background: var(--white);
+      transition: box-shadow .3s, transform .3s;
+    }
+    .res-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.06); transform: translateY(-2px); }
+    .res-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .res-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid var(--black); border-radius: 100px; margin-bottom: 22px;
+    }
+    .res-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 16px; }
+    .res-desc { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 12px; max-width: 420px; }
+    .res-btn {
+      margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-family: var(--font); font-size: 13px; font-weight: 500; letter-spacing: .03em;
+      padding: 12px 24px; border-radius: 100px; cursor: none; transition: background .2s, color .2s;
+    }
+    .res-btn:hover { background: var(--white); color: var(--black); }
+    .res-form { display: none; width: 100%; max-width: 380px; margin-top: 20px; }
+    .res-card.open .res-form { display: block; }
+    .res-card.open .res-btn { display: none; }
+    .res-media { position: relative; min-height: 380px; border-left: 1px solid var(--black); overflow: hidden; }
+    .res-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .res-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #2b4c86; color: #f4ede3; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Mockup Notion hecho en CSS */
+    .notion-mock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 40px; }
+    .notion-mock.lime { background: #2b4c86; }
+    .notion-mock.stone { background: #e0ddd8; }
+    .nm-window {
+      width: 82%; max-width: 380px; background: #fff; border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.14); overflow: hidden; transform: rotate(-2deg);
+    }
+    .notion-mock.stone .nm-window { transform: rotate(2deg); }
+    .nm-bar { display: flex; gap: 5px; padding: 10px 12px; border-bottom: 1px solid #eee; }
+    .nm-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
+    .nm-cover { height: 64px; background: #111; }
+    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #2b4c86 60%); }
+    .nm-page { padding: 16px 20px 22px; }
+    .nm-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #111; line-height: 1.2; }
+    .nm-line { height: 7px; background: #eee; border-radius: 4px; margin-bottom: 8px; }
+    .nm-line.s { width: 55%; } .nm-line.m { width: 78%; }
+    .nm-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+    .nm-row span { height: 42px; border-radius: 6px; background: #f3f2ef; border: 1px solid #eee; }
+    .nm-check { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .nm-check b { width: 10px; height: 10px; border: 1px solid #bbb; border-radius: 2px; flex-shrink: 0; }
+    .nm-check b.on { background: #111; border-color: #111; }
+    .nm-check .nm-line { margin: 0; flex: 1; }
+    .nm-logo {
+      position: absolute; top: 22px; right: 22px; width: 54px; height: 54px;
+      background: #fff; border: 2px solid #111; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: 700; color: #111;
+      box-shadow: 3px 3px 0 #111; transform: rotate(8deg);
+    }
+
+    /* Hide MailerLite branding if any */
+    .ml-form-embedWrapper .ml-form-embedContent { display: none !important; }
+
+    /* MailerLite mini forms inside template cards */
+    .template-form { margin-top: 20px; border-top: 1px solid var(--light); padding-top: 20px; }
+    .template-form p { font-size: 12px; color: var(--gray); margin-bottom: 10px; }
+    .template-form .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .template-form .ml-form-embedBody { padding: 0 !important; }
+    .template-form .ml-form-embedContent { display: none !important; }
+    .template-form .ml-form-formContent { margin: 0 !important; }
+    .template-form .ml-form-fieldRow { margin-bottom: 6px !important; }
+    .template-form .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: var(--font) !important; font-size: 13px !important; padding: 8px 10px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+    .template-form .ml-form-embedSubmit { margin: 0 !important; }
+    .template-form .ml-form-embedSubmit button { border-radius: 0 !important; font-family: var(--font) !important; font-size: 12px !important; font-weight: 500 !important; background-color: #111 !important; color: #fff !important; padding: 8px 16px !important; width: 100% !important; }
+    .template-form .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 14px !important; font-weight: 500 !important; }
+    .template-form .ml-form-successContent p { font-family: var(--font) !important; font-size: 12px !important; }
+
+    /* Formularios dentro de las tarjetas de recursos */
+    .res-form.template-form { border-top: none; padding-top: 0; margin-top: 18px; }
+    .res-form input { border-radius: 100px !important; padding-left: 18px !important; }
+    .res-form .ml-form-fieldRow input { border: 1px solid #ccc !important; border-radius: 100px !important; padding: 11px 18px !important; outline: none; }
+    .res-form .ml-form-fieldRow input:focus { border-color: var(--black) !important; }
+    .res-form .ml-form-embedSubmit button { border: 1px solid #111 !important; border-radius: 100px !important; padding: 12px 20px !important; }
+
+
+    /* ── BLOG ── */
+    .blog-empty { border: 1px dashed var(--black); border-radius: 18px; padding: 48px; }
+    a.res-btn { text-decoration: none; }
+    .page-hero-inner { grid-template-columns: 1fr !important; }
+
+    /* ── NEWSLETTER DESTACADO ── */
+    .nl-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px 0; scroll-margin-top: 40px; }
+    .nl-card {
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .nl-body { background: #b8b2a7; padding: 40px 44px; }
+    .nl-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      padding: 0; border: 0; border-radius: 0; margin-bottom: 18px;
+    }
+    .nl-title { font-size: clamp(1.6rem, 2.6vw, 2.3rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 16px; }
+    .nl-desc { font-size: 15px; color: #222; line-height: 1.6; max-width: 440px; margin-bottom: 20px; }
+    .nl-perks { list-style: none; display: flex; flex-direction: column; gap: 7px; }
+    .nl-perks li {
+      align-self: flex-start; background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 6px 15px; font-size: 13px;
+    }
+    .nl-perks li::before { content: '→ '; }
+    .nl-form-side { background: var(--black); color: var(--white); padding: 40px 44px; display: flex; flex-direction: column; justify-content: center; }
+    .nl-form-title { font-size: 22px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+    .nl-form-sub { font-size: 14px; color: #999; line-height: 1.6; margin-bottom: 28px; }
+    .nl-form-side .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .nl-form-side .ml-form-embedBody { padding: 0 !important; }
+    .nl-form-side .ml-form-embedContent { display: none !important; }
+    .nl-form-side .ml-form-formContent { margin: 0 !important; }
+    .nl-form-side .ml-form-fieldRow { margin-bottom: 10px !important; }
+    .nl-form-side .ml-form-fieldRow input {
+      width: 100% !important; box-sizing: border-box !important; font-family: var(--font) !important; font-size: 14px !important;
+      background: transparent !important; color: var(--white) !important;
+      border: 1px solid #444 !important; border-radius: 100px !important; padding: 13px 20px !important; outline: none;
+    }
+    .nl-form-side .ml-form-fieldRow input::placeholder { color: #888; }
+    .nl-form-side .ml-form-fieldRow input:focus { border-color: #2b4c86 !important; }
+    .nl-form-side .ml-form-embedSubmit { margin: 6px 0 0 !important; }
+    .nl-form-side .ml-form-embedSubmit button {
+      width: 100% !important; font-family: var(--font) !important; font-size: 14px !important; font-weight: 600 !important;
+      background: #2b4c86 !important; color: #f4ede3 !important; border: 1px solid #2b4c86 !important;
+      border-radius: 100px !important; padding: 14px 20px !important; cursor: none;
+    }
+    .nl-form-side .ml-form-embedSubmit button:hover { background: var(--white) !important; border-color: var(--white) !important; }
+    .nl-form-side .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 22px !important; font-weight: 400 !important; color: var(--white) !important; margin-bottom: 8px; }
+    .nl-form-side .ml-form-successContent p { font-family: var(--font) !important; font-size: 14px !important; color: #999 !important; }
+    .nl-note { font-size: 12px; color: #777; margin-top: 16px; }
+    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #b8b2a7; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    @media (max-width: 860px) {
+      .nl-section { padding: 64px 16px 0; }
+      .nl-card { grid-template-columns: 1fr; }
+      .nl-body { padding: 36px 24px; }
+      .nl-form-side { padding: 36px 24px; }
+      .nl-perks li { border-radius: 14px; }
+      .blog-empty { padding: 32px 24px; }
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-family: var(--font); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-family: var(--font); font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .we-badge { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 4px; padding: 6px 12px 6px 6px; border: 1px solid var(--light); border-radius: 8px; width: fit-content; font-size: 14px !important; opacity: 1 !important; transition: border-color .2s, background .2s; }
+    .we-badge:hover { border-color: #ccc; background: #fafafa; opacity: 1 !important; }
+    .we-badge-icon { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+    .fi-d3 { transition-delay: .3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-hero { padding: 140px 24px 80px; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .res-section { padding: 72px 16px; }
+      .res-card { grid-template-columns: 1fr; }
+      .res-media { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .res-body { padding: 28px 24px 32px; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      .hero-badge { display: none; }
+      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: .08em;
+    }
+    .lang-btn {
+      text-decoration: none; color: rgba(17,17,17,0.4);
+      transition: color .2s; padding: 2px 4px;
+    }
+    .lang-btn.lang-active { color: #111; font-weight: 500; }
+    .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+  </style>
+  <script src="/nav.js" defer></script>
+  <meta name="description" content="Articles by Ornela Cillo on brand, photography and websites for architecture and interior design studios, with practical advice you can apply today." />
+  <link rel="canonical" href="https://liscreativestudio.com/en/blog" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- hreflang -->
+  <link rel="alternate" hreflang="es" href="https://liscreativestudio.com/blog" />
+  <link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en/blog" />
+  <link rel="alternate" hreflang="x-default" href="https://liscreativestudio.com/blog" />
+  <!-- Open Graph -->
+  <meta property="og:title" content="Blog: brand and web design for architecture studios" />
+  <meta property="og:description" content="Articles by Ornela Cillo on brand, photography and websites for architecture and interior design studios, with practical advice you can apply today." />
+  <meta property="og:url" content="https://liscreativestudio.com/en/blog" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Blog: brand and web design for architecture studios" />
+  <meta name="twitter:description" content="Articles by Ornela Cillo on brand, photography and websites for architecture and interior design studios, with practical advice you can apply today." />
+  <meta name="twitter:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <!-- Sistema visual 2026 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+  <!-- THEME-CSS: copia de theme.css, no editar acá -->
+  <style>
+/* ══════════════════════════════════════════════════════════
+   LIS. Creative Studio · sistema visual 2026 (Planta Libre)
+   Se carga después del CSS de cada página y lo sobreescribe.
+   Crema + tinta + lima, mayúsculas apretadas (Inter Tight)
+   con acentos en cursiva (Instrument Serif), píldoras y óvalos.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #f4ede3;
+  --ink: #1b1a17;
+  --lime: #b8b2a7;   /* (antes lima) acento de texto: hormigón */
+  --orange: #e8693a;
+  --blue: #2b4c86;
+  --stone: #b8b2a7;   /* hormigón · gris neutro */
+  --rule: #1b1a17;
+  --soft: #d8cebf;
+  --black: #1b1a17;
+  --white: #f4ede3;
+  --light: #d8cebf;
+  --gray: #6f6b64;
+  --font-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+  --font-script: 'Instrument Serif', Georgia, serif;
+}
+
+body { background: var(--cream); color: var(--ink); }
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ── Títulos grandes: mayúsculas apretadas ── */
+.hero-title, .page-hero-title, .home-title, .post-title,
+.res-title, .nl-title, .section-title, .includes-title, .cta-title,
+.about-title, .test-title, .svc-name, .modality-title,
+.hero h1, .booking-head h2, .price-amount, .footer-tagline {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: -.045em !important;
+  line-height: .92 !important;
+}
+
+/* Palabra en cursiva dentro de un título */
+.hero-title em, .page-hero-title em, .home-title em, .post-title em,
+.res-title em, .nl-title em, .section-title em, .includes-title em, .cta-title em,
+.about-title em, .test-title em, .svc-name em, .modality-title em,
+.hero h1 em, .booking-head h2 em, .footer-tagline em, .section h2 em {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -.01em;
+}
+
+/* Títulos largos (frases): Inter Tight sin mayúsculas */
+.section h2, .modal-title, .post-body h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.03em !important;
+}
+
+/* Frase destacada: cursiva editorial */
+.callout-text {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.01em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Etiquetas: píldoras con borde fino ── */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker, .footer-social-label, .footer-nl-label {
+  display: inline-block !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 100px !important;
+  padding: 6px 15px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  line-height: 1.4 !important;
+}
+.page-hero .page-hero-label, .page-hero .hero-label { color: var(--lime) !important; }
+
+/* ── Botones ── */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn {
+  border-radius: 100px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+/* ── Encabezados oscuros con foto desenfocada ── */
+.page-hero, #home {
+  background:
+    radial-gradient(55% 75% at 88% 18%, rgba(43, 76, 134, .9) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
+    #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
+}
+.page-hero .hero-x { display: none !important; }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
+.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
+.page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
+.page-hero .post-back { color: #cfc6b8; }
+
+/* ── Tarjetas y bordes ── */
+.res-card, .h-card, .modality-item, .modal-item, .process-step, .step, .flow-item,
+.price-inner, .booking-card, .nl-card {
+  border-color: var(--ink) !important;
+  background-color: transparent;
+}
+.res-card, .h-card { background: var(--cream) !important; }
+.faq-item, .faq-item:nth-child(even) { border-color: var(--soft) !important; background: transparent !important; }
+.faq-item:hover { border-color: var(--ink) !important; }
+
+/* Paneles que antes eran blancos */
+.modal-list li, .modality-features li, .chip, .nl-perks li { background: var(--cream) !important; }
+
+/* Cuadrícula para secciones claras destacadas */
+.grid-paper {
+  background-image: linear-gradient(rgba(27,26,23,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(27,26,23,.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Footer ── */
+footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink) !important; }
+.footer-tagline { color: var(--ink) !important; }
+.footer-tagline-sub { color: var(--ink) !important; }
+.footer-tagline-sub, .footer-tagline em {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -.01em !important;
+}
+.footer-geo-text { font-family: var(--font-display) !important; text-transform: uppercase; letter-spacing: -.04em !important; font-weight: 500 !important; }
+.footer-bottom-grid, .footer-bottom-left { border-color: var(--ink) !important; }
+.footer-ml-wrap .ml-form-fieldRow input { border-radius: 100px !important; border: 1.5px solid var(--ink) !important; padding: 11px 18px !important; }
+.footer-ml-wrap .ml-form-embedSubmit button { border-radius: 100px !important; background: var(--ink) !important; color: var(--cream) !important; }
+.we-badge { border-color: var(--ink) !important; border-radius: 100px !important; }
+
+/* ── Navegación compartida (nav.js) ── */
+#lis-nav.nav-dark #lis-nav-pill { background: rgba(244, 237, 227, .82) !important; border-color: rgba(27, 26, 23, .18) !important; }
+#lis-nav.nav-light #lis-nav-pill { background: rgba(27, 26, 23, .55) !important; }
+#lis-nav-pill a, #lis-nav-pill button.nav-link-btn { border-radius: 100px !important; }
+#lis-nav-pill { border-radius: 100px !important; }
+.nav-dropdown-inner { background: var(--ink) !important; border-radius: 18px !important; }
+
+/* Etiquetas sobre fondos oscuros */
+.includes-section .includes-label, #services .svc-label, #portfolio .portfolio-label { color: var(--lime) !important; }
+
+/* Botón de contacto de la home */
+#contact .cta-btn { background: var(--ink) !important; color: var(--cream) !important; padding: 16px 30px !important; border: 1.5px solid var(--ink) !important; gap: 10px; }
+#contact .cta-btn:hover { background: var(--lime) !important; color: var(--ink) !important; }
+#contact .cta-btn svg { stroke: currentColor; }
+.post-back { display: block !important; width: fit-content; margin-bottom: 26px !important; }
+
+/* Logo del menú en celular: negro sobre las secciones claras */
+#lis-nav-mobile-logo.mobile-logo-dark img { filter: brightness(0) !important; }
+
+/* ══════════════════════════════════════════════════════════
+   Sin píldoras (oct 2026): las etiquetas son texto en mayúscula
+   espaciada sin recuadro, las listas van en renglones con línea
+   fina y los botones y campos tienen esquinas casi rectas.
+══════════════════════════════════════════════════════════ */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.modal-list li, .modal-list li:last-child, .modality-features li, .modality-features li:last-child,
+.nl-perks li, .no-list li {
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 10px 0 !important;
+}
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn, .we-badge,
+#lis-nav-pill, #lis-nav-pill a, #lis-nav-pill button.nav-link-btn,
+.footer-ml-wrap .ml-form-fieldRow input, .footer-ml-wrap .ml-form-embedSubmit button,
+.nl-form-side .ml-form-fieldRow input, .nl-form-side .ml-form-embedSubmit button,
+.res-form input, .res-form .ml-form-fieldRow input, .res-form .ml-form-embedSubmit button {
+  border-radius: 4px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Bloques destacados con luz (oct 2026): fondo tinta con luz azul
+   y naranja como en la dirección creativa, texto en crema.
+   El naranja plano queda solo para los botones de adentro.
+══════════════════════════════════════════════════════════ */
+.callout-inner, .modality-panel, .modal-panel, .booking-head {
+  background:
+    radial-gradient(75% 95% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 85% at 0% 100%, rgba(232, 105, 58, .7) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) *:not(input):not(textarea):not(select) {
+  color: inherit !important;
+  border-color: rgba(244, 237, 227, .28) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(button, .pill-btn, .res-btn, .cta-btn) {
+  background: var(--blue) !important;
+  color: var(--cream) !important;
+  border-color: var(--blue) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(input, textarea, select) {
+  color: var(--ink) !important;
+}
+
+/* Tarjeta de la newsletter: gris neutro, sin luces ni naranja */
+.nl-body { background: var(--stone) !important; color: var(--ink) !important; }
+.nl-body *:not(input):not(textarea):not(select) { color: var(--ink) !important; border-color: rgba(27, 26, 23, .35) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+
+/* Botones: azul con texto crema */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+.res-btn:hover, .pill-btn:hover, .cta-btn:hover, .hero-center-btn:hover, .home-btn:hover, #contact .cta-btn:hover { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Ubicación y año, al pie del footer */
+.footer-legal { display: flex; justify-content: space-between; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--ink); font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+@media (max-width: 768px) { .footer-legal { padding: 16px 24px; flex-direction: column; } }
+.footer-ml-wrap .ml-form-embedSubmit button, .nl-form-side .ml-form-embedSubmit button, .res-form .ml-form-embedSubmit button { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Etiquetas como nota al margen (oct 2026): cursiva, minúscula, sin letras separadas */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon, .footer-legal {
+  font-family: 'Instrument Serif', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; text-transform: none !important; letter-spacing: 0 !important;
+  font-size: 19px !important;
+  line-height: 1.3 !important;
+}
+.footer-legal { font-size: 16px !important; }
+
+/* Cita destacada de los artículos: tinta con luz y cursiva, como el resto de los bloques */
+.post-body blockquote {
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 110% at 0% 100%, rgba(232, 105, 58, .6) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+  font-family: var(--font-script) !important; font-style: italic !important;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem) !important; line-height: 1.25 !important; letter-spacing: -.01em !important;
+  border: 0 !important; border-radius: 18px !important; padding: 36px 40px !important;
+}
+/* Botón del formulario del footer (cada página trae su propio estilo después del theme) */
+footer .footer-ml-wrap .ml-form-embedSubmit button, footer .footer-ml-wrap .ml-form-embedSubmit button.primary { background-color: var(--blue) !important; background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Sin la marca "Nuevo" sobre las tarjetas: era una etiqueta y se pisaba con la portada */
+.res-badge { display: none !important; }
+
+/* Cursor: flechita azul con "(You)", en toda la web; los campos de texto conservan la barrita */
+html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
+body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), body textarea, body [contenteditable] { cursor: text !important; }
+.cursor, .cursor-ring { display: none !important; }
+  </style>
+  <!-- /THEME-CSS -->
+<script defer src="/_vercel/insights/script.js"></script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "https://liscreativestudio.com/en/blog#blog",
+  "name": "LIS. Creative Studio blog",
+  "url": "https://liscreativestudio.com/en/blog",
+  "inLanguage": "en",
+  "author": {
+    "@id": "https://liscreativestudio.com/#ornela"
+  },
+  "publisher": {
+    "@id": "https://liscreativestudio.com/#business"
+  },
+  "blogPost": [
+    {
+      "@type": "BlogPosting",
+      "headline": "What an architecture studio website can do, besides showing your projects",
+      "url": "https://liscreativestudio.com/en/blog/architecture-studio-website",
+      "datePublished": "2026-10-29",
+      "image": "https://liscreativestudio.com/blog/img/web-estudio-arquitectura-og.jpg",
+      "description": "Five tasks an architecture studio website can handle on its own, from filtering enquiries to taking payment for a consultation, and where to start."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Should you rebrand your architecture studio or start from scratch? How to tell",
+      "url": "https://liscreativestudio.com/en/blog/rebrand-or-start-from-scratch",
+      "datePublished": "2026-10-29",
+      "image": "https://liscreativestudio.com/blog/img/redisenar-marca-o-empezar-de-cero-og.jpg",
+      "description": "How to tell whether your studio brand just needs a redesign or a whole new identity, with five questions to decide and what each path includes."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "How to plan the photos of your architecture and interior design projects",
+      "url": "https://liscreativestudio.com/en/blog/architecture-project-photography",
+      "datePublished": "2026-10-29",
+      "image": "https://liscreativestudio.com/blog/img/fotos-de-obra-arquitectura-og.jpg",
+      "description": "Why the photo shoot belongs in your project schedule, how to prepare it before the move-in and what to ask an architectural photographer."
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Your architecture studio is already a brand, even if you never designed it",
+      "url": "https://liscreativestudio.com/en/blog/architecture-studio-brand",
+      "datePublished": "2026-10-29",
+      "image": "https://liscreativestudio.com/blog/img/marca-estudio-de-arquitectura-og.jpg",
+      "description": "Why your architecture studio already has a brand even if you never designed one, how to do the 5-second test and where to start putting it in order."
+    }
+  ]
+}
+  </script>
+</head>
+<body data-nav-theme="dark">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Hamburger button (mobile) -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile overlay -->
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="/en" onclick="closeMenu()">home</a>
+    <a href="/en#about" onclick="closeMenu()">about</a>
+    <div class="mob-sub">
+      <a href="/en/visual-identity" onclick="closeMenu()">Visual Identity</a>
+      <a href="/en/web-design" onclick="closeMenu()">Web Design</a>
+    </div>
+    <a href="/en#portfolio" onclick="closeMenu()">portfolio</a>
+    <a href="/en/blog" onclick="closeMenu()" style="opacity:.45">blog</a>
+    <a href="/en#contact" onclick="closeMenu()">contact</a>
+  </div>
+
+  <!-- ══ HERO ══ -->
+  <div class="page-hero">
+    <div class="hero-x">
+      <svg viewBox="0 0 1440 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <line x1="80"   y1="0" x2="360"  y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="360"  y1="0" x2="80"   y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1160" y1="0" x2="1440" y2="600" stroke="#fff" stroke-width="1.2"/>
+        <line x1="1440" y1="0" x2="1160" y2="600" stroke="#fff" stroke-width="1.2"/>
+      </svg>
+    </div>
+    <div class="page-hero-inner">
+      <div>
+        <h1 class="hero-title fi fi-d1">The blog<br><em>of LIS</em></h1>
+        <p class="hero-desc fi fi-d2">Practical articles on brand, photography and websites for architecture and interior design studios, written from what I see every day working with them.</p>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- ══ ARTÍCULOS ══ -->
+  <section class="res-section">
+    <div class="res-list" id="articulos">
+
+      <article class="res-card fi">
+        <div class="res-body">
+          <span class="res-tag">Identity · 4 min</span>
+          <h2 class="res-title">Your studio is already <em>a brand</em></h2>
+          <p class="res-desc">What your next client sees before getting in touch, how to do the 5-second test with your website or Instagram and where to start putting your brand in order.</p>
+          <a href="/en/blog/architecture-studio-brand" class="res-btn">Read article <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="res-media">
+          <img src="/blog/img/marca-estudio-de-arquitectura-card.jpg" alt="Colonnade of reddish stone columns in perspective" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="res-card fi">
+        <div class="res-body">
+          <span class="res-tag">Photography · 5 min</span>
+          <h2 class="res-title">How to plan the photos <em>of your projects</em></h2>
+          <p class="res-desc">When to take them, photographer or your own photos, what to put in the brief and five things to sort out before the first moving box arrives.</p>
+          <a href="/en/blog/architecture-project-photography" class="res-btn">Read article <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="res-media">
+          <img src="/blog/img/fotos-de-obra-arquitectura-card.jpg" alt="Wooden armchair with blue upholstery next to a side table in a blue room" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="res-card fi">
+        <div class="res-body">
+          <span class="res-tag">Identity · 5 min</span>
+          <h2 class="res-title">Redesign or new brand: <em>how to tell</em></h2>
+          <p class="res-desc">When a redesign is enough for your brand, when it makes sense to start from scratch, and five questions to help you decide without overthinking it.</p>
+          <a href="/en/blog/rebrand-or-start-from-scratch" class="res-btn">Read article <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="res-media">
+          <img src="/blog/img/redisenar-marca-o-empezar-de-cero-card.jpg" alt="Visual identity for Buenas Marcas applied to a T-shirt, designed by LIS" loading="lazy" />
+        </div>
+      </article>
+
+      <article class="res-card fi">
+        <div class="res-body">
+          <span class="res-tag">Web design · 5 min</span>
+          <h2 class="res-title">What your studio website <em>can do</em></h2>
+          <p class="res-desc">Five tasks your website can take care of while you're on site, from filtering enquiries to charging for a consultation, and where it makes sense to start.</p>
+          <a href="/en/blog/architecture-studio-website" class="res-btn">Read article <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="res-media">
+          <img src="/blog/img/web-estudio-arquitectura-card.jpg" alt="Website for Estudio Disegna designed by LIS, with a button to book a call" loading="lazy" />
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
+    </div>
+    <div class="footer-geo">
+      <span class="footer-geo-text">Argentina</span>
+      <div class="footer-geo-img"><img src="/lis-web.webp" alt="LIS" /></div>
+      <span class="footer-geo-text">Worldwide</span>
+    </div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left">
+        <div class="footer-sillon-img"><img src="/sillon-globo.webp" alt="LIS" /></div>
+        <div class="footer-social-block">
+          <p class="footer-social-label">Social media</p>
+          <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Planta Libre · Weekly newsletter (in Spanish)</p>
+        <p style="font-size:13px;line-height:1.5;margin:-6px 0 14px;">Every week in your inbox, plus a free guide (in Spanish) <em>Un estudio que se ve como trabaja</em> for architecture and interior design studios.</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Name" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Join for free</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>You're in!</h4><p>Here's your free guide, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">download it here →</a></p></div></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal"><span>Rosario · Worldwide</span><span>© 2026 LIS. Creative Studio</span></div>
+  </footer>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript" defer></script>
+  <script>
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    const fiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  </script>
+
+</body>
+</html>

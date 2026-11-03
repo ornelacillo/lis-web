@@ -325,6 +325,8 @@
     ['/blog/fotos-de-obra-arquitectura', '/en/blog/architecture-project-photography'],
     ['/blog/redisenar-marca-o-empezar-de-cero', '/en/blog/rebrand-or-start-from-scratch'],
     ['/blog/web-estudio-arquitectura', '/en/blog/architecture-studio-website'],
+    ['/blog/cuanto-cuesta-web-estudio-arquitectura', '/en/blog/architecture-firm-website-cost'],
+    ['/blog/portfolio-estudio-de-arquitectura', '/en/blog/architecture-portfolio-online'],
   ];
 
   function currentPath() {

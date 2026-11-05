@@ -169,6 +169,9 @@
     #lis-nav.nav-dark  .nav-chevron { stroke: #111; }
     .nav-dropdown:hover .nav-chevron { transform: rotate(180deg); opacity: 1; }
 
+    /* Menú viejo que traen algunas páginas (freebies, blog): nav.js dibuja el suyo, así que se oculta para que no haya dos */
+    .nav-hamburger, .nav-mobile-overlay { display: none !important; }
+
     /* ── hamburger button (mobile) ── */
     #lis-nav-hamburger {
       display: none;

@@ -658,6 +658,10 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     .p-buy { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
     .p-card .res-btn.alt { background: transparent; color: var(--black); }
     .p-card .res-btn.alt:hover { background: var(--black); color: var(--white); }
+    .p-thumb { margin: -34px -30px 24px; border-bottom: 1px solid var(--black); border-radius: 17px 17px 0 0; overflow: hidden; aspect-ratio: 4 / 3; }
+    .p-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .p-card.wide.small .p-img { min-height: 300px; }
+    .p-card.wide { margin-bottom: 0; }
     .shop-grid.two { grid-template-columns: repeat(2, 1fr); }
     .p-card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; padding: 0; overflow: hidden; }
     .p-card.wide .p-body { padding: 44px; display: flex; flex-direction: column; }
@@ -677,10 +681,12 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     @media (max-width: 860px) {
       .shop-section, .steps, .why { padding-left: 16px; padding-right: 16px; }
       .shop-note { padding: 0 16px; }
-      .shop-head, .shop-grid, .shop-grid.two, .steps-grid, .why { grid-template-columns: 1fr; gap: 18px; }
-      .p-card.wide { grid-column: auto; grid-template-columns: 1fr; }
+      .shop-head, .shop-grid, .shop-grid.two, .steps-grid, .why { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .p-card, .p-body { min-width: 0; }
+      .p-card.wide { grid-column: auto; grid-template-columns: minmax(0, 1fr); }
       .p-card.wide .p-img { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
       .p-card.wide .p-body { padding: 28px 24px 30px; }
+      .p-thumb { margin: -34px -30px 22px; }
     }
   </style>
 </head>
@@ -712,7 +718,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     <div class="page-hero-inner">
       <div>
         <h1 class="hero-title fi fi-d1">Tienda<br><em>para creativas</em></h1>
-        <p class="hero-desc fi fi-d2">Los contratos, cuestionarios y presupuestos que uso en LIS, listos para que dejes de armar todo de cero con cada cliente.</p>
+        <p class="hero-desc fi fi-d2">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
         <a href="#plantillas" class="hero-nl-link fi fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-img-wrap fi fi-d2">
@@ -732,48 +738,104 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   <section class="shop-section" id="plantillas">
     <div class="shop-head">
       <h2 class="res-title">Plantillas <em>para tu estudio</em></h2>
-      <p>Durante años presupuesté cada proyecto de cero y perseguí clientes que no contestaban. Estos son los documentos que armé para ordenar todo eso, los mismos que uso hoy con mis clientes, en una versión editable para tu estudio.</p>
+      <p>Durante años armé cada documento de cero y expliqué lo mismo en cada proyecto. Estas son las plantillas que diseñé para ordenar todo eso, las mismas que uso hoy con mis clientes, editables en Canva para que les pongas tu marca.</p>
     </div>
-    <div class="shop-grid two">
+    <div class="shop-grid">
         <article class="p-card wide fi">
           <div class="p-body">
             <span class="res-tag">Todo junto</span>
-            <h3 class="res-title">Kit <em>de freelance a estudio</em></h3>
-            <p class="res-desc">Todo lo que ordené en LIS para dejar de trabajar suelta, en un solo paquete y en el orden en que se usa, del primer mensaje al cobro final.</p>
-            <ul class="p-inc"><li>El kit de contratos y el kit para arrancar un proyecto</li><li>Cotizador: la planilla para decidir cuánto cobrar cada proyecto</li><li>Plantilla de paquetes cerrados, con los de LIS como ejemplo</li><li>Una guía de qué mandar y cuándo, paso a paso</li></ul>
+            <h3 class="res-title">Sistema <em>de freelance a estudio</em></h3>
+            <p class="res-desc">Las siete plantillas en el orden en que se usan, del primer presupuesto a la entrega final, para que cada cliente reciba lo mismo y tu estudio se vea como un estudio.</p>
+            <ul class="p-inc"><li>Kit de bienvenida, propuesta y conceptboards</li><li>Entrega de identidad, manual de marca y entrega de web</li><li>Generador de firmas de mail</li><li>Todo editable en Canva, con tu marca</li></ul>
             <div class="p-foot">
-              <p class="p-price">$39.900<small>o USD 49 desde afuera</small></p>
-              <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Kit%20de%20freelance%20a%20estudio&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Kit%20de%20freelance%20a%20estudio.">Avisame <span aria-hidden="true">→</span></a>
+              <p class="p-price"><span class="p-old">$122.300</span>$69.900<small>o USD 89 desde afuera (sueltas, USD 153)</small></p>
+              <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Sistema%20de%20freelance%20a%20estudio&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Sistema%20de%20freelance%20a%20estudio.">Avisame <span aria-hidden="true">→</span></a>
             </div>
           </div>
-          <div class="p-img"><img src="libro_y_celu.webp" alt="Recursos de LIS para diseñadoras" loading="lazy" /></div>
+          <div class="p-img"><img src="img/tienda-sistema.webp" alt="Plantillas del sistema de freelance a estudio" loading="lazy" /></div>
         </article>
         <article class="p-card fi">
-          <span class="res-tag">Contratos</span>
-          <h3 class="res-title">Kit de <em>contratos</em></h3>
-          <p class="res-desc">Los contratos que uso para branding, identidad visual y diseño web, para que todo quede claro desde el principio y no tengas que discutir nada a mitad del proyecto.</p>
-          <ul class="p-inc"><li>Tres contratos editables, en Google Docs y Word</li><li>Entregables, pagos, cancelación y cronograma</li><li>Qué le toca al cliente y qué pasa si no responde</li><li>Propiedad intelectual explicada sin vueltas</li></ul>
+          <div class="p-thumb"><img src="img/tienda-bienvenida.webp" alt="Plantillas de bienvenida, contrato y presupuesto" loading="lazy" /></div>
+          <span class="res-tag">Antes de arrancar</span>
+          <h3 class="res-title">Kit <em>de bienvenida</em></h3>
+          <p class="res-desc">Todo lo que el cliente necesita saber antes del primer día, para que no tengas que explicar lo mismo en cada proyecto.</p>
+          <ul class="p-inc"><li>Documento de bienvenida: etapas, plazos y cómo se trabaja</li><li>Un solo contrato, con módulos para branding, web y otros servicios</li><li>Presupuesto y recibo</li><li>Guía para la reunión inicial</li></ul>
+          <div class="p-foot">
+            <p class="p-price">$24.900<small>o USD 29 desde afuera</small></p>
+            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Kit%20de%20bienvenida&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Kit%20de%20bienvenida.">Avisame <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="p-card fi">
+          <div class="p-thumb"><img src="img/tienda-propuesta.webp" alt="Plantilla de propuesta comercial" loading="lazy" /></div>
+          <span class="res-tag">Para cerrar el sí</span>
+          <h3 class="res-title">Propuesta <em>comercial</em></h3>
+          <p class="res-desc">La propuesta que mando cuando un cliente me pide presupuesto: qué entendí de su proyecto, qué hago, en cuánto tiempo y cuánto sale.</p>
+          <ul class="p-inc"><li>10 páginas en formato presentación</li><li>Lo que me contaste, servicios, proceso y precio</li><li>Lugar para tus proyectos anteriores</li></ul>
           <div class="p-foot">
             <p class="p-price">$14.900<small>o USD 19 desde afuera</small></p>
-          </div>
-          <div class="p-buy">
-            <a class="res-btn" href="/api/comprar-tienda?p=kit-contratos">Comprar en pesos <span aria-hidden="true">→</span></a>
-            <a class="res-btn alt" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Kit%20de%20contratos%20en%20d%C3%B3lares">En dólares <span aria-hidden="true">→</span></a>
+            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Propuesta%20comercial&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Propuesta%20comercial.">Avisame <span aria-hidden="true">→</span></a>
           </div>
         </article>
         <article class="p-card fi">
-          <span class="res-tag">Arranque</span>
-          <h3 class="res-title">Kit para <em>arrancar un proyecto</em></h3>
-          <p class="res-desc">Todo lo que pasa entre que el cliente dice que sí y el primer día de trabajo, para arrancar con la información completa y no a ciegas.</p>
-          <ul class="p-inc"><li>Cuestionarios de marca, web e Instagram, en formularios duplicables</li><li>Guía para buscar el nombre de una marca</li><li>Mensaje de bienvenida para WhatsApp y mail</li><li>Presupuesto en cinco partes y recibo editable</li></ul>
+          <div class="p-thumb"><img src="img/tienda-conceptboards.webp" alt="Plantilla de conceptboards" loading="lazy" /></div>
+          <span class="res-tag">Primera presentación</span>
+          <h3 class="res-title">Concept <em>boards</em></h3>
+          <p class="res-desc">Para mostrar dos caminos de marca antes de diseñar el logo, así el cliente elige una dirección y no un dibujo.</p>
+          <ul class="p-inc"><li>14 páginas para dos conceptos</li><li>Nombre, idea, paleta, tipografías y referencias</li><li>Página para que el cliente elija</li></ul>
           <div class="p-foot">
-            <p class="p-price">$19.900<small>o USD 27 desde afuera</small></p>
-            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Kit%20para%20arrancar%20un%20proyecto&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Kit%20para%20arrancar%20un%20proyecto.">Avisame <span aria-hidden="true">→</span></a>
+            <p class="p-price">$14.900<small>o USD 19 desde afuera</small></p>
+            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Conceptboards&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Conceptboards.">Avisame <span aria-hidden="true">→</span></a>
           </div>
+        </article>
+        <article class="p-card fi">
+          <div class="p-thumb"><img src="img/tienda-entrega-identidad.webp" alt="Plantilla de entrega de identidad" loading="lazy" /></div>
+          <span class="res-tag">Entrega de marca</span>
+          <h3 class="res-title">Entrega <em>de identidad</em></h3>
+          <p class="res-desc">El documento que acompaña los archivos finales y le explica al cliente qué recibió y cómo usar cada cosa.</p>
+          <ul class="p-inc"><li>10 páginas</li><li>Qué hay en la carpeta y para qué sirve cada archivo</li><li>SVG, PNG y PDF explicados sin vueltas</li></ul>
+          <div class="p-foot">
+            <p class="p-price">$14.900<small>o USD 19 desde afuera</small></p>
+            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Entrega%20de%20identidad&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Entrega%20de%20identidad.">Avisame <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="p-card fi">
+          <div class="p-thumb"><img src="img/tienda-manual.webp" alt="Plantilla de manual de marca" loading="lazy" /></div>
+          <span class="res-tag">El más completo</span>
+          <h3 class="res-title">Manual <em>de marca</em></h3>
+          <p class="res-desc">El manual que armo para cada marca, con las ocho partes de siempre, listo para cambiar fotos, colores y textos.</p>
+          <ul class="p-inc"><li>30 páginas</li><li>Esencia, logo, color, tipografía, voz, fotografía y aplicaciones</li><li>Usos correctos e incorrectos del logo</li></ul>
+          <div class="p-foot">
+            <p class="p-price">$29.900<small>o USD 39 desde afuera</small></p>
+            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Manual%20de%20marca&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Manual%20de%20marca.">Avisame <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="p-card fi">
+          <div class="p-thumb"><img src="img/tienda-entrega-web.webp" alt="Plantilla de entrega de web" loading="lazy" /></div>
+          <span class="res-tag">Entrega de web</span>
+          <h3 class="res-title">Entrega <em>de web</em></h3>
+          <p class="res-desc">Para cerrar un proyecto web en orden: qué tiene la web, dónde está todo y cómo la cuida el cliente.</p>
+          <ul class="p-inc"><li>12 páginas</li><li>La web en una página: hosting, dominio y mails</li><li>Accesos y un manual simple para editar</li></ul>
+          <div class="p-foot">
+            <p class="p-price">$14.900<small>o USD 19 desde afuera</small></p>
+            <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Entrega%20de%20web&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Entrega%20de%20web.">Avisame <span aria-hidden="true">→</span></a>
+          </div>
+        </article>
+        <article class="p-card wide small fi">
+          <div class="p-body">
+            <span class="res-tag">Para empezar</span>
+            <h3 class="res-title">Firmas <em>de mail</em></h3>
+            <p class="res-desc">Un generador que se abre en el navegador: completás tus datos, elegís uno de los tres estilos y la copiás en Gmail, Outlook o Apple Mail, con los links funcionando.</p>
+            <ul class="p-inc"><li>Tres estilos: con línea, apilada y mínima</li><li>Tu foto o logo y tu color</li><li>Paso a paso para cada programa de mail</li></ul>
+            <div class="p-foot">
+              <p class="p-price">$7.900<small>o USD 9 desde afuera</small></p>
+              <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Firmas%20de%20mail&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Firmas%20de%20mail.">Avisame <span aria-hidden="true">→</span></a>
+            </div>
+          </div>
+          <div class="p-img"><img src="img/tienda-firmas.webp" alt="Generador de firmas de mail" loading="lazy" /></div>
         </article>
     </div>
   </section>
-  <p class="shop-note">El <strong>Kit de contratos</strong> ya está disponible: lo pagás y lo descargás al instante. Los otros dos kits abren muy pronto, así que tocá <strong>Avisame</strong> y te escribo apenas estén, con un 30% de descuento la primera semana. Los contratos son una base para adaptar a tu trabajo y a tu país: antes de usarlos, conviene que los revise un abogado o una abogada.</p>
+  <p class="shop-note">Las plantillas se editan en <strong>Canva</strong>, con una cuenta gratis alcanza: al comprar recibís el link para hacer tu copia. Abren muy pronto, así que tocá <strong>Avisame</strong> y te escribo apenas estén, con un 30% de descuento la primera semana. El contrato es una base para adaptar a tu trabajo y a tu país: antes de usarlo, conviene que lo revise un abogado o una abogada.</p>
 
   <!-- ══ GRATIS Y PRÓXIMAMENTE ══ -->
   <section class="steps">

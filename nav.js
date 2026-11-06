@@ -378,7 +378,7 @@
         { label: 'about',     href: '/#about' },
         { label: 'services',  href: '/#services', dropdown: true },
         { label: 'portfolio', href: '/#portfolio' },
-        { label: 'freebies',  href: '/freebies' },
+        { label: 'tienda',    href: '/tienda' },
         { label: 'blog',      href: '/blog' },
         { label: 'contact',   href: '/#contact', cta: true },
       ],

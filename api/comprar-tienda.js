@@ -1,7 +1,7 @@
 // Tienda de LIS: crea el pago en pesos en Mercado Pago (Checkout Pro) y manda a la persona a pagar.
 // Al aprobarse el pago, Mercado Pago la devuelve sola a la página de gracias con la descarga.
 // Mismo circuito que Peque (api/comprar.js). La credencial va en Vercel como MP_ACCESS_TOKEN.
-// Uso: /api/comprar-tienda?p=kit-contratos
+// Uso: /api/comprar-tienda?p=kit-contratos · /api/comprar-tienda?p=masterclass-ia
 const SITIO = "https://liscreativestudio.com";
 
 const PRODUCTOS = {
@@ -9,6 +9,13 @@ const PRODUCTOS = {
     title: "Kit de contratos para diseñadoras · LIS. Creative Studio",
     unit_price: 14900,
     gracias: "/tienda-gracias-8e4c5f5d4f?p=kit-contratos",
+  },
+  // Masterclass 01 en vivo, jueves 3/12/2026 a las 10 h (Argentina). Preventa.
+  "masterclass-ia": {
+    title: "Masterclass Así usamos la IA en LIS · 3/12 · LIS. Creative Studio",
+    unit_price: 29900,
+    gracias: "/masterclass-ia-reserva-3f9a1c7e2b",
+    volver: "/tienda#masterclases",
   },
 };
 
@@ -29,11 +36,11 @@ export default async function handler(req, res) {
         items: [{ id, title: prod.title, quantity: 1, unit_price: prod.unit_price, currency_id: "ARS" }],
         back_urls: {
           success: `${SITIO}${prod.gracias}`,
-          pending: `${SITIO}/tienda#plantillas`,
-          failure: `${SITIO}/tienda#plantillas`,
+          pending: `${SITIO}${prod.volver || "/tienda#plantillas"}`,
+          failure: `${SITIO}${prod.volver || "/tienda#plantillas"}`,
         },
         auto_return: "approved",
-        // Sin efectivo (Rapipago, Pago Fácil): así la descarga es siempre inmediata
+        // Sin efectivo (Rapipago, Pago Fácil): así la descarga o la reserva es siempre inmediata
         payment_methods: { excluded_payment_types: [{ id: "ticket" }, { id: "atm" }] },
         statement_descriptor: "LIS STUDIO",
       }),

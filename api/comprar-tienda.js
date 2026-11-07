@@ -92,6 +92,9 @@ export default async function handler(req, res) {
         // Sin efectivo (Rapipago, Pago Fácil): así la descarga o la reserva es siempre inmediata
         payment_methods: { excluded_payment_types: [{ id: "ticket" }, { id: "atm" }] },
         statement_descriptor: "LIS STUDIO",
+        // Para el mail automático: Mercado Pago avisa a api/mp-webhook.js y ahí se sabe qué producto fue
+        external_reference: id,
+        notification_url: `${SITIO}/api/mp-webhook?source_news=webhooks`,
       }),
     });
     const data = await r.json();

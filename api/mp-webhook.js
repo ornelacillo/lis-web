@@ -47,6 +47,12 @@ export default async function handler(req, res) {
   const ok = () => { res.statusCode = 200; res.end("ok"); };
   try {
     const url = new URL(req.url, "https://liscreativestudio.com");
+    // Chequeo de configuración (no muestra ninguna clave): /api/mp-webhook?check=1
+    if (url.searchParams.get("check") === "1") {
+      const estado = { mercadopago: !!process.env.MP_ACCESS_TOKEN, mailerlite: !!process.env.MAILERLITE_API_KEY, grupo: false };
+      try { estado.grupo = !!(await grupoId(GRUPO)); } catch (e) { estado.error = e.message; }
+      res.setHeader("Content-Type", "application/json"); res.statusCode = 200; res.end(JSON.stringify(estado)); return;
+    }
     let body = req.body;
     if (typeof body === "string") { try { body = JSON.parse(body); } catch { body = {}; } }
     body = body || {};
@@ -78,6 +84,6 @@ export default async function handler(req, res) {
     return ok();
   } catch (err) {
     console.error("mp-webhook:", err.message);
-    res.statusCode = 500; res.end("error"); // Mercado Pago reintenta más tarde
+    res.statusCode = 500; res.end("error: " + err.message); // Mercado Pago reintenta más tarde
   }
 }

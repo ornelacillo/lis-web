@@ -670,10 +670,12 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     .p-old { font-size: 14px; color: #888; text-decoration: line-through; margin-right: 8px; font-family: 'Inter', sans-serif; letter-spacing: 0; }
     .shop-note { max-width: 1100px; margin: 26px auto 0; padding: 0 60px; font-size: 13.5px; color: #777; line-height: 1.6; }
     .steps { max-width: 1100px; margin: 0 auto; padding: 90px 60px 30px; }
+    .steps-grid.two { grid-template-columns: repeat(2, 1fr) !important; }
+    .mc-section { padding-top: 70px; }
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
     .step-card { border: 1px dashed var(--black); border-radius: 18px; padding: 30px; display: flex; flex-direction: column; }
     .step-card .res-title { font-size: clamp(1.3rem, 1.9vw, 1.6rem); }
-    .step-card a { margin-top: auto; }
+    .step-card a { margin-top: auto; align-self: flex-start; }
     .why { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .why div { border-top: 1px solid var(--black); padding-top: 18px; }
     .why b { display: block; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -.05em; line-height: 1; margin-bottom: 8px; }
@@ -681,6 +683,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     @media (max-width: 860px) {
       .shop-section, .steps, .why { padding-left: 16px; padding-right: 16px; }
       .shop-note { padding: 0 16px; }
+      .steps-grid.two { grid-template-columns: minmax(0, 1fr) !important; }
       .shop-head, .shop-grid, .shop-grid.two, .steps-grid, .why { grid-template-columns: minmax(0, 1fr); gap: 18px; }
       .p-card, .p-body { min-width: 0; }
       .p-card.wide { grid-column: auto; grid-template-columns: minmax(0, 1fr); }
@@ -853,21 +856,42 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   </section>
   <p class="shop-note">Las plantillas se editan en <strong>Canva</strong>, con una cuenta gratis alcanza: al comprar recibís el link para hacer tu copia. Abren muy pronto, así que tocá <strong>Avisame</strong> y te escribo apenas estén, con un 30% de descuento la primera semana. El contrato es una base para adaptar a tu trabajo y a tu país: antes de usarlo, conviene que lo revise un abogado o una abogada.</p>
 
+
+  <!-- ══ MASTERCLASES ══ -->
+  <section class="shop-section mc-section" id="masterclases">
+    <div class="shop-head">
+      <h2 class="res-title">Masterclases <em>de freelance a estudio</em></h2>
+      <p>Cada masterclass es una parte del programa en una sola clase: un tema, cómo lo resolví en LIS y lo que podés aplicar al día siguiente. Se hacen en vivo por Zoom y después quedan grabadas.</p>
+    </div>
+    <div class="shop-grid two">
+      <article class="p-card fi">
+        <span class="res-tag">01 · Preventa</span>
+        <h3 class="res-title">Así usamos la IA <em>en LIS</em></h3>
+        <p class="res-desc"><em>(y dónde no la dejamos entrar)</em>. Cómo trabajo con IA para que un estudio chico funcione como uno grande, sin que el diseño pierda tu mirada.</p>
+        <ul class="p-inc"><li>Qué le pasás a la IA y qué sigue siendo tuyo</li><li>De una plantilla a un sistema: cómo armé esta tienda</li><li>Propuestas, mails y portal de clientes sin perder la semana</li><li>Qué decirle al cliente, y qué no</li><li>En vivo por Zoom, 75 minutos, con la grabación</li></ul>
+        <div class="p-foot">
+          <p class="p-price">$29.900<small>o USD 39 desde afuera · precio de preventa</small></p>
+          <a class="res-btn" href="mailto:hello@liscreativestudio.com?subject=Masterclass%20%C2%B7%20As%C3%AD%20usamos%20la%20IA%20en%20LIS&body=Hola%20Orne%2C%20quiero%20reservar%20mi%20lugar%20en%20la%20masterclass%20As%C3%AD%20usamos%20la%20IA%20en%20LIS.">Reservá tu lugar <span aria-hidden="true">→</span></a>
+        </div>
+      </article>
+      <article class="step-card fi">
+        <span class="res-tag">02 · Próximamente</span>
+        <h3 class="res-title">Paquetes <em>cerrados</em></h3>
+        <p class="res-desc">Cómo pasar de presupuestar cada proyecto de cero a tener paquetes con alcance, plazos y precio, y salir con la página lista para tu web.</p>
+        <a href="mailto:hello@liscreativestudio.com?subject=Masterclass%20%C2%B7%20Paquetes%20cerrados&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20abra%20la%20masterclass%20Paquetes%20cerrados." class="res-btn" style="text-decoration:none">Avisame <span aria-hidden="true">→</span></a>
+      </article>
+    </div>
+  </section>
+
   <!-- ══ GRATIS Y PRÓXIMAMENTE ══ -->
   <section class="steps">
     <h2 class="res-title">Para empezar <em>y para seguir</em></h2>
-    <div class="steps-grid">
+    <div class="steps-grid two">
       <article class="step-card fi">
         <span class="res-tag">Gratis</span>
         <h3 class="res-title">8 semanas <em>con estudios</em></h3>
         <p class="res-desc">Mi proceso para diseñar la marca y la web de un estudio, etapa por etapa, con el error que más veo en cada una.</p>
         <a href="/guia-disenadoras" class="res-btn" style="text-decoration:none">Quiero la guía <span aria-hidden="true">→</span></a>
-      </article>
-      <article class="step-card fi">
-        <span class="res-tag">Próximamente</span>
-        <h3 class="res-title">Workshop <em>paquetes cerrados</em></h3>
-        <p class="res-desc">Unas horas en vivo para armar tus propios paquetes, con alcance, plazos y precio, y salir con la página lista para tu web.</p>
-        <a href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Workshop%20paquetes%20cerrados&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Workshop%20paquetes%20cerrados." class="res-btn" style="text-decoration:none">Lista de espera <span aria-hidden="true">→</span></a>
       </article>
       <article class="step-card fi">
         <span class="res-tag">Próximamente</span>

@@ -21,7 +21,7 @@
 - /identidad-visual — Identidad Visual
 - /web — Diseño Web
 - /paquetes — Paquetes para estudios de arquitectura: Obra nueva (identidad + web en 8 semanas, $1.249.000 o USD 2.390) y Refacción (web nueva con la marca existente en 5 semanas, $749.000 o USD 1.390)
-- /tienda — Tienda para diseñadores y creativos: plantillas editables en Canva (kit de bienvenida con contrato, propuesta, conceptboards, entrega de identidad, manual de marca, entrega de web, firmas de mail) y el Sistema de freelance a estudio con todas juntas
+- /tienda — Tienda para diseñadores y creativos: plantillas editables en Canva (kit de bienvenida con contrato, propuesta, conceptboards, entrega de identidad, manual de marca, entrega de web, firmas de mail) , el Sistema de freelance a estudio con todas juntas y masterclases en vivo (01: Así usamos la IA en LIS, en preventa; 02: Paquetes cerrados, próximamente)
 - /freebies — Recursos gratuitos
 - /blog — Blog: artículos semanales sobre diseño, identidad y presencia digital
 

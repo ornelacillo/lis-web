@@ -31,7 +31,8 @@
   .card img { width: 100%; height: 100%; object-fit: cover; display: block; border-right: 1px solid var(--ink); }
   .card .body { padding: 28px; display: flex; flex-direction: column; gap: 12px; }
   .card h2 { font-family: 'Inter Tight', sans-serif; font-weight: 500; font-size: 22px; letter-spacing: -.03em; text-transform: uppercase; line-height: 1; }
-  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--cream); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 14px 22px; border-radius: 100px; }
+  .btns { display: flex; flex-direction: column; gap: 8px; }
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; background: var(--blue); color: var(--cream); text-decoration: none; font-size: 13px; font-weight: 600; letter-spacing: .06em; text-transform: uppercase; padding: 14px 22px; border-radius: 4px; }
   .btn.alt { background: transparent; color: var(--ink); border: 1px solid var(--ink); }
   .steps { margin-top: 40px; border-top: 1px solid var(--ink); }
   .steps li { list-style: none; display: grid; grid-template-columns: 48px 1fr; gap: 12px; padding: 18px 0; border-bottom: 1px solid #d8cebf; font-size: 16px; line-height: 1.55; color: #3a3732; }
@@ -46,35 +47,43 @@
   <div class="top"><a href="/"><img src="/Branding_2026_logo_blanco_sin_fondo.png" alt="LIS." /></a></div>
   <main>
     <h1>¡Gracias <em>por tu compra!</em></h1>
-    <p class="lead" id="lead">Acá tenés tu kit. Descargalo ahora y guardalo en tu compu, porque esta página es solo para vos.</p>
-
+    <p class="lead" id="lead">Acá tenés tus plantillas. Abrilas en Canva y descargá el PDF de entrega, porque esta página es solo para vos.</p>
     <div class="card">
-      <img id="img" src="/img/tienda-kit-contratos.webp" alt="Kit de contratos de LIS. Creative Studio" />
+      <img id="img" src="" alt="" />
       <div class="body">
-        <h2 id="nombre">Kit de contratos</h2>
-        <p style="font-size:15px;line-height:1.55;color:#3a3732" id="detalle">Tres contratos en Word (branding, identidad visual y diseño web) y la guía de uso en PDF.</p>
-        <a class="btn" id="zip" href="/descargas/tienda-8e4c5f5d4f/kit-de-contratos-lis.zip" download>Descargar el kit (ZIP) ↓</a>
-        <a class="btn alt" id="pdf" href="/descargas/tienda-8e4c5f5d4f/kit-de-contratos-guia.pdf" download>Solo la guía (PDF) ↓</a>
+        <h2 id="nombre"></h2>
+        <div class="btns" id="btns"></div>
       </div>
     </div>
-
-    <ol class="steps">
-      <li><span>01</span><div><b>Abrí primero la guía.</b> Te cuento qué contrato usar según el proyecto y cómo completarlo.</div></li>
-      <li><span>02</span><div><b>Completá lo amarillo.</b> Todo lo que está entre corchetes es tuyo: plazos, rondas, porcentajes y datos.</div></li>
-      <li><span>03</span><div><b>¿Usás Google Docs?</b> Subí el archivo a Drive y elegí Abrir con → Documentos de Google.</div></li>
+    <ol class="steps" id="pasos">
+      <li><span>01</span><div><b>Tocá "Abrir en Canva" y después "Usar plantilla".</b> Se crea una copia tuya y el original no se toca. Con una cuenta gratis de Canva alcanza.</div></li>
+      <li><span>02</span><div><b>Completá lo que está entre [corchetes]</b> y ponele tu marca: colores, tipografías y fotos.</div></li>
+      <li><span>03</span><div><b>Guardá el PDF de entrega</b>, que tiene todos los enlaces, por si cerrás esta página.</div></li>
     </ol>
-
-    <p class="note">¿No se descargó o te queda alguna duda? Escribime a <a href="mailto:hello@liscreativestudio.com">hello@liscreativestudio.com</a> y te lo mando por mail. Orne</p>
+    <p class="note">¿Algo no abre o te queda alguna duda? Escribime a <a href="mailto:hello@liscreativestudio.com">hello@liscreativestudio.com</a> y te lo mando por mail. Orne</p>
   </main>
 <script>
-  // Producto comprado (?p=…). Por ahora solo el Kit de contratos; los próximos se suman acá.
+  // Lo arma tienda/entregas/hacer-entregas.py (enlaces de plantilla de Canva y PDF de entrega de cada producto)
+  var PRODUCTOS = {"kit-bienvenida": {"nombre": "Kit de bienvenida", "precio": 24900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-kit-bienvenida.pdf", "links": [["Bienvenida", "https://canva.link/d6ksnii88ib5eeu"], ["Contrato", "https://canva.link/fof5hn6dafu7i34"], ["Presupuesto y recibo", "https://canva.link/0kunpbi86lwcf4l"], ["Reunión inicial", "https://canva.link/k6y2z4suinj3p5u"]], "firmas": null, "img": "/img/tienda-bienvenida.webp"}, "propuesta": {"nombre": "Propuesta comercial", "precio": 14900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-propuesta.pdf", "links": [["Propuesta comercial", "https://canva.link/8klmuigv80hxawz"]], "firmas": null, "img": "/img/tienda-propuesta.webp"}, "conceptboards": {"nombre": "Conceptboards", "precio": 14900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-conceptboards.pdf", "links": [["Conceptboards", "https://canva.link/p4sun6urtkozvfx"]], "firmas": null, "img": "/img/tienda-conceptboards.webp"}, "entrega-identidad": {"nombre": "Entrega de identidad", "precio": 14900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-entrega-identidad.pdf", "links": [["Entrega de identidad", "https://canva.link/w0b4rlcz3aanckg"]], "firmas": null, "img": "/img/tienda-entrega-identidad.webp"}, "manual-de-marca": {"nombre": "Manual de marca", "precio": 29900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-manual-de-marca.pdf", "links": [["Manual de marca", "https://canva.link/tk17cphk494dmp4"]], "firmas": null, "img": "/img/tienda-manual.webp"}, "entrega-web": {"nombre": "Entrega de web", "precio": 14900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-entrega-web.pdf", "links": [["Entrega de web", "https://canva.link/wh20bybw98wphux"]], "firmas": null, "img": "/img/tienda-entrega-web.webp"}, "firmas": {"nombre": "Firmas de mail", "precio": 7900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-firmas.pdf", "links": [], "firmas": "/descargas/tienda-8e4c5f5d4f/generador-firmas-lis.html", "img": "/img/tienda-firmas.webp"}, "sistema": {"nombre": "Sistema de freelance a estudio", "precio": 49900, "pdf": "/descargas/tienda-8e4c5f5d4f/entrega-sistema.pdf", "links": [["Bienvenida", "https://canva.link/d6ksnii88ib5eeu"], ["Contrato", "https://canva.link/fof5hn6dafu7i34"], ["Presupuesto y recibo", "https://canva.link/0kunpbi86lwcf4l"], ["Reunión inicial", "https://canva.link/k6y2z4suinj3p5u"], ["Propuesta comercial", "https://canva.link/8klmuigv80hxawz"], ["Conceptboards", "https://canva.link/p4sun6urtkozvfx"], ["Entrega de identidad", "https://canva.link/w0b4rlcz3aanckg"], ["Manual de marca", "https://canva.link/tk17cphk494dmp4"], ["Entrega de web", "https://canva.link/wh20bybw98wphux"]], "firmas": "/descargas/tienda-8e4c5f5d4f/generador-firmas-lis.html", "img": "/img/tienda-sistema.webp"}, "kit-contratos": {"nombre": "Kit de contratos", "precio": 14900, "img": "/img/tienda-kit-contratos.webp", "zip": "/descargas/tienda-8e4c5f5d4f/kit-de-contratos-lis.zip", "pdf": "/descargas/tienda-8e4c5f5d4f/kit-de-contratos-guia.pdf", "links": [], "firmas": null}};
   (function () {
-    var PRODUCTOS = { 'kit-contratos': { nombre: 'Kit de contratos', valor: 14900 } };
-    var p = new URLSearchParams(location.search).get('p') || 'kit-contratos';
-    var prod = PRODUCTOS[p] || PRODUCTOS['kit-contratos'];
-    var key = 'lis-compra-' + p + '-' + (new URLSearchParams(location.search).get('payment_id') || '');
+    var q = new URLSearchParams(location.search), p = q.get('p');
+    var prod = PRODUCTOS[p] || PRODUCTOS['sistema'];
+    document.getElementById('nombre').textContent = prod.nombre;
+    document.getElementById('img').src = prod.img; document.getElementById('img').alt = prod.nombre + ' de LIS. Creative Studio';
+    var b = document.getElementById('btns');
+    function boton(txt, href, alt, desc) {
+      var a = document.createElement('a'); a.className = 'btn' + (alt ? ' alt' : ''); a.href = href; a.textContent = txt;
+      if (desc) a.setAttribute('download', ''); else { a.target = '_blank'; a.rel = 'noopener'; }
+      b.appendChild(a);
+    }
+    prod.links.forEach(function (l) { boton('Abrir en Canva · ' + l[0], l[1]); });
+    if (prod.firmas) boton('Descargar el generador de firmas', prod.firmas, true, true);
+    if (prod.zip) { boton('Descargar el kit (ZIP)', prod.zip, false, true); document.getElementById('pasos').style.display = 'none'; document.getElementById('lead').textContent = 'Acá tenés tu kit. Descargalo ahora y guardalo en tu compu, porque esta página es solo para vos.'; }
+    boton(prod.zip ? 'Solo la guía (PDF)' : 'Descargar el PDF de entrega', prod.pdf, true, true);
+    if (!prod.links.length && prod.firmas) document.getElementById('lead').textContent = 'Acá tenés tu generador de firmas. Descargalo y abrilo con doble clic, y guardá también el PDF de entrega.';
+    var key = 'lis-compra-' + p + '-' + (q.get('payment_id') || '');
     try { if (localStorage.getItem(key) === '1') return; localStorage.setItem(key, '1'); } catch (e) {}
-    gtag('event', 'purchase', { value: prod.valor, currency: 'ARS', items: [{ item_name: prod.nombre, price: prod.valor }] });
+    gtag('event', 'purchase', { value: prod.precio, currency: 'ARS', items: [{ item_name: prod.nombre, price: prod.precio }] });
   })();
 </script>
 </body>

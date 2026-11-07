@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Generador de firmas de mail · LIS. Creative Studio</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Inter+Tight:wght@500;600;800&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+  /* Generador de firmas (tienda LIS, 6/11/2026). Se abre en el navegador, sin internet también (salvo las imágenes).
+     La firma se arma con tablas y estilos en línea, que es lo que leen bien Gmail, Outlook y Apple Mail. */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root { --ink: #111111; --cream: #f5f1e8; --paper: #ebe5d8; --sand: #d9d2c3; --gray: #6f6b64; --blue: #2e54a0; }
+  body { background: var(--cream); color: var(--ink); font-family: Inter, Arial, sans-serif; }
+  header { padding: 56px 40px 30px; max-width: 1200px; margin: 0 auto; }
+  h1 { font-family: 'Inter Tight', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: -.05em; line-height: .9; font-size: clamp(40px, 6vw, 72px); }
+  h1 em, h2 em { font-family: 'Instrument Serif', serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.01em; }
+  header p { margin-top: 16px; font-size: 17px; line-height: 1.55; max-width: 640px; color: #3a3732; }
+  main { max-width: 1200px; margin: 0 auto; padding: 0 40px 60px; display: grid; grid-template-columns: 380px 1fr; gap: 40px; align-items: start; }
+  form { background: #fff; border: 1px solid var(--sand); border-radius: 16px; padding: 26px; display: grid; gap: 14px; }
+  label { font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); display: grid; gap: 6px; }
+  label { min-width: 0; }
+  input, select { width: 100%; min-width: 0; font: 400 15px Inter, sans-serif; color: var(--ink); padding: 11px 13px; border: 1px solid var(--sand); border-radius: 9px; background: #fff; text-transform: none; letter-spacing: 0; }
+  input:focus, select:focus { outline: 2px solid var(--blue); border-color: transparent; }
+  .row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  .hint { font-size: 12px; font-weight: 400; letter-spacing: 0; text-transform: none; color: var(--gray); line-height: 1.4; }
+  .preview { position: sticky; top: 20px; }
+  .styles { display: flex; gap: 8px; margin-bottom: 14px; flex-wrap: wrap; }
+  .styles button { font: 500 14px Inter, sans-serif; padding: 10px 16px; border-radius: 100px; border: 1px solid var(--ink); background: transparent; color: var(--ink); cursor: pointer; }
+  .styles button.on { background: var(--ink); color: var(--cream); }
+  .mail { background: #fff; border: 1px solid var(--sand); border-radius: 16px; padding: 30px; }
+  .mail .fake { font-size: 15px; color: #3a3732; line-height: 1.6; margin-bottom: 22px; }
+  .copy { margin-top: 16px; display: flex; gap: 14px; align-items: center; }
+  .copy button { font: 600 14px Inter, sans-serif; letter-spacing: .06em; text-transform: uppercase; background: var(--blue); color: var(--cream); border: 0; border-radius: 100px; padding: 15px 26px; cursor: pointer; }
+  #ok { font-size: 14px; color: var(--blue); opacity: 0; transition: opacity .3s; }
+  .how { max-width: 1200px; margin: 0 auto; padding: 10px 40px 80px; }
+  .how h2 { font-family: 'Inter Tight', sans-serif; font-weight: 500; text-transform: uppercase; letter-spacing: -.045em; font-size: 44px; line-height: .95; margin-bottom: 26px; }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card { background: #fff; border: 1px solid var(--sand); border-radius: 16px; padding: 24px; }
+  .card h3 { font-family: 'Inter Tight', sans-serif; font-weight: 600; text-transform: uppercase; font-size: 18px; margin-bottom: 12px; }
+  .card ol { margin-left: 18px; font-size: 14.5px; line-height: 1.6; }
+  .card li { margin-bottom: 6px; }
+  .note { margin-top: 18px; font-size: 14px; color: var(--gray); line-height: 1.6; }
+  footer { text-align: center; font-size: 13px; color: var(--gray); padding: 0 0 40px; }
+  @media (max-width: 860px) { main { grid-template-columns: 1fr; padding: 0 16px 40px; } header, .how { padding-left: 16px; padding-right: 16px; } .cards { grid-template-columns: 1fr; } .preview { position: static; } }
+</style>
+</head>
+<body>
+<header>
+  <h1>Tu firma <em>de mail</em></h1>
+  <p>Completá tus datos, elegí un estilo y tocá <b>Copiar firma</b>. Después la pegás en Gmail, Outlook o Apple Mail siguiendo los pasos de abajo. Se ve igual en la compu y en el celu.</p>
+</header>
+
+<main>
+  <form id="f" autocomplete="off">
+    <label>Nombre<input name="nombre" value="Ana Pérez"></label>
+    <label>Rol o frase<input name="rol" value="Diseñadora y fundadora de Estudio Ejemplo"></label>
+    <div class="row">
+      <label>Mail<input name="mail" value="hola@estudioejemplo.com"></label>
+      <label>WhatsApp<input name="tel" value="+54 9 11 0000 0000"></label>
+    </div>
+    <label>Web<input name="web" value="estudioejemplo.com"></label>
+    <label>Instagram (usuario, sin @)<input name="ig" value="estudioejemplo"></label>
+    <div class="row">
+      <label>Link extra (texto)<input name="extraTxt" value="Mi newsletter"></label>
+      <label>Link extra (dirección)<input name="extraUrl" value="estudioejemplo.com/newsletter"></label>
+    </div>
+    <label>Foto o logo (link a la imagen)
+      <input name="img" value="">
+      <span class="hint">Pegá el link de una imagen que ya esté en internet, por ejemplo en tu web. Las fotos de Google Drive no se ven en los mails. Si lo dejás vacío, la firma va sin imagen.</span>
+    </label>
+    <div class="row">
+      <label>Color de acento<input name="color" type="color" value="#2e54a0" style="height:44px; padding:4px"></label>
+      <label>Tipo de imagen<select name="forma"><option value="circulo">Foto redonda</option><option value="logo">Logo</option></select></label>
+    </div>
+  </form>
+
+  <div class="preview">
+    <div class="styles" id="styles">
+      <button type="button" data-s="linea" class="on">Con línea</button>
+      <button type="button" data-s="apilada">Apilada</button>
+      <button type="button" data-s="minima">Mínima</button>
+    </div>
+    <div class="mail">
+      <p class="fake">Hola, ¿cómo va? Te paso la propuesta así la vemos con calma, cualquier cosa me escribís.</p>
+      <div id="firma"></div>
+    </div>
+    <div class="copy"><button type="button" id="copiar">Copiar firma</button><span id="ok">¡Copiada! Ahora pegala en tu mail.</span></div>
+  </div>
+</main>
+
+<section class="how">
+  <h2>Cómo <em>instalarla</em></h2>
+  <div class="cards">
+    <div class="card"><h3>Gmail</h3><ol>
+      <li>Tocá la rueda de arriba a la derecha → <b>Ver todos los ajustes</b>.</li>
+      <li>En <b>General</b>, bajá hasta <b>Firma</b> y tocá <b>Crear nueva</b>.</li>
+      <li>Hacé clic en el recuadro y pegá con <b>Cmd + V</b> (o Ctrl + V).</li>
+      <li>En <b>Opciones predeterminadas</b>, elegila para mails nuevos y respuestas.</li>
+      <li>Bajá de todo y tocá <b>Guardar cambios</b>.</li></ol></div>
+    <div class="card"><h3>Outlook</h3><ol>
+      <li>Andá a <b>Configuración → Cuentas → Firmas</b>.</li>
+      <li>Tocá <b>Nueva firma</b> y ponele un nombre.</li>
+      <li>Pegá la firma en el recuadro.</li>
+      <li>Elegila como predeterminada para mails nuevos y respuestas, y guardá.</li></ol></div>
+    <div class="card"><h3>Apple Mail</h3><ol>
+      <li>Abrí <b>Mail → Ajustes → Firmas</b>.</li>
+      <li>Elegí tu cuenta y tocá <b>+</b>.</li>
+      <li>Destildá <b>Usar siempre mi tipo de letra predeterminado</b>.</li>
+      <li>Pegá la firma y cerrá la ventana.</li></ol></div>
+  </div>
+  <p class="note">Si la imagen no aparece, revisá que el link abra la imagen sola en el navegador. Si los colores se ven distintos en el celu, es por el modo oscuro de tu app de mail: la firma igual se lee bien.</p>
+</section>
+<footer>Generador de firmas · LIS. Creative Studio · liscreativestudio.com/tienda</footer>
+
+<script>
+  const f = document.getElementById('f');
+  let estilo = 'linea';
+  const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  const url = u => !u ? '' : /^https?:\/\//.test(u) ? u : 'https://' + u.replace(/^\/+/, '');
+  const sep = '<span style="color:#b8b2a7;">&nbsp;·&nbsp;</span>';
+
+  function firma() {
+    const d = Object.fromEntries(new FormData(f));
+    const acc = d.color || '#2e54a0';
+    const link = (href, txt, extra = '') => `<a href="${esc(href)}" style="color:#111111;text-decoration:none;${extra}">${esc(txt)}</a>`;
+    const contacto = [
+      d.mail && link('mailto:' + d.mail, d.mail),
+      d.tel && link('https://wa.me/' + d.tel.replace(/\D/g, ''), d.tel),
+    ].filter(Boolean).join(sep);
+    const links = [
+      d.web && link(url(d.web), d.web.replace(/^https?:\/\//, ''), 'text-decoration:underline;'),
+      d.ig && link('https://www.instagram.com/' + d.ig.replace(/^@/, '') + '/', 'Instagram', 'text-decoration:underline;'),
+      d.extraTxt && d.extraUrl && `<a href="${esc(url(d.extraUrl))}" style="color:${acc};text-decoration:underline;">${esc(d.extraTxt)}</a>`,
+    ].filter(Boolean).join(sep);
+    const nombre = `<p style="margin:0 0 4px 0;font-family:Arial,Helvetica,sans-serif;font-size:17px;line-height:20px;font-weight:bold;letter-spacing:1px;text-transform:uppercase;color:#111111;">${esc(d.nombre)}</p>`;
+    const rol = d.rol ? `<p style="margin:0 0 8px 0;font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:14px;line-height:18px;color:#6f6b64;">${esc(d.rol)}</p>` : '';
+    const textos = `${nombre}${rol}${contacto ? `<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;color:#111111;">${contacto}</p>` : ''}${links ? `<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;">${links}</p>` : ''}`;
+    const redonda = d.forma === 'circulo';
+    const img = d.img ? `<img src="${esc(url(d.img))}" ${redonda ? 'width="80" height="80"' : 'width="90"'} alt="${esc(d.nombre)}" style="display:block;${redonda ? 'width:80px;height:80px;border-radius:40px;object-fit:cover;' : 'width:90px;height:auto;'}border:0;">` : '';
+    const tabla = inner => `<table cellpadding="0" cellspacing="0" border="0" style="border-collapse:collapse;font-family:Arial,Helvetica,sans-serif;color:#111111;">${inner}</table>`;
+
+    if (estilo === 'linea') return tabla(`<tr>${img ? `<td style="padding:0 18px 0 0;vertical-align:middle;">${img}</td>` : ''}<td style="padding:0 0 0 ${img ? 18 : 16}px;vertical-align:middle;border-left:2px solid ${acc};">${textos}</td></tr>`);
+    if (estilo === 'apilada') return tabla(`${img ? `<tr><td style="padding:0 0 12px 0;">${img}</td></tr>` : ''}<tr><td style="padding:12px 0 0 0;border-top:1px solid #d9d2c3;">${textos}</td></tr>`);
+    return tabla(`<tr><td>${nombre}${rol}<p style="margin:0;font-family:Arial,Helvetica,sans-serif;font-size:12px;line-height:19px;">${[contacto, links].filter(Boolean).join(sep)}</p></td></tr>`);
+  }
+
+  function render() { document.getElementById('firma').innerHTML = firma(); }
+  f.addEventListener('input', render);
+  document.getElementById('styles').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    estilo = b.dataset.s;
+    document.querySelectorAll('#styles button').forEach(x => x.classList.toggle('on', x === b));
+    render();
+  });
+  document.getElementById('copiar').addEventListener('click', async () => {
+    const html = firma(), el = document.getElementById('firma');
+    try {
+      await navigator.clipboard.write([new ClipboardItem({ 'text/html': new Blob([html], { type: 'text/html' }), 'text/plain': new Blob([el.innerText], { type: 'text/plain' }) })]);
+    } catch (e) {
+      const r = document.createRange(); r.selectNodeContents(el); const s = getSelection(); s.removeAllRanges(); s.addRange(r); document.execCommand('copy'); s.removeAllRanges();
+    }
+    const ok = document.getElementById('ok'); ok.style.opacity = 1; setTimeout(() => ok.style.opacity = 0, 3000);
+  });
+  render();
+</script>
+</body>
+</html>

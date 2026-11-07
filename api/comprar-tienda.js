@@ -10,6 +10,55 @@ const PRODUCTOS = {
     unit_price: 14900,
     gracias: "/tienda-gracias-8e4c5f5d4f?p=kit-contratos",
   },
+  // Plantillas para Canva (7/11/2026): la entrega son los enlaces de plantilla, en tienda-gracias y en un PDF
+  "kit-bienvenida": {
+    title: "Kit de bienvenida · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 24900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=kit-bienvenida",
+    volver: "/tienda#plantillas",
+  },
+  "propuesta": {
+    title: "Propuesta comercial · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 14900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=propuesta",
+    volver: "/tienda#plantillas",
+  },
+  "conceptboards": {
+    title: "Conceptboards · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 14900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=conceptboards",
+    volver: "/tienda#plantillas",
+  },
+  "entrega-identidad": {
+    title: "Entrega de identidad · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 14900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=entrega-identidad",
+    volver: "/tienda#plantillas",
+  },
+  "manual-de-marca": {
+    title: "Manual de marca · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 29900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=manual-de-marca",
+    volver: "/tienda#plantillas",
+  },
+  "entrega-web": {
+    title: "Entrega de web · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 14900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=entrega-web",
+    volver: "/tienda#plantillas",
+  },
+  "firmas": {
+    title: "Generador de firmas de mail · LIS. Creative Studio",
+    unit_price: 7900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=firmas",
+    volver: "/tienda#plantillas",
+  },
+  "sistema": {
+    title: "Sistema de freelance a estudio · plantillas para Canva · LIS. Creative Studio",
+    unit_price: 49900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=sistema",
+    volver: "/tienda#plantillas",
+  },
   // Masterclass 01 en vivo, jueves 3/12/2026 a las 10 h (Argentina). Preventa.
   "masterclass-ia": {
     title: "Masterclass Así usamos la IA en LIS · 3 de diciembre · LIS. Creative Studio",

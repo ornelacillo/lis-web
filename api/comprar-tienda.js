@@ -13,7 +13,7 @@ const PRODUCTOS = {
   // Masterclass 01 en vivo, jueves 3/12/2026 a las 10 h (Argentina). Preventa.
   "masterclass-ia": {
     title: "Masterclass Así usamos la IA en LIS · 3 de diciembre · LIS. Creative Studio",
-    unit_price: 29900,
+    unit_price: 39900,
     gracias: "/masterclass-ia-reserva-3f9a1c7e2b",
     volver: "/tienda#masterclases",
   },

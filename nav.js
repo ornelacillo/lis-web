@@ -379,7 +379,7 @@
         { label: 'services',  href: '/#services', dropdown: true },
         { label: 'portfolio', href: '/#portfolio' },
         { label: 'tienda',    href: '/tienda' },
-        { label: 'freebies',  href: '/freebies' },
+        { label: 'freebies',  href: 'https://ornelacillo.gumroad.com', ext: true }, // los gratis están en Gumroad (7/11/2026)
         { label: 'blog',      href: '/blog' },
         { label: 'contact',   href: '/#contact', cta: true },
       ],
@@ -434,7 +434,7 @@
           </div>`;
       } else {
         const ctaStyle = link.cta ? ' style="background:rgba(255,255,255,0.12);"' : '';
-        html += `<a href="${link.href}"${ctaStyle}>${link.label}</a>`;
+        html += `<a href="${link.href}"${ctaStyle}${link.ext ? ' target="_blank" rel="noopener"' : ''}>${link.label}</a>`;
       }
     });
 
@@ -463,7 +463,7 @@
       <div class="overlay-sub" id="overlay-sub">
         ${subItems}
       </div>` : `
-      <a href="${link.href}">${link.label}</a>`).join('')}
+      <a href="${link.href}"${link.ext ? ' target="_blank" rel="noopener"' : ''}>${link.label}</a>`).join('')}
       ${langSwitch('overlay-lang')}
     `;
   }

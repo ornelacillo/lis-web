@@ -756,6 +756,25 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       .mc-orne img { max-width: 220px; }
       .mc-final { padding: 50px 20px 70px; }
     }
+    .mc-title span { display: block; white-space: nowrap; }
+    .page-hero.hero-video a.hero-nl-link.mc-cta { background: #2e54a0 !important; border-color: #2e54a0 !important; color: #f5f1e8 !important; }
+    .page-hero.hero-video a.hero-nl-link.mc-cta:hover { background: #111 !important; border-color: #111 !important; }
+    .mc-story { padding-top: 110px; }
+    .mc-mega { font-family: var(--font-display, 'Inter Tight'), sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.06em; line-height: .82; font-size: clamp(3.4rem, 10.5vw, 9.6rem); margin: 22px 0 0; }
+    .mc-mega span, .mc-mega em { display: block; white-space: nowrap; }
+    .mc-mega em { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.03em; text-align: right; color: #2e54a0; margin-top: .06em; }
+    .mc-split { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; margin-top: 56px; border-top: 1.5px solid #111; }
+    .mc-split > div { padding: 22px 28px 6px 0; }
+    .mc-split > div + div { padding-left: 28px; border-left: 1px solid #d9d2c3; }
+    .mc-who { display: block; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.02em; font-size: 22px; margin-bottom: 12px; }
+    .mc-split p { font-size: 17px; line-height: 1.7; color: #333; }
+    @media (max-width: 860px) {
+      .mc-story { padding-top: 70px; }
+      .mc-mega { font-size: 15.5vw; }
+      .mc-split { grid-template-columns: minmax(0, 1fr); margin-top: 34px; }
+      .mc-split > div, .mc-split > div + div { padding: 20px 0 6px; border-left: none; border-top: 1px solid #d9d2c3; }
+      .mc-split > div:first-child { border-top: none; }
+    }
   </style>
 </head>
 <body data-nav-theme="dark">
@@ -788,24 +807,21 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     <div class="page-hero-inner">
       <div>
         <p class="mc-lab fi fi-d1" style="margin-bottom:22px">Masterclass en vivo · jueves 3 de diciembre, 10 h</p>
-        <h1 class="hero-title fi fi-d1">Así usamos la IA<br><em>en LIS</em></h1>
+        <h1 class="hero-title mc-title fi fi-d1"><span>Así usamos</span><span>la IA <em>en LIS</em></span></h1>
         <p class="hero-desc fi fi-d2">Cómo armé la web del estudio con IA, con mi propio dominio y sin pagar hosting. Te muestro el proceso real, de punta a punta, para que después armes la tuya.</p>
-        <a href="#reservar" class="hero-nl-link fi fi-d2">Reservá tu lugar <span aria-hidden="true">↓</span></a>
+        <a href="#reservar" class="hero-nl-link mc-cta fi fi-d2">Reservá tu lugar <span aria-hidden="true">↓</span></a>
       </div>
     </div>
   </div>
 
   <!-- ══ LA HISTORIA ══ -->
-  <section class="mc-wrap">
-    <div class="mc-grid2">
-      <div>
-        <span class="mc-lab">Por qué esta clase</span>
-        <h2 class="mc-h2">Mi web, <em>hecha con IA</em></h2>
-      </div>
-      <div>
-        <p class="mc-p">La web de LIS, las páginas de cada servicio, el blog y hasta la tienda donde vendo mis plantillas las armé con Claude Code, sin ser programadora y sin pagar hosting. La IA escribe el código. Lo que no le delego es el criterio: el diseño, los textos, qué entra y qué no.</p>
-        <p class="mc-p">En la clase te muestro ese proceso tal cual lo hago, en pantalla y de principio a fin, para que salgas sabiendo cómo armar tu propia web y qué pedirle a la IA en cada paso.</p>
-      </div>
+  <section class="mc-wrap mc-story">
+    <span class="mc-lab">Por qué esta clase</span>
+    <h2 class="mc-mega"><span>Mi web,</span><em>hecha con IA</em></h2>
+    <div class="mc-split">
+      <div class="fi"><span class="mc-who">( La IA )</span><p>Escribió el código de cada página, conectó el cobro de Mercado Pago y publicó la web en Vercel con mi dominio, sin pagar hosting.</p></div>
+      <div class="fi"><span class="mc-who">( Yo )</span><p>Puse el criterio: el diseño, los textos, qué entra y qué no. Y no soy programadora.</p></div>
+      <div class="fi"><span class="mc-who">( Vos )</span><p>Vas a ver ese proceso tal cual lo hago, en pantalla y de principio a fin, para armar después tu propia web.</p></div>
     </div>
   </section>
 

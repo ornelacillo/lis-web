@@ -59,9 +59,9 @@ const PRODUCTOS = {
     gracias: "/tienda-gracias-8e4c5f5d4f?p=sistema",
     volver: "/tienda#plantillas",
   },
-  // Masterclass 01 en vivo, jueves 3/12/2026 a las 10 h (Argentina). Preventa.
+  // Masterclass 01 en vivo, jueves 10/12/2026 a las 10 h (Argentina). Preventa.
   "masterclass-ia": {
-    title: "Masterclass Así usamos la IA en LIS · 3 de diciembre · LIS. Creative Studio",
+    title: "Masterclass Así usamos la IA en LIS · 10 de diciembre · LIS. Creative Studio",
     unit_price: 39900,
     gracias: "/masterclass-ia-reserva-3f9a1c7e2b",
     volver: "/tienda#masterclases",

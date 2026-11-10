@@ -4,10 +4,10 @@ PRODID:-//LIS Creative Studio//Masterclass//ES
 CALSCALE:GREGORIAN
 METHOD:PUBLISH
 BEGIN:VEVENT
-UID:masterclass-ia-20261203@liscreativestudio.com
+UID:masterclass-ia-20261210@liscreativestudio.com
 DTSTAMP:20261106T120000Z
-DTSTART:20261203T130000Z
-DTEND:20261203T141500Z
+DTSTART:20261210T130000Z
+DTEND:20261210T141500Z
 SUMMARY:Masterclass · Así usamos la IA en LIS
 DESCRIPTION:En vivo por Zoom con Orne (LIS. Creative Studio). El link te llega por mail\, al que usaste para pagar en Mercado Pago. Dudas: hello@liscreativestudio.com
 LOCATION:Zoom (el link te llega por mail)

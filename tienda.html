@@ -688,7 +688,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       .shop-head, .shop-grid, .shop-grid.two, .steps-grid, .why { grid-template-columns: minmax(0, 1fr); gap: 18px; }
       .p-card, .p-body { min-width: 0; }
       .p-card.wide { grid-column: auto; grid-template-columns: minmax(0, 1fr); }
-      .p-card.wide .p-img { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .p-card.wide .p-img { order: -1; min-height: 0; aspect-ratio: 4 / 3; position: relative; border-left: none; border-bottom: 1px solid var(--black); }
       .p-card.wide .p-body { padding: 28px 24px 30px; }
       .p-thumb { margin: -34px -30px 22px; }
     }
@@ -846,7 +846,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
               <p class="p-price">$7.900<small>o USD 9 desde afuera</small></p>
               <a class="res-btn" href="/api/comprar-tienda?p=firmas" target="_blank" rel="noopener">Comprar <span aria-hidden="true">→</span></a></div><p class="p-usd">¿Desde afuera? <a href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Firmas%20de%20mail%20%C2%B7%20en%20d%C3%B3lares&body=Hola%20Orne%2C%20quiero%20comprar%20Firmas%20de%20mail%20y%20pagar%20en%20d%C3%B3lares.">Pagá en dólares</a></p>
           </div>
-          <div class="p-img"><img src="img/tienda-firmas.webp" alt="Generador de firmas de mail" loading="lazy" /></div>
+          <div class="p-img"><video src="img/tienda-firmas.mp4" poster="img/tienda-firmas-poster.jpg" autoplay muted loop playsinline aria-label="Los tres estilos de firma de mail: con línea, apilada y mínima" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block"></video></div>
         </article>
     </div>
   </section>
@@ -859,7 +859,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       <h2 class="res-title">Masterclases <em>en vivo</em></h2>
       <p>Cada masterclass tiene su propio tema y su propio nombre: un tema por clase, cómo lo resolví en LIS y lo que podés aplicar al día siguiente. Se hacen en vivo por Zoom y quedan grabadas. Juntas, son partes del programa <em>De freelance a estudio</em>.</p>
     </div>
-    <div class="shop-grid two">
+    <div class="shop-grid" style="grid-template-columns:minmax(0,1fr)">
       <article class="p-card fi">
         <span class="res-tag">01 · Jueves 3 de diciembre, 10 h</span>
         <h3 class="res-title"><a href="/masterclass" style="color:inherit;text-decoration:none">Así usamos la IA <em>en LIS</em></a></h3>
@@ -873,12 +873,6 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
           <a class="res-btn" href="/api/comprar-tienda?p=masterclass-ia" target="_blank" rel="noopener">Reservá en pesos <span aria-hidden="true">→</span></a>
           <a class="res-btn alt" href="mailto:hello@liscreativestudio.com?subject=Masterclass%20%C2%B7%20As%C3%AD%20usamos%20la%20IA%20en%20LIS%20%C2%B7%20en%20d%C3%B3lares&body=Hola%20Orne%2C%20quiero%20reservar%20mi%20lugar%20en%20la%20masterclass%20del%203%20de%20diciembre%20y%20pagar%20en%20d%C3%B3lares.">En dólares <span aria-hidden="true">→</span></a>
 </div>
-      </article>
-      <article class="step-card fi">
-        <span class="res-tag">02 · Próximamente</span>
-        <h3 class="res-title">Paquetes <em>cerrados</em></h3>
-        <p class="res-desc">Cómo pasar de presupuestar cada proyecto de cero a tener paquetes con alcance, plazos y precio, y salir con la página lista para tu web.</p>
-        <a href="mailto:hello@liscreativestudio.com?subject=Masterclass%20%C2%B7%20Paquetes%20cerrados&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20abra%20la%20masterclass%20Paquetes%20cerrados." class="res-btn" style="text-decoration:none">Avisame <span aria-hidden="true">→</span></a>
       </article>
     </div>
   </section>

@@ -711,6 +711,8 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 .hero-nl-link { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 28px; background: #6f6b64 !important; color: #f4ede3 !important; border: 1px solid #6f6b64 !important; padding: 13px 24px !important; border-radius: 4px; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px !important; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; text-decoration: none !important; line-height: 1.2; transition: background .2s, border-color .2s; }
 .hero-nl-link:hover { background: #1b1a17 !important; border-color: #1b1a17 !important; }
 .hero-nl-link span[aria-hidden] { display: none; }
+.hero-nl-link.hero-azul { background: #2e54a0 !important; border-color: #2e54a0 !important; color: #f5f1e8 !important; }
+.hero-nl-link.hero-azul:hover { background: #1f3d7a !important; border-color: #1f3d7a !important; }
 </style>
 </head>
 <body data-nav-theme="dark">
@@ -744,7 +746,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       <div>
         <h1 class="hero-title fi fi-d1">Tienda<br><em>para creativos</em></h1>
         <p class="hero-desc fi fi-d2">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
-        <a href="#plantillas" class="hero-nl-link fi fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
+        <a href="#plantillas" class="hero-nl-link hero-azul fi fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
       </div>
 
     </div>
@@ -858,16 +860,14 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     <h2 class="res-title">Para empezar <em>y para seguir</em></h2>
     <div class="steps-grid two">
       <article class="step-card fi">
-        <span class="res-tag">Próximamente · 2027</span>
+        <span class="res-tag">Próximamente</span>
         <h3 class="res-title">Así usamos la IA <em>en LIS</em></h3>
         <p class="res-desc">Una masterclass en vivo para armar tu web con IA, con dominio propio y sin pagar hosting. Vuelve el año que viene.</p>
-        <a href="/masterclass" class="res-btn" style="text-decoration:none">Ver la masterclass <span aria-hidden="true">→</span></a>
       </article>
       <article class="step-card fi">
         <span class="res-tag">Próximamente</span>
         <h3 class="res-title">Programa <em>de freelance a estudio</em></h3>
         <p class="res-desc">Nicho, paquetes, precios, procesos y clientes, contado desde cómo armé LIS, con lo que me salió bien y lo que no.</p>
-        <a href="mailto:hello@liscreativestudio.com?subject=Tienda%20%C2%B7%20Programa%20de%20freelance%20a%20estudio&body=Hola%20Orne%2C%20quiero%20que%20me%20avises%20cuando%20est%C3%A9%20disponible%3A%20Programa%20de%20freelance%20a%20estudio." class="res-btn" style="text-decoration:none">Lista de espera <span aria-hidden="true">→</span></a>
       </article>
     </div>
     <p class="res-desc" style="max-width:none;margin-top:30px">¿Buscás más recursos gratis? Están en <a href="/freebies" style="color:inherit">freebies</a>. ¿Necesitás que diseñemos tu marca o tu web? Mirá los <a href="/paquetes" style="color:inherit">paquetes del estudio</a>.</p>

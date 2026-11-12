@@ -27,6 +27,18 @@
       addEventListener('load', function () { setTimeout(go, 2500); });
     })();
   </script>
+  <!-- Meta Pixel (2559356064485053): visita a la tienda, clic en Comprar (InitiateCheckout) y la compra se marca en tienda-gracias -->
+  <script>
+    !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];f.__fbq=true}(window);
+    fbq('init','2559356064485053');fbq('track','PageView');
+    fbq('track','ViewContent',{content_name:'Tienda de plantillas',content_category:'Plantillas para Canva',currency:'ARS',value:49900});
+    var LIS_PRECIOS={'sistema':49900,'kit-bienvenida':24900,'propuesta':14900,'conceptboards':14900,'entrega-identidad':14900,'manual-de-marca':29900,'entrega-web':14900,'firmas':7900};
+    document.addEventListener('click',function(e){
+      var a=e.target.closest&&e.target.closest('a[href*="/api/comprar-tienda?p="]'); if(!a) return;
+      var id=(a.getAttribute('href').split('p=')[1]||'').split('&')[0];
+      fbq('track','InitiateCheckout',{content_ids:[id],content_type:'product',currency:'ARS',value:LIS_PRECIOS[id]||0,num_items:1});
+    });
+  </script>
   <!-- Microsoft Clarity: grabaciones y mapas de calor -->
   <script>
     window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };

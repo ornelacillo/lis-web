@@ -8,6 +8,12 @@
 <link rel="icon" href="/favicon.png" type="image/png">
 <!-- Página secreta: Mercado Pago devuelve acá a quien pagó (api/comprar-tienda.js). No va en el menú, el sitemap ni llms.txt. -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32"></script>
+<!-- Meta Pixel: marca la compra (Purchase) para medir los anuncios -->
+<script>
+  !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];f.__fbq=true}(window);
+  fbq('init','2559356064485053');fbq('track','PageView');
+</script>
+<script async src="https://connect.facebook.net/en_US/fbevents.js"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
@@ -84,6 +90,7 @@
     var key = 'lis-compra-' + p + '-' + (q.get('payment_id') || '');
     try { if (localStorage.getItem(key) === '1') return; localStorage.setItem(key, '1'); } catch (e) {}
     gtag('event', 'purchase', { value: prod.precio, currency: 'ARS', items: [{ item_name: prod.nombre, price: prod.precio }] });
+    fbq('track', 'Purchase', { value: prod.precio, currency: 'ARS', content_ids: [p || 'sistema'], content_name: prod.nombre, content_type: 'product', num_items: 1 }, { eventID: key });
   })();
 </script>
 </body>

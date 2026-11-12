@@ -1,15 +1,11 @@
 // Tienda de LIS: crea el pago en pesos en Mercado Pago (Checkout Pro) y manda a la persona a pagar.
 // Al aprobarse el pago, Mercado Pago la devuelve sola a la página de gracias con la descarga.
 // Mismo circuito que Peque (api/comprar.js). La credencial va en Vercel como MP_ACCESS_TOKEN.
-// Uso: /api/comprar-tienda?p=kit-contratos · /api/comprar-tienda?p=masterclass-ia
+// Uso: /api/comprar-tienda?p=sistema (o el id de cada plantilla)
 const SITIO = "https://liscreativestudio.com";
 
 const PRODUCTOS = {
-  "kit-contratos": {
-    title: "Kit de contratos para diseñadoras · LIS. Creative Studio",
-    unit_price: 14900,
-    gracias: "/tienda-gracias-8e4c5f5d4f?p=kit-contratos",
-  },
+  // Kit de contratos: dado de baja el 12/11/2026 (el contrato está dentro del Kit de bienvenida). La entrega para quien ya lo compró sigue en tienda-gracias.
   // Plantillas para Canva (7/11/2026): la entrega son los enlaces de plantilla, en tienda-gracias y en un PDF
   "kit-bienvenida": {
     title: "Kit de bienvenida · plantillas para Canva · LIS. Creative Studio",

@@ -641,6 +641,8 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 <style>/* Llamado del encabezado como botón gris de la marca, no link con flecha (6/11/2026) */
 .hero-nl-link { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 28px; background: #6f6b64 !important; color: #f4ede3 !important; border: 1px solid #6f6b64 !important; padding: 13px 24px !important; border-radius: 4px; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px !important; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; text-decoration: none !important; line-height: 1.2; transition: background .2s, border-color .2s; }
 .hero-nl-link:hover { background: #1b1a17 !important; border-color: #1b1a17 !important; }
+.hero-nl-link.hero-azul { background: #2e54a0 !important; border-color: #2e54a0 !important; color: #f5f1e8 !important; }
+.hero-nl-link.hero-azul:hover { background: #1f3d7a !important; border-color: #1f3d7a !important; }
 .hero-nl-link span[aria-hidden] { display: none; }
 </style>
 </head>
@@ -681,7 +683,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       <div>
         <h1 class="hero-title fi fi-d1">Recursos<br><em>gratuitos</em></h1>
         <p class="hero-desc fi fi-d2">Herramientas y plantillas para que tu marca comunique mejor, sin necesidad de ser diseñadora.</p>
-        <a href="#newsletter" class="hero-nl-link fi fi-d2">Sumate a Planta Libre, el newsletter semanal <span aria-hidden="true">↓</span></a>
+        <a href="#newsletter" class="hero-nl-link hero-azul fi fi-d2">Sumate a Planta Libre, el newsletter semanal <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-img-wrap fi fi-d2">
         <!-- Renombrá tu gif a "freebies-mockup.gif" y subilo a la raíz del sitio -->
@@ -739,11 +741,11 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
           <span class="res-tag">Guía PDF</span>
           <h2 class="res-title">¿Me mostrás<br><em>lo que hacés?</em></h2>
           <p class="res-desc">Qué mandarle a un cliente cuando te pide ver tus obras, en una guía breve para estudios de arquitectura e interiorismo que hacen buenos proyectos y quieren que se note, con todo lo que necesitás ordenar en tu marca, tus proyectos, tu web y tus redes.</p>
-          <p class="res-desc">Son 11 páginas con ejemplos reales, ejercicios y un checklist final, y te suma a Planta Libre, el newsletter semanal de LIS.</p>
-          <a href="/guia-estudios" class="res-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Quiero la guía <span aria-hidden="true">→</span></a>
+          <p class="res-desc">Son 11 páginas con ejemplos reales, ejercicios y un checklist final.</p>
+          <a href="https://ornelacillo.gumroad.com/l/me-mostras-lo-que-haces" target="_blank" rel="noopener" class="res-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Quiero la guía <span aria-hidden="true">→</span></a>
         </div>
         <div class="res-media">
-          <img src="blog/img/guia-me-mostras-portada.jpg" alt="Guía gratuita ¿Me mostrás lo que hacés?, de LIS Creative Studio" loading="lazy" />
+          <img src="blog/img/guia-me-mostras-portada.jpg" alt="Guía gratuita ¿Me mostrás lo que hacés?, de LIS Creative Studio" loading="lazy" style="filter:grayscale(1) contrast(1.05)" />
         </div>
       </article>
 

@@ -387,6 +387,12 @@ footer .footer-ml-wrap .ml-form-embedSubmit button, footer .footer-ml-wrap .ml-f
 html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
 body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), body textarea, body [contenteditable] { cursor: text !important; }
 .cursor, .cursor-ring { display: none !important; }
+
+/* Movimiento reducido: si la persona pidió menos animaciones en su sistema, todo aparece sin moverse */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+}
   </style>
   <!-- /THEME-CSS -->
 <script defer src="/_vercel/insights/script.js"></script>

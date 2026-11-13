@@ -657,11 +657,23 @@
     }, { passive: true });
   }
 
+  /* ─── Movimiento reducido: frena los videos que arrancan solos ─ */
+  function calmVideos() {
+    if (!window.matchMedia || !matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    document.querySelectorAll('video[autoplay]').forEach(function (v) {
+      v.removeAttribute('autoplay');
+      v.pause();
+      v.currentTime = 0;
+    });
+  }
+
   /* ─── Run when DOM ready ──────────────────────────────────── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init);
+    document.addEventListener('DOMContentLoaded', calmVideos);
   } else {
     init();
+    calmVideos();
   }
 
 })();

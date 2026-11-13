@@ -74,6 +74,8 @@
   (function () {
     var q = new URLSearchParams(location.search), p = q.get('p');
     var prod = PRODUCTOS[p] || PRODUCTOS['sistema'];
+    // Precio pagado si vino de una oferta (?v=24900); si no, el de lista
+    var pagado = parseInt(q.get('v'), 10); if (!(pagado > 0 && pagado <= prod.precio)) pagado = prod.precio;
     document.getElementById('nombre').textContent = prod.nombre;
     document.getElementById('img').src = prod.img; document.getElementById('img').alt = prod.nombre + ' de LIS. Creative Studio';
     var b = document.getElementById('btns');
@@ -89,8 +91,8 @@
     if (!prod.links.length && prod.firmas) document.getElementById('lead').textContent = 'Acá tenés tu generador de firmas. Descargalo y abrilo con doble clic, y guardá también el PDF de entrega.';
     var key = 'lis-compra-' + p + '-' + (q.get('payment_id') || '');
     try { if (localStorage.getItem(key) === '1') return; localStorage.setItem(key, '1'); } catch (e) {}
-    gtag('event', 'purchase', { value: prod.precio, currency: 'ARS', items: [{ item_name: prod.nombre, price: prod.precio }] });
-    fbq('track', 'Purchase', { value: prod.precio, currency: 'ARS', content_ids: [p || 'sistema'], content_name: prod.nombre, content_type: 'product', num_items: 1 }, { eventID: key });
+    gtag('event', 'purchase', { value: pagado, currency: 'ARS', items: [{ item_name: prod.nombre, price: pagado }] });
+    fbq('track', 'Purchase', { value: pagado, currency: 'ARS', content_ids: [p || 'sistema'], content_name: prod.nombre, content_type: 'product', num_items: 1 }, { eventID: key });
   })();
 </script>
 </body>

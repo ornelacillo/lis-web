@@ -55,6 +55,15 @@ const PRODUCTOS = {
     gracias: "/tienda-gracias-8e4c5f5d4f?p=sistema",
     volver: "/tienda#plantillas",
   },
+  // Oferta de retargeting (13/11/2026): el Sistema a mitad de precio, SOLO desde el anuncio de Meta a quien ya visitó la tienda.
+  // El link va directo a Mercado Pago (no pasa por /tienda) y deja de andar el 30/11/2026: después manda a /tienda.
+  "sistema-vuelve": {
+    title: "Sistema de freelance a estudio · 50% off · LIS. Creative Studio",
+    unit_price: 24900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=sistema&v=24900",
+    volver: "/tienda#plantillas",
+    hasta: "2026-12-01T03:00:00Z",
+  },
   // Masterclass 01: en pausa desde el 11/11/2026 (vuelve en 2027). Sin producto, el link viejo lleva a /tienda.
 };
 
@@ -64,6 +73,7 @@ export default async function handler(req, res) {
   const prod = PRODUCTOS[id];
   const respaldo = `mailto:hello@liscreativestudio.com?subject=${encodeURIComponent("Quiero comprar: " + (prod ? prod.title : "un producto de la tienda"))}`;
   if (!prod) return redirect(`${SITIO}/tienda`);
+  if (prod.hasta && Date.now() > Date.parse(prod.hasta)) return redirect(`${SITIO}/tienda#plantillas`);
   const token = process.env.MP_ACCESS_TOKEN;
   if (!token) return redirect(respaldo);
 

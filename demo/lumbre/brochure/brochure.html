@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Lumbre · Brochure · Proyecto demo de LIS. Creative Studio</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  @page{size:297mm 210mm;margin:0}
+  :root{--carbon:#1F1C1A;--hueso:#F2EBE1;--brasa:#C4552D;--ambar:#E9A85A;--ceniza:#8A817A;--linea:#DDD3C6;
+    --serif:'Fraunces',Georgia,serif;--sans:'Manrope','Helvetica Neue',Arial,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:#888}
+  body{font-family:var(--sans);color:var(--carbon);-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .page{width:297mm;height:210mm;position:relative;overflow:hidden;background:var(--hueso);page-break-after:always;break-after:page;margin:0 auto 10mm}
+  @media print{html,body{background:none}.page{margin:0}}
+  img{display:block}
+  .serif{font-family:var(--serif);font-weight:300}
+  em{font-style:italic;color:var(--brasa)}
+  .eyebrow{font-size:9pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brasa)}
+  .demo-note{position:absolute;left:14mm;bottom:9mm;font-size:7.5pt;color:var(--ceniza);letter-spacing:.02em}
+  .dark .demo-note{color:rgba(242,235,225,.55)}
+  .logo-sm{position:absolute;right:14mm;bottom:8mm;width:30mm}
+  p{font-size:11pt;line-height:1.6}
+
+  /* 1 Tapa */
+  .tapa{display:grid;grid-template-columns:1fr 1.15fr}
+  .tapa .izq{padding:18mm 16mm;display:flex;flex-direction:column;justify-content:space-between}
+  .tapa h1{font-family:var(--serif);font-weight:300;font-size:46pt;line-height:.98;letter-spacing:-.02em}
+  .tapa .foto{position:relative}
+  .tapa .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+
+  /* 2 Concepto */
+  .concepto{display:grid;grid-template-columns:1.1fr 1fr}
+  .concepto .foto{position:relative}
+  .concepto .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .concepto .txt{padding:22mm 18mm;display:flex;flex-direction:column;justify-content:center}
+  .concepto h2,.h2{font-family:var(--serif);font-weight:300;font-size:32pt;line-height:1.04;letter-spacing:-.015em;margin:5mm 0 7mm}
+  .concepto p + p{margin-top:4mm}
+
+  /* 3 Números */
+  .numeros{background:var(--carbon);color:var(--hueso);padding:20mm 18mm}
+  .numeros em{color:var(--ambar)}
+  .numeros .eyebrow{color:var(--ambar)}
+  .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:8mm;margin-top:16mm;border-top:1px solid rgba(242,235,225,.2);padding-top:10mm}
+  .nums b{display:block;font-family:var(--serif);font-weight:300;font-size:46pt;line-height:1;color:var(--ambar)}
+  .nums span{font-size:11pt}
+  .mats{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm;margin-top:16mm}
+  .mats div{border-top:1px solid rgba(242,235,225,.2);padding-top:5mm}
+  .mats h3{font-family:var(--serif);font-weight:400;font-size:16pt;margin-bottom:2mm}
+  .mats p{font-size:10pt;color:rgba(242,235,225,.75)}
+
+  /* 4-6 Tipologías */
+  .tipo{display:grid;grid-template-columns:1.25fr 1fr}
+  .tipo .plano{background:#fff;padding:14mm;display:flex;align-items:center;justify-content:center;border-right:1px solid var(--linea)}
+  .tipo .plano svg{width:100%;height:auto;max-height:170mm}
+  .tipo .datos{padding:20mm 16mm;display:flex;flex-direction:column}
+  .tipo .m2{font-size:13pt;font-weight:600;color:var(--brasa);margin-bottom:8mm}
+  .tipo table{width:100%;border-collapse:collapse;font-size:10.5pt}
+  .tipo td{padding:2.6mm 0;border-top:1px solid var(--linea)}
+  .tipo td:last-child{text-align:right;font-weight:600}
+  .tipo .disp{margin-top:auto;font-size:10pt;display:flex;gap:3mm;align-items:center}
+  .tipo .disp i{width:3mm;height:3mm;border-radius:50%;background:var(--brasa);display:inline-block}
+
+  /* 7 Amenities */
+  .amen{display:grid;grid-template-columns:1.3fr 1fr}
+  .amen .foto{position:relative}
+  .amen .foto img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+  .amen .txt{padding:20mm 16mm;display:flex;flex-direction:column}
+  .amen ul{list-style:none;margin-top:6mm}
+  .amen li{display:flex;justify-content:space-between;font-size:11pt;padding:3mm 0;border-top:1px solid var(--linea)}
+  .amen li span{color:var(--ceniza)}
+  .amen .mini{display:grid;grid-template-columns:1fr 1fr;gap:4mm;margin-top:auto}
+  .amen .mini img{width:100%;height:30mm;object-fit:cover}
+
+  /* 8 Ubicación y avance */
+  .ubic{display:grid;grid-template-columns:1fr 1fr}
+  .ubic .mapa{background:#EAE1D4;display:flex;align-items:center;justify-content:center;padding:12mm}
+  .ubic .txt{padding:18mm 16mm}
+  .ubic .cerca{list-style:none;margin:5mm 0 9mm}
+  .ubic .cerca li{display:flex;justify-content:space-between;font-size:10.5pt;padding:2.4mm 0;border-top:1px solid var(--linea)}
+  .barra{height:4mm;background:var(--linea);position:relative;margin:4mm 0 2mm}
+  .barra span{position:absolute;inset:0 auto 0 0;width:38%;background:var(--brasa)}
+  .hitos{list-style:none;margin-top:4mm}
+  .hitos li{display:grid;grid-template-columns:5mm 1fr auto;gap:3mm;align-items:center;font-size:10pt;padding:2mm 0;border-top:1px solid var(--linea)}
+  .hitos li i{width:3mm;height:3mm;border-radius:50%;border:1.5px solid var(--brasa)}
+  .hitos li.ok i{background:var(--brasa)}
+  .hitos li span{color:var(--ceniza)}
+
+  /* 9 Contratapa */
+  .contra{background:var(--brasa);color:var(--hueso);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20mm}
+  .contra em{color:var(--carbon)}
+  .contra h2{font-family:var(--serif);font-weight:300;font-size:40pt;line-height:1.02;margin:10mm 0 6mm}
+  .contra p{max-width:150mm;font-size:11pt}
+  .contra .demo-box{margin-top:12mm;border:1px solid rgba(242,235,225,.5);padding:5mm 7mm;font-size:9.5pt;max-width:170mm}
+</style>
+</head>
+<body>
+
+<!-- Símbolo reutilizable -->
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <symbol id="logo" viewBox="0 0 420 110"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="currentColor"/><line x1="0" y1="92" x2="96" y2="92" stroke-width="4" style="stroke:var(--lin,#1F1C1A)"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" style="fill:var(--txt,#1F1C1A)">lumbre</text></symbol>
+  </defs>
+</svg>
+
+<!-- 1 · Tapa -->
+<section class="page tapa">
+  <div class="izq">
+    <svg style="width:62mm;color:#C4552D"><use href="#logo"/></svg>
+    <div>
+      <p class="eyebrow">Echesortu · Rosario</p>
+      <h1 style="margin-top:6mm">Departamentos con la luz <em>de la tarde.</em></h1>
+    </div>
+    <p style="font-size:10pt;color:var(--ceniza)">1, 2 y 3 dormitorios · Entrega estimada 2028</p>
+  </div>
+  <div class="foto"><img src="../img/fachada.jpg" alt=""></div>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio · Edificio ficticio · Imágenes ilustrativas</span>
+</section>
+
+<!-- 2 · Concepto -->
+<section class="page concepto">
+  <div class="foto"><img src="../img/luz.jpg" alt=""></div>
+  <div class="txt">
+    <p class="eyebrow">El edificio</p>
+    <h2>Pensado para la <em>hora dorada.</em></h2>
+    <p>Lumbre es un edificio de ocho pisos en Echesortu, a tres cuadras de una plaza con árboles enormes. Lo pensamos alrededor de un momento del día: esa hora en la que el sol baja, entra de costado y vuelve todo más cálido.</p>
+    <p>Por eso cada departamento tiene su balcón al oeste, con aberturas de piso a techo, y los materiales son pocos y nobles: ladrillo, hormigón visto y madera, que con esa luz se ven todavía mejor.</p>
+  </div>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio</span>
+</section>
+
+<!-- 3 · En números -->
+<section class="page numeros dark">
+  <p class="eyebrow">Lumbre en números</p>
+  <p class="h2" style="max-width:200mm">Dieciséis casas, <em>un mismo atardecer.</em></p>
+  <div class="nums">
+    <div><b>8</b><span>pisos</span></div>
+    <div><b>16</b><span>departamentos</span></div>
+    <div><b>3</b><span>tipologías</span></div>
+    <div><b>2028</b><span>entrega estimada</span></div>
+  </div>
+  <div class="mats">
+    <div><h3>Ladrillo a la vista</h3><p>En la fachada y los balcones, para que el edificio cambie de color con la luz del día.</p></div>
+    <div><h3>Hormigón visto</h3><p>En losas y columnas, sin revestimientos que haya que mantener con los años.</p></div>
+    <div><h3>Madera</h3><p>En pisos y carpinterías interiores, para que la casa se sienta cálida desde que entrás.</p></div>
+  </div>
+  <svg class="logo-sm" style="color:#E9A85A;--lin:#F2EBE1;--txt:#F2EBE1"><use href="#logo"/></svg>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio</span>
+</section>
+
+<!-- 4 · Tipo B -->
+<section class="page tipo">
+  <div class="plano">
+    <svg viewBox="0 0 420 300" font-family="Manrope, sans-serif" font-size="11" fill="#8A817A">
+      <g fill="none" stroke="#1F1C1A" stroke-width="3"><rect x="40" y="30" width="290" height="230"/><line x1="200" y1="30" x2="200" y2="150"/><line x1="40" y1="150" x2="250" y2="150"/><line x1="250" y1="150" x2="250" y2="260"/></g>
+      <rect x="330" y="70" width="50" height="150" fill="none" stroke="#C4552D" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="120" y="95" text-anchor="middle">DORMITORIO</text><text x="265" y="95" text-anchor="middle">BAÑO</text>
+      <text x="145" y="210" text-anchor="middle">LIVING · COMEDOR · COCINA</text><text x="290" y="210" text-anchor="middle">LAVADERO</text>
+      <text x="355" y="150" text-anchor="middle" transform="rotate(-90 355 150)" fill="#C4552D">BALCÓN AL OESTE</text>
+    </svg>
+  </div>
+  <div class="datos">
+    <p class="eyebrow">Tipología B</p>
+    <p class="h2">1 dormitorio</p>
+    <p class="m2">46 m² + balcón de 6 m²</p>
+    <table>
+      <tr><td>Superficie cubierta</td><td>46 m²</td></tr>
+      <tr><td>Balcón</td><td>6 m²</td></tr>
+      <tr><td>Superficie total</td><td>52 m²</td></tr>
+      <tr><td>Orientación del balcón</td><td>Oeste</td></tr>
+      <tr><td>Pisos</td><td>1° al 6°</td></tr>
+    </table>
+    <p class="disp"><i></i>3 de 7 disponibles</p>
+  </div>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio · Plano ilustrativo</span>
+</section>
+
+<!-- 5 · Tipo A -->
+<section class="page tipo">
+  <div class="plano">
+    <svg viewBox="0 0 420 300" font-family="Manrope, sans-serif" font-size="11" fill="#8A817A">
+      <g fill="none" stroke="#1F1C1A" stroke-width="3"><rect x="30" y="25" width="320" height="250"/><line x1="140" y1="25" x2="140" y2="140"/><line x1="250" y1="25" x2="250" y2="140"/><line x1="30" y1="140" x2="350" y2="140"/><line x1="270" y1="140" x2="270" y2="275"/></g>
+      <rect x="350" y="60" width="45" height="180" fill="none" stroke="#C4552D" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="85" y="85" text-anchor="middle">DORMITORIO</text><text x="195" y="78" text-anchor="middle">DORMITORIO</text><text x="195" y="94" text-anchor="middle">EN SUITE</text><text x="300" y="85" text-anchor="middle">BAÑO</text>
+      <text x="150" y="210" text-anchor="middle">LIVING · COMEDOR</text><text x="310" y="200" text-anchor="middle">COCINA</text><text x="310" y="216" text-anchor="middle">Y LAVADERO</text>
+      <text x="372" y="150" text-anchor="middle" transform="rotate(-90 372 150)" fill="#C4552D">BALCÓN CORRIDO AL OESTE</text>
+    </svg>
+  </div>
+  <div class="datos">
+    <p class="eyebrow">Tipología A</p>
+    <p class="h2">2 dormitorios</p>
+    <p class="m2">68 m² + balcón de 8 m²</p>
+    <table>
+      <tr><td>Superficie cubierta</td><td>68 m²</td></tr>
+      <tr><td>Balcón</td><td>8 m²</td></tr>
+      <tr><td>Superficie total</td><td>76 m²</td></tr>
+      <tr><td>Dormitorio principal</td><td>En suite</td></tr>
+      <tr><td>Pisos</td><td>1° al 6°</td></tr>
+    </table>
+    <p class="disp"><i></i>5 de 7 disponibles</p>
+  </div>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio · Plano ilustrativo</span>
+</section>
+
+<!-- 6 · PH -->
+<section class="page tipo">
+  <div class="plano">
+    <svg viewBox="0 0 420 300" font-family="Manrope, sans-serif" font-size="11" fill="#8A817A">
+      <g fill="none" stroke="#1F1C1A" stroke-width="3"><rect x="20" y="25" width="260" height="250"/><line x1="105" y1="25" x2="105" y2="125"/><line x1="190" y1="25" x2="190" y2="125"/><line x1="20" y1="125" x2="280" y2="125"/><line x1="210" y1="125" x2="210" y2="275"/></g>
+      <rect x="280" y="25" width="120" height="250" fill="#F4E3D6" stroke="#C4552D" stroke-width="2" stroke-dasharray="6 4"/>
+      <text x="62" y="80" text-anchor="middle">DORMITORIO</text><text x="147" y="80" text-anchor="middle">DORMITORIO</text><text x="235" y="72" text-anchor="middle">DORMITORIO</text><text x="235" y="88" text-anchor="middle">EN SUITE</text>
+      <text x="115" y="205" text-anchor="middle">LIVING · COMEDOR · COCINA</text><text x="245" y="205" text-anchor="middle">BAÑOS</text>
+      <text x="340" y="145" text-anchor="middle" fill="#C4552D">TERRAZA</text><text x="340" y="161" text-anchor="middle" fill="#C4552D">CON PARRILLERO</text>
+    </svg>
+  </div>
+  <div class="datos">
+    <p class="eyebrow">PH</p>
+    <p class="h2">3 dormitorios</p>
+    <p class="m2">112 m² + terraza de 40 m²</p>
+    <table>
+      <tr><td>Superficie cubierta</td><td>112 m²</td></tr>
+      <tr><td>Terraza propia</td><td>40 m²</td></tr>
+      <tr><td>Superficie total</td><td>152 m²</td></tr>
+      <tr><td>Baños</td><td>2 completos</td></tr>
+      <tr><td>Pisos</td><td>7° y 8°</td></tr>
+    </table>
+    <p class="disp"><i></i>2 de 2 disponibles</p>
+  </div>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio · Plano ilustrativo</span>
+</section>
+
+<!-- 7 · Amenities -->
+<section class="page amen">
+  <div class="foto"><img src="../img/pileta.jpg" alt=""></div>
+  <div class="txt">
+    <p class="eyebrow">Amenities</p>
+    <p class="h2">Arriba de todo, <em>la terraza.</em></p>
+    <ul>
+      <li>Pileta <span>Terraza</span></li>
+      <li>Parrillero <span>Terraza</span></li>
+      <li>SUM <span>Planta baja</span></li>
+      <li>Bicicletero <span>Planta baja</span></li>
+      <li>Cocheras <span>Opcionales</span></li>
+    </ul>
+    <div class="mini"><img src="../img/living.jpg" alt=""><img src="../img/banio.jpg" alt=""></div>
+  </div>
+  <span class="demo-note" style="color:#fff">Proyecto demo de LIS. Creative Studio · Imágenes ilustrativas</span>
+</section>
+
+<!-- 8 · Ubicación y avance -->
+<section class="page ubic">
+  <div class="mapa">
+    <svg viewBox="0 0 400 400" style="width:150mm;height:150mm"><g stroke="#F2EBE1" stroke-width="10"><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="320" x2="400" y2="320"/><line x1="90" y1="0" x2="90" y2="400"/><line x1="210" y1="0" x2="210" y2="400"/><line x1="330" y1="0" x2="330" y2="400"/></g><rect x="235" y="225" width="150" height="160" fill="#C9D3B4"/><text x="310" y="312" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" fill="#1F1C1A">Plaza</text><circle cx="150" cy="140" r="22" fill="#C4552D"/><path d="M139 147 A11 11 0 0 1 161 147 Z" fill="#F2EBE1"/></svg>
+  </div>
+  <div class="txt">
+    <p class="eyebrow">Ubicación</p>
+    <p class="h2" style="font-size:26pt">Echesortu, <em>a tres cuadras de la plaza.</em></p>
+    <ul class="cerca">
+      <li>Plaza del barrio <b>3 cuadras</b></li>
+      <li>Mercado y comercios <b>2 cuadras</b></li>
+      <li>Escuelas <b>5 cuadras</b></li>
+      <li>Centro de Rosario <b>10 minutos</b></li>
+    </ul>
+    <p class="eyebrow">Avance de obra · 38%</p>
+    <div class="barra"><span></span></div>
+    <ul class="hitos">
+      <li class="ok"><i></i>Excavación y fundaciones<span>Completo</span></li>
+      <li class="ok"><i></i>Estructura hasta el 4° piso<span>Completo</span></li>
+      <li><i></i>Estructura hasta el 8° piso<span>Marzo</span></li>
+      <li><i></i>Terminaciones y amenities<span>2028</span></li>
+      <li><i></i>Entrega de unidades<span>Dic. 2028</span></li>
+    </ul>
+  </div>
+  <span class="demo-note">Proyecto demo de LIS. Creative Studio · Mapa ilustrativo</span>
+</section>
+
+<!-- 9 · Contratapa -->
+<section class="page contra">
+  <svg style="width:70mm;color:#F2EBE1;--lin:#1F1C1A;--txt:#F2EBE1"><use href="#logo"/></svg>
+  <h2>Vení a ver <em>el atardecer</em> desde tu balcón.</h2>
+  <p>Showroom en obra · Visitas con cita previa · Financiación en pozo</p>
+  <div class="demo-box">Lumbre es un proyecto demo de <b>LIS. Creative Studio</b>: el edificio, las unidades y los datos son ficticios y las imágenes son ilustrativas. Así armaríamos el brochure de tu emprendimiento. Escribinos a hello@liscreativestudio.com o entrá a liscreativestudio.com</div>
+</section>
+
+</body>
+</html>

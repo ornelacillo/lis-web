@@ -12,11 +12,11 @@
 <meta property="og:image" content="https://liscreativestudio.com/demo/lumbre/img/fachada.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   :root{
-    --carbon:#1F1C1A; --hueso:#F2EBE1; --brasa:#C4552D; --ambar:#E9A85A; --ceniza:#8A817A; --linea:#DDD3C6;
-    --serif:'Fraunces', Georgia, serif; --sans:'Manrope', 'Helvetica Neue', Arial, sans-serif;
+    --carbon:#1A1A1A; --hueso:#F4F4F4; --brasa:#5E5E5E; --ambar:#BDBDBD; --ceniza:#8C8C8C; --linea:#E2E2E2;
+    --serif:'Inter Tight', 'Helvetica Neue', Arial, sans-serif; --sans:'Inter', 'Helvetica Neue', Arial, sans-serif; --script:'Instrument Serif', Georgia, serif;
   }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
@@ -31,7 +31,7 @@
   .demo a{color:var(--hueso);text-underline-offset:3px}
 
   /* Nav */
-  nav{position:sticky;top:0;z-index:20;background:rgba(242,235,225,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
+  nav{position:sticky;top:0;z-index:20;background:rgba(244,244,244,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--linea)}
   nav .wrap{display:flex;align-items:center;justify-content:space-between;height:72px}
   .logo{display:flex;align-items:center;gap:10px;text-decoration:none}
   .logo svg{height:30px;width:auto}
@@ -73,23 +73,23 @@
   .unidades .eyebrow{color:var(--ambar)}
   .unidades h2 em{color:var(--ambar)}
   .tipos{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
-  .tipo{border:1px solid rgba(242,235,225,.18);padding:32px 28px;display:flex;flex-direction:column}
-  .tipo .plano{height:150px;margin-bottom:28px;border:1px solid rgba(242,235,225,.25);position:relative}
+  .tipo{border:1px solid rgba(244,244,244,.18);padding:32px 28px;display:flex;flex-direction:column}
+  .tipo .plano{height:150px;margin-bottom:28px;border:1px solid rgba(244,244,244,.25);position:relative}
   .tipo h3{font-family:var(--serif);font-weight:400;font-size:30px;margin-bottom:6px}
   .tipo .m2{color:var(--ambar);font-weight:600;font-size:17px}
-  .tipo ul{list-style:none;margin:20px 0 24px;font-size:17px;color:rgba(242,235,225,.8)}
-  .tipo li{padding:8px 0;border-top:1px solid rgba(242,235,225,.12)}
+  .tipo ul{list-style:none;margin:20px 0 24px;font-size:17px;color:rgba(244,244,244,.8)}
+  .tipo li{padding:8px 0;border-top:1px solid rgba(244,244,244,.12)}
   .disp{margin-top:auto;display:flex;align-items:center;gap:10px;font-size:16px}
   .disp i{width:10px;height:10px;border-radius:50%;background:var(--ambar);display:inline-block}
 
   /* Tabla */
   .tabla{margin-top:16px;overflow-x:auto}
   table{width:100%;border-collapse:collapse;font-size:17px;min-width:560px}
-  th{text-align:left;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--ambar);padding:14px 12px;border-bottom:1px solid rgba(242,235,225,.25)}
-  td{padding:14px 12px;border-bottom:1px solid rgba(242,235,225,.1)}
-  td .estado{font-size:16px;padding:4px 10px;border:1px solid rgba(242,235,225,.3)}
+  th{text-align:left;font-weight:600;font-size:16px;letter-spacing:.06em;text-transform:uppercase;color:var(--ambar);padding:14px 12px;border-bottom:1px solid rgba(244,244,244,.25)}
+  td{padding:14px 12px;border-bottom:1px solid rgba(244,244,244,.1)}
+  td .estado{font-size:16px;padding:4px 10px;border:1px solid rgba(244,244,244,.3)}
   td .estado.libre{border-color:var(--ambar);color:var(--ambar)}
-  td .estado.vendida{color:rgba(242,235,225,.45)}
+  td .estado.vendida{color:rgba(244,244,244,.45)}
 
   /* Avance */
   .avance .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
@@ -111,7 +111,7 @@
   .amen-list div{border-top:2px solid var(--carbon);padding-top:14px;font-size:17px;font-weight:500}
 
   /* Ubicación */
-  .ubic{background:#EAE1D4}
+  .ubic{background:#EBEBEB}
   .ubic .wrap{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
   .mapa{aspect-ratio:1/1;background:var(--hueso);position:relative;overflow:hidden;border:1px solid var(--linea)}
   .cerca{list-style:none;margin-top:24px}
@@ -125,7 +125,7 @@
   .contacto .btn{background:var(--carbon);border-color:var(--carbon);margin-top:32px}
   .contacto .btn:hover{background:var(--hueso);color:var(--carbon)}
 
-  footer{background:var(--carbon);color:rgba(242,235,225,.75);font-size:16px;padding:40px 0}
+  footer{background:var(--carbon);color:rgba(244,244,244,.75);font-size:16px;padding:40px 0}
   footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px}
   footer a{color:var(--hueso)}
 
@@ -144,6 +144,11 @@
     .amen-list{grid-template-columns:1fr 1fr}
     nav .btn{padding:10px 16px}
   }
+  h1,h2,.h2,.tapa h1,.contra h2{font-family:var(--serif)!important;font-weight:500!important;text-transform:uppercase;letter-spacing:-.01em!important;line-height:1!important}
+  em{font-family:var(--script)!important;font-style:italic!important;font-weight:400!important;text-transform:none;letter-spacing:0!important}
+  .contacto h2 em,.cta h2 em,.contra em{color:#D9D9D9!important}
+  .eyebrow,.kicker{color:var(--ceniza)!important}
+  .unidades .eyebrow,.numeros .eyebrow{color:var(--ambar)!important}
 </style>
 </head>
 <body>
@@ -153,7 +158,7 @@
 <nav>
   <div class="wrap">
     <a href="#" class="logo" aria-label="Lumbre">
-      <svg viewBox="0 0 168 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 32 A14 14 0 0 1 32 32 Z" fill="#C4552D"/><line x1="0" y1="35" x2="36" y2="35" stroke="#1F1C1A" stroke-width="2"/><text x="46" y="31" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="31" letter-spacing="-.5" fill="#1F1C1A">lumbre</text></svg>
+      <svg viewBox="0 0 200 40" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M4 30 A13 13 0 0 1 30 30" fill="none" stroke="#1A1A1A" stroke-width="1.5"/><line x1="0" y1="33" x2="34" y2="33" stroke="#1A1A1A" stroke-width="1.5"/><text x="46" y="30" font-family="Inter Tight, Helvetica, Arial, sans-serif" font-weight="400" font-size="22" letter-spacing="5" fill="#1A1A1A">LUMBRE</text></svg>
     </a>
     <div class="links"><a href="#concepto">El edificio</a><a href="#unidades">Unidades</a><a href="#avance">Avance de obra</a><a href="#ubicacion">Ubicación</a></div>
     <a href="#contacto" class="btn">Agendá una visita</a>
@@ -195,21 +200,21 @@
     <h2>Tres tipologías, <em>un mismo atardecer.</em></h2>
     <div class="tipos">
       <article class="tipo">
-        <div class="plano"><svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#E9A85A" stroke-width="1.5"><rect x="30" y="20" width="140" height="110"/><line x1="100" y1="20" x2="100" y2="80"/><line x1="30" y1="80" x2="130" y2="80"/><rect x="170" y="40" width="18" height="70" stroke-dasharray="4 3"/></g></svg></div>
+        <div class="plano"><svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#BDBDBD" stroke-width="1.5"><rect x="30" y="20" width="140" height="110"/><line x1="100" y1="20" x2="100" y2="80"/><line x1="30" y1="80" x2="130" y2="80"/><rect x="170" y="40" width="18" height="70" stroke-dasharray="4 3"/></g></svg></div>
         <h3>Tipo B · 1 dormitorio</h3>
         <p class="m2">46 m² + balcón de 6 m²</p>
         <ul><li>Living comedor con cocina integrada</li><li>Dormitorio con placard</li><li>Balcón al oeste</li></ul>
         <p class="disp"><i></i>3 de 7 disponibles</p>
       </article>
       <article class="tipo">
-        <div class="plano"><svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#E9A85A" stroke-width="1.5"><rect x="20" y="15" width="160" height="120"/><line x1="80" y1="15" x2="80" y2="70"/><line x1="130" y1="15" x2="130" y2="70"/><line x1="20" y1="70" x2="180" y2="70"/><rect x="180" y="35" width="16" height="85" stroke-dasharray="4 3"/></g></svg></div>
+        <div class="plano"><svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#BDBDBD" stroke-width="1.5"><rect x="20" y="15" width="160" height="120"/><line x1="80" y1="15" x2="80" y2="70"/><line x1="130" y1="15" x2="130" y2="70"/><line x1="20" y1="70" x2="180" y2="70"/><rect x="180" y="35" width="16" height="85" stroke-dasharray="4 3"/></g></svg></div>
         <h3>Tipo A · 2 dormitorios</h3>
         <p class="m2">68 m² + balcón de 8 m²</p>
         <ul><li>Dormitorio principal en suite</li><li>Cocina con lavadero separado</li><li>Balcón corrido al oeste</li></ul>
         <p class="disp"><i></i>5 de 7 disponibles</p>
       </article>
       <article class="tipo">
-        <div class="plano"><svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#E9A85A" stroke-width="1.5"><rect x="10" y="15" width="130" height="120"/><line x1="55" y1="15" x2="55" y2="65"/><line x1="100" y1="15" x2="100" y2="65"/><line x1="10" y1="65" x2="140" y2="65"/><rect x="140" y="15" width="50" height="120" stroke-dasharray="4 3"/></g></svg></div>
+        <div class="plano"><svg viewBox="0 0 200 150" width="100%" height="100%" aria-hidden="true"><g fill="none" stroke="#BDBDBD" stroke-width="1.5"><rect x="10" y="15" width="130" height="120"/><line x1="55" y1="15" x2="55" y2="65"/><line x1="100" y1="15" x2="100" y2="65"/><line x1="10" y1="65" x2="140" y2="65"/><rect x="140" y="15" width="50" height="120" stroke-dasharray="4 3"/></g></svg></div>
         <h3>PH · 3 dormitorios</h3>
         <p class="m2">112 m² + terraza de 40 m²</p>
         <ul><li>Terraza propia con parrillero</li><li>Dos baños completos</li><li>Últimos dos pisos</li></ul>
@@ -217,7 +222,7 @@
       </article>
     </div>
 
-    <p class="eyebrow" style="margin-top:56px;margin-bottom:0;color:#E9A85A">Algunas unidades</p>
+    <p class="eyebrow" style="margin-top:56px;margin-bottom:0;color:#BDBDBD">Algunas unidades</p>
     <div class="tabla">
       <table>
         <thead><tr><th>Piso</th><th>Unidad</th><th>Tipo</th><th>Superficie</th><th>Estado</th></tr></thead>
@@ -271,7 +276,7 @@
 <section class="ubic" id="ubicacion">
   <div class="wrap">
     <div class="mapa" aria-hidden="true">
-      <svg viewBox="0 0 400 400" width="100%" height="100%"><g stroke="#DDD3C6" stroke-width="10"><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="320" x2="400" y2="320"/><line x1="90" y1="0" x2="90" y2="400"/><line x1="210" y1="0" x2="210" y2="400"/><line x1="330" y1="0" x2="330" y2="400"/></g><rect x="235" y="225" width="150" height="160" fill="#C9D3B4"/><text x="310" y="312" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" fill="#1F1C1A">Plaza</text><circle cx="150" cy="140" r="22" fill="#C4552D"/><path d="M139 147 A11 11 0 0 1 161 147 Z" fill="#F2EBE1"/></svg>
+      <svg viewBox="0 0 400 400" width="100%" height="100%"><g stroke="#E2E2E2" stroke-width="10"><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="320" x2="400" y2="320"/><line x1="90" y1="0" x2="90" y2="400"/><line x1="210" y1="0" x2="210" y2="400"/><line x1="330" y1="0" x2="330" y2="400"/></g><rect x="235" y="225" width="150" height="160" fill="#D6D6D6"/><text x="310" y="312" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="15" fill="#1A1A1A">Plaza</text><circle cx="150" cy="140" r="22" fill="#5E5E5E"/><path d="M139 147 A11 11 0 0 1 161 147 Z" fill="#F4F4F4"/></svg>
     </div>
     <div>
       <p class="eyebrow">Ubicación</p>

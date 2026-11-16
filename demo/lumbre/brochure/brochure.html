@@ -5,11 +5,11 @@
 <title>Lumbre · Brochure · Proyecto demo de LIS. Creative Studio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
   @page{size:297mm 210mm;margin:0}
-  :root{--carbon:#1F1C1A;--hueso:#F2EBE1;--brasa:#C4552D;--ambar:#E9A85A;--ceniza:#8A817A;--linea:#DDD3C6;
-    --serif:'Fraunces',Georgia,serif;--sans:'Manrope','Helvetica Neue',Arial,sans-serif}
+  :root{--carbon:#1A1A1A;--hueso:#F4F4F4;--brasa:#5E5E5E;--ambar:#BDBDBD;--ceniza:#8C8C8C;--linea:#E2E2E2;
+    --serif:'Inter Tight','Helvetica Neue',Arial,sans-serif;--sans:'Inter','Helvetica Neue',Arial,sans-serif;--script:'Instrument Serif',Georgia,serif}
   *{box-sizing:border-box;margin:0;padding:0}
   html,body{background:#888}
   body{font-family:var(--sans);color:var(--carbon);-webkit-print-color-adjust:exact;print-color-adjust:exact}
@@ -20,7 +20,7 @@
   em{font-style:italic;color:var(--brasa)}
   .eyebrow{font-size:9pt;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--brasa)}
   .demo-note{position:absolute;left:14mm;bottom:9mm;font-size:7.5pt;color:var(--ceniza);letter-spacing:.02em}
-  .dark .demo-note{color:rgba(242,235,225,.55)}
+  .dark .demo-note{color:rgba(244,244,244,.55)}
   .logo-sm{position:absolute;right:14mm;bottom:8mm;width:30mm}
   p{font-size:11pt;line-height:1.6}
 
@@ -43,13 +43,13 @@
   .numeros{background:var(--carbon);color:var(--hueso);padding:20mm 18mm}
   .numeros em{color:var(--ambar)}
   .numeros .eyebrow{color:var(--ambar)}
-  .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:8mm;margin-top:16mm;border-top:1px solid rgba(242,235,225,.2);padding-top:10mm}
+  .nums{display:grid;grid-template-columns:repeat(4,1fr);gap:8mm;margin-top:16mm;border-top:1px solid rgba(244,244,244,.2);padding-top:10mm}
   .nums b{display:block;font-family:var(--serif);font-weight:300;font-size:46pt;line-height:1;color:var(--ambar)}
   .nums span{font-size:11pt}
   .mats{display:grid;grid-template-columns:repeat(3,1fr);gap:8mm;margin-top:16mm}
-  .mats div{border-top:1px solid rgba(242,235,225,.2);padding-top:5mm}
+  .mats div{border-top:1px solid rgba(244,244,244,.2);padding-top:5mm}
   .mats h3{font-family:var(--serif);font-weight:400;font-size:16pt;margin-bottom:2mm}
-  .mats p{font-size:10pt;color:rgba(242,235,225,.75)}
+  .mats p{font-size:10pt;color:rgba(244,244,244,.75)}
 
   /* 4-6 Tipologías */
   .tipo{display:grid;grid-template-columns:1.25fr 1fr}
@@ -76,7 +76,7 @@
 
   /* 8 Ubicación y avance */
   .ubic{display:grid;grid-template-columns:1fr 1fr}
-  .ubic .mapa{background:#EAE1D4;display:flex;align-items:center;justify-content:center;padding:12mm}
+  .ubic .mapa{background:#EBEBEB;display:flex;align-items:center;justify-content:center;padding:12mm}
   .ubic .txt{padding:18mm 16mm}
   .ubic .cerca{list-style:none;margin:5mm 0 9mm}
   .ubic .cerca li{display:flex;justify-content:space-between;font-size:10.5pt;padding:2.4mm 0;border-top:1px solid var(--linea)}
@@ -93,7 +93,12 @@
   .contra em{color:var(--carbon)}
   .contra h2{font-family:var(--serif);font-weight:300;font-size:40pt;line-height:1.02;margin:10mm 0 6mm}
   .contra p{max-width:150mm;font-size:11pt}
-  .contra .demo-box{margin-top:12mm;border:1px solid rgba(242,235,225,.5);padding:5mm 7mm;font-size:9.5pt;max-width:170mm}
+  .contra .demo-box{margin-top:12mm;border:1px solid rgba(244,244,244,.5);padding:5mm 7mm;font-size:9.5pt;max-width:170mm}
+  h1,h2,.h2,.tapa h1,.contra h2{font-family:var(--serif)!important;font-weight:500!important;text-transform:uppercase;letter-spacing:-.01em!important;line-height:1!important}
+  em{font-family:var(--script)!important;font-style:italic!important;font-weight:400!important;text-transform:none;letter-spacing:0!important}
+  .contacto h2 em,.cta h2 em,.contra em{color:#D9D9D9!important}
+  .eyebrow,.kicker{color:var(--ceniza)!important}
+  .unidades .eyebrow,.numeros .eyebrow{color:var(--ambar)!important}
 </style>
 </head>
 <body>
@@ -101,14 +106,14 @@
 <!-- Símbolo reutilizable -->
 <svg width="0" height="0" style="position:absolute">
   <defs>
-    <symbol id="logo" viewBox="0 0 420 110"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="currentColor"/><line x1="0" y1="92" x2="96" y2="92" stroke-width="4" style="stroke:var(--lin,#1F1C1A)"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" style="fill:var(--txt,#1F1C1A)">lumbre</text></symbol>
+    <symbol id="logo" viewBox="0 0 520 110"><path d="M10 84 A38 38 0 0 1 86 84" fill="none" stroke-width="3" style="stroke:var(--txt,#1A1A1A)"/><line x1="0" y1="92" x2="96" y2="92" stroke-width="3" style="stroke:var(--txt,#1A1A1A)"/><text x="122" y="84" font-family="Inter Tight, Helvetica, Arial, sans-serif" font-weight="400" font-size="62" letter-spacing="14" style="fill:var(--txt,#1A1A1A)">LUMBRE</text></symbol>
   </defs>
 </svg>
 
 <!-- 1 · Tapa -->
 <section class="page tapa">
   <div class="izq">
-    <svg style="width:62mm;color:#C4552D"><use href="#logo"/></svg>
+    <svg style="width:62mm;color:#5E5E5E"><use href="#logo"/></svg>
     <div>
       <p class="eyebrow">Echesortu · Rosario</p>
       <h1 style="margin-top:6mm">Departamentos con la luz <em>de la tarde.</em></h1>
@@ -146,19 +151,19 @@
     <div><h3>Hormigón visto</h3><p>En losas y columnas, sin revestimientos que haya que mantener con los años.</p></div>
     <div><h3>Madera</h3><p>En pisos y carpinterías interiores, para que la casa se sienta cálida desde que entrás.</p></div>
   </div>
-  <svg class="logo-sm" style="color:#E9A85A;--lin:#F2EBE1;--txt:#F2EBE1"><use href="#logo"/></svg>
+  <svg class="logo-sm" style="color:#BDBDBD;--lin:#F4F4F4;--txt:#F4F4F4"><use href="#logo"/></svg>
   <span class="demo-note">Proyecto demo de LIS. Creative Studio</span>
 </section>
 
 <!-- 4 · Tipo B -->
 <section class="page tipo">
   <div class="plano">
-    <svg viewBox="0 0 420 300" font-family="Manrope, sans-serif" font-size="11" fill="#8A817A">
-      <g fill="none" stroke="#1F1C1A" stroke-width="3"><rect x="40" y="30" width="290" height="230"/><line x1="200" y1="30" x2="200" y2="150"/><line x1="40" y1="150" x2="250" y2="150"/><line x1="250" y1="150" x2="250" y2="260"/></g>
-      <rect x="330" y="70" width="50" height="150" fill="none" stroke="#C4552D" stroke-width="2" stroke-dasharray="6 4"/>
+    <svg viewBox="0 0 420 300" font-family="Inter, Helvetica, sans-serif" font-size="11" fill="#8C8C8C">
+      <g fill="none" stroke="#1A1A1A" stroke-width="3"><rect x="40" y="30" width="290" height="230"/><line x1="200" y1="30" x2="200" y2="150"/><line x1="40" y1="150" x2="250" y2="150"/><line x1="250" y1="150" x2="250" y2="260"/></g>
+      <rect x="330" y="70" width="50" height="150" fill="none" stroke="#5E5E5E" stroke-width="2" stroke-dasharray="6 4"/>
       <text x="120" y="95" text-anchor="middle">DORMITORIO</text><text x="265" y="95" text-anchor="middle">BAÑO</text>
       <text x="145" y="210" text-anchor="middle">LIVING · COMEDOR · COCINA</text><text x="290" y="210" text-anchor="middle">LAVADERO</text>
-      <text x="355" y="150" text-anchor="middle" transform="rotate(-90 355 150)" fill="#C4552D">BALCÓN AL OESTE</text>
+      <text x="355" y="150" text-anchor="middle" transform="rotate(-90 355 150)" fill="#5E5E5E">BALCÓN AL OESTE</text>
     </svg>
   </div>
   <div class="datos">
@@ -180,12 +185,12 @@
 <!-- 5 · Tipo A -->
 <section class="page tipo">
   <div class="plano">
-    <svg viewBox="0 0 420 300" font-family="Manrope, sans-serif" font-size="11" fill="#8A817A">
-      <g fill="none" stroke="#1F1C1A" stroke-width="3"><rect x="30" y="25" width="320" height="250"/><line x1="140" y1="25" x2="140" y2="140"/><line x1="250" y1="25" x2="250" y2="140"/><line x1="30" y1="140" x2="350" y2="140"/><line x1="270" y1="140" x2="270" y2="275"/></g>
-      <rect x="350" y="60" width="45" height="180" fill="none" stroke="#C4552D" stroke-width="2" stroke-dasharray="6 4"/>
+    <svg viewBox="0 0 420 300" font-family="Inter, Helvetica, sans-serif" font-size="11" fill="#8C8C8C">
+      <g fill="none" stroke="#1A1A1A" stroke-width="3"><rect x="30" y="25" width="320" height="250"/><line x1="140" y1="25" x2="140" y2="140"/><line x1="250" y1="25" x2="250" y2="140"/><line x1="30" y1="140" x2="350" y2="140"/><line x1="270" y1="140" x2="270" y2="275"/></g>
+      <rect x="350" y="60" width="45" height="180" fill="none" stroke="#5E5E5E" stroke-width="2" stroke-dasharray="6 4"/>
       <text x="85" y="85" text-anchor="middle">DORMITORIO</text><text x="195" y="78" text-anchor="middle">DORMITORIO</text><text x="195" y="94" text-anchor="middle">EN SUITE</text><text x="300" y="85" text-anchor="middle">BAÑO</text>
       <text x="150" y="210" text-anchor="middle">LIVING · COMEDOR</text><text x="310" y="200" text-anchor="middle">COCINA</text><text x="310" y="216" text-anchor="middle">Y LAVADERO</text>
-      <text x="372" y="150" text-anchor="middle" transform="rotate(-90 372 150)" fill="#C4552D">BALCÓN CORRIDO AL OESTE</text>
+      <text x="372" y="150" text-anchor="middle" transform="rotate(-90 372 150)" fill="#5E5E5E">BALCÓN CORRIDO AL OESTE</text>
     </svg>
   </div>
   <div class="datos">
@@ -207,12 +212,12 @@
 <!-- 6 · PH -->
 <section class="page tipo">
   <div class="plano">
-    <svg viewBox="0 0 420 300" font-family="Manrope, sans-serif" font-size="11" fill="#8A817A">
-      <g fill="none" stroke="#1F1C1A" stroke-width="3"><rect x="20" y="25" width="260" height="250"/><line x1="105" y1="25" x2="105" y2="125"/><line x1="190" y1="25" x2="190" y2="125"/><line x1="20" y1="125" x2="280" y2="125"/><line x1="210" y1="125" x2="210" y2="275"/></g>
-      <rect x="280" y="25" width="120" height="250" fill="#F4E3D6" stroke="#C4552D" stroke-width="2" stroke-dasharray="6 4"/>
+    <svg viewBox="0 0 420 300" font-family="Inter, Helvetica, sans-serif" font-size="11" fill="#8C8C8C">
+      <g fill="none" stroke="#1A1A1A" stroke-width="3"><rect x="20" y="25" width="260" height="250"/><line x1="105" y1="25" x2="105" y2="125"/><line x1="190" y1="25" x2="190" y2="125"/><line x1="20" y1="125" x2="280" y2="125"/><line x1="210" y1="125" x2="210" y2="275"/></g>
+      <rect x="280" y="25" width="120" height="250" fill="#EDEDED" stroke="#5E5E5E" stroke-width="2" stroke-dasharray="6 4"/>
       <text x="62" y="80" text-anchor="middle">DORMITORIO</text><text x="147" y="80" text-anchor="middle">DORMITORIO</text><text x="235" y="72" text-anchor="middle">DORMITORIO</text><text x="235" y="88" text-anchor="middle">EN SUITE</text>
       <text x="115" y="205" text-anchor="middle">LIVING · COMEDOR · COCINA</text><text x="245" y="205" text-anchor="middle">BAÑOS</text>
-      <text x="340" y="145" text-anchor="middle" fill="#C4552D">TERRAZA</text><text x="340" y="161" text-anchor="middle" fill="#C4552D">CON PARRILLERO</text>
+      <text x="340" y="145" text-anchor="middle" fill="#5E5E5E">TERRAZA</text><text x="340" y="161" text-anchor="middle" fill="#5E5E5E">CON PARRILLERO</text>
     </svg>
   </div>
   <div class="datos">
@@ -252,7 +257,7 @@
 <!-- 8 · Ubicación y avance -->
 <section class="page ubic">
   <div class="mapa">
-    <svg viewBox="0 0 400 400" style="width:150mm;height:150mm"><g stroke="#F2EBE1" stroke-width="10"><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="320" x2="400" y2="320"/><line x1="90" y1="0" x2="90" y2="400"/><line x1="210" y1="0" x2="210" y2="400"/><line x1="330" y1="0" x2="330" y2="400"/></g><rect x="235" y="225" width="150" height="160" fill="#C9D3B4"/><text x="310" y="312" text-anchor="middle" font-family="Manrope, sans-serif" font-size="15" fill="#1F1C1A">Plaza</text><circle cx="150" cy="140" r="22" fill="#C4552D"/><path d="M139 147 A11 11 0 0 1 161 147 Z" fill="#F2EBE1"/></svg>
+    <svg viewBox="0 0 400 400" style="width:150mm;height:150mm"><g stroke="#F4F4F4" stroke-width="10"><line x1="0" y1="80" x2="400" y2="80"/><line x1="0" y1="200" x2="400" y2="200"/><line x1="0" y1="320" x2="400" y2="320"/><line x1="90" y1="0" x2="90" y2="400"/><line x1="210" y1="0" x2="210" y2="400"/><line x1="330" y1="0" x2="330" y2="400"/></g><rect x="235" y="225" width="150" height="160" fill="#D6D6D6"/><text x="310" y="312" text-anchor="middle" font-family="Inter, Helvetica, sans-serif" font-size="15" fill="#1A1A1A">Plaza</text><circle cx="150" cy="140" r="22" fill="#5E5E5E"/><path d="M139 147 A11 11 0 0 1 161 147 Z" fill="#F4F4F4"/></svg>
   </div>
   <div class="txt">
     <p class="eyebrow">Ubicación</p>
@@ -278,7 +283,7 @@
 
 <!-- 9 · Contratapa -->
 <section class="page contra">
-  <svg style="width:70mm;color:#F2EBE1;--lin:#1F1C1A;--txt:#F2EBE1"><use href="#logo"/></svg>
+  <svg style="width:70mm;color:#F4F4F4;--lin:#1A1A1A;--txt:#F4F4F4"><use href="#logo"/></svg>
   <h2>Vení a ver <em>el atardecer</em> desde tu balcón.</h2>
   <p>Showroom en obra · Visitas con cita previa · Financiación en pozo</p>
   <div class="demo-box">Lumbre es un proyecto demo de <b>LIS. Creative Studio</b>: el edificio, las unidades y los datos son ficticios y las imágenes son ilustrativas. Así armaríamos el brochure de tu emprendimiento. Escribinos a hello@liscreativestudio.com o entrá a liscreativestudio.com</div>

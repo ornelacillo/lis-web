@@ -9,10 +9,10 @@
 <link rel="icon" href="/demo/lumbre/img/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@300;400;500;600&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
 <style>
-  :root{--carbon:#1F1C1A;--hueso:#F2EBE1;--brasa:#C4552D;--ambar:#E9A85A;--ceniza:#8A817A;--linea:#DDD3C6;
-    --serif:'Fraunces',Georgia,serif;--sans:'Manrope','Helvetica Neue',Arial,sans-serif}
+  :root{--carbon:#1A1A1A;--hueso:#F4F4F4;--brasa:#5E5E5E;--ambar:#BDBDBD;--ceniza:#8C8C8C;--linea:#E2E2E2;
+    --serif:'Inter Tight','Helvetica Neue',Arial,sans-serif;--sans:'Inter','Helvetica Neue',Arial,sans-serif;--script:'Instrument Serif',Georgia,serif}
   *{box-sizing:border-box;margin:0;padding:0}
   body{background:var(--hueso);color:var(--carbon);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
   img{display:block;max-width:100%}
@@ -38,11 +38,11 @@
   .paleta-nombres{display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px;font-size:16px}
   .paleta-nombres b{display:block;font-size:17px}
   .paleta-nombres span{color:var(--ceniza)}
-  .tipos{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  .tipos{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:40px}
   .tipos div{border:1px solid var(--linea);padding:36px;background:#fff}
-  .tipos .muestra{font-size:64px;line-height:1;margin:18px 0}
-  .tipos .serif{font-family:var(--serif);font-weight:300}
-  .tipos .sans{font-family:var(--sans);font-weight:600}
+  .tipos .muestra{font-size:44px;line-height:1;margin:18px 0}
+  .tipos .serif{font-family:var(--serif);font-weight:500;text-transform:uppercase}
+  .tipos .sans{font-family:var(--sans);font-weight:500}
   .tipos small{display:block;font-size:16px;color:var(--ceniza)}
   .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
   .app{aspect-ratio:4/5;position:relative;overflow:hidden}
@@ -51,7 +51,7 @@
   .cartel .t{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.4vw,44px);line-height:1.02}
   .cartel .d{font-size:16px;line-height:1.5}
   .post{background:url(/demo/lumbre/img/cielo.jpg) center/cover}
-  .post .txt{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(transparent 40%,rgba(31,28,26,.7));color:var(--hueso)}
+  .post .txt{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(transparent 40%,rgba(26,26,26,.7));color:var(--hueso)}
   .post .txt span{font-family:var(--serif);font-size:36px;font-weight:300;line-height:1.05}
   .folleto{background:var(--carbon);color:var(--hueso);padding:56px 28px 28px;display:flex;flex-direction:column;justify-content:space-between}
   .folleto .t{font-family:var(--serif);font-size:clamp(28px,3vw,34px);font-weight:300;line-height:1.05}
@@ -60,7 +60,7 @@
   .cta h2 em{color:var(--carbon)}
   .cta p{max-width:600px;margin:0 auto}
   .btn{display:inline-flex;background:var(--carbon);color:var(--hueso);text-decoration:none;font-weight:600;font-size:16px;padding:14px 24px;margin-top:28px}
-  footer{background:var(--carbon);color:rgba(242,235,225,.75);font-size:16px;padding:40px 0}
+  footer{background:var(--carbon);color:rgba(244,244,244,.75);font-size:16px;padding:40px 0}
   footer a{color:var(--hueso)}
   @media (max-width:900px){
     .wrap{padding:0 20px}
@@ -72,6 +72,11 @@
     .paleta-nombres{grid-template-columns:1fr 1fr;gap:12px}
     .tipos .muestra{font-size:48px}
   }
+  h1,h2,.h2,.tapa h1,.contra h2{font-family:var(--serif)!important;font-weight:500!important;text-transform:uppercase;letter-spacing:-.01em!important;line-height:1!important}
+  em{font-family:var(--script)!important;font-style:italic!important;font-weight:400!important;text-transform:none;letter-spacing:0!important}
+  .contacto h2 em,.cta h2 em,.contra em{color:#D9D9D9!important}
+  .eyebrow,.kicker{color:var(--ceniza)!important}
+  .unidades .eyebrow,.numeros .eyebrow{color:var(--ambar)!important}
 </style>
 </head>
 <body>
@@ -94,8 +99,8 @@
     </div>
     <div>
       <p class="eyebrow">El símbolo</p>
-      <h2>Un sol que <em>baja</em> sobre la línea del horizonte.</h2>
-      <p>Es un medio círculo apoyado sobre una línea: se lee como el sol del atardecer, como un arco de puerta y como una brasa, según quien lo mire. La palabra va en una serif liviana y en minúscula, para que la marca se sienta cercana y no de torre corporativa.</p>
+      <h2>Un sol que <em>baja</em> sobre el horizonte.</h2>
+      <p>Es un medio círculo dibujado con una línea fina, apoyado sobre otra línea: se lee como el sol del atardecer o como un arco de puerta, según quien lo mire. La palabra va en mayúsculas espaciadas, en una sola tinta, para que la marca sea sobria y deje que hablen la arquitectura y la luz.</p>
     </div>
   </div>
 </section>
@@ -104,11 +109,11 @@
   <div class="wrap">
     <p class="eyebrow">Logo</p>
     <div class="logo-box">
-      <svg viewBox="0 0 420 110" width="80%" aria-label="Logo de Lumbre"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="#C4552D"/><line x1="0" y1="92" x2="96" y2="92" stroke="#1F1C1A" stroke-width="4"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" fill="#1F1C1A">lumbre</text></svg>
+      <svg viewBox="0 0 520 110" width="80%" aria-label="Logo de Lumbre"><path d="M10 84 A38 38 0 0 1 86 84" fill="none" stroke="#1A1A1A" stroke-width="3"/><line x1="0" y1="92" x2="96" y2="92" stroke="#1A1A1A" stroke-width="3"/><text x="122" y="84" font-family="Inter Tight, Helvetica, Arial, sans-serif" font-weight="400" font-size="62" letter-spacing="14" fill="#1A1A1A">LUMBRE</text></svg>
     </div>
     <div class="logo-row">
-      <div style="background:var(--carbon)"><svg viewBox="0 0 420 110" width="85%" aria-hidden="true"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="#E9A85A"/><line x1="0" y1="92" x2="96" y2="92" stroke="#F2EBE1" stroke-width="4"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" fill="#F2EBE1">lumbre</text></svg></div>
-      <div style="background:var(--brasa)"><svg viewBox="0 0 100 100" width="40%" aria-hidden="true"><path d="M12 70 A38 38 0 0 1 88 70 Z" fill="#F2EBE1"/><line x1="2" y1="78" x2="98" y2="78" stroke="#1F1C1A" stroke-width="4"/></svg></div>
+      <div style="background:var(--carbon)"><svg viewBox="0 0 520 110" width="85%" aria-hidden="true"><path d="M10 84 A38 38 0 0 1 86 84" fill="none" stroke="#F4F4F4" stroke-width="3"/><line x1="0" y1="92" x2="96" y2="92" stroke="#F4F4F4" stroke-width="3"/><text x="122" y="84" font-family="Inter Tight, Helvetica, Arial, sans-serif" font-weight="400" font-size="62" letter-spacing="14" fill="#F4F4F4">LUMBRE</text></svg></div>
+      <div style="background:var(--brasa)"><svg viewBox="0 0 100 100" width="40%" aria-hidden="true"><path d="M12 70 A38 38 0 0 1 88 70" fill="none" stroke="#F4F4F4" stroke-width="3"/><line x1="2" y1="78" x2="98" y2="78" stroke="#F4F4F4" stroke-width="3"/></svg></div>
     </div>
   </div>
 </section>
@@ -116,15 +121,15 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">Paleta</p>
-    <h2>Los colores de <em>la hora dorada.</em></h2>
-    <p style="max-width:640px">Sacamos la paleta de lo que pasa en un balcón al oeste a las siete de la tarde: el ladrillo encendido, la luz ámbar, el hormigón en sombra y una pared clara que lo refleja todo.</p>
-    <div class="paleta"><div style="background:#C4552D"></div><div style="background:#E9A85A"></div><div style="background:#F2EBE1"></div><div style="background:#8A817A"></div><div style="background:#1F1C1A"></div></div>
+    <h2>Una paleta <em>de grises.</em></h2>
+    <p style="max-width:640px">Cinco grises, del blanco tiza al negro, sacados del hormigón visto y de cómo cambia con la luz del día. Sin un color que compita con las fotos: la marca acompaña y el edificio es el protagonista.</p>
+    <div class="paleta"><div style="background:#F4F4F4"></div><div style="background:#BDBDBD"></div><div style="background:#8C8C8C"></div><div style="background:#5E5E5E"></div><div style="background:#1A1A1A"></div></div>
     <div class="paleta-nombres">
-      <div><b>Brasa</b><span>#C4552D</span></div>
-      <div><b>Ámbar</b><span>#E9A85A</span></div>
-      <div><b>Hueso</b><span>#F2EBE1</span></div>
-      <div><b>Ceniza</b><span>#8A817A</span></div>
-      <div><b>Carbón</b><span>#1F1C1A</span></div>
+      <div><b>Tiza</b><span>#F4F4F4</span></div>
+      <div><b>Niebla</b><span>#BDBDBD</span></div>
+      <div><b>Hormigón</b><span>#8C8C8C</span></div>
+      <div><b>Grafito</b><span>#5E5E5E</span></div>
+      <div><b>Negro</b><span>#1A1A1A</span></div>
     </div>
   </div>
 </section>
@@ -132,10 +137,11 @@
 <section>
   <div class="wrap">
     <p class="eyebrow">Tipografías</p>
-    <h2>Una serif cálida y una sans <em>que ordena.</em></h2>
+    <h2>Una grotesca que ordena y una itálica <em>que acompaña.</em></h2>
     <div class="tipos">
-      <div><small>Títulos y logo</small><p class="muestra serif">Fraunces</p><small>Liviana, con itálica para destacar una palabra</small></div>
-      <div><small>Textos, datos y botones</small><p class="muestra sans">Manrope</p><small>Clara para leer metros, plantas y precios</small></div>
+      <div><small>Títulos y logo</small><p class="muestra serif">Inter Tight</p><small>En mayúsculas, para títulos y el logo</small></div>
+      <div><small>Acento</small><p class="muestra" style="font-family:var(--script);font-style:italic">Instrument Serif</p><small>En itálica, para destacar una palabra del título</small></div>
+      <div><small>Textos, datos y botones</small><p class="muestra sans">Inter</p><small>Clara para leer metros, plantas y precios</small></div>
     </div>
   </div>
 </section>
@@ -146,14 +152,14 @@
     <h2>La misma marca, <em>en cada lugar.</em></h2>
     <div class="apps">
       <div class="app cartel">
-        <svg viewBox="0 0 420 110" width="70%" aria-hidden="true"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="#F2EBE1"/><line x1="0" y1="92" x2="96" y2="92" stroke="#1F1C1A" stroke-width="4"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" fill="#F2EBE1">lumbre</text></svg>
+        <svg viewBox="0 0 520 110" width="70%" aria-hidden="true"><path d="M10 84 A38 38 0 0 1 86 84" fill="none" stroke="#F4F4F4" stroke-width="3"/><line x1="0" y1="92" x2="96" y2="92" stroke="#F4F4F4" stroke-width="3"/><text x="122" y="84" font-family="Inter Tight, Helvetica, Arial, sans-serif" font-weight="400" font-size="62" letter-spacing="14" fill="#F4F4F4">LUMBRE</text></svg>
         <p class="t">Departamentos con la luz de la tarde.</p>
         <p class="d">1, 2 y 3 dormitorios · Entrega 2028<br>Showroom en obra</p>
         <p class="cap">Cartel de obra</p>
       </div>
       <div class="app post"><div class="txt"><span>Tu balcón mira al atardecer.</span></div><p class="cap">Post de Instagram</p></div>
       <div class="app folleto">
-        <svg viewBox="0 0 100 100" width="22%" aria-hidden="true"><path d="M12 70 A38 38 0 0 1 88 70 Z" fill="#E9A85A"/><line x1="2" y1="78" x2="98" y2="78" stroke="#F2EBE1" stroke-width="4"/></svg>
+        <svg viewBox="0 0 100 100" width="22%" aria-hidden="true"><path d="M12 70 A38 38 0 0 1 88 70" fill="none" stroke="#BDBDBD" stroke-width="3"/><line x1="2" y1="78" x2="98" y2="78" stroke="#BDBDBD" stroke-width="3"/></svg>
         <p class="t">Dieciséis casas para <em>la hora dorada.</em></p>
         <p class="d" style="font-size:16px">Echesortu · Rosario</p>
         <p class="cap">Tapa del folleto</p>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Marca Lumbre · Proyecto demo de LIS. Creative Studio</title>
+<meta name="description" content="La marca de Lumbre, un edificio imaginado por LIS. Creative Studio: logo, paleta, tipografías y aplicaciones para un emprendimiento inmobiliario.">
+<meta name="robots" content="noindex, follow">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;1,9..144,300;1,9..144,400&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--carbon:#1F1C1A;--hueso:#F2EBE1;--brasa:#C4552D;--ambar:#E9A85A;--ceniza:#8A817A;--linea:#DDD3C6;
+    --serif:'Fraunces',Georgia,serif;--sans:'Manrope','Helvetica Neue',Arial,sans-serif}
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--hueso);color:var(--carbon);font-family:var(--sans);font-size:18px;line-height:1.65;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+  .demo{background:var(--carbon);color:var(--hueso);font-size:16px;line-height:1.5;padding:12px 20px;text-align:center}
+  .demo strong{color:var(--ambar);font-weight:600}
+  .demo a{color:var(--hueso);text-underline-offset:3px}
+  header{padding:96px 0 72px}
+  .eyebrow{font-size:16px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--brasa);margin-bottom:18px}
+  h1{font-family:var(--serif);font-weight:300;font-size:clamp(3rem,7vw,6.5rem);line-height:.98;letter-spacing:-.02em}
+  h1 em,h2 em{font-style:italic;color:var(--brasa)}
+  header p{max-width:620px;margin-top:28px;font-size:20px}
+  section{padding:96px 0;border-top:1px solid var(--linea)}
+  h2{font-family:var(--serif);font-weight:300;font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.08;margin-bottom:20px}
+  .cols{display:grid;grid-template-columns:1fr 1.3fr;gap:64px;align-items:start}
+  .cols p + p{margin-top:1em}
+  .logo-box{background:#fff;border:1px solid var(--linea);aspect-ratio:16/10;display:flex;align-items:center;justify-content:center;padding:40px}
+  .logo-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px}
+  .logo-row div{aspect-ratio:4/3;display:flex;align-items:center;justify-content:center;padding:28px}
+  .paleta{display:grid;grid-template-columns:repeat(5,1fr);gap:0;margin-top:40px;border:1px solid var(--linea)}
+  .paleta div{height:180px}
+  .paleta-nombres{display:grid;grid-template-columns:repeat(5,1fr);margin-top:14px;font-size:16px}
+  .paleta-nombres b{display:block;font-size:17px}
+  .paleta-nombres span{color:var(--ceniza)}
+  .tipos{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  .tipos div{border:1px solid var(--linea);padding:36px;background:#fff}
+  .tipos .muestra{font-size:64px;line-height:1;margin:18px 0}
+  .tipos .serif{font-family:var(--serif);font-weight:300}
+  .tipos .sans{font-family:var(--sans);font-weight:600}
+  .tipos small{display:block;font-size:16px;color:var(--ceniza)}
+  .apps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:40px}
+  .app{aspect-ratio:4/5;position:relative;overflow:hidden}
+  .app p.cap{position:absolute;right:14px;top:12px;font-size:16px;background:var(--hueso);color:var(--carbon);padding:4px 10px}
+  .cartel{background:var(--brasa);color:var(--hueso);padding:56px 28px 28px;display:flex;flex-direction:column;justify-content:space-between}
+  .cartel .t{font-family:var(--serif);font-weight:300;font-size:clamp(30px,3.4vw,44px);line-height:1.02}
+  .cartel .d{font-size:16px;line-height:1.5}
+  .post{background:url(img/cielo.jpg) center/cover}
+  .post .txt{position:absolute;inset:0;padding:28px;display:flex;flex-direction:column;justify-content:flex-end;background:linear-gradient(transparent 40%,rgba(31,28,26,.7));color:var(--hueso)}
+  .post .txt span{font-family:var(--serif);font-size:36px;font-weight:300;line-height:1.05}
+  .folleto{background:var(--carbon);color:var(--hueso);padding:56px 28px 28px;display:flex;flex-direction:column;justify-content:space-between}
+  .folleto .t{font-family:var(--serif);font-size:clamp(28px,3vw,34px);font-weight:300;line-height:1.05}
+  .folleto .t em{color:var(--ambar)}
+  .cta{background:var(--brasa);color:var(--hueso);text-align:center;border-top:0}
+  .cta h2 em{color:var(--carbon)}
+  .cta p{max-width:600px;margin:0 auto}
+  .btn{display:inline-flex;background:var(--carbon);color:var(--hueso);text-decoration:none;font-weight:600;font-size:16px;padding:14px 24px;margin-top:28px}
+  footer{background:var(--carbon);color:rgba(242,235,225,.75);font-size:16px;padding:40px 0}
+  footer a{color:var(--hueso)}
+  @media (max-width:900px){
+    .wrap{padding:0 20px}
+    header{padding:64px 0 48px}
+    section{padding:72px 0}
+    .cols,.tipos,.apps{grid-template-columns:1fr}
+    .logo-row{grid-template-columns:1fr}
+    .paleta div{height:110px}
+    .paleta-nombres{grid-template-columns:1fr 1fr;gap:12px}
+    .tipos .muestra{font-size:48px}
+  }
+</style>
+</head>
+<body>
+<div class="demo"><strong>Proyecto demo.</strong> Lumbre es un edificio imaginado por <a href="https://liscreativestudio.com">LIS. Creative Studio</a>. <a href="./">Ver la web del edificio →</a></div>
+
+<header>
+  <div class="wrap">
+    <p class="eyebrow">Marca · Lumbre</p>
+    <h1>Una marca que <em>se enciende</em> al atardecer.</h1>
+    <p>Así armaríamos la identidad de un edificio de departamentos en Rosario: un nombre, un símbolo y un sistema que funcione igual en el cartel de obra, en la web, en el folleto y en Instagram.</p>
+  </div>
+</header>
+
+<section>
+  <div class="wrap cols">
+    <div>
+      <p class="eyebrow">El nombre</p>
+      <h2>Lumbre</h2>
+      <p>El edificio se pensó alrededor de la luz de la tarde, con todos los balcones al oeste, así que buscamos una palabra que tuviera calor y luz a la vez. <em>Lumbre</em> es el fuego que se prende en casa, y también la luz que da: suena cálida, se dice fácil y no se parece a ningún otro edificio de la ciudad.</p>
+    </div>
+    <div>
+      <p class="eyebrow">El símbolo</p>
+      <h2>Un sol que <em>baja</em> sobre la línea del horizonte.</h2>
+      <p>Es un medio círculo apoyado sobre una línea: se lee como el sol del atardecer, como un arco de puerta y como una brasa, según quien lo mire. La palabra va en una serif liviana y en minúscula, para que la marca se sienta cercana y no de torre corporativa.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Logo</p>
+    <div class="logo-box">
+      <svg viewBox="0 0 420 110" width="80%" aria-label="Logo de Lumbre"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="#C4552D"/><line x1="0" y1="92" x2="96" y2="92" stroke="#1F1C1A" stroke-width="4"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" fill="#1F1C1A">lumbre</text></svg>
+    </div>
+    <div class="logo-row">
+      <div style="background:var(--carbon)"><svg viewBox="0 0 420 110" width="85%" aria-hidden="true"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="#E9A85A"/><line x1="0" y1="92" x2="96" y2="92" stroke="#F2EBE1" stroke-width="4"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" fill="#F2EBE1">lumbre</text></svg></div>
+      <div style="background:var(--brasa)"><svg viewBox="0 0 100 100" width="40%" aria-hidden="true"><path d="M12 70 A38 38 0 0 1 88 70 Z" fill="#F2EBE1"/><line x1="2" y1="78" x2="98" y2="78" stroke="#1F1C1A" stroke-width="4"/></svg></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Paleta</p>
+    <h2>Los colores de <em>la hora dorada.</em></h2>
+    <p style="max-width:640px">Sacamos la paleta de lo que pasa en un balcón al oeste a las siete de la tarde: el ladrillo encendido, la luz ámbar, el hormigón en sombra y una pared clara que lo refleja todo.</p>
+    <div class="paleta"><div style="background:#C4552D"></div><div style="background:#E9A85A"></div><div style="background:#F2EBE1"></div><div style="background:#8A817A"></div><div style="background:#1F1C1A"></div></div>
+    <div class="paleta-nombres">
+      <div><b>Brasa</b><span>#C4552D</span></div>
+      <div><b>Ámbar</b><span>#E9A85A</span></div>
+      <div><b>Hueso</b><span>#F2EBE1</span></div>
+      <div><b>Ceniza</b><span>#8A817A</span></div>
+      <div><b>Carbón</b><span>#1F1C1A</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Tipografías</p>
+    <h2>Una serif cálida y una sans <em>que ordena.</em></h2>
+    <div class="tipos">
+      <div><small>Títulos y logo</small><p class="muestra serif">Fraunces</p><small>Liviana, con itálica para destacar una palabra</small></div>
+      <div><small>Textos, datos y botones</small><p class="muestra sans">Manrope</p><small>Clara para leer metros, plantas y precios</small></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <p class="eyebrow">Aplicaciones</p>
+    <h2>La misma marca, <em>en cada lugar.</em></h2>
+    <div class="apps">
+      <div class="app cartel">
+        <svg viewBox="0 0 420 110" width="70%" aria-hidden="true"><path d="M10 84 A38 38 0 0 1 86 84 Z" fill="#F2EBE1"/><line x1="0" y1="92" x2="96" y2="92" stroke="#1F1C1A" stroke-width="4"/><text x="118" y="84" font-family="Fraunces, Georgia, serif" font-weight="300" font-size="88" letter-spacing="-2" fill="#F2EBE1">lumbre</text></svg>
+        <p class="t">Departamentos con la luz de la tarde.</p>
+        <p class="d">1, 2 y 3 dormitorios · Entrega 2028<br>Showroom en obra</p>
+        <p class="cap">Cartel de obra</p>
+      </div>
+      <div class="app post"><div class="txt"><span>Tu balcón mira al atardecer.</span></div><p class="cap">Post de Instagram</p></div>
+      <div class="app folleto">
+        <svg viewBox="0 0 100 100" width="22%" aria-hidden="true"><path d="M12 70 A38 38 0 0 1 88 70 Z" fill="#E9A85A"/><line x1="2" y1="78" x2="98" y2="78" stroke="#F2EBE1" stroke-width="4"/></svg>
+        <p class="t">Dieciséis casas para <em>la hora dorada.</em></p>
+        <p class="d" style="font-size:16px">Echesortu · Rosario</p>
+        <p class="cap">Tapa del folleto</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="wrap">
+    <h2>¿Tenés un edificio <em>en marcha?</em></h2>
+    <p>Armamos el nombre, la marca, el folleto y la web de cada emprendimiento, para que se venda desde el pozo con la misma cara en todos lados.</p>
+    <a href="https://liscreativestudio.com/#contact" class="btn">Contame tu emprendimiento →</a>
+  </div>
+</section>
+
+<footer><div class="wrap">Lumbre es un proyecto demo de <a href="https://liscreativestudio.com">LIS. Creative Studio</a>. Edificio y datos ficticios. Imágenes ilustrativas de Unsplash. <a href="./">Ver la web de Lumbre →</a></div></footer>
+</body>
+</html>

@@ -695,6 +695,20 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     .step-card { border: 1px dashed var(--black); border-radius: 18px; padding: 30px; display: flex; flex-direction: column; }
     .step-card .res-title { font-size: clamp(1.3rem, 1.9vw, 1.6rem); }
     .step-card a { margin-top: auto; align-self: flex-start; }
+    .voces { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; }
+    .voces-head { font-size: 13px; letter-spacing: .12em; text-transform: lowercase; color: #6f6b64; margin-bottom: 22px; }
+    .voces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .voces figure { margin: 0; border-top: 1px solid var(--black); padding-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+    .voces blockquote { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
+    .voces figcaption { font-size: 14px; color: #6f6b64; }
+    .hero-voz { margin-top: 28px; max-width: 440px; font-size: 15px; line-height: 1.55; color: #555; border-left: 2px solid #2e54a0; padding-left: 14px; }
+    .hero-voz span { display: block; margin-top: 4px; font-size: 13px; color: #6f6b64; }
+    @media (max-width: 760px) {
+      .voces { padding: 44px 16px 0; }
+      .voces-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .voces-head, .voces figcaption, .hero-voz, .hero-voz span { font-size: 16px; }
+      .voces blockquote { font-size: 18px; }
+    }
     .why { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .why div { border-top: 1px solid var(--black); padding-top: 18px; }
     .why b { display: block; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -.05em; line-height: 1; margin-bottom: 8px; }
@@ -765,10 +779,21 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
         <h1 class="hero-title fi fi-d1">Tienda<br><em>para creativos</em></h1>
         <p class="hero-desc fi fi-d2">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
         <a href="#plantillas" class="hero-nl-link hero-azul fi fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
+        <p class="hero-voz fi fi-d2">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
       </div>
 
     </div>
   </div>
+
+  <!-- ══ LO QUE ME ESCRIBEN ══ -->
+  <section class="voces fi" aria-label="Lo que me escriben quienes usan las plantillas">
+    <p class="voces-head">lo que me escriben quienes ya las usan</p>
+    <div class="voces-grid">
+      <figure><blockquote>“Es la primera vez en años que puedo organizarme con mis servicios. Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”</blockquote><figcaption>Florencia M.</figcaption></figure>
+      <figure><blockquote>“Lo que más me gustó es el cuestionario, porque a veces me quedaba corta con las preguntas.”</blockquote><figcaption>Romina</figcaption></figure>
+      <figure><blockquote>“En dos minutos lo resolví. Después si quieren contratarme o no es otra historia, pero al menos recibieron todo ordenadito.”</blockquote><figcaption>Caro</figcaption></figure>
+    </div>
+  </section>
 
   <!-- ══ POR QUÉ ══ -->
   <section class="why fi" aria-label="Por qué estos recursos">

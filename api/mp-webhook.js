@@ -14,6 +14,7 @@ const ENTREGAS = {
   "entrega-identidad": "/tienda-gracias-8e4c5f5d4f?p=entrega-identidad",
   "manual-de-marca": "/tienda-gracias-8e4c5f5d4f?p=manual-de-marca",
   "entrega-web": "/tienda-gracias-8e4c5f5d4f?p=entrega-web",
+  "presupuesto": "/tienda-gracias-8e4c5f5d4f?p=presupuesto",
   "firmas": "/tienda-gracias-8e4c5f5d4f?p=firmas",
   "sistema": "/tienda-gracias-8e4c5f5d4f?p=sistema",
   "sistema-vuelve": "/tienda-gracias-8e4c5f5d4f?p=sistema",
@@ -22,7 +23,7 @@ const ENTREGAS = {
 const NOMBRES = {
   "kit-bienvenida": "Kit de bienvenida", "propuesta": "Propuesta comercial", "conceptboards": "Conceptboards",
   "entrega-identidad": "Entrega de identidad", "manual-de-marca": "Manual de marca", "entrega-web": "Entrega de web",
-  "firmas": "Firmas de mail", "sistema": "Sistema de freelance a estudio", "sistema-vuelve": "Sistema de freelance a estudio", "masterclass-ia": "Masterclass Así usamos la IA en LIS",
+  "presupuesto": "Presupuesto y recibo", "firmas": "Firmas de mail", "sistema": "Sistema de freelance a estudio", "sistema-vuelve": "Sistema de freelance a estudio", "masterclass-ia": "Masterclass Así usamos la IA en LIS",
 };
 const GRUPO = "Compró en la tienda";
 const ML = "https://connect.mailerlite.com/api";

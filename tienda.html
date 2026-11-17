@@ -32,7 +32,7 @@
     !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];f.__fbq=true}(window);
     fbq('init','2559356064485053');fbq('track','PageView');
     fbq('track','ViewContent',{content_name:'Tienda de plantillas',content_category:'Plantillas para Canva',currency:'ARS',value:49900});
-    var LIS_PRECIOS={'sistema':49900,'kit-bienvenida':24900,'propuesta':14900,'conceptboards':14900,'entrega-identidad':14900,'manual-de-marca':29900,'entrega-web':14900,'firmas':7900};
+    var LIS_PRECIOS={'presupuesto':3900,'sistema':49900,'kit-bienvenida':24900,'propuesta':14900,'conceptboards':14900,'entrega-identidad':14900,'manual-de-marca':29900,'entrega-web':14900,'firmas':7900};
     document.addEventListener('click',function(e){
       var a=e.target.closest&&e.target.closest('a[href*="/api/comprar-tienda?p="]'); if(!a) return;
       var id=(a.getAttribute('href').split('p=')[1]||'').split('&')[0];
@@ -820,6 +820,16 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
               <a class="res-btn" href="/api/comprar-tienda?p=sistema" target="_blank" rel="noopener">Comprar <span aria-hidden="true">→</span></a></div><p class="p-usd">¿Desde afuera? <a href="https://payhip.com/b/lsbwH" target="_blank" rel="noopener">Comprá en dólares</a>: USD 59 con tarjeta o PayPal, y te llega al instante.</p>
           </div>
           <div class="p-img"><img src="img/tienda-sistema.webp" alt="Plantillas del sistema de freelance a estudio" loading="lazy" /></div>
+        </article>
+        <article class="p-card fi" id="presupuesto">
+          <div class="p-thumb"><img src="img/tienda-presupuesto.webp" alt="Plantilla de presupuesto y recibo" loading="lazy" /></div>
+          <span class="res-tag">Para arrancar</span>
+          <h3 class="res-title">Presupuesto <em>y recibo</em></h3>
+          <p class="res-desc">El presupuesto que mando cuando un cliente me pide precio, con el alcance, la inversión y las condiciones de pago, y el recibo para cuando te paga la seña.</p>
+          <ul class="p-inc"><li>3 páginas editables en Canva</li><li>Alcance, inversión, plazos y rondas de cambios</li><li>Recibo de seña y saldo</li></ul>
+          <div class="p-foot">
+            <p class="p-price">$3.900<small>pagás con Mercado Pago</small></p>
+            <a class="res-btn" href="/api/comprar-tienda?p=presupuesto" target="_blank" rel="noopener">Comprar <span aria-hidden="true">→</span></a></div>
         </article>
         <article class="p-card fi">
           <div class="p-thumb"><img src="img/tienda-bienvenida.webp" alt="Plantillas de bienvenida, contrato y presupuesto" loading="lazy" /></div>

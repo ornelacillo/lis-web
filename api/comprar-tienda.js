@@ -43,6 +43,13 @@ const PRODUCTOS = {
     gracias: "/tienda-gracias-8e4c5f5d4f?p=entrega-web",
     volver: "/tienda#plantillas",
   },
+  // Producto de entrada (17/11/2026): la plantilla de presupuesto y recibo sola, para la primera compra.
+  "presupuesto": {
+    title: "Presupuesto y recibo · plantilla para Canva · LIS. Creative Studio",
+    unit_price: 3900,
+    gracias: "/tienda-gracias-8e4c5f5d4f?p=presupuesto",
+    volver: "/tienda#presupuesto",
+  },
   "firmas": {
     title: "Generador de firmas de mail · LIS. Creative Studio",
     unit_price: 7900,

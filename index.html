@@ -350,8 +350,17 @@
       display: grid; grid-template-columns: 0.52fr 1fr;
       gap: 80px; align-items: center;
     }
-    .about-img { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; }
-    .about-img img { width:100%; height:100%; object-fit:cover; display:block; }
+    .about-img { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; position: relative;
+      clip-path: inset(100% 0 0 0); transition: clip-path 1.3s cubic-bezier(.7,0,.2,1), opacity .8s ease, transform .8s ease; }
+    .about-img.visible { clip-path: inset(0 0 0 0); }
+    .about-img img { width:100%; height:100%; object-fit:cover; display:block;
+      transform: translate3d(0, var(--py, 0px), 0) scale(1.18); will-change: transform;
+      transition: transform 1.6s cubic-bezier(.2,.7,.2,1), filter .6s ease; }
+    .about-img:hover img { transform: translate3d(0, var(--py, 0px), 0) scale(1.24); }
+    @media (prefers-reduced-motion: reduce) {
+      .about-img { clip-path: none; transition: none; }
+      .about-img img { transform: none; transition: none; }
+    }
     .about-tag {
       font-family: var(--font-body);
       font-size: 11px; letter-spacing: .16em;
@@ -1406,5 +1415,23 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     }
   })();
   </script>
+<script>
+  /* Foto del about: se descubre de abajo hacia arriba y se mueve suave con el scroll */
+  (function () {
+    var box = document.querySelector('.about-img');
+    if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var img = box.querySelector('img'), ticking = false;
+    function mover() {
+      var r = box.getBoundingClientRect(), vh = window.innerHeight;
+      if (vh > 0 && r.bottom > 0 && r.top < vh) {
+        var p = (r.top + r.height / 2 - vh / 2) / vh;   /* -1 a 1 */
+        img.style.setProperty('--py', (p * -40).toFixed(1) + 'px');
+      }
+      ticking = false;
+    }
+    window.addEventListener('scroll', function () { if (!ticking) { ticking = true; requestAnimationFrame(mover); } }, { passive: true });
+    mover();
+  })();
+</script>
 </body>
 </html>

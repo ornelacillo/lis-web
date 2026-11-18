@@ -477,6 +477,23 @@ body { background: var(--cream); color: var(--ink); }
     radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
     #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
 }
+/* Efecto cortina (pliegues de luz verticales sobre azul), 18/11/2026 */
+.page-hero, .nl-card {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0) 0px, rgba(255,255,255,.10) 24px, rgba(255,255,255,0) 48px, rgba(10,12,30,.18) 76px, rgba(255,255,255,0) 104px),
+    radial-gradient(60% 90% at 82% 15%, rgba(126,146,226,.85) 0%, rgba(126,146,226,0) 62%),
+    linear-gradient(165deg, #3d5bb0 0%, #2b4c86 48%, #1b1a17 100%) !important;
+}
+.page-hero .hero-desc, .page-hero .page-hero-desc { max-width: 470px; }
+/* Recuadro del newsletter: un solo bloque con la cortina, sin lista */
+.nl-card { border: 0 !important; border-radius: 4px !important; overflow: hidden; color: var(--cream) !important; }
+.nl-card .nl-body, .nl-card .nl-form-side { background: transparent !important; color: var(--cream) !important; }
+.nl-card .nl-body *:not(input):not(textarea):not(select), .nl-card .nl-form-side *:not(input):not(button) { color: var(--cream) !important; border-color: rgba(244,237,227,.35) !important; }
+.nl-card .nl-title em { color: #dfe5f0 !important; }
+.nl-card .nl-perks { display: none !important; }
+.nl-card .nl-form-side .ml-form-fieldRow input { background: rgba(244,237,227,.08) !important; border: 1.5px solid rgba(244,237,227,.55) !important; color: var(--cream) !important; border-radius: 0 !important; }
+.nl-card .nl-form-side .ml-form-fieldRow input::placeholder { color: rgba(244,237,227,.7) !important; }
+.nl-card .nl-form-side .ml-form-embedSubmit button { background: var(--cream) !important; color: var(--ink) !important; border-color: var(--cream) !important; border-radius: 0 !important; }
 .page-hero .hero-x { display: none !important; }
 .page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
 .page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
@@ -841,7 +858,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     <div class="page-hero-inner">
       <div>
         <h1 class="hero-title fi fi-d1">El blog<br><em>de LIS</em></h1>
-        <p class="hero-desc fi fi-d2">Acá queda publicada cada edición de Planta Libre, el newsletter semanal de LIS sobre diseño, arquitectura y todo lo que pasa en el medio.</p>
+        <p class="hero-desc fi fi-d2">Cada edición de Planta Libre, el newsletter de diseño y arquitectura de los lunes.</p>
         <a href="#newsletter" class="hero-nl-link fi fi-d2">Recibilo en tu mail <span aria-hidden="true">↓</span></a>
       </div>
     </div>
@@ -888,7 +905,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 
   <!-- ══ ARTÍCULOS ══ -->
   <section class="res-section">
-    <div class="res-list" id="articulos">
+    <div class="res-list colapsado" id="articulos">
 
       <!-- Cada artículo nuevo va acá arriba (el más reciente primero), copiando el formato de las tarjetas de abajo. -->
 
@@ -1087,6 +1104,17 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       </article>
 
     </div>
+    <p class="ver-mas-wrap"><button type="button" class="res-btn ver-mas" id="verMas">Ver más artículos <span aria-hidden="true">↓</span></button></p>
+    <style>
+      /* Blog: se ven los 3 últimos; el resto queda en la página (lo lee Google) y aparece con "Ver más". Las imágenes son lazy, así que no se cargan hasta mostrarse. */
+      .res-list.colapsado .res-card:nth-of-type(n+4) { display: none; }
+      .ver-mas-wrap { max-width: 1100px; margin: 10px auto 0; padding: 0 60px; text-align: center; }
+      .res-list:not(.colapsado) + .ver-mas-wrap { display: none; }
+      @media (max-width: 760px) { .ver-mas-wrap { padding: 0 16px; } }
+    </style>
+    <script>
+      document.getElementById('verMas').addEventListener('click', function () { document.getElementById('articulos').classList.remove('colapsado'); });
+    </script>
   </section>
 
   <!-- ══ FOOTER ══ -->

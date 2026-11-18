@@ -351,15 +351,16 @@
       display: grid; grid-template-columns: 0.52fr 1fr;
       gap: 80px; align-items: center;
     }
-    .about-img { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; position: relative; }
+    .about-img { aspect-ratio: 3/4; border-radius: 4px; overflow: hidden; position: relative; will-change: transform;
+      box-shadow: 0 24px 50px rgba(27,26,23,.18); transition: box-shadow .4s ease, opacity .8s ease; }
+    .about-img:hover { box-shadow: 0 34px 70px rgba(27,26,23,.26); }
     .about-img img { width:100%; height:100%; object-fit:cover; display:block;
-      clip-path: inset(100% 0 0 0);
-      transform: translate3d(0, var(--py, 0px), 0) scale(1.18); will-change: transform;
-      transition: clip-path 1.3s cubic-bezier(.7,0,.2,1), transform 1.6s cubic-bezier(.2,.7,.2,1); }
+      clip-path: inset(100% 0 0 0); transition: clip-path 1.3s cubic-bezier(.7,0,.2,1); }
     .about-img.visible img { clip-path: inset(0 0 0 0); }
-    .about-img:hover img { transform: translate3d(0, var(--py, 0px), 0) scale(1.24); }
+    #about .about-img.fi, #about .about-img.fi.visible { transform: translate3d(0, var(--py, 0px), 0) rotate(var(--rot, 0deg)); }
     @media (prefers-reduced-motion: reduce) {
-      .about-img img { clip-path: none; transform: none; transition: none; }
+      #about .about-img.fi { transform: none; }
+      .about-img img { clip-path: none; transition: none; }
     }
     .about-tag {
       font-family: var(--font-body);
@@ -722,6 +723,23 @@ body { background: var(--cream); color: var(--ink); }
     radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
     #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
 }
+/* Efecto cortina (pliegues de luz verticales sobre azul), 18/11/2026 */
+.page-hero, .nl-card {
+  background:
+    repeating-linear-gradient(90deg, rgba(255,255,255,0) 0px, rgba(255,255,255,.10) 24px, rgba(255,255,255,0) 48px, rgba(10,12,30,.18) 76px, rgba(255,255,255,0) 104px),
+    radial-gradient(60% 90% at 82% 15%, rgba(126,146,226,.85) 0%, rgba(126,146,226,0) 62%),
+    linear-gradient(165deg, #3d5bb0 0%, #2b4c86 48%, #1b1a17 100%) !important;
+}
+.page-hero .hero-desc, .page-hero .page-hero-desc { max-width: 470px; }
+/* Recuadro del newsletter: un solo bloque con la cortina, sin lista */
+.nl-card { border: 0 !important; border-radius: 4px !important; overflow: hidden; color: var(--cream) !important; }
+.nl-card .nl-body, .nl-card .nl-form-side { background: transparent !important; color: var(--cream) !important; }
+.nl-card .nl-body *:not(input):not(textarea):not(select), .nl-card .nl-form-side *:not(input):not(button) { color: var(--cream) !important; border-color: rgba(244,237,227,.35) !important; }
+.nl-card .nl-title em { color: #dfe5f0 !important; }
+.nl-card .nl-perks { display: none !important; }
+.nl-card .nl-form-side .ml-form-fieldRow input { background: rgba(244,237,227,.08) !important; border: 1.5px solid rgba(244,237,227,.55) !important; color: var(--cream) !important; border-radius: 0 !important; }
+.nl-card .nl-form-side .ml-form-fieldRow input::placeholder { color: rgba(244,237,227,.7) !important; }
+.nl-card .nl-form-side .ml-form-embedSubmit button { background: var(--cream) !important; color: var(--ink) !important; border-color: var(--cream) !important; border-radius: 0 !important; }
 .page-hero .hero-x { display: none !important; }
 .page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
 .page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
@@ -1362,16 +1380,17 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   })();
   </script>
 <script>
-  /* Foto del about: se descubre de abajo hacia arriba y se mueve suave con el scroll */
+  /* Foto del about: se descubre de abajo hacia arriba y la tarjeta flota y gira apenas con el scroll (sin zoom) */
   (function () {
     var box = document.querySelector('.about-img');
     if (!box || window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-    var img = box.querySelector('img'), ticking = false;
+    var ticking = false;
     function mover() {
       var r = box.getBoundingClientRect(), vh = window.innerHeight;
       if (vh > 0 && r.bottom > 0 && r.top < vh) {
         var p = (r.top + r.height / 2 - vh / 2) / vh;   /* -1 a 1 */
-        img.style.setProperty('--py', (p * -40).toFixed(1) + 'px');
+        box.style.setProperty('--py', (p * -60).toFixed(1) + 'px');
+        box.style.setProperty('--rot', (p * -3).toFixed(2) + 'deg');
       }
       ticking = false;
     }

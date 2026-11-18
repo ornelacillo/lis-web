@@ -1,0 +1,1099 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Las que nos quedamos · taller para diseñadoras en Rosario | LIS. Creative Studio</title>
+  <link rel="icon" href="/favicon.png" type="image/png">
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+  <!-- Analytics, Clarity y Meta se cargan al primer scroll o toque, o 2,5 s después de la carga, para no frenar la página -->
+  <script>
+    (function () {
+      var done = false;
+      function add(src) { var t = document.createElement('script'); t.async = true; t.src = src; document.head.appendChild(t); }
+      function go() {
+        if (done) return; done = true;
+        add('https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32');
+        if (window.__clarity) add('https://www.clarity.ms/tag/z3r50bv2sr');
+        if (window.__fbq) add('https://connect.facebook.net/en_US/fbevents.js');
+      }
+      ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'].forEach(function (e) { addEventListener(e, go, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(go, 2500); });
+    })();
+  </script>
+  <!-- Meta Pixel (2559356064485053): visita a la landing del taller; la suscripción se marca como Lead -->
+  <script>
+    !function(f){if(f.fbq)return;var n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];f.__fbq=true}(window);
+    fbq('init','2559356064485053');fbq('track','PageView');
+  </script>
+  <!-- Microsoft Clarity: grabaciones y mapas de calor -->
+  <script>
+    window.clarity = window.clarity || function () { (window.clarity.q = window.clarity.q || []).push(arguments); };
+    window.__clarity = true;
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" /></noscript>
+
+  <!-- MailerLite Universal -->
+  <script>
+    (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+    .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+    n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+    (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+    ml('account', '1460085');
+  </script>
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black: #111;
+      --white: #ffffff;
+      --gray: #888;
+      --light: #e0ddd8;
+      --font: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: var(--font);
+      font-size: 15px; line-height: 1.6; cursor: none;
+    }
+
+    .cursor { position: fixed; width: 8px; height: 8px; background: var(--black); border-radius: 50%; pointer-events: none; z-index: 9999; transform: translate(-50%, -50%); transition: width .2s, height .2s; }
+    .cursor-ring { position: fixed; width: 30px; height: 30px; border: 1px solid var(--black); border-radius: 50%; pointer-events: none; z-index: 9998; transform: translate(-50%, -50%); transition: left .12s ease, top .12s ease, width .25s, height .25s; }
+    body:has(a:hover) .cursor-ring, body:has(button:hover) .cursor-ring { width: 48px; height: 48px; }
+    @media (hover: none), (pointer: coarse) { .cursor, .cursor-ring { display: none !important; } body { cursor: auto; } }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; justify-content: center; gap: 48px;
+      padding: 22px 0; align-items: center;
+      transition: background .35s, box-shadow .35s;
+    }
+    nav.scrolled { background: var(--black); box-shadow: 0 1px 0 #222; }
+    nav a { text-decoration: none; color: var(--white); font-family: var(--font); font-size: 13px; letter-spacing: .06em; transition: opacity .2s; }
+    nav a:hover { opacity: .45; }
+    .nav-dropdown { position: relative; display: flex; align-items: center; }
+    .nav-dropdown > a { cursor: default; }
+    .nav-dropdown-menu { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); padding-top: 14px; min-width: 180px; z-index: 200; }
+    .nav-dropdown-menu-inner { background: #181818; border: 1px solid #2a2a2a; padding: 8px 0; }
+    .nav-dropdown:hover .nav-dropdown-menu { display: block; }
+    .nav-dropdown-menu a { display: block; padding: 9px 20px; font-size: 12px; letter-spacing: .06em; color: var(--white) !important; text-decoration: none; transition: opacity .2s; pointer-events: auto !important; }
+    .nav-dropdown-menu a:hover { opacity: .45; }
+    /* ── HAMBURGER ── */
+    .nav-hamburger { display: none; position: fixed; top: 16px; right: 20px; z-index: 1001; background: none; border: none; cursor: none; padding: 6px; flex-direction: column; gap: 5px; }
+    .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--white); transition: transform .3s, opacity .3s; }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .nav-mobile-overlay { display: none; position: fixed; inset: 0; z-index: 1000; background: var(--black); flex-direction: column; align-items: center; justify-content: center; gap: 32px; }
+    .nav-mobile-overlay.open { display: flex; }
+    .nav-mobile-overlay a { text-decoration: none; color: var(--white); font-size: 22px; letter-spacing: .04em; transition: opacity .2s; }
+    .nav-mobile-overlay a:hover { opacity: .45; }
+    .nav-mobile-overlay .mob-sub { display: flex; flex-direction: column; align-items: center; gap: 14px; padding-top: 8px; border-top: 1px solid #2a2a2a; width: 220px; }
+    .nav-mobile-overlay .mob-sub a { font-size: 15px; color: #888; }
+    @media (max-width: 860px) { nav { display: none; } .nav-hamburger { display: flex; } }
+
+    /* ── HERO ── */
+    .page-hero {
+      background: var(--black); color: var(--white);
+      padding: 180px 60px 100px;
+      position: relative; overflow: hidden;
+    }
+    .page-hero-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+    .hero-x { position: absolute; inset: 0; z-index: 0; pointer-events: none; opacity: .1; }
+    .hero-x svg { width: 100%; height: 100%; }
+    .hero-label { font-size: 12px; letter-spacing: .14em; color: #555; text-transform: lowercase; margin-bottom: 32px; }
+    .hero-title { font-size: clamp(2.8rem, 5vw, 5.5rem); font-weight: 400; line-height: 1.05; letter-spacing: -.02em; margin-bottom: 24px; }
+    .hero-desc { font-size: 17px; color: #888; line-height: 1.8; margin-bottom: 0; }
+    .hero-img-wrap {
+      position: relative;
+    }
+    .hero-img-wrap img {
+      width: 100%; display: block;
+      border-radius: 4px;
+    }
+    .hero-badge {
+      position: absolute; top: -16px; right: -16px;
+      background: #2b4c86; color: #f4ede3;
+      font-size: 12px; font-weight: 600; letter-spacing: .06em;
+      padding: 8px 16px; border-radius: 100px;
+      text-transform: uppercase;
+    }
+
+    /* ── RECURSOS (cards) ── */
+    .res-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px; }
+    .res-label { font-size: 12px; letter-spacing: .14em; color: var(--gray); text-transform: lowercase; margin-bottom: 40px; }
+    .res-list { display: flex; flex-direction: column; gap: 28px; }
+    .res-card {
+      display: grid; grid-template-columns: 1fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px;
+      overflow: hidden; background: var(--white);
+      transition: box-shadow .3s, transform .3s;
+    }
+    .res-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.06); transform: translateY(-2px); }
+    .res-body { padding: 48px; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+    .res-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em;
+      text-transform: uppercase; padding: 5px 13px;
+      border: 1px solid var(--black); border-radius: 100px; margin-bottom: 22px;
+    }
+    .res-title { font-size: clamp(1.6rem, 2.6vw, 2.2rem); font-weight: 400; line-height: 1.12; letter-spacing: -.02em; margin-bottom: 16px; }
+    .res-desc { font-size: 15px; color: #555; line-height: 1.7; margin-bottom: 12px; max-width: 420px; }
+    .res-btn {
+      margin-top: 16px; display: inline-flex; align-items: center; gap: 8px;
+      background: var(--black); color: var(--white); border: 1px solid var(--black);
+      font-family: var(--font); font-size: 13px; font-weight: 500; letter-spacing: .03em;
+      padding: 12px 24px; border-radius: 100px; cursor: none; transition: background .2s, color .2s;
+    }
+    .res-btn:hover { background: var(--white); color: var(--black); }
+    .res-soon { margin-top: 16px; display: inline-flex; align-items: center; font-size: 13px; font-weight: 500; letter-spacing: .03em; padding: 12px 24px; border-radius: 100px; border: 1px dashed var(--black); color: #777; }
+    .res-form { display: none; width: 100%; max-width: 380px; margin-top: 20px; }
+    .res-card.open .res-form { display: block; }
+    .res-card.open .res-btn { display: none; }
+    .res-media { position: relative; min-height: 380px; border-left: 1px solid var(--black); overflow: hidden; }
+    .res-media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; display: block; }
+    .res-badge {
+      position: absolute; top: 18px; left: 18px; z-index: 2;
+      background: #2b4c86; color: #f4ede3; font-size: 11px; font-weight: 600;
+      letter-spacing: .08em; padding: 7px 14px; border-radius: 100px; text-transform: uppercase;
+    }
+
+    /* Mockup Notion hecho en CSS */
+    .notion-mock { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; padding: 40px; }
+    .notion-mock.lime { background: #2b4c86; }
+    .notion-mock.stone { background: #e0ddd8; }
+    .nm-window {
+      width: 82%; max-width: 380px; background: #fff; border-radius: 10px;
+      box-shadow: 0 18px 40px rgba(0,0,0,.14); overflow: hidden; transform: rotate(-2deg);
+    }
+    .notion-mock.stone .nm-window { transform: rotate(2deg); }
+    .nm-bar { display: flex; gap: 5px; padding: 10px 12px; border-bottom: 1px solid #eee; }
+    .nm-bar i { width: 8px; height: 8px; border-radius: 50%; background: #ddd; }
+    .nm-cover { height: 64px; background: #111; }
+    .notion-mock.stone .nm-cover { background: linear-gradient(90deg, #111 0 60%, #2b4c86 60%); }
+    .nm-page { padding: 16px 20px 22px; }
+    .nm-title { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #111; line-height: 1.2; }
+    .nm-line { height: 7px; background: #eee; border-radius: 4px; margin-bottom: 8px; }
+    .nm-line.s { width: 55%; } .nm-line.m { width: 78%; }
+    .nm-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 14px; }
+    .nm-row span { height: 42px; border-radius: 6px; background: #f3f2ef; border: 1px solid #eee; }
+    .nm-check { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+    .nm-check b { width: 10px; height: 10px; border: 1px solid #bbb; border-radius: 2px; flex-shrink: 0; }
+    .nm-check b.on { background: #111; border-color: #111; }
+    .nm-check .nm-line { margin: 0; flex: 1; }
+    .nm-logo {
+      position: absolute; top: 22px; right: 22px; width: 54px; height: 54px;
+      background: #fff; border: 2px solid #111; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: Georgia, 'Times New Roman', serif; font-size: 30px; font-weight: 700; color: #111;
+      box-shadow: 3px 3px 0 #111; transform: rotate(8deg);
+    }
+
+    /* Hide MailerLite branding if any */
+    .ml-form-embedWrapper .ml-form-embedContent { display: none !important; }
+
+    /* MailerLite mini forms inside template cards */
+    .template-form { margin-top: 20px; border-top: 1px solid var(--light); padding-top: 20px; }
+    .template-form p { font-size: 12px; color: var(--gray); margin-bottom: 10px; }
+    .template-form .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .template-form .ml-form-embedBody { padding: 0 !important; }
+    .template-form .ml-form-embedContent { display: none !important; }
+    .template-form .ml-form-formContent { margin: 0 !important; }
+    .template-form .ml-form-fieldRow { margin-bottom: 6px !important; }
+    .template-form .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: var(--font) !important; font-size: 13px !important; padding: 8px 10px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+    .template-form .ml-form-embedSubmit { margin: 0 !important; }
+    .template-form .ml-form-embedSubmit button { border-radius: 0 !important; font-family: var(--font) !important; font-size: 12px !important; font-weight: 500 !important; background-color: #111 !important; color: #fff !important; padding: 8px 16px !important; width: 100% !important; }
+    .template-form .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 14px !important; font-weight: 500 !important; }
+    .template-form .ml-form-successContent p { font-family: var(--font) !important; font-size: 12px !important; }
+
+    /* Formularios dentro de las tarjetas de recursos */
+    .res-form.template-form { border-top: none; padding-top: 0; margin-top: 18px; }
+    .res-form input { border-radius: 100px !important; padding-left: 18px !important; }
+    .res-form .ml-form-fieldRow input { border: 1px solid #ccc !important; border-radius: 100px !important; padding: 11px 18px !important; outline: none; }
+    .res-form .ml-form-fieldRow input:focus { border-color: var(--black) !important; }
+    .res-form .ml-form-embedSubmit button { border: 1px solid #111 !important; border-radius: 100px !important; padding: 12px 20px !important; }
+
+
+    /* ── NEWSLETTER DESTACADO ── */
+    .nl-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px 0; scroll-margin-top: 40px; }
+    .nl-card {
+      display: grid; grid-template-columns: 1.15fr 1fr;
+      border: 1px solid var(--black); border-radius: 18px; overflow: hidden;
+    }
+    .nl-body { background: #b8b2a7; padding: 56px 52px; }
+    .nl-tag {
+      display: inline-block; font-size: 11px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase;
+      padding: 0; border: 0; border-radius: 0; margin-bottom: 24px;
+    }
+    .nl-title { font-size: clamp(2rem, 3.6vw, 3.2rem); font-weight: 400; line-height: 1.05; letter-spacing: -.03em; margin-bottom: 20px; }
+    .nl-desc { font-size: 16px; color: #222; line-height: 1.7; max-width: 440px; margin-bottom: 28px; }
+    .nl-perks { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .nl-perks li {
+      align-self: flex-start; background: var(--white); border: 1px solid var(--black); border-radius: 100px;
+      padding: 9px 18px; font-size: 14px;
+    }
+    .nl-perks li::before { content: '→ '; }
+    .nl-form-side { background: var(--black); color: var(--white); padding: 56px 48px; display: flex; flex-direction: column; justify-content: center; }
+    .nl-form-title { font-size: 22px; font-weight: 400; line-height: 1.3; margin-bottom: 8px; }
+    .nl-form-sub { font-size: 14px; color: #999; line-height: 1.6; margin-bottom: 28px; }
+    .nl-form-side .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+    .nl-form-side .ml-form-embedBody { padding: 0 !important; }
+    .nl-form-side .ml-form-embedContent { display: none !important; }
+    .nl-form-side .ml-form-formContent { margin: 0 !important; }
+    .nl-form-side .ml-form-fieldRow { margin-bottom: 10px !important; }
+    .nl-form-side .ml-form-fieldRow input {
+      width: 100% !important; box-sizing: border-box !important; font-family: var(--font) !important; font-size: 14px !important;
+      background: transparent !important; color: var(--white) !important;
+      border: 1px solid #444 !important; border-radius: 100px !important; padding: 13px 20px !important; outline: none;
+    }
+    .nl-form-side .ml-form-fieldRow input::placeholder { color: #888; }
+    .nl-form-side .ml-form-fieldRow input:focus { border-color: #2b4c86 !important; }
+    .nl-form-side .ml-form-embedSubmit { margin: 6px 0 0 !important; }
+    .nl-form-side .ml-form-embedSubmit button {
+      width: 100% !important; font-family: var(--font) !important; font-size: 14px !important; font-weight: 600 !important;
+      background: #2b4c86 !important; color: #f4ede3 !important; border: 1px solid #2b4c86 !important;
+      border-radius: 100px !important; padding: 14px 20px !important; cursor: none;
+    }
+    .nl-form-side .ml-form-embedSubmit button:hover { background: var(--white) !important; border-color: var(--white) !important; }
+    .nl-form-side .ml-form-successContent h4 { font-family: var(--font) !important; font-size: 22px !important; font-weight: 400 !important; color: var(--white) !important; margin-bottom: 8px; }
+    .nl-form-side .ml-form-successContent p { font-family: var(--font) !important; font-size: 14px !important; color: #999 !important; }
+    .nl-note { font-size: 12px; color: #777; margin-top: 16px; }
+    .hero-nl-link { display: inline-flex; align-items: center; gap: 8px; margin-top: 28px; color: #b8b2a7; text-decoration: none; font-size: 14px; border-bottom: 1px solid currentColor; padding-bottom: 2px; }
+    @media (max-width: 860px) {
+      .nl-section { padding: 64px 16px 0; }
+      .nl-card { grid-template-columns: 1fr; }
+      .nl-body { padding: 36px 24px; }
+      .nl-form-side { padding: 36px 24px; }
+      .nl-perks li { border-radius: 14px; }
+    }
+
+    /* ── FOOTER ── */
+    footer { background: var(--white); border-top: 1px solid var(--light); overflow: hidden; }
+    .footer-top { padding: 60px 60px 0; text-align: center; }
+    .footer-tagline { font-family: var(--font); font-size: clamp(2.8rem, 7vw, 6.5rem); font-weight: 600; line-height: 1.0; color: var(--black); letter-spacing: -.02em; margin: 0; }
+    .footer-tagline-sub { color: var(--gray); }
+    .footer-geo { display: flex; align-items: center; justify-content: center; gap: 28px; padding: 32px 60px 48px; }
+    .footer-geo-text { font-family: var(--font); font-size: clamp(1.4rem, 4.5vw, 4.5rem); font-weight: 600; letter-spacing: -.02em; color: var(--black); white-space: nowrap; }
+    .footer-geo-img { width: clamp(120px, 14vw, 180px); height: clamp(80px, 10vw, 120px); border-radius: 50px; overflow: hidden; flex-shrink: 0; }
+    .footer-geo-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .footer-bottom-grid { border-top: 1px solid var(--light); display: grid; grid-template-columns: 1fr 1fr; }
+    .footer-bottom-left { border-right: 1px solid var(--light); padding: 32px 40px; display: flex; gap: 32px; align-items: stretch; }
+    .footer-sillon-img { width: 160px; border-radius: 20px; overflow: hidden; flex-shrink: 0; align-self: stretch; display: flex; flex-direction: column; }
+    .footer-sillon-img img { width: 100%; flex: 1; object-fit: cover; display: block; min-height: 0; }
+    .footer-social-label { font-size: 11px; letter-spacing: .1em; color: var(--gray); text-transform: uppercase; margin-bottom: 12px; }
+    .footer-social-block a { display: block; text-decoration: none; color: var(--black); font-size: 15px; margin-bottom: 6px; transition: opacity .2s; }
+    .footer-social-block a:hover { opacity: .45; }
+    .we-badge { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 4px; padding: 6px 12px 6px 6px; border: 1px solid var(--light); border-radius: 8px; width: fit-content; font-size: 14px !important; opacity: 1 !important; transition: border-color .2s, background .2s; }
+    .we-badge:hover { border-color: #ccc; background: #fafafa; opacity: 1 !important; }
+    .we-badge-icon { width: 30px; height: 30px; border-radius: 6px; flex-shrink: 0; }
+    .footer-bottom-right { padding: 32px 40px; }
+    .footer-nl-label { font-size: 11px; letter-spacing: .08em; color: var(--gray); text-transform: uppercase; margin-bottom: 16px; }
+
+    /* ── FADE IN ── */
+    .fi { opacity: 0; transform: translateY(22px); transition: opacity .85s ease, transform .85s ease; }
+    .fi.visible { opacity: 1; transform: translateY(0); }
+    .fi-d1 { transition-delay: .1s; }
+    .fi-d2 { transition-delay: .2s; }
+    .fi-d3 { transition-delay: .3s; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .page-hero { padding: 140px 24px 80px; }
+      .page-hero-inner { grid-template-columns: 1fr; gap: 48px; }
+      .res-section { padding: 72px 16px; }
+      .res-card { grid-template-columns: 1fr; }
+      .res-media { order: -1; min-height: 0; aspect-ratio: 4 / 3; border-left: none; border-bottom: 1px solid var(--black); }
+      .res-body { padding: 28px 24px 32px; }
+      .footer-top { padding: 40px 24px 0; }
+      .footer-geo { padding: 20px 16px 28px; gap: 12px; }
+      .footer-geo-text { font-size: clamp(1rem, 6vw, 1.8rem); }
+      .footer-geo-img { width: clamp(50px, 12vw, 80px); height: clamp(34px, 8vw, 54px); }
+      .footer-bottom-grid { grid-template-columns: 1fr; }
+      .footer-bottom-left { border-right: none; border-bottom: 1px solid var(--light); padding: 24px; }
+      .footer-sillon-img { width: 120px; border-radius: 16px; }
+      .footer-bottom-right { padding: 24px; }
+    }
+    @media (max-width: 540px) {
+      .hero-badge { display: none; }
+      .footer-tagline { font-size: clamp(1.8rem, 8vw, 2.4rem); }
+    }
+
+    .lang-switcher {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; letter-spacing: .08em;
+    }
+    .lang-btn {
+      text-decoration: none; color: rgba(17,17,17,0.4);
+      transition: color .2s; padding: 2px 4px;
+    }
+    .lang-btn.lang-active { color: #111; font-weight: 500; }
+    .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
+  </style>
+  <script src="/nav.js?v=20261107b" defer></script>
+  <meta name="description" content="Las que nos quedamos: un taller presencial en Rosario para diseñadoras, el sábado 16 de enero de 2027 de 9:30 a 13 h. Una mañana para arrancar el año con tus precios, tu presupuesto y tu forma de cobrar resueltos." />
+  <link rel="canonical" href="https://liscreativestudio.com/las-que-nos-quedamos" />
+  <meta name="theme-color" content="#0a0a0a" />
+  <!-- hreflang -->
+  <!-- Open Graph -->
+  <meta property="og:title" content="Las que nos quedamos · taller para diseñadoras en Rosario | LIS. Creative Studio" />
+  <meta property="og:description" content="Las que nos quedamos: un taller presencial en Rosario para diseñadoras, el sábado 16 de enero de 2027 de 9:30 a 13 h. Una mañana para arrancar el año con tus precios, tu presupuesto y tu forma de cobrar resueltos." />
+  <meta property="og:url" content="https://liscreativestudio.com/las-que-nos-quedamos" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_AR" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Tienda para creativos | LIS. Creative Studio" />
+  <meta name="twitter:description" content="Las que nos quedamos: un taller presencial en Rosario para diseñadoras, el sábado 16 de enero de 2027 de 9:30 a 13 h. Una mañana para arrancar el año con tus precios, tu presupuesto y tu forma de cobrar resueltos." />
+  <meta name="twitter:image" content="https://liscreativestudio.com/og-lis.jpg" />
+  <!-- Sistema visual 2026 -->
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" media="print" onload="this.media='all'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" /></noscript>
+  <!-- THEME-CSS: copia de theme.css, no editar acá -->
+  <style>
+/* ══════════════════════════════════════════════════════════
+   LIS. Creative Studio · sistema visual 2026 (Planta Libre)
+   Se carga después del CSS de cada página y lo sobreescribe.
+   Crema + tinta + lima, mayúsculas apretadas (Inter Tight)
+   con acentos en cursiva (Instrument Serif), píldoras y óvalos.
+══════════════════════════════════════════════════════════ */
+
+:root {
+  --cream: #f4ede3;
+  --ink: #1b1a17;
+  --lime: #b8b2a7;   /* (antes lima) acento de texto: hormigón */
+  --orange: #e8693a;
+  --blue: #2b4c86;
+  --stone: #b8b2a7;   /* hormigón · gris neutro */
+  --rule: #1b1a17;
+  --soft: #d8cebf;
+  --black: #1b1a17;
+  --white: #f4ede3;
+  --light: #d8cebf;
+  --gray: #6f6b64;
+  --font-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+  --font-script: 'Instrument Serif', Georgia, serif;
+}
+
+body { background: var(--cream); color: var(--ink); }
+::selection { background: var(--lime); color: var(--ink); }
+
+/* ── Títulos grandes: mayúsculas apretadas ── */
+.hero-title, .page-hero-title, .home-title, .post-title,
+.res-title, .nl-title, .section-title, .includes-title, .cta-title,
+.about-title, .test-title, .svc-name, .modality-title,
+.hero h1, .booking-head h2, .price-amount, .footer-tagline {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  text-transform: uppercase;
+  letter-spacing: -.045em !important;
+  line-height: .92 !important;
+}
+
+/* Palabra en cursiva dentro de un título */
+.hero-title em, .page-hero-title em, .home-title em, .post-title em,
+.res-title em, .nl-title em, .section-title em, .includes-title em, .cta-title em,
+.about-title em, .test-title em, .svc-name em, .modality-title em,
+.hero h1 em, .booking-head h2 em, .footer-tagline em, .section h2 em {
+  font-family: var(--font-script);
+  font-style: italic;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: -.01em;
+}
+
+/* Títulos largos (frases): Inter Tight sin mayúsculas */
+.section h2, .modal-title, .post-body h2 {
+  font-family: var(--font-display) !important;
+  font-weight: 500 !important;
+  letter-spacing: -.03em !important;
+}
+
+/* Frase destacada: cursiva editorial */
+.callout-text {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-size: clamp(2rem, 4vw, 3.4rem) !important;
+  line-height: 1.08 !important;
+  letter-spacing: -.01em !important;
+  color: var(--ink) !important;
+}
+
+/* ── Etiquetas: píldoras con borde fino ── */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker, .footer-social-label, .footer-nl-label {
+  display: inline-block !important;
+  border: 1.5px solid currentColor !important;
+  border-radius: 100px !important;
+  padding: 6px 15px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-size: 11px !important;
+  font-weight: 500 !important;
+  letter-spacing: .1em !important;
+  text-transform: uppercase !important;
+  line-height: 1.4 !important;
+}
+.page-hero .page-hero-label, .page-hero .hero-label { color: var(--lime) !important; }
+
+/* ── Botones ── */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn {
+  border-radius: 100px !important;
+  font-family: 'Inter', Helvetica, Arial, sans-serif !important;
+  font-weight: 500 !important;
+  letter-spacing: .06em !important;
+  text-transform: uppercase;
+  font-size: 12px !important;
+}
+
+/* ── Encabezados oscuros con foto desenfocada ── */
+.page-hero, #home {
+  background:
+    radial-gradient(55% 75% at 88% 18%, rgba(43, 76, 134, .9) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
+    #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
+}
+.page-hero .hero-x { display: none !important; }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
+.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
+.page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
+.page-hero .post-back { color: #cfc6b8; }
+
+/* ── Tarjetas y bordes ── */
+.res-card, .h-card, .modality-item, .modal-item, .process-step, .step, .flow-item,
+.price-inner, .booking-card, .nl-card {
+  border-color: var(--ink) !important;
+  background-color: transparent;
+}
+.res-card, .h-card { background: var(--cream) !important; }
+.faq-item, .faq-item:nth-child(even) { border-color: var(--soft) !important; background: transparent !important; }
+.faq-item:hover { border-color: var(--ink) !important; }
+
+/* Paneles que antes eran blancos */
+.modal-list li, .modality-features li, .chip, .nl-perks li { background: var(--cream) !important; }
+
+/* Cuadrícula para secciones claras destacadas */
+.grid-paper {
+  background-image: linear-gradient(rgba(27,26,23,.18) 1px, transparent 1px), linear-gradient(90deg, rgba(27,26,23,.18) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Footer ── */
+footer { background: var(--cream) !important; border-top: 1.5px solid var(--ink) !important; }
+.footer-tagline { color: var(--ink) !important; }
+.footer-tagline-sub { color: var(--ink) !important; }
+.footer-tagline-sub, .footer-tagline em {
+  font-family: var(--font-script) !important;
+  font-style: italic;
+  font-weight: 400 !important;
+  text-transform: none !important;
+  letter-spacing: -.01em !important;
+}
+.footer-geo-text { font-family: var(--font-display) !important; text-transform: uppercase; letter-spacing: -.04em !important; font-weight: 500 !important; }
+.footer-bottom-grid, .footer-bottom-left { border-color: var(--ink) !important; }
+.footer-ml-wrap .ml-form-fieldRow input { border-radius: 100px !important; border: 1.5px solid var(--ink) !important; padding: 11px 18px !important; }
+.footer-ml-wrap .ml-form-embedSubmit button { border-radius: 100px !important; background: var(--ink) !important; color: var(--cream) !important; }
+.we-badge { border-color: var(--ink) !important; border-radius: 100px !important; }
+
+/* ── Navegación compartida (nav.js) ── */
+#lis-nav.nav-dark #lis-nav-pill { background: rgba(244, 237, 227, .82) !important; border-color: rgba(27, 26, 23, .18) !important; }
+#lis-nav.nav-light #lis-nav-pill { background: rgba(27, 26, 23, .55) !important; }
+#lis-nav-pill a, #lis-nav-pill button.nav-link-btn { border-radius: 100px !important; }
+#lis-nav-pill { border-radius: 100px !important; }
+.nav-dropdown-inner { background: var(--ink) !important; border-radius: 18px !important; }
+
+/* Etiquetas sobre fondos oscuros */
+.includes-section .includes-label, #services .svc-label, #portfolio .portfolio-label { color: var(--lime) !important; }
+
+/* Botón de contacto de la home */
+#contact .cta-btn { background: var(--ink) !important; color: var(--cream) !important; padding: 16px 30px !important; border: 1.5px solid var(--ink) !important; gap: 10px; }
+#contact .cta-btn:hover { background: var(--lime) !important; color: var(--ink) !important; }
+#contact .cta-btn svg { stroke: currentColor; }
+.post-back { display: block !important; width: fit-content; margin-bottom: 26px !important; }
+
+/* Logo del menú en celular: negro sobre las secciones claras */
+#lis-nav-mobile-logo.mobile-logo-dark img { filter: brightness(0) !important; }
+
+/* ══════════════════════════════════════════════════════════
+   Sin píldoras (oct 2026): las etiquetas son texto en mayúscula
+   espaciada sin recuadro, las listas van en renglones con línea
+   fina y los botones y campos tienen esquinas casi rectas.
+══════════════════════════════════════════════════════════ */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon {
+  border: 0 !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
+.modal-list li, .modal-list li:last-child, .modality-features li, .modality-features li:last-child,
+.nl-perks li, .no-list li {
+  border: 0 !important;
+  border-bottom: 1px solid currentColor !important;
+  border-radius: 0 !important;
+  background: none !important;
+  padding: 10px 0 !important;
+}
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn, .we-badge,
+#lis-nav-pill, #lis-nav-pill a, #lis-nav-pill button.nav-link-btn,
+.footer-ml-wrap .ml-form-fieldRow input, .footer-ml-wrap .ml-form-embedSubmit button,
+.nl-form-side .ml-form-fieldRow input, .nl-form-side .ml-form-embedSubmit button,
+.res-form input, .res-form .ml-form-fieldRow input, .res-form .ml-form-embedSubmit button {
+  border-radius: 4px !important;
+}
+
+/* ══════════════════════════════════════════════════════════
+   Bloques destacados con luz (oct 2026): fondo tinta con luz azul
+   y naranja como en la dirección creativa, texto en crema.
+   El naranja plano queda solo para los botones de adentro.
+══════════════════════════════════════════════════════════ */
+.callout-inner, .modality-panel, .modal-panel, .booking-head {
+  background:
+    radial-gradient(75% 95% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 85% at 0% 100%, rgba(232, 105, 58, .7) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) *:not(input):not(textarea):not(select) {
+  color: inherit !important;
+  border-color: rgba(244, 237, 227, .28) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(button, .pill-btn, .res-btn, .cta-btn) {
+  background: var(--blue) !important;
+  color: var(--cream) !important;
+  border-color: var(--blue) !important;
+}
+:is(.callout-inner, .modality-panel, .modal-panel, .booking-head) :is(input, textarea, select) {
+  color: var(--ink) !important;
+}
+
+/* Tarjeta de la newsletter: gris neutro, sin luces ni naranja */
+.nl-body { background: var(--stone) !important; color: var(--ink) !important; }
+.nl-body *:not(input):not(textarea):not(select) { color: var(--ink) !important; border-color: rgba(27, 26, 23, .35) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+
+/* Botones: azul con texto crema */
+.res-btn, .pill-btn, .cta-btn, .hero-center-btn, .home-btn { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+.res-btn:hover, .pill-btn:hover, .cta-btn:hover, .hero-center-btn:hover, .home-btn:hover, #contact .cta-btn:hover { background: var(--ink) !important; color: var(--cream) !important; border-color: var(--ink) !important; }
+.nl-body :is(button, .pill-btn, .res-btn) { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Ubicación y año, al pie del footer */
+.footer-legal { display: flex; justify-content: space-between; gap: 16px; padding: 18px 40px; border-top: 1px solid var(--ink); font-family: 'Inter', Helvetica, Arial, sans-serif; font-size: 11px; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: var(--gray); }
+@media (max-width: 768px) { .footer-legal { padding: 16px 24px; flex-direction: column; } }
+.footer-ml-wrap .ml-form-embedSubmit button, .nl-form-side .ml-form-embedSubmit button, .res-form .ml-form-embedSubmit button { background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Etiquetas como nota al margen (oct 2026): cursiva, minúscula, sin letras separadas */
+.section-label, .hero-label, .res-label, .includes-label, .page-hero-label,
+.svc-label, .portfolio-label, .about-tag, .test-tag, .cta-sub, .service-label,
+.res-tag, .pill-tag, .nl-tag, .modal-tag, .modality-num, .post-kicker,
+.footer-social-label, .footer-nl-label, .hero-badge, .res-badge, .lime-badge,
+.include-num, .step-duration, .step-time, .res-soon, .footer-legal {
+  font-family: 'Instrument Serif', Georgia, serif !important; font-style: italic !important; font-weight: 400 !important; text-transform: none !important; letter-spacing: 0 !important;
+  font-size: 19px !important;
+  line-height: 1.3 !important;
+}
+.footer-legal { font-size: 16px !important; }
+
+/* Cita destacada de los artículos: tinta con luz y cursiva, como el resto de los bloques */
+.post-body blockquote {
+  background:
+    radial-gradient(70% 120% at 100% 0%, rgba(43, 76, 134, .95) 0%, rgba(43, 76, 134, 0) 70%),
+    radial-gradient(60% 110% at 0% 100%, rgba(232, 105, 58, .6) 0%, rgba(232, 105, 58, 0) 70%),
+    var(--ink) !important;
+  color: var(--cream) !important;
+  font-family: var(--font-script) !important; font-style: italic !important;
+  font-size: clamp(1.6rem, 2.6vw, 2.1rem) !important; line-height: 1.25 !important; letter-spacing: -.01em !important;
+  border: 0 !important; border-radius: 18px !important; padding: 36px 40px !important;
+}
+/* Botón del formulario del footer (cada página trae su propio estilo después del theme) */
+footer .footer-ml-wrap .ml-form-embedSubmit button, footer .footer-ml-wrap .ml-form-embedSubmit button.primary { background-color: var(--blue) !important; background: var(--blue) !important; color: var(--cream) !important; border-color: var(--blue) !important; }
+
+/* Sin la marca "Nuevo" sobre las tarjetas: era una etiqueta y se pisaba con la portada */
+.res-badge { display: none !important; }
+
+/* Cursor: flechita azul con "(You)", en toda la web; los campos de texto conservan la barrita */
+html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
+body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=button]), body textarea, body [contenteditable] { cursor: text !important; }
+.cursor, .cursor-ring { display: none !important; }
+
+/* Movimiento reducido: si la persona pidió menos animaciones en su sistema, todo aparece sin moverse */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto !important; }
+  *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
+}
+  </style>
+  <!-- /THEME-CSS -->
+<script defer src="/_vercel/insights/script.js"></script>
+
+  <style>
+    /* ── TIENDA (6/11/2026): grilla de productos, precio y escalones ── */
+    .shop-section { max-width: 1100px; margin: 0 auto; padding: 100px 60px 20px; }
+    .shop-head { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: end; margin-bottom: 44px; }
+    .shop-head p { font-size: 16px; color: #555; line-height: 1.7; }
+    .shop-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .p-card { border: 1px solid var(--black); border-radius: 18px; background: var(--white); padding: 34px 30px 30px; display: flex; flex-direction: column; transition: box-shadow .3s, transform .3s; }
+    .p-card:hover { box-shadow: 0 10px 30px rgba(0,0,0,.06); transform: translateY(-2px); }
+    .p-card .res-title { font-size: clamp(1.35rem, 2vw, 1.7rem); margin-bottom: 14px; }
+    .p-card .res-desc { font-size: 14.5px; margin-bottom: 14px; }
+    .p-inc { list-style: none; margin: 4px 0 22px; padding: 0; border-top: 1px solid #ddd; }
+    .p-inc li { font-size: 13.5px; color: #444; padding: 9px 0; border-bottom: 1px solid #ddd; line-height: 1.45; }
+    .p-foot { margin-top: auto; display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+    .p-price { font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 30px; font-weight: 500; letter-spacing: -.04em; line-height: 1; }
+    .p-price small { display: block; font-family: 'Inter', sans-serif; font-size: 12px; font-weight: 400; letter-spacing: 0; color: #777; margin-top: 6px; }
+    .p-card .res-btn { margin-top: 0; text-decoration: none; }
+    .p-buy { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 18px; }
+    .p-card .res-btn.alt { background: transparent; color: var(--black); }
+    .p-card .res-btn.alt:hover { background: var(--black); color: var(--white); }
+    .p-thumb { margin: -34px -30px 24px; border-bottom: 1px solid var(--black); border-radius: 17px 17px 0 0; overflow: hidden; aspect-ratio: 4 / 3; }
+    .p-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .p-card.wide.small .p-img { min-height: 300px; }
+    .p-card.wide { margin-bottom: 0; }
+    .p-usd { font-size: 14px; line-height: 1.5; color: #6f6b64; margin-top: 10px; } .p-usd a { color: inherit; text-decoration: underline; } @media (max-width: 768px) { .p-usd { font-size: 16px; } }
+    .shop-grid.two { grid-template-columns: repeat(2, 1fr); }
+    .p-card.wide { grid-column: 1 / -1; display: grid; grid-template-columns: 1.1fr 1fr; padding: 0; overflow: hidden; }
+    .p-card.wide .p-body { padding: 44px; display: flex; flex-direction: column; }
+    .p-card.wide .p-img { position: relative; min-height: 360px; border-left: 1px solid var(--black); }
+    .p-card.wide .p-img img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    .p-old { font-size: 14px; color: #888; text-decoration: line-through; margin-right: 8px; font-family: 'Inter', sans-serif; letter-spacing: 0; }
+    .shop-note { max-width: 1100px; margin: 26px auto 0; padding: 0 60px; font-size: 13.5px; color: #777; line-height: 1.6; }
+    .steps { max-width: 1100px; margin: 0 auto; padding: 90px 60px 30px; }
+    .steps-grid.two { grid-template-columns: repeat(2, 1fr) !important; }
+    .mc-section { padding-top: 70px; }
+    .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
+    .step-card { border: 1px dashed var(--black); border-radius: 18px; padding: 30px; display: flex; flex-direction: column; }
+    .step-card .res-title { font-size: clamp(1.3rem, 1.9vw, 1.6rem); }
+    .step-card a { margin-top: auto; align-self: flex-start; }
+    .voces { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; }
+    .voces-head { font-size: 13px; letter-spacing: .12em; text-transform: lowercase; color: #6f6b64; margin-bottom: 22px; }
+    .voces-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .voces figure { margin: 0; border-top: 1px solid var(--black); padding-top: 18px; display: flex; flex-direction: column; gap: 14px; }
+    .voces blockquote { margin: 0; font-size: 18px; line-height: 1.5; color: var(--ink); }
+    .voces figcaption { font-size: 14px; color: #6f6b64; }
+    .hero-voz { margin-top: 28px; max-width: 440px; font-size: 15px; line-height: 1.55; color: #555; border-left: 2px solid #2e54a0; padding-left: 14px; }
+    .hero-voz span { display: block; margin-top: 4px; font-size: 13px; color: #6f6b64; }
+    @media (max-width: 760px) {
+      .voces { padding: 44px 16px 0; }
+      .voces-grid { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .voces-head, .voces figcaption, .hero-voz, .hero-voz span { font-size: 16px; }
+      .voces blockquote { font-size: 18px; }
+    }
+    .why { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+    .why div { border-top: 1px solid var(--black); padding-top: 18px; }
+    .why b { display: block; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -.05em; line-height: 1; margin-bottom: 8px; }
+    .why span { font-size: 14px; color: #555; line-height: 1.5; }
+    @media (max-width: 860px) {
+      .shop-section, .steps, .why { padding-left: 16px; padding-right: 16px; }
+      .shop-note { padding: 0 16px; }
+      .steps-grid.two { grid-template-columns: minmax(0, 1fr) !important; }
+      .shop-head, .shop-grid, .shop-grid.two, .steps-grid, .why { grid-template-columns: minmax(0, 1fr); gap: 18px; }
+      .p-card, .p-body { min-width: 0; }
+      .p-card.wide { grid-column: auto; grid-template-columns: minmax(0, 1fr); }
+      .p-card.wide .p-img { order: -1; min-height: 0; aspect-ratio: 4 / 3; position: relative; border-left: none; border-bottom: 1px solid var(--black); }
+      .p-card.wide .p-body { padding: 28px 24px 30px; }
+      .p-thumb { margin: -34px -30px 22px; }
+    }
+    /* Encabezado de /tienda: el video de paréntesis de fondo, sin degradé (6/11/2026) */
+    .page-hero.hero-video { background: #f5f1e8 !important; min-height: 78vh; display: flex; align-items: center; }
+    .page-hero.hero-video .page-hero-inner { width: 100%; }
+    .hero-bg-m { display: none; }
+    .hero-bg { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 70% 50%; z-index: 0; }
+    .page-hero.hero-video .hero-title { color: #111 !important; }
+    .page-hero.hero-video .hero-title em { color: #2e54a0 !important; }
+    .page-hero.hero-video .hero-desc { color: #333 !important; max-width: 440px; }
+    .page-hero.hero-video .hero-nl-link { color: #111; }
+    @media (max-width: 860px) {
+      .page-hero.hero-video { min-height: 0; flex-direction: column; align-items: stretch; padding-bottom: 0 !important; }
+      .hero-bg { display: none; }
+      .hero-bg-m { display: block !important; order: 2; width: calc(100% + 48px); max-width: none; height: auto; aspect-ratio: 760 / 560; margin: 10px -24px 0; }
+    }
+  </style>
+<style>/* Llamado del encabezado como botón gris de la marca, no link con flecha (6/11/2026) */
+.hero-nl-link { display: inline-flex !important; align-items: center; gap: 8px; margin-top: 28px; background: #6f6b64 !important; color: #f4ede3 !important; border: 1px solid #6f6b64 !important; padding: 13px 24px !important; border-radius: 4px; font-family: Inter, Helvetica, Arial, sans-serif; font-size: 12px !important; font-weight: 500; letter-spacing: .06em; text-transform: uppercase; text-decoration: none !important; line-height: 1.2; transition: background .2s, border-color .2s; }
+.hero-nl-link:hover { background: #1b1a17 !important; border-color: #1b1a17 !important; }
+.hero-nl-link span[aria-hidden] { display: none; }
+.hero-nl-link.hero-azul { background: #2e54a0 !important; border-color: #2e54a0 !important; color: #f5f1e8 !important; }
+.hero-nl-link.hero-azul:hover { background: #1f3d7a !important; border-color: #1f3d7a !important; }
+</style>
+  <style>
+    /* Diseño en Orden · lista de espera (18/11/2026). Estética para creativos, marca v3: crema, tinta, azul, sin lima ni píldoras. */
+    .deo { --cr: #f5f1e8; --pa: #ebe5d8; --sa: #d9d2c3; --in: #111; --bl: #2e54a0; --gr: #6f6b64; --sk: #b0c6f0; background: var(--cr); color: var(--in); }
+    .deo-wrap { max-width: 1100px; margin: 0 auto; padding-left: max(24px, env(safe-area-inset-left, 0px)); padding-right: max(24px, env(safe-area-inset-right, 0px)); }
+    .deo-lab { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--gr); }
+    .deo-lab::before { content: '( '; } .deo-lab::after { content: ' )'; }
+    .deo-h { font-family: 'Inter Tight', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.055em; line-height: .88; margin: 0; }
+    .deo-h em, .deo-it { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.02em; color: var(--bl); }
+    .deo p { font-size: 18px; line-height: 1.6; }
+    .deo-btn { display: inline-flex; align-items: center; gap: 10px; background: var(--bl); color: #f5f1e8; text-decoration: none; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 14px; letter-spacing: .08em; text-transform: uppercase; padding: 16px 26px; border: 0; cursor: pointer; }
+    .deo-btn:hover { background: #24437a; }
+    .deo-btn:focus-visible { outline: 3px solid var(--sk); outline-offset: 3px; }
+    /* hero */
+    .deo-hero { position: relative; overflow: hidden; padding-block: 150px 90px; background: var(--cr); }
+    .deo-hero-grid { display: grid; grid-template-columns: 1.15fr .85fr; gap: 50px; align-items: center; }
+    .deo-hero .deo-h { font-size: clamp(64px, 10vw, 150px); margin-top: 18px; }
+    .deo-hero p.deo-lead { font-size: 20px; max-width: 34em; margin: 30px 0 0; }
+    .deo-ficha { display: grid; grid-template-columns: repeat(3, auto); gap: 0; margin-top: 34px; border-top: 1px solid var(--in); border-bottom: 1px solid var(--in); max-width: 560px; }
+    .deo-ficha div { padding: 14px 18px 14px 0; }
+    .deo-ficha div + div { padding-left: 18px; border-left: 1px solid var(--sa); }
+    .deo-ficha b { display: block; font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gr); }
+    .deo-ficha span { font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: -.02em; }
+    .deo-hero .deo-btn { margin-top: 30px; }
+    .deo-art { position: relative; height: 520px; }
+    .deo-par { position: absolute; font-family: 'Inter Tight', sans-serif; font-weight: 300; line-height: 1; font-size: 420px; color: var(--in); top: 30px; }
+    .deo-pol { position: absolute; background: #fff; padding: 12px 12px 38px; box-shadow: 0 18px 40px rgba(0,0,0,.22); }
+    .deo-pol img { display: block; width: 100%; height: 100%; object-fit: cover; }
+    .deo-st { position: absolute; font-family: 'Inter Tight', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.03em; padding: 10px 20px 12px; box-shadow: 0 10px 22px rgba(0,0,0,.18); white-space: nowrap; font-size: 22px; }
+    /* secciones */
+    .deo-sec { padding-block: 100px; }
+    .deo-sec.paper { background: var(--pa); }
+    .deo-sec.ink { background: var(--in); color: var(--cr); }
+    .deo-sec.ink .deo-lab { color: var(--sk); }
+    .deo-sec.ink .deo-h em { color: var(--sk); }
+    .deo-sec .deo-h { font-size: clamp(42px, 6vw, 84px); margin-top: 14px; }
+    .deo-intro { max-width: 40em; margin-top: 26px; }
+    .deo-etapas { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 50px; }
+    .deo-etapa { border-top: 1.5px solid var(--in); padding-top: 20px; }
+    .deo-etapa h3 { font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 22px; letter-spacing: -.02em; line-height: 1.2; margin: 0 0 10px; }
+    .deo-etapa p { font-size: 17px; color: #3c3a36; margin: 0; }
+    .deo-res { display: grid; grid-template-columns: repeat(2, 1fr); gap: 0 50px; margin-top: 44px; }
+    .deo-res li { list-style: none; font-size: 18px; line-height: 1.5; padding: 16px 0 16px 34px; border-top: 1px solid rgba(245,241,232,.22); position: relative; }
+    .deo-res li::before { content: '+'; position: absolute; left: 0; top: 14px; font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 22px; color: var(--sk); }
+    .deo-res { padding: 0; }
+    .deo-mods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 50px; }
+    .deo-mod { background: var(--cr); border: 1px solid var(--sa); padding: 24px 22px 26px; }
+    .deo-mod .s { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--gr); }
+    .deo-mod h3 { font-family: 'Inter Tight', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.04em; font-size: 26px; line-height: .95; margin: 10px 0 12px; }
+    .deo-mod p { font-size: 16px; margin: 0; color: #3c3a36; }
+    .deo-mod .pl { font-size: 15px; color: var(--bl); margin-top: 12px; }
+    .deo-extra { display: grid; grid-template-columns: repeat(3, 1fr); gap: 26px; margin-top: 50px; }
+    .deo-extra div { border-top: 1.5px solid var(--in); padding-top: 18px; }
+    .deo-extra b { display: block; font-family: 'Inter Tight', sans-serif; font-weight: 600; font-size: 20px; letter-spacing: -.02em; margin-bottom: 8px; }
+    .deo-extra span { font-size: 17px; line-height: 1.55; color: #3c3a36; }
+    .deo-quien { display: grid; grid-template-columns: .8fr 1.2fr; gap: 60px; align-items: center; }
+    .deo-quien .deo-pol { position: relative; width: 100%; max-width: 380px; aspect-ratio: 4/5; transform: rotate(-3deg); }
+    .deo-lista { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+    .deo-form { background: var(--cr); color: var(--in); padding: 34px; box-shadow: 0 18px 40px rgba(0,0,0,.25); }
+    .deo-form .ml-form-embedContainer { width: 100% !important; }
+    .deo-form .ml-form-embedWrapper { background: transparent !important; max-width: none !important; }
+    .deo-form .ml-form-embedBody { padding: 0 !important; }
+    .deo-form .ml-form-fieldRow { margin-bottom: 12px !important; }
+    .deo-form input[type=text], .deo-form input[type=email] { width: 100% !important; box-sizing: border-box !important; border: 1.5px solid var(--in) !important; border-radius: 0 !important; background: rgba(255,255,255,.6) !important; font-family: 'Inter', sans-serif !important; font-size: 17px !important; padding: 14px 16px !important; color: var(--in) !important; }
+    .deo-form .ml-form-embedSubmit button.primary { width: 100% !important; background: var(--bl) !important; color: #f5f1e8 !important; border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-weight: 600 !important; font-size: 15px !important; letter-spacing: .08em; text-transform: uppercase; padding: 16px !important; border: 0 !important; cursor: pointer; }
+    .deo-form .ml-form-successContent h4 { font-family: 'Inter Tight', sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.04em; font-size: 30px; margin: 0 0 10px; }
+    .deo-form .ml-form-successContent p { font-size: 17px; }
+    .deo-sec.ink .deo-form .deo-lab { color: var(--gr); }
+    .deo-form .deo-legal { font-size: 15px; color: var(--gr); margin: 14px 0 0; }
+    @media (max-width: 900px) {
+      .deo-hero { padding-block: 120px 60px; }
+      .deo-hero-grid, .deo-quien, .deo-lista { grid-template-columns: minmax(0, 1fr); gap: 40px; }
+      .deo-art { height: 380px; }
+      .deo-par { font-size: 300px; }
+      .deo-etapas, .deo-mods, .deo-extra, .deo-res { grid-template-columns: minmax(0, 1fr); }
+      .deo-sec { padding-block: 70px; }
+      .deo-ficha span { font-size: 17px; }
+      .deo-ficha div { padding-right: 12px; } .deo-ficha div + div { padding-left: 12px; }
+      .deo p, .deo-etapa p, .deo-mod p, .deo-extra span, .deo-res li { font-size: 17px; }
+    }
+    @media (max-width: 760px) {
+      .deo-lab, .deo-ficha b, .deo-mod .s, .deo-mod .pl, .deo-btn, .deo-form .deo-legal, .deo-form .ml-form-embedSubmit button.primary { font-size: 16px !important; }
+      .deo-lab, .deo-ficha b, .deo-mod .s { letter-spacing: .08em; }
+    }
+    @media (max-width: 420px) { .deo-ficha { grid-template-columns: minmax(0,1fr); } .deo-ficha div + div { border-left: 0; border-top: 1px solid var(--sa); padding-left: 0; } }
+  </style>
+</head>
+<body data-nav-theme="dark">
+
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- Hamburger button (mobile) -->
+  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
+
+  <!-- Mobile overlay -->
+  <div class="nav-mobile-overlay" id="mobileMenu">
+    <a href="/" onclick="closeMenu()">home</a>
+    <a href="/#about" onclick="closeMenu()">about</a>
+    <div class="mob-sub">
+      <a href="/identidad-visual" onclick="closeMenu()">Identidad Visual</a>
+      <a href="/web" onclick="closeMenu()">Diseño Web</a>
+    </div>
+    <a href="/#portfolio" onclick="closeMenu()">portfolio</a>
+    <a href="/tienda" onclick="closeMenu()" style="opacity:.45">tienda</a>
+    <a href="/#contact" onclick="closeMenu()">contact</a>
+  </div>
+
+
+
+  <main class="deo">
+  <style>.ml-taller .row-success h4{font-family:"Inter Tight",sans-serif;font-weight:800;text-transform:uppercase;letter-spacing:-.04em;font-size:30px;margin:0 0 10px}.ml-taller .row-success p{font-size:17px}</style>
+
+  <!-- ══ HERO ══ -->
+  <section data-nav-theme="dark" class="deo-hero">
+    <div class="deo-wrap deo-hero-grid">
+      <div>
+        <h1 class="deo-h">Las que<br><em>nos quedamos</em></h1>
+        <p class="deo-lead">Un taller presencial en Rosario para diseñadoras y creativas freelance, una mañana de enero para arrancar 2027 con tus precios, tu presupuesto y tu forma de cobrar resueltos, mientras el resto está de vacaciones y nadie te escribe. Te vas con el trabajo hecho, no con una lista de ideas.</p>
+        <div class="deo-ficha">
+          <div><b>Cuándo</b><span>Sábado 16 de enero</span></div>
+          <div><b>Horario</b><span>9:30 a 13 h</span></div>
+          <div><b>Dónde</b><span>Rosario</span></div>
+        </div>
+        <a class="deo-btn" href="#lista">Avisame cuando abran las inscripciones <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="deo-art" aria-hidden="true">
+        <span class="deo-par" style="left:0">(</span><span class="deo-par" style="right:0">)</span>
+        <div class="deo-pol" style="left:16%; top:70px; width:62%; height:380px; transform:rotate(3deg)"><img src="/redes/figma-estudiantes/img/escritorio-libreta.jpg" alt=""></div>
+        <div class="deo-st" style="left:8%; top:40px; background:var(--bl); color:#f5f1e8; transform:rotate(-5deg)">Sábado 16/1</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ PARA QUIÉN ══ -->
+  <section data-nav-theme="dark" class="deo-sec paper" id="para-quien">
+    <div class="deo-wrap">
+      <h2 class="deo-h">Para las que <em>se quedan en enero</em></h2>
+      <p class="deo-intro">Es para diseñadoras de identidad, web o redes que trabajan con clientes y que en enero están en Rosario, con la ciudad tranquila y el año por arrancar. Si cada vez que te piden un presupuesto lo armás de cero, si no sabés bien cuánto cobrar o si la seña te da vergüenza, esta mañana es para vos.</p>
+      <div class="deo-etapas">
+        <div class="deo-etapa"><h3>Cobrás a ojo</h3><p>Tu precio sale de lo que cobran otras o de lo que te animás a pedir, y no de una cuenta que puedas explicar.</p></div>
+        <div class="deo-etapa"><h3>El presupuesto te lleva horas</h3><p>Cada consulta nueva es un documento nuevo, y para cuando lo mandás el cliente ya se enfrió.</p></div>
+        <div class="deo-etapa"><h3>La seña no existe</h3><p>Arrancás a trabajar sin cobrar nada y el saldo se estira hasta que dejás de pedirlo.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LA MAÑANA ══ -->
+  <section data-nav-theme="dark" class="deo-sec" id="la-manana">
+    <div class="deo-wrap">
+      <h2 class="deo-h">Cómo es <em>la mañana</em></h2>
+      <p class="deo-intro">Somos doce, alrededor de una mesa, con tu compu y tus números. No es una charla para escuchar: cada parte se trabaja ahí mismo, con tus propios proyectos, y te vas con todo armado.</p>
+      <div class="deo-mods">
+        <div class="deo-mod"><span class="s">9:30</span><h3>Desayuno y presentación</h3><p>Cada una cuenta qué hace y qué le cuesta cobrar.</p></div>
+        <div class="deo-mod"><span class="s">10:00</span><h3>Tu precio por hora</h3><p>La cuenta de costos fijos, horas reales y experiencia, hecha con tus números.</p></div>
+        <div class="deo-mod"><span class="s">11:00</span><h3>El presupuesto del mismo día</h3><p>Con la plantilla, dejás armado el tuyo con tu marca, listo para mandar.</p><p class="pl">Presupuesto y recibo, incluida</p></div>
+        <div class="deo-mod"><span class="s">12:00</span><h3>Seña y saldo</h3><p>Cómo pedirlos sin vergüenza, con los mensajes listos para copiar.</p></div>
+        <div class="deo-mod"><span class="s">12:40</span><h3>Cierre</h3><p>Qué vas a cambiar en el primer proyecto de 2027.</p></div>
+      </div>
+      <div class="deo-extra">
+        <div><b>Desayuno incluido</b><span>Café y algo rico para arrancar la mañana.</span></div>
+        <div><b>La plantilla, de regalo</b><span>Presupuesto y recibo de la tienda, editable en Canva con tu marca.</span></div>
+        <div><b>Doce lugares</b><span>Un grupo chico, para que haya tiempo de ver el caso de cada una.</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ QUIÉN ══ -->
+  <section data-nav-theme="dark" class="deo-sec paper">
+    <div class="deo-wrap deo-quien">
+      <div class="deo-pol"><img src="/redes/masterclass-ia/carrusel/img/latita.jpg" alt="Una lata con la marca Buenas Marcas, uno de los proyectos de LIS"></div>
+      <div>
+        <h2 class="deo-h">Soy <em>Orne</em></h2>
+        <p class="deo-intro">Soy diseñadora gráfica y web, y hace más de ocho años que trabajo con clientes. Durante mucho tiempo cobré a ojo y armé cada presupuesto de cero, hasta que me ordené con un sistema que hoy uso en LIS. Creative Studio. En esta mañana te comparto la parte de ese sistema que más cambia las cosas: cuánto cobrar y cómo pedirlo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ LISTA ══ -->
+  <section data-nav-theme="light" class="deo-sec ink" id="lista">
+    <div class="deo-wrap deo-lista">
+      <div>
+        <h2 class="deo-h">$30.000 <em>con desayuno</em></h2>
+        <p class="deo-intro">Las inscripciones abren a mediados de diciembre. Dejame tu mail y te aviso antes que en Instagram, así elegís lugar primero. La sala se reserva cuando haya un mínimo de seis inscriptas, y si no llegamos, te devuelvo el pago completo.</p>
+      </div>
+      <div class="deo-form">
+        <div class="ml-taller">
+          <div class="row-form">
+            <form id="tallerForm" action="https://assets.mailerlite.com/jsonp/1460085/forms/204500696851023611/subscribe" method="post">
+              <div style="margin-bottom:14px"><label class="deo-lab" for="t-nombre" style="display:block;margin-bottom:6px">Nombre</label><input id="t-nombre" type="text" class="form-control" name="fields[name]" placeholder="Tu nombre" autocomplete="given-name"></div>
+              <div style="margin-bottom:14px"><label class="deo-lab" for="t-mail" style="display:block;margin-bottom:6px">Mail</label><input id="t-mail" required type="email" class="form-control" name="fields[email]" placeholder="tu@mail.com" autocomplete="email"></div>
+              <input type="hidden" name="ml-submit" value="1"><input type="hidden" name="anticsrf" value="true">
+              <div class="ml-form-embedSubmit"><button type="submit" class="primary">Avisame</button></div>
+            </form>
+            <p class="deo-legal">Te escribo solo por el taller. Te podés dar de baja cuando quieras.</p>
+          </div>
+          <div class="row-success" style="display:none"><h4>¡Ya casi!</h4><p>Te mandé un mail para confirmar. Tocá el botón de ese mail y quedás en la lista del taller.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+
+  <!-- ══ FOOTER ══ -->
+  <footer>
+    <div class="footer-top">
+      <p class="footer-tagline">a creative</p>
+      <p class="footer-tagline footer-tagline-sub">design studio</p>
+    </div>
+    <div class="footer-geo">
+      <span class="footer-geo-text">Argentina</span>
+      <div class="footer-geo-img"><img src="lis-web.webp" alt="LIS" /></div>
+      <span class="footer-geo-text">Worldwide</span>
+    </div>
+    <div class="footer-bottom-grid">
+      <div class="footer-bottom-left">
+        <div class="footer-sillon-img"><img src="sillon-globo.webp" alt="LIS" /></div>
+        <div class="footer-social-block">
+          <p class="footer-social-label">Social media</p>
+          <a href="https://www.linkedin.com/company/liscreative-studio/" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="https://www.instagram.com/liscreative.studio/" target="_blank" rel="noopener">Instagram</a>
+          <a href="https://www.tiktok.com/@liscreative.studio" target="_blank" rel="noopener">Tik Tok</a>
+          <a href="https://we.directory/liscreativestudio" target="_blank" rel="noopener" class="we-badge">
+            <img src="wedirectory-logo.svg" alt="" class="we-badge-icon">
+            Featured on WeDirectory
+          </a>
+        </div>
+      </div>
+      <div class="footer-bottom-right">
+        <p class="footer-nl-label">Planta Libre · Newsletter semanal</p>
+        <p style="font-size:13px;line-height:1.5;margin:-6px 0 14px;">Diseño y arquitectura cada lunes en tu mail, para diseñadoras, creativas y estudios.</p>
+        <style type="text/css">
+          .footer-ml-wrap #mlb2-38791848.ml-form-embedContainer { margin: 0; }
+          .footer-ml-wrap .ml-form-embedWrapper { background: transparent !important; border: none !important; }
+          .footer-ml-wrap .ml-form-embedBody { padding: 0 !important; }
+          .footer-ml-wrap .ml-form-embedContent { display: none; }
+          .footer-ml-wrap .ml-form-formContent { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-fieldRow { margin-bottom: 8px !important; }
+          .footer-ml-wrap .ml-form-fieldRow input { border-radius: 0 !important; border-color: #ccc !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; padding: 10px 14px !important; background: transparent !important; width: 100% !important; box-sizing: border-box !important; }
+          .footer-ml-wrap .ml-form-embedSubmit { margin: 0 !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button { border-radius: 0 !important; font-family: 'Inter', sans-serif !important; font-size: 13px !important; font-weight: 500 !important; background-color: #111 !important; color: #ffffff !important; padding: 10px 20px !important; width: 100% !important; }
+          .footer-ml-wrap .ml-form-embedSubmit button.primary { color: #ffffff !important; }
+          .footer-ml-wrap .ml-form-successContent h4 { font-family: 'Inter', sans-serif !important; font-size: 16px !important; font-weight: 500 !important; }
+          .footer-ml-wrap .ml-form-successContent p { font-family: 'Inter', sans-serif !important; font-size: 13px !important; }
+        </style>
+        <div class="footer-ml-wrap">
+          <div id="mlb2-38791848" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
+            <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
+              <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+                <div class="ml-form-embedContent" style="margin-bottom:0"></div>
+                <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/subscribe" data-code="" method="post" target="_blank">
+                  <div class="ml-form-formContent">
+                    <div class="ml-form-fieldRow"><div class="ml-field-group ml-field-name"><input aria-label="name" type="text" class="form-control" name="fields[name]" placeholder="Nombre" autocomplete="given-name"></div></div>
+                    <div class="ml-form-fieldRow ml-last-item"><div class="ml-field-group ml-field-email ml-validate-email ml-validate-required"><input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="Email" autocomplete="email"></div></div>
+                  </div>
+                  <input type="hidden" name="ml-submit" value="1">
+                  <div class="ml-form-embedSubmit"><button type="submit" class="primary">Sumate gratis</button><button disabled="disabled" style="display:none" type="button" class="loading"><div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Loading...</span></button></div>
+                  <input type="hidden" name="anticsrf" value="true">
+                </form>
+              </div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
+            </div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-legal"><span>Rosario · Worldwide</span><span>© 2026 LIS. Creative Studio</span></div>
+  </footer>
+
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v95037e5bac78f29ed026832ca21a7c7b" type="text/javascript" defer></script>
+  <script>
+    function ml_webform_success_44264340() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-44264340 .row-success').show();
+      $('.ml-subscribe-form-44264340 .row-form').hide();
+      if (typeof fbq === 'function') fbq('track', 'Lead');
+    }
+    function ml_webform_success_38791848() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-38791848 .row-success').show();
+      $('.ml-subscribe-form-38791848 .row-form').hide();
+    }
+    function ml_webform_success_39892436() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-39892436 .row-success').show();
+      $('.ml-subscribe-form-39892436 .row-form').hide();
+    }
+    function ml_webform_success_40075675() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-40075675 .row-success').show();
+      $('.ml-subscribe-form-40075675 .row-form').hide();
+    }
+    function ml_webform_success_40075877() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-40075877 .row-success').show();
+      $('.ml-subscribe-form-40075877 .row-form').hide();
+    }
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/182562607940502600/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/184727028221609412/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/185023786568910630/takel");
+    fetch("https://assets.mailerlite.com/jsonp/1460085/forms/185024159604017013/takel");
+
+    const cur = document.getElementById('cursor');
+    const ring = document.getElementById('cursorRing');
+    document.addEventListener('mousemove', e => {
+      cur.style.left = e.clientX + 'px'; cur.style.top = e.clientY + 'px';
+      requestAnimationFrame(() => { ring.style.left = e.clientX + 'px'; ring.style.top = e.clientY + 'px'; });
+    });
+
+    // Hamburger
+    const hamburger = document.getElementById('hamburger');
+    const mobileMenu = document.getElementById('mobileMenu');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileMenu.classList.toggle('open');
+    });
+    function closeMenu() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+    }
+
+    // Recursos: el botón despliega el formulario de cada tarjeta
+    document.querySelectorAll('.res-card .res-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const card = btn.closest('.res-card');
+        card.classList.add('open');
+        const input = card.querySelector('.res-form input[type="text"], .res-form input[type="email"]');
+        if (input) input.focus();
+      });
+    });
+
+    const fiObs = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fi').forEach(el => fiObs.observe(el));
+  </script>
+
+  <script>
+    /* Formulario del taller (MailerLite, grupo "Taller enero · Las que nos quedamos") */
+    (function () {
+      var f = document.getElementById('tallerForm'); if (!f) return;
+      fetch("https://assets.mailerlite.com/jsonp/1460085/forms/204500696851023611/takel");
+      f.addEventListener('submit', function (e) {
+        e.preventDefault();
+        var box = f.closest('.ml-taller');
+        fetch(f.action, { method: 'POST', body: new FormData(f), mode: 'no-cors' }).finally(function () {
+          box.querySelector('.row-form').style.display = 'none';
+          box.querySelector('.row-success').style.display = 'block';
+          if (typeof fbq === 'function') fbq('track', 'Lead');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>

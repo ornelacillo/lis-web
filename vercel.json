@@ -36,6 +36,16 @@
       "source": "/curaduria",
       "destination": "/curaduria-visual",
       "permanent": true
+    },
+    {
+      "source": "/paquetes",
+      "destination": "/",
+      "permanent": false
+    },
+    {
+      "source": "/en/packages",
+      "destination": "/en",
+      "permanent": false
     }
   ],
   "headers": [

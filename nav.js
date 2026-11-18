@@ -319,7 +319,6 @@
     ['/', '/en'],
     ['/identidad-visual', '/en/visual-identity'],
     ['/web', '/en/web-design'],
-    ['/paquetes', '/en/packages'],
     ['/asesoria', '/en/consulting'],
     ['/prensa', '/en/press'],
     ['/privacidad', '/en/privacy'],
@@ -369,7 +368,6 @@
       services: [
         { label: 'Visual Identity', href: '/en/visual-identity' },
         { label: 'Web Design',      href: '/en/web-design' },
-        { label: 'Packages',        href: '/en/packages' },
       ],
     };
     return {
@@ -386,7 +384,6 @@
       services: [
         { label: 'Identidad Visual', href: '/identidad-visual' },
         { label: 'Diseño Web',       href: '/web' },
-        { label: 'Paquetes',         href: '/paquetes' },
       ],
     };
   }

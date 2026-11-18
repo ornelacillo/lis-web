@@ -839,7 +839,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       </div>
       <div class="quiz-pack" id="resPack"></div>
       <p class="quiz-actions">
-        <a class="pill-btn" id="resCta" href="https://cal.com/liscreativestudio/llamada">Elegí un horario para charlar 20 minutos →</a>
+        <a class="pill-btn" id="resCta" href="#newsletter">Sumarme a Planta Libre →</a>
         <button type="button" class="quiz-again" id="quizAgain">Hacer el test de nuevo</button>
       </p>
     </div>
@@ -992,18 +992,11 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       fixes.slice(0, 3).forEach(function (f) { var li = document.createElement('li'); li.textContent = f[1]; fl.appendChild(li); });
       document.getElementById('resFixesWrap').hidden = fixes.length === 0;
 
+      /* Desde el 18/11/2026 el test no recomienda paquetes ni llamadas: cierra con Planta Libre */
       var box = document.getElementById('resPack'), cta = document.getElementById('resCta');
-      if (pack) {
-        var p = PACKS[pack];
-        box.innerHTML = '<p class="quiz-pack-label">Lo que te recomiendo</p><h3>' + p.t + '</h3><p class="quiz-pack-price">' + p.p + '</p><p>' + p.d + '</p><a class="post-link" href="' + p.h + '">Ver el detalle →</a>';
-        box.hidden = false;
-        cta.textContent = pack === 'medida' ? 'Contame tu proyecto →' : 'Elegí un horario para charlar 20 minutos →';
-        cta.href = pack === 'medida' ? '/#contact' : 'https://cal.com/liscreativestudio/llamada';
-      } else {
-        box.hidden = true;
-        cta.textContent = 'Sumarme a Planta Libre →';
-        cta.href = '#newsletter';
-      }
+      box.hidden = true;
+      cta.textContent = 'Sumarme a Planta Libre →';
+      cta.href = '#newsletter';
       document.getElementById('quizResult').hidden = false;
       track('test_web_resultado', { tipo: ans.tipo, paquete: pack || 'ninguno', puntaje: pts });
       scrollTop();

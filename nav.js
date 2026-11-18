@@ -360,31 +360,24 @@
       links: [
         { label: 'home',      href: '/en' },
         { label: 'about',     href: '/en#about' },
-        { label: 'services',  href: '/en#services', dropdown: true },
         { label: 'portfolio', href: '/en#portfolio' },
         { label: 'blog',      href: '/en/blog' },
         { label: 'contact',   href: '/en#contact', cta: true },
       ],
-      services: [
-        { label: 'Visual Identity', href: '/en/visual-identity' },
-        { label: 'Web Design',      href: '/en/web-design' },
-      ],
+      services: [],
     };
     return {
       links: [
         { label: 'home',      href: '/' },
         { label: 'about',     href: '/#about' },
-        { label: 'services',  href: '/#services', dropdown: true },
         { label: 'portfolio', href: '/#portfolio' },
         { label: 'tienda',    href: '/tienda' },
+        { label: 'programa',  href: '/diseno-en-orden' },
         { label: 'freebies',  href: 'https://ornelacillo.gumroad.com', ext: true }, // los gratis están en Gumroad (7/11/2026)
         { label: 'blog',      href: '/blog' },
-        { label: 'contact',   href: '/#contact', cta: true },
+        { label: 'newsletter', href: '/newsletter', cta: true }, // portada sin servicios desde el 18/11/2026
       ],
-      services: [
-        { label: 'Identidad Visual', href: '/identidad-visual' },
-        { label: 'Diseño Web',       href: '/web' },
-      ],
+      services: [],
     };
   }
 

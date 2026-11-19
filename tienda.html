@@ -788,6 +788,39 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 .hero-nl-link span[aria-hidden] { display: none; }
 .hero-nl-link.hero-azul { background: #2e54a0 !important; border-color: #2e54a0 !important; color: #f5f1e8 !important; }
 .hero-nl-link.hero-azul:hover { background: #1f3d7a !important; border-color: #1f3d7a !important; }
+
+/* Encabezado de la tienda tipo cartel: título gigante con cintas naranjas sobre papel arrugado (19/11/2026) */
+.page-hero.cartel {
+  background:
+    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900'><filter id='p' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='.0045 .007' numOctaves='4' seed='7' stitchTiles='stitch'/><feDiffuseLighting lighting-color='%23ffffff' surfaceScale='5' diffuseConstant='1.05'><feDistantLight azimuth='225' elevation='52'/></feDiffuseLighting></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>") center/900px repeat,
+    #eeeae2 !important;
+  background-blend-mode: multiply;
+  padding: 150px 60px 90px !important;
+}
+.cartel-inner { max-width: 1240px; margin: 0 auto; position: relative; z-index: 1; }
+.cartel-title { margin: 0 0 56px; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; color: #1b1a17; font-size: clamp(4.4rem, 15.5vw, 15rem); line-height: .86; letter-spacing: -.055em; }
+.cartel-title .cl { position: relative; display: block; width: fit-content; }
+.cartel-title .cl-2 { margin-left: 6vw; }
+.cartel-title em { font-family: var(--font-script); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.02em; font-size: .82em; color: #1b1a17; white-space: nowrap; }
+.cartel-title .cinta { position: absolute; z-index: 2; background: #e8693a; opacity: .88; mix-blend-mode: multiply; pointer-events: none; animation: cinta .8s cubic-bezier(.2,.7,.2,1) .25s both; transform-origin: left center; }
+.cl-1 .cinta { left: -4%; right: 18%; top: 4%; bottom: 10%; transform: rotate(-4deg); }
+.cl-2 .cinta { left: 8%; right: -6%; top: 22%; bottom: 0; transform: rotate(2.5deg); animation-delay: .4s; }
+@keyframes cinta { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
+.cartel-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: end; }
+.cartel-desc { font-size: 18px; line-height: 1.6; color: #1b1a17 !important; max-width: 440px; margin: 0; }
+.cartel-text .hero-nl-link { margin-top: 26px; }
+.cartel-media { aspect-ratio: 760 / 560; background: url('img/tienda-movil.jpg') center/cover #d8cebf; box-shadow: 0 18px 40px rgba(27,26,23,.18); transform: rotate(1.5deg); }
+.cartel-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
+@media (max-width: 860px) {
+  .page-hero.cartel { padding: 118px 20px 56px !important; }
+  .cartel-title { font-size: clamp(3.6rem, 21vw, 7rem); margin-bottom: 36px; }
+  .cartel-title .cl-2 { margin-left: 0; }
+  .cartel-title em { font-size: .6em; }
+  .cartel-row { grid-template-columns: 1fr; gap: 36px; }
+  .cartel-desc { font-size: 17px; }
+  .cartel-media { transform: none; margin: 0 -20px; box-shadow: none; }
+}
+@media (prefers-reduced-motion: reduce) { .cartel-title .cinta { animation: none; } }
 </style>
 </head>
 <body data-nav-theme="dark">
@@ -814,17 +847,17 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   </div>
 
   <!-- ══ HERO ══ -->
-  <div class="page-hero hero-video">
-    <video class="hero-bg" data-src="img/tienda-fondo.mp4" data-media="(min-width: 861px)" poster="img/tienda-fondo.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-    <video class="hero-bg-m" data-src="img/tienda-movil.mp4" data-media="(max-width: 860px)" poster="img/tienda-movil.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
-    <div class="page-hero-inner">
-      <div>
-        <h1 class="hero-title fi-load">Tienda<br><em>para creativos</em></h1>
-        <p class="hero-desc fi-load fi-d2">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
-        <a href="#plantillas" class="hero-nl-link hero-azul fi-load fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
-        <p class="hero-voz fi-load fi-d2">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
+  <div class="page-hero cartel">
+    <div class="cartel-inner">
+      <h1 class="cartel-title fi-load"><span class="cl cl-1">Tienda<i class="cinta" aria-hidden="true"></i></span><span class="cl cl-2"><em>para creativos</em><i class="cinta" aria-hidden="true"></i></span></h1>
+      <div class="cartel-row">
+        <div class="cartel-text fi-load fi-d2">
+          <p class="cartel-desc">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
+          <a href="#plantillas" class="hero-nl-link hero-azul">Ver las plantillas <span aria-hidden="true">↓</span></a>
+          <p class="hero-voz">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
+        </div>
+        <div class="cartel-media fi-load fi-d2"><video data-src="img/tienda-movil.mp4" data-media="all" poster="img/tienda-movil.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
       </div>
-
     </div>
   </div>
 

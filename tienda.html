@@ -789,38 +789,32 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 .hero-nl-link.hero-azul { background: #2e54a0 !important; border-color: #2e54a0 !important; color: #f5f1e8 !important; }
 .hero-nl-link.hero-azul:hover { background: #1f3d7a !important; border-color: #1f3d7a !important; }
 
-/* Encabezado de la tienda tipo cartel: título gigante con cintas naranjas sobre papel arrugado (19/11/2026) */
-.page-hero.cartel {
-  background:
-    url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='900'><filter id='p' x='0' y='0' width='100%' height='100%'><feTurbulence type='fractalNoise' baseFrequency='.0045 .007' numOctaves='4' seed='7' stitchTiles='stitch'/><feDiffuseLighting lighting-color='%23ffffff' surfaceScale='5' diffuseConstant='1.05'><feDistantLight azimuth='225' elevation='52'/></feDiffuseLighting></filter><rect width='100%' height='100%' filter='url(%23p)'/></svg>") center/900px repeat,
-    #eeeae2 !important;
-  background-blend-mode: multiply;
-  padding: 150px 60px 90px !important;
+/* Encabezado de la tienda: la frase en palabras sueltas e inclinadas, como un cartel tipográfico (19/11/2026) */
+.page-hero.palabras { background: #eeeae3 !important; padding: 96px 48px 72px !important; }
+.pal-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
+.pal-comp { position: relative; container-type: inline-size; aspect-ratio: 100 / 60; margin: 0; font-size: 1rem; }
+.pal-comp .w { position: absolute; left: var(--x); top: var(--y); transform: rotate(var(--r)); transform-origin: 0 0; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; letter-spacing: -.03em; line-height: .9; font-size: var(--s); color: #1b1a17; white-space: nowrap; animation: palIn .7s cubic-bezier(.2,.7,.2,1) both; }
+.pal-comp .w:nth-child(2) { animation-delay: .05s } .pal-comp .w:nth-child(3) { animation-delay: .1s } .pal-comp .w:nth-child(4) { animation-delay: .15s }
+.pal-comp .w:nth-child(5) { animation-delay: .2s } .pal-comp .w:nth-child(6) { animation-delay: .25s } .pal-comp .w:nth-child(7) { animation-delay: .3s }
+.pal-comp .w:nth-child(8) { animation-delay: .35s } .pal-comp .w:nth-child(9) { animation-delay: .4s }
+@keyframes palIn { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
+.pal-sello { position: absolute; left: 71%; top: 49%; width: 15cqw; aspect-ratio: 1; transform: rotate(-12deg); display: grid; place-items: center; animation: palSello .6s cubic-bezier(.3,1.6,.5,1) .55s both; }
+.pal-sello svg { position: absolute; inset: 0; width: 100%; height: 100%; }
+.pal-sello polygon { fill: none; stroke: #e8693a; stroke-width: 3.2; stroke-linejoin: round; }
+.pal-sello b { position: relative; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; color: #e8693a; font-size: 2.3cqw; line-height: .95; text-align: center; letter-spacing: -.02em; }
+@keyframes palSello { from { opacity: 0; transform: rotate(-40deg) scale(.6); } to { opacity: 1; transform: rotate(-12deg) scale(1); } }
+.pal-pie { display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; margin-top: 36px; }
+.pal-pie .hero-nl-link { margin-top: 0; }
+.pal-pie .hero-voz { margin: 0; }
+@media (max-width: 760px) {
+  .page-hero.palabras { padding: 104px 18px 52px !important; }
+  .pal-comp { aspect-ratio: 100 / 158; }
+  .pal-comp .w { left: var(--mx); top: var(--my); transform: rotate(var(--mr)); font-size: var(--ms); }
+  .pal-sello { left: 6%; top: 12%; width: 22cqw; }
+  .pal-sello b { font-size: 3.8cqw; }
+  .pal-pie { flex-direction: column; align-items: flex-start; gap: 28px; margin-top: 28px; }
 }
-.cartel-inner { max-width: 1240px; margin: 0 auto; position: relative; z-index: 1; }
-.cartel-title { margin: 0 0 56px; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; color: #1b1a17; font-size: clamp(4.4rem, 15.5vw, 15rem); line-height: .86; letter-spacing: -.055em; }
-.cartel-title .cl { position: relative; display: block; width: fit-content; }
-.cartel-title .cl-2 { margin-left: 6vw; }
-.cartel-title em { font-family: var(--font-script); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.02em; font-size: .82em; color: #1b1a17; white-space: nowrap; }
-.cartel-title .cinta { position: absolute; z-index: 2; background: #e8693a; opacity: .88; mix-blend-mode: multiply; pointer-events: none; animation: cinta .8s cubic-bezier(.2,.7,.2,1) .25s both; transform-origin: left center; }
-.cl-1 .cinta { left: -4%; right: 18%; top: 4%; bottom: 10%; transform: rotate(-4deg); }
-.cl-2 .cinta { left: 8%; right: -6%; top: 22%; bottom: 0; transform: rotate(2.5deg); animation-delay: .4s; }
-@keyframes cinta { from { clip-path: inset(0 100% 0 0); } to { clip-path: inset(0 0 0 0); } }
-.cartel-row { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: 64px; align-items: end; }
-.cartel-desc { font-size: 18px; line-height: 1.6; color: #1b1a17 !important; max-width: 440px; margin: 0; }
-.cartel-text .hero-nl-link { margin-top: 26px; }
-.cartel-media { aspect-ratio: 760 / 560; background: url('img/tienda-movil.jpg') center/cover #d8cebf; box-shadow: 0 18px 40px rgba(27,26,23,.18); transform: rotate(1.5deg); }
-.cartel-media video { width: 100%; height: 100%; object-fit: cover; display: block; }
-@media (max-width: 860px) {
-  .page-hero.cartel { padding: 118px 20px 56px !important; }
-  .cartel-title { font-size: clamp(3.6rem, 21vw, 7rem); margin-bottom: 36px; }
-  .cartel-title .cl-2 { margin-left: 0; }
-  .cartel-title em { font-size: .6em; }
-  .cartel-row { grid-template-columns: 1fr; gap: 36px; }
-  .cartel-desc { font-size: 17px; }
-  .cartel-media { transform: none; margin: 0 -20px; box-shadow: none; }
-}
-@media (prefers-reduced-motion: reduce) { .cartel-title .cinta { animation: none; } }
+@media (prefers-reduced-motion: reduce) { .pal-comp .w, .pal-sello { animation: none; } }
 </style>
 </head>
 <body data-nav-theme="dark">
@@ -847,16 +841,23 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   </div>
 
   <!-- ══ HERO ══ -->
-  <div class="page-hero cartel">
-    <div class="cartel-inner">
-      <h1 class="cartel-title fi-load"><span class="cl cl-1">Tienda<i class="cinta" aria-hidden="true"></i></span><span class="cl cl-2"><em>para creativos</em><i class="cinta" aria-hidden="true"></i></span></h1>
-      <div class="cartel-row">
-        <div class="cartel-text fi-load fi-d2">
-          <p class="cartel-desc">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
-          <a href="#plantillas" class="hero-nl-link hero-azul">Ver las plantillas <span aria-hidden="true">↓</span></a>
-          <p class="hero-voz">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
-        </div>
-        <div class="cartel-media fi-load fi-d2"><video data-src="img/tienda-movil.mp4" data-media="all" poster="img/tienda-movil.jpg" muted loop playsinline preload="none" aria-hidden="true"></video></div>
+  <div class="page-hero palabras">
+    <div class="pal-inner">
+      <h1 class="pal-comp" aria-label="Tienda para creativos con las plantillas que uso en LIS, de la bienvenida a la entrega">
+        <span class="w" style="--x:44%;--y:0%;--r:9deg;--s:13.5cqw;--mx:6%;--my:0%;--mr:7deg;--ms:25cqw">Tienda</span>
+        <span class="w" style="--x:73%;--y:25%;--r:24deg;--s:7cqw;--mx:58%;--my:19%;--mr:16deg;--ms:12cqw">para</span>
+        <span class="w" style="--x:33%;--y:21%;--r:15deg;--s:7cqw;--mx:2%;--my:27%;--mr:11deg;--ms:13cqw">creativos</span>
+        <span class="w" style="--x:25%;--y:35%;--r:18deg;--s:7cqw;--mx:40%;--my:40%;--mr:16deg;--ms:12cqw">con las</span>
+        <span class="w" style="--x:18%;--y:46%;--r:20deg;--s:7cqw;--mx:0%;--my:49%;--mr:12deg;--ms:13cqw">plantillas</span>
+        <span class="w" style="--x:3%;--y:62%;--r:10deg;--s:7cqw;--mx:8%;--my:62%;--mr:14deg;--ms:12cqw">que uso</span>
+        <span class="w" style="--x:97%;--y:24%;--r:90deg;--s:7cqw;--mx:60%;--my:68%;--mr:18deg;--ms:12cqw">en LIS,</span>
+        <span class="w" style="--x:0%;--y:80%;--r:0deg;--s:7cqw;--mx:0%;--my:82%;--mr:0deg;--ms:9.4cqw">de la bienvenida</span>
+        <span class="w" style="--x:49%;--y:94%;--r:0deg;--s:6.6cqw;--mx:14%;--my:90%;--mr:0deg;--ms:9.4cqw">a la entrega.</span>
+        <span class="pal-sello" aria-hidden="true"><svg viewBox="0 0 200 200"><polygon points="100.0,8.0 118.1,32.4 146.0,20.3 149.5,50.5 179.7,54.0 167.6,81.9 192.0,100.0 167.6,118.1 179.7,146.0 149.5,149.5 146.0,179.7 118.1,167.6 100.0,192.0 81.9,167.6 54.0,179.7 50.5,149.5 20.3,146.0 32.4,118.1 8.0,100.0 32.4,81.9 20.3,54.0 50.5,50.5 54.0,20.3 81.9,32.4"/></svg><b>desde<br>$3.900</b></span>
+      </h1>
+      <div class="pal-pie fi-load fi-d2">
+        <a href="#plantillas" class="hero-nl-link hero-azul">Ver las plantillas <span aria-hidden="true">↓</span></a>
+        <p class="hero-voz">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
       </div>
     </div>
   </div>

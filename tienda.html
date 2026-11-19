@@ -318,6 +318,10 @@
     .fi-d1 { transition-delay: .1s; }
     .fi-d2 { transition-delay: .2s; }
     .fi-d3 { transition-delay: .3s; }
+    .fi-load { animation: fiLoad .7s ease both; }
+    .fi-load.fi-d2 { animation-delay: .12s; }
+    @keyframes fiLoad { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+    @media (prefers-reduced-motion: reduce) { .fi-load { animation: none; } }
 
     /* ── RESPONSIVE ── */
     @media (max-width: 860px) {
@@ -731,7 +735,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     .steps-grid.two { grid-template-columns: repeat(2, 1fr) !important; }
     .mc-section { padding-top: 70px; }
     .steps-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 40px; }
-    .step-card { border: 1px dashed var(--black); border-radius: 18px; padding: 30px; display: flex; flex-direction: column; }
+    .step-card { border: 1px solid var(--black); border-radius: 18px; padding: 30px; display: flex; flex-direction: column; }
     .step-card .res-title { font-size: clamp(1.3rem, 1.9vw, 1.6rem); }
     .step-card a { margin-top: auto; align-self: flex-start; }
     .voces { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; }
@@ -815,31 +819,14 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
     <video class="hero-bg-m" data-src="img/tienda-movil.mp4" data-media="(max-width: 860px)" poster="img/tienda-movil.jpg" muted loop playsinline preload="none" aria-hidden="true"></video>
     <div class="page-hero-inner">
       <div>
-        <h1 class="hero-title fi fi-d1">Tienda<br><em>para creativos</em></h1>
-        <p class="hero-desc fi fi-d2">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
-        <a href="#plantillas" class="hero-nl-link hero-azul fi fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
-        <p class="hero-voz fi fi-d2">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
+        <h1 class="hero-title fi-load">Tienda<br><em>para creativos</em></h1>
+        <p class="hero-desc fi-load fi-d2">Las plantillas que uso en LIS con mis clientes, de la bienvenida a la entrega final, diseñadas y editables en Canva para tu estudio.</p>
+        <a href="#plantillas" class="hero-nl-link hero-azul fi-load fi-d2">Ver las plantillas <span aria-hidden="true">↓</span></a>
+        <p class="hero-voz fi-load fi-d2">“Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”<span>Florencia M., usa las plantillas</span></p>
       </div>
 
     </div>
   </div>
-
-  <!-- ══ LO QUE ME ESCRIBEN ══ -->
-  <section class="voces fi" aria-label="Lo que me escriben quienes usan las plantillas">
-    <p class="voces-head">lo que me escriben quienes ya las usan</p>
-    <div class="voces-grid">
-      <figure><blockquote>“Es la primera vez en años que puedo organizarme con mis servicios. Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”</blockquote><figcaption>Florencia M.</figcaption></figure>
-      <figure><blockquote>“Lo que más me gustó es el cuestionario, porque a veces me quedaba corta con las preguntas.”</blockquote><figcaption>Romina</figcaption></figure>
-      <figure><blockquote>“En dos minutos lo resolví. Después si quieren contratarme o no es otra historia, pero al menos recibieron todo ordenadito.”</blockquote><figcaption>Caro</figcaption></figure>
-    </div>
-  </section>
-
-  <!-- ══ POR QUÉ ══ -->
-  <section class="why fi" aria-label="Por qué estos recursos">
-    <div><b>+10</b><span>años trabajando como freelance antes de armar LIS</span></div>
-    <div><b>+100</b><span>clientes en Argentina, España, Uruguay y Estados Unidos</span></div>
-    <div><b>0</b><span>plantillas genéricas: todo sale de proyectos reales del estudio</span></div>
-  </section>
 
   <!-- ══ PLANTILLAS ══ -->
   <section class="shop-section" id="plantillas">
@@ -946,20 +933,40 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   </section>
   <p class="shop-note">Pagás con Mercado Pago y recibís al instante los enlaces de Canva y un PDF de entrega con los pasos. Las plantillas se editan en <strong>Canva</strong>, y con una cuenta gratis alcanza: al abrir el enlace tocás <strong>Usar plantilla</strong> y se crea tu propia copia. Por el lanzamiento, el Sistema completo está a $49.900. El contrato es una base para adaptar a tu trabajo y a tu país: antes de usarlo, conviene que lo revise un abogado o una abogada.</p>
 
+  <!-- ══ LO QUE ME ESCRIBEN ══ -->
+  <section class="voces fi" aria-label="Lo que me escriben quienes usan las plantillas">
+    <p class="voces-head">lo que me escriben quienes ya las usan</p>
+    <div class="voces-grid">
+      <figure><blockquote>“Es la primera vez en años que puedo organizarme con mis servicios. Los presupuestos los envío rápido y noté que no pierdo tantos clientes.”</blockquote><figcaption>Florencia M.</figcaption></figure>
+      <figure><blockquote>“Lo que más me gustó es el cuestionario, porque a veces me quedaba corta con las preguntas.”</blockquote><figcaption>Romina</figcaption></figure>
+      <figure><blockquote>“En dos minutos lo resolví. Después si quieren contratarme o no es otra historia, pero al menos recibieron todo ordenadito.”</blockquote><figcaption>Caro</figcaption></figure>
+    </div>
+  </section>
 
-  <!-- ══ PRÓXIMAMENTE ══ -->
+  <!-- ══ POR QUÉ ══ -->
+  <section class="why fi" aria-label="Por qué estos recursos">
+    <div><b>+10</b><span>años trabajando como freelance antes de armar LIS</span></div>
+    <div><b>+100</b><span>clientes en Argentina, España, Uruguay y Estados Unidos</span></div>
+    <div><b>0</b><span>plantillas genéricas: todo sale de proyectos reales del estudio</span></div>
+  </section>
+
+
+
+  <!-- ══ PROGRAMA Y TALLER ══ -->
   <section class="steps">
     <h2 class="res-title">Para empezar <em>y para seguir</em></h2>
     <div class="steps-grid two">
       <article class="step-card fi">
-        <span class="res-tag">Próximamente</span>
-        <h3 class="res-title">Así usamos la IA <em>en LIS</em></h3>
-        <p class="res-desc">Una masterclass en vivo para armar tu web con IA, con dominio propio y sin pagar hosting. Vuelve el año que viene.</p>
+        <span class="res-tag">Lista de espera abierta</span>
+        <h3 class="res-title">Diseño <em>en Orden</em></h3>
+        <p class="res-desc">Seis semanas en vivo para diseñadoras freelance que ya tienen clientes y quieren dejar de improvisar, armando un sistema propio para filtrar, cotizar, cobrar, presentar y entregar.</p>
+        <a class="res-btn" href="/diseno-en-orden" style="margin-top:22px;align-self:flex-start">Ver el programa <span aria-hidden="true">→</span></a>
       </article>
       <article class="step-card fi">
-        <span class="res-tag">Próximamente</span>
-        <h3 class="res-title">Programa <em>de freelance a estudio</em></h3>
-        <p class="res-desc">Nicho, paquetes, precios, procesos y clientes, contado desde cómo armé LIS, con lo que me salió bien y lo que no.</p>
+        <span class="res-tag">Sábado 16 de enero · Rosario</span>
+        <h3 class="res-title">Las que <em>nos quedamos</em></h3>
+        <p class="res-desc">Una mañana presencial, de 9:30 a 13 h, para hacer con tu propia marca lo que hacés con la de tus clientes (brief, moodboard y conceptboard) y arrancar 2027 con tu concepto armado.</p>
+        <a class="res-btn" href="/las-que-nos-quedamos" style="margin-top:22px;align-self:flex-start">Ver el taller <span aria-hidden="true">→</span></a>
       </article>
     </div>
     <p class="res-desc" style="max-width:none;margin-top:30px">¿Buscás más recursos gratis? Están en <a href="/freebies" style="color:inherit">freebies</a>.</p>

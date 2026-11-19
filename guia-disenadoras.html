@@ -358,7 +358,7 @@
     .lang-btn.lang-active { color: #111; font-weight: 500; }
     .lang-sep { color: rgba(17,17,17,0.2); font-size: 11px; }
   </style>
-  <script src="/nav.js?v=20261118" defer></script>
+  <script src="/nav.js?v=20261118b" defer></script>
   <meta name="description" content="Descargá gratis 8 semanas, la guía de Orne (LIS. Creative Studio) con el proceso completo para diseñar la marca y la web de un estudio de arquitectura, etapa por etapa, con el error que más se ve en cada una." />
   <link rel="canonical" href="https://liscreativestudio.com/guia-disenadoras" />
   <meta name="theme-color" content="#0a0a0a" />
@@ -487,28 +487,40 @@ body { background: var(--cream); color: var(--ink); }
     radial-gradient(40% 55% at 72% 100%, rgba(232, 105, 58, .55) 0%, rgba(232, 105, 58, 0) 70%),
     #2a2926 url('/img/fondo-blur.jpg') center/cover no-repeat !important;
 }
-/* Efecto cortina (pliegues de luz verticales sobre azul), 18/11/2026 */
-.page-hero, .nl-card {
-  background:
-    repeating-linear-gradient(90deg, rgba(255,255,255,0) 0px, rgba(255,255,255,.10) 24px, rgba(255,255,255,0) 48px, rgba(10,12,30,.18) 76px, rgba(255,255,255,0) 104px),
-    radial-gradient(60% 90% at 82% 15%, rgba(126,146,226,.85) 0%, rgba(126,146,226,0) 62%),
-    linear-gradient(165deg, #3d5bb0 0%, #2b4c86 48%, #1b1a17 100%) !important;
+/* Encabezados crema con grano; newsletter en blanco y negro, compacto, títulos en sans (18/11/2026) */
+.page-hero {
+  background: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='.16'/></svg>"), #f5f1e8 !important;
+  border-bottom: 0;
 }
+.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title { color: var(--ink) !important; }
+.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em { color: var(--blue) !important; }
+.page-hero .page-hero-desc, .page-hero .hero-desc, .page-hero p { color: var(--ink) !important; }
+.page-hero .page-hero-label, .page-hero .hero-label, .page-hero .post-back { color: #3c3a36 !important; }
+.page-hero .hero-nl-link, .page-hero .res-btn, .page-hero .pill-btn { background: var(--ink) !important; border-color: var(--ink) !important; color: var(--cream) !important; }
 .page-hero .hero-desc, .page-hero .page-hero-desc { max-width: 470px; }
-/* Recuadro del newsletter: un solo bloque con la cortina, sin lista */
-.nl-card { border: 0 !important; border-radius: 4px !important; overflow: hidden; color: var(--cream) !important; }
-.nl-card .nl-body, .nl-card .nl-form-side { background: transparent !important; color: var(--cream) !important; }
-.nl-card .nl-body *:not(input):not(textarea):not(select), .nl-card .nl-form-side *:not(input):not(button) { color: var(--cream) !important; border-color: rgba(244,237,227,.35) !important; }
-.nl-card .nl-title em { color: #dfe5f0 !important; }
-.nl-card .nl-perks { display: none !important; }
-.nl-card .nl-form-side .ml-form-fieldRow input { background: rgba(244,237,227,.08) !important; border: 1.5px solid rgba(244,237,227,.55) !important; color: var(--cream) !important; border-radius: 0 !important; }
-.nl-card .nl-form-side .ml-form-fieldRow input::placeholder { color: rgba(244,237,227,.7) !important; }
-.nl-card .nl-form-side .ml-form-embedSubmit button { background: var(--cream) !important; color: var(--ink) !important; border-color: var(--cream) !important; border-radius: 0 !important; }
+/* Recuadro del newsletter: un solo bloque blanco con la cortina suave, sin lista */
+.nl-card {
+  background: #111 !important; color: #f5f1e8 !important;
+  border: 0 !important; border-radius: 0 !important; overflow: hidden !important; position: relative; box-shadow: none;
+  display: grid !important; grid-template-columns: 1.1fr 1fr !important; gap: 48px; align-items: center; padding: 56px 60px !important;
+}
+.nl-card .nl-body, .nl-card .nl-form-side { background: transparent !important; color: #f5f1e8 !important; padding: 0 !important; margin: 0 !important; box-shadow: none !important; }
+.nl-card .nl-body *:not(input):not(textarea):not(select), .nl-card .nl-form-side *:not(input):not(button) { color: #f5f1e8 !important; border-color: rgba(245,241,232,.3) !important; }
+.nl-card .nl-title { font-family: "Inter Tight", sans-serif !important; font-weight: 800 !important; text-transform: uppercase; letter-spacing: -.05em !important; font-size: clamp(2rem, 3.4vw, 3rem) !important; line-height: .95 !important; margin: 0 0 18px !important; }
+.nl-card .nl-title em { font-family: inherit !important; font-style: normal !important; font-weight: inherit !important; text-transform: inherit; letter-spacing: inherit; display: inline; }
+.nl-card .nl-desc { margin: 0 !important; color: rgba(245,241,232,.82) !important; max-width: 460px; }
+.nl-card .nl-desc strong { color: #f5f1e8 !important; }
+.nl-card .nl-perks, .nl-card .nl-form-title { display: none !important; }
+.nl-card .nl-form-sub { margin: 0 0 14px !important; font-size: 14px !important; color: rgba(245,241,232,.75) !important; }
+.nl-card .nl-form-side .ml-form-fieldRow { margin-bottom: 10px !important; }
+.nl-card .nl-form-side .ml-form-fieldRow input { background: transparent !important; border: 1.5px solid rgba(245,241,232,.7) !important; color: #f5f1e8 !important; border-radius: 0 !important; }
+.nl-card .nl-form-side .ml-form-fieldRow input::placeholder { color: rgba(245,241,232,.6) !important; }
+.nl-card .nl-form-side .ml-form-embedSubmit button { background: #f5f1e8 !important; color: #111 !important; border-color: #f5f1e8 !important; border-radius: 0 !important; }
+.nl-card .nl-note { margin-top: 10px !important; font-size: 12px !important; color: rgba(245,241,232,.55) !important; }
+@media (max-width: 760px) { .nl-card { grid-template-columns: 1fr !important; gap: 26px; padding: 36px 24px !important; } }
 .page-hero .hero-x { display: none !important; }
-.page-hero .page-hero-title, .page-hero .hero-title, .page-hero .post-title, .home-title { color: var(--cream) !important; }
-.page-hero .page-hero-title em, .page-hero .hero-title em, .page-hero .post-title em, .home-title em { color: #a9bde2 !important; }
-.page-hero .page-hero-desc, .page-hero .hero-desc { color: #e9e2d6 !important; }
-.page-hero .post-back { color: #cfc6b8; }
+.home-title { color: var(--cream) !important; }
+.home-title em { color: #a9bde2 !important; }
 
 /* ── Tarjetas y bordes ── */
 .res-card, .h-card, .modality-item, .modal-item, .process-step, .step, .flow-item,
@@ -516,7 +528,7 @@ body { background: var(--cream); color: var(--ink); }
   border-color: var(--ink) !important;
   background-color: transparent;
 }
-.res-card, .h-card { background: var(--cream) !important; }
+.res-card, .h-card { background: #fbf9f5 !important; } /* blanco roto, distinto del fondo (18/11/2026) */
 .faq-item, .faq-item:nth-child(even) { border-color: var(--soft) !important; background: transparent !important; }
 .faq-item:hover { border-color: var(--ink) !important; }
 
@@ -676,6 +688,16 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   html { scroll-behavior: auto !important; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
 }
+
+/* Kit "para creativos" (paréntesis gigantes, polaroid, sticker), 18/11/2026 */
+.cr-art { position: relative; height: 460px; }
+.cr-par { position: absolute; top: 10px; font-family: "Inter Tight", sans-serif; font-weight: 300; line-height: 1; font-size: 380px; color: #111; }
+.cr-pol { position: absolute; background: #fff; padding: 12px 12px 38px; box-shadow: 0 18px 40px rgba(0,0,0,.22); }
+.cr-pol .gif { position: relative; width: 100%; aspect-ratio: 4/3; overflow: hidden; }
+.cr-pol img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: 0; }
+.cr-pol img.on { opacity: 1; }
+.cr-st { position: absolute; font-family: "Inter Tight", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.03em; padding: 10px 20px 12px; box-shadow: 0 10px 22px rgba(0,0,0,.18); white-space: nowrap; font-size: 22px; }
+@media (max-width: 860px) { .cr-art { height: 340px; } .cr-par { font-size: 270px; } }
   </style>
   <!-- /THEME-CSS -->
 <script defer src="/_vercel/insights/script.js"></script>

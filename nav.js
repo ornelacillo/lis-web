@@ -381,6 +381,23 @@
     };
   }
 
+  /* Botón flotante de WhatsApp, abajo a la derecha en todas las páginas (18/11/2026) */
+  function addWhatsApp() {
+    if (document.getElementById('lis-wa')) return;
+    var msg = isEn() ? 'Hi Orne, I found you through the LIS website.' : 'Hola Orne, te escribo desde la web de LIS.';
+    var a = document.createElement('a');
+    a.id = 'lis-wa';
+    a.href = 'https://wa.me/5493413780854?text=' + encodeURIComponent(msg);
+    a.target = '_blank'; a.rel = 'noopener';
+    a.setAttribute('aria-label', isEn() ? 'Write to me on WhatsApp' : 'Escribime por WhatsApp');
+    a.innerHTML = '<svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path fill="#fff" d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3zm0 23.4c-2.1 0-4.1-.6-5.9-1.6l-.4-.3-3.8 1.2 1.2-3.7-.3-.4c-1.2-1.8-1.8-3.8-1.8-5.9C5 9.9 9.9 5.2 16 5.2s11 4.7 11 10.6-4.9 10.6-11 10.6zm6-7.9c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.6-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.4.3-.6.1-.2.1-.4 0-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.7s1.2 3.2 1.4 3.4c.2.2 2.4 3.6 5.8 5 .8.3 1.4.5 1.9.7.8.2 1.5.2 2.1.1.6-.1 2-.8 2.2-1.6.3-.8.3-1.4.2-1.6-.1-.1-.3-.2-.6-.3z"/></svg>';
+    var s = document.createElement('style');
+    s.textContent = '#lis-wa{position:fixed;right:22px;bottom:22px;z-index:9998;width:58px;height:58px;border-radius:50%;background:#1b1a17;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 26px rgba(0,0,0,.22);transition:transform .2s ease}#lis-wa:hover{transform:scale(1.07)}@media (max-width:640px){#lis-wa{right:16px;bottom:16px;width:52px;height:52px}}';
+    document.head.appendChild(s);
+    document.body.appendChild(a);
+  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', addWhatsApp); else addWhatsApp();
+
   /* Mark active link */
   function markActive(pill) {
     const path = currentPath();

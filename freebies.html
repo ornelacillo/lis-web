@@ -680,6 +680,9 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 .cr-pol img.on { opacity: 1; }
 .cr-st { position: absolute; font-family: "Inter Tight", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.03em; padding: 10px 20px 12px; box-shadow: 0 10px 22px rgba(0,0,0,.18); white-space: nowrap; font-size: 22px; }
 @media (max-width: 860px) { .cr-art { height: 340px; } .cr-par { font-size: 270px; } }
+
+/* Los enlaces nunca llevan subrayado, tampoco dentro de un botón (19/11/2026) */
+a, a:hover, a:focus { text-decoration: none !important; }
   </style>
   <!-- /THEME-CSS -->
 <script defer src="/_vercel/insights/script.js"></script>
@@ -744,7 +747,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
         <h2 class="nl-title">Diseño, arquitectura <em>y todo lo que pasa en el medio</em></h2>
         <p class="nl-desc"><strong>Planta Libre</strong> es el newsletter de LIS sobre diseño y arquitectura, para diseñadoras, creativas y estudios, y llega cada semana a tu mail.</p>
         <ul class="nl-perks">
-          <li>De regalo, la guía <em>¿Me mostrás lo que hacés?</em></li>
+          <li>De regalo, la guía <em>Cuánto cobrar, sin adivinar</em></li>
           <li>Proyectos y novedades del estudio</li>
           <li>Radar, agenda y una columna en cada edición</li>
           <li>Paletas y recursos para guardar</li>
@@ -753,7 +756,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       </div>
       <div class="nl-form-side">
         <p class="nl-form-title">Sumate gratis</p>
-        <p class="nl-form-sub">Dejá tu nombre y email y te regalo la guía <em>¿Me mostrás lo que hacés?</em>.</p>
+        <p class="nl-form-sub">Dejá tu nombre y email y te regalo la guía <em>Cuánto cobrar, sin adivinar</em>.</p>
         <div id="mlb2-38791848-destacado" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-38791848">
           <div class="ml-form-align-center"><div class="ml-form-embedWrapper embedForm">
             <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
@@ -768,7 +771,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
                 <input type="hidden" name="anticsrf" value="true">
               </form>
             </div>
-            <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="color:#b8b2a7;font-weight:600;text-decoration:underline;">descargala acá →</a>, y el próximo mail te llega a tu casilla, así que revisá promociones o spam por las dudas.</p></div></div>
+            <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/cuanto-cobrar-sin-adivinar.pdf" target="_blank" rel="noopener" style="color:#b8b2a7;font-weight:600;text-decoration:underline;">descargala acá →</a>, y el próximo mail te llega a tu casilla, así que revisá promociones o spam por las dudas.</p></div></div>
           </div></div>
         </div>
         <p class="nl-note">Podés darte de baja con un clic desde cualquier mail.</p>
@@ -779,6 +782,20 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
   <!-- ══ RECURSOS ══ -->
   <section class="res-section">
     <div class="res-list">
+
+      <!-- Recurso 0c: Calculadora de precios (Gumroad, 12/11/2026) -->
+      <article class="res-card fi">
+        <div class="res-body">
+          <span class="res-tag">Guía PDF · para creativos</span>
+          <h2 class="res-title">Cuánto cobrar, <em>sin adivinar</em></h2>
+          <p class="res-desc">Una calculadora en seis pasos para sacar tu precio mínimo por hora, convertirlo en el precio de un proyecto y armar tres paquetes, pensada para Argentina: con monotributo, inflación y clientes que a veces preguntan en dólares.</p>
+          <p class="res-desc">Son 12 páginas con ejemplos y hojas para completar con tus números.</p>
+          <a href="https://ornelacillo.gumroad.com/l/cuanto-cobrar" target="_blank" rel="noopener" class="res-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Quiero la calculadora <span aria-hidden="true">→</span></a>
+        </div>
+        <div class="res-media">
+          <img src="/img/calculadora-precios.webp?v=3" alt="Guía gratis Cuánto cobrar, sin adivinar, de LIS Creative Studio" loading="lazy" />
+        </div>
+      </article>
 
       <!-- Recurso 0: Guía para estudios (página propia /guia-estudios con formulario) -->
       <article class="res-card fi">
@@ -805,20 +822,6 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
         </div>
         <div class="res-media">
           <img src="/img/guia-8-semanas-celular.webp" alt="La guía 8 semanas abierta en un celular" loading="lazy" />
-        </div>
-      </article>
-
-      <!-- Recurso 0c: Calculadora de precios (Gumroad, 12/11/2026) -->
-      <article class="res-card fi">
-        <div class="res-body">
-          <span class="res-tag">Guía PDF · para creativos</span>
-          <h2 class="res-title">Cuánto cobrar, <em>sin adivinar</em></h2>
-          <p class="res-desc">Una calculadora en seis pasos para sacar tu precio mínimo por hora, convertirlo en el precio de un proyecto y armar tres paquetes, pensada para Argentina: con monotributo, inflación y clientes que a veces preguntan en dólares.</p>
-          <p class="res-desc">Son 12 páginas con ejemplos y hojas para completar con tus números.</p>
-          <a href="https://ornelacillo.gumroad.com/l/cuanto-cobrar" target="_blank" rel="noopener" class="res-btn" style="text-decoration:none;display:inline-flex;align-items:center;gap:8px;">Quiero la calculadora <span aria-hidden="true">→</span></a>
-        </div>
-        <div class="res-media">
-          <img src="/img/calculadora-precios.webp?v=3" alt="Guía gratis Cuánto cobrar, sin adivinar, de LIS Creative Studio" loading="lazy" />
         </div>
       </article>
 
@@ -1026,7 +1029,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
                   <input type="hidden" name="anticsrf" value="true">
                 </form>
               </div>
-              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/cuanto-cobrar-sin-adivinar.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
             </div></div>
           </div>
         </div>

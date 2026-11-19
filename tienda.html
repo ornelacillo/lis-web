@@ -696,6 +696,9 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 .cr-pol img.on { opacity: 1; }
 .cr-st { position: absolute; font-family: "Inter Tight", sans-serif; font-weight: 800; text-transform: uppercase; letter-spacing: -.03em; padding: 10px 20px 12px; box-shadow: 0 10px 22px rgba(0,0,0,.18); white-space: nowrap; font-size: 22px; }
 @media (max-width: 860px) { .cr-art { height: 340px; } .cr-par { font-size: 270px; } }
+
+/* Los enlaces nunca llevan subrayado, tampoco dentro de un botón (19/11/2026) */
+a, a:hover, a:focus { text-decoration: none !important; }
   </style>
   <!-- /THEME-CSS -->
 <script defer src="/_vercel/insights/script.js"></script>
@@ -793,12 +796,12 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
 .page-hero.palabras { background: #eeeae3 !important; padding: 96px 48px 72px !important; }
 .pal-inner { max-width: 1280px; margin: 0 auto; position: relative; z-index: 1; }
 .pal-comp { position: relative; container-type: inline-size; aspect-ratio: 100 / 60; margin: 0; font-size: 1rem; }
-.pal-comp .w { position: absolute; left: var(--x); top: var(--y); transform: rotate(var(--r)); transform-origin: 0 0; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; letter-spacing: -.03em; line-height: .9; font-size: var(--s); color: #1b1a17; white-space: nowrap; animation: palIn .7s cubic-bezier(.2,.7,.2,1) both; }
+.pal-comp .w { position: absolute; left: var(--x); top: var(--y); transform: rotate(var(--r)); transform-origin: 0 0; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; letter-spacing: -.03em; line-height: .9; font-size: var(--s); color: #1b1a17; white-space: nowrap; animation: palIn .7s cubic-bezier(.2,.7,.2,1) backwards; transition: translate .9s cubic-bezier(.2,.7,.2,1); will-change: translate; }
 .pal-comp .w:nth-child(2) { animation-delay: .05s } .pal-comp .w:nth-child(3) { animation-delay: .1s } .pal-comp .w:nth-child(4) { animation-delay: .15s }
 .pal-comp .w:nth-child(5) { animation-delay: .2s } .pal-comp .w:nth-child(6) { animation-delay: .25s } .pal-comp .w:nth-child(7) { animation-delay: .3s }
 .pal-comp .w:nth-child(8) { animation-delay: .35s } .pal-comp .w:nth-child(9) { animation-delay: .4s }
 @keyframes palIn { from { opacity: 0; translate: 0 18px; } to { opacity: 1; translate: 0 0; } }
-.pal-sello { position: absolute; left: 71%; top: 49%; width: 15cqw; aspect-ratio: 1; transform: rotate(-12deg); display: grid; place-items: center; animation: palSello .6s cubic-bezier(.3,1.6,.5,1) .55s both; }
+.pal-sello { position: absolute; left: 71%; top: 49%; width: 15cqw; aspect-ratio: 1; transform: rotate(-12deg); display: grid; place-items: center; animation: palSello .6s cubic-bezier(.3,1.6,.5,1) .55s both; transition: translate .9s cubic-bezier(.2,.7,.2,1); }
 .pal-sello svg { position: absolute; inset: 0; width: 100%; height: 100%; }
 .pal-sello polygon { fill: none; stroke: #e8693a; stroke-width: 3.2; stroke-linejoin: round; }
 .pal-sello b { position: relative; font-family: var(--font-display); font-weight: 500; text-transform: uppercase; color: #e8693a; font-size: 2.3cqw; line-height: .95; text-align: center; letter-spacing: -.02em; }
@@ -1063,7 +1066,7 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
                   <input type="hidden" name="anticsrf" value="true">
                 </form>
               </div>
-              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/un-estudio-que-se-ve-como-trabaja.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
+              <div class="ml-form-successBody row-success" style="display:none"><div class="ml-form-successContent"><h4>¡Ya estás adentro!</h4><p>Acá tenés tu guía de regalo, <a href="/descargas/cuanto-cobrar-sin-adivinar.pdf" target="_blank" rel="noopener" style="font-weight:600;text-decoration:underline;">descargala acá →</a></p></div></div>
             </div></div>
           </div>
         </div>
@@ -1138,6 +1141,23 @@ body input:not([type=checkbox]):not([type=radio]):not([type=submit]):not([type=b
       document.querySelectorAll('video[data-media]').forEach(function (v) { if (matchMedia(v.dataset.media).matches) play(v); });
       var vObs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { play(e.target); vObs.unobserve(e.target); } }); }, { rootMargin: '300px' });
       document.querySelectorAll('video[data-lazy]').forEach(function (v) { vObs.observe(v); });
+    })();
+    // Encabezado: las palabras se corren para el lado contrario al cursor, cada una a su ritmo; en el celu se mueven un poco con el scroll
+    (function () {
+      var comp = document.querySelector('.pal-comp'); if (!comp || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var els = [].slice.call(comp.querySelectorAll('.w, .pal-sello'));
+      var prof = [1.7, 0.9, 1.3, 0.7, 1.5, 1, 0.8, 1.2, 0.6, 2];
+      function mover(nx, ny) { els.forEach(function (el, i) { var k = prof[i % prof.length]; el.style.translate = (-nx * 26 * k).toFixed(1) + 'px ' + (-ny * 18 * k).toFixed(1) + 'px'; }); }
+      if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+        addEventListener('mousemove', function (e) { mover(e.clientX / innerWidth - .5, e.clientY / innerHeight - .5); }, { passive: true });
+        document.addEventListener('mouseleave', function () { mover(0, 0); });
+      } else {
+        var pend = false;
+        addEventListener('scroll', function () {
+          if (pend) return; pend = true;
+          requestAnimationFrame(function () { pend = false; var y = Math.min(scrollY, innerHeight) / innerHeight; els.forEach(function (el, i) { var k = prof[i % prof.length]; el.style.translate = ((i % 2 ? 1 : -1) * y * 22 * k).toFixed(1) + 'px ' + (-y * 30 * k).toFixed(1) + 'px'; }); });
+        }, { passive: true });
+      }
     })();
   </script>
 

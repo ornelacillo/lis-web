@@ -20,7 +20,7 @@
 ## Páginas
 - /identidad-visual — Identidad Visual
 - /web — Diseño Web
-- /las-que-nos-quedamos — Las que nos quedamos: taller presencial para diseñadoras en Rosario, sábado 16 de enero de 2027 de 9:30 a 13 h, $30.000 con desayuno, 12 lugares (repensar la marca propia: brief, moodboard y conceptboard).
+- /las-que-nos-quedamos — Las que nos quedamos: taller presencial para diseñadoras en Rosario, una mañana de enero de 2027 (fecha, lugar y precio a confirmar), 12 lugares con desayuno (repensar la marca propia: brief, moodboard y conceptboard).
 - /tienda — Tienda para diseñadores y creativos: plantillas editables en Canva (kit de bienvenida con contrato, propuesta, conceptboards, entrega de identidad, manual de marca, entrega de web, firmas de mail) , el Sistema de freelance a estudio con todas juntas y masterclases en vivo (01: Así usamos la IA en LIS, en preventa; 02: Paquetes cerrados, próximamente)
 - /masterclass — Masterclass "Así usamos la IA en LIS": cómo armar tu web con IA (Claude Code), con dominio propio y sin pagar hosting. Próximamente, en 2027, con lista de espera
 - /test-de-tu-web — Test de dos minutos para estudios de arquitectura, interiorismo, constructoras e inmobiliarias: puntaje de 10 para su web, los tres arreglos más urgentes y qué paquete conviene (Obra nueva, Refacción, Planta o a medida)

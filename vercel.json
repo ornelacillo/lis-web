@@ -66,6 +66,16 @@
       "source": "/peque/:path*",
       "destination": "/",
       "permanent": true
+    },
+    {
+      "source": "/studio-kit",
+      "destination": "/tienda",
+      "permanent": true
+    },
+    {
+      "source": "/brandbook",
+      "destination": "/tienda",
+      "permanent": true
     }
   ],
   "headers": [

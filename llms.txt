@@ -47,7 +47,6 @@ LIS. Creative Studio also has an English version for clients outside Argentina, 
 - /en — Home: visual identity and web design for architecture and interior design studios
 - /en/visual-identity — Visual Identity
 - /en/web-design — Web Design
-- /en/packages — Packages for architecture studios: New Build (identity + website in 8 weeks, USD 2,390) and Renovation (new website with your current brand in 5 weeks, USD 1,390)
 - /en/press — Press kit
 - /en/blog — Blog: articles on brand, photography and websites for architecture studios
 

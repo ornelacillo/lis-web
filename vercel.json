@@ -34,7 +34,7 @@
     },
     {
       "source": "/curaduria",
-      "destination": "/curaduria-visual",
+      "destination": "/",
       "permanent": true
     },
     {
@@ -46,6 +46,26 @@
       "source": "/en/packages",
       "destination": "/en",
       "permanent": false
+    },
+    {
+      "source": "/curaduria-visual",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/branding",
+      "destination": "/identidad-visual",
+      "permanent": true
+    },
+    {
+      "source": "/peque",
+      "destination": "/",
+      "permanent": true
+    },
+    {
+      "source": "/peque/:path*",
+      "destination": "/",
+      "permanent": true
     }
   ],
   "headers": [

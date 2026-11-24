@@ -409,6 +409,19 @@
       color: rgba(245,244,241,.36); text-decoration: none; transition: color .2s;
     }
     .portfolio-link:hover { color: var(--white); }
+    .pf-title { color: var(--cream); font-size: clamp(44px, 6vw, 96px); padding: 0 48px; margin-bottom: 48px; }
+    .pf-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 56px 24px; padding: 0 48px 96px; }
+    .pc { display: block; color: var(--cream); text-decoration: none; }
+    .pc-img { overflow: hidden; border-radius: 4px; aspect-ratio: 808 / 632; background: #2a2925; }
+    .pc-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .6s ease; }
+    a.pc:hover .pc-img img { transform: scale(1.03); }
+    .pc-name { font-family: var(--font-display); font-weight: 500; letter-spacing: -.035em; font-size: 26px; line-height: 1.1; margin-top: 16px; }
+    .pc-desc { font-size: 14px; line-height: 1.5; color: rgba(244,237,227,.6); margin-top: 6px; max-width: 380px; }
+    @media (max-width: 1000px) { .pf-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) {
+      .pf-title { padding: 0 16px; margin-bottom: 32px; }
+      .pf-grid { grid-template-columns: 1fr; gap: 40px; padding: 0 16px 64px; }
+    }
     .pg-row { display: grid; gap: 3px; margin-bottom: 3px; }
     .pitem { background: #111; overflow: hidden; position: relative; }
     .pitem img {
@@ -1072,43 +1085,22 @@ a, a:hover, a:focus { text-decoration: none !important; }
 
   <!-- ══ PORTFOLIO ══ -->
   <section id="portfolio" data-nav-theme="light">
-    <div class="portfolio-header fi">
-      <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap;">
-        <a href="https://ornelacillo.myportfolio.com/" target="_blank" rel="noopener" class="portfolio-link">Portfolio Identidad visual →</a>
-        <a href="https://www.notion.so/ornelacillo/Web-Design-Portfolio-a13231c2593b4203a57283bc247a32a2" target="_blank" rel="noopener" class="portfolio-link">Portfolio Web →</a>
-      </div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:2fr 1fr;height:520px;">
-      <div class="pitem"><img src="bm-merch.webp" alt="Buenas Marcas, packaging y merch" loading="lazy" /></div>
-      <div class="pitem"><img src="portada_behance_new.webp" alt="Proyecto de identidad visual de LIS. Creative Studio" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr 1fr;height:420px;">
-      <div class="pitem"><img src="Slide_53.webp" alt="Buenas Marcas, identidad visual" loading="lazy" /></div>
-      <div class="pitem"><img src="Slide_53__1_.webp" alt="Buenas Marcas, merch" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr 1fr 1fr;height:400px;">
-      <div class="pitem"><img src="carta_digital_2.webp" alt="Carta digital para un restaurante de pastas, vista en una tablet" loading="lazy" /></div>
-      <div class="pitem"><img src="Slide_53__3_.webp" alt="Buenas Marcas, aplicaciones de marca" loading="lazy" /></div>
-      <div class="pitem"><img src="gorrita.webp" alt="Gorra con aplicación de identidad visual" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr 1fr;height:520px;">
-      <div class="pitem"><img src="poster.webp" alt="Póster con aplicación de identidad visual" loading="lazy" /></div>
-      <div class="pitem"><img src="libro_y_celu.webp" alt="Libro y celular con piezas de identidad visual" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr 1fr;height:420px;">
-      <div class="pitem"><img src="remera_imagen.webp" alt="Buenas Marcas, merch" loading="lazy" /></div>
-      <div class="pitem"><img src="lis-tshirt.webp" alt="Remera con la marca LIS. Creative Studio" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:2fr 1fr;height:420px;">
-      <div class="pitem"><img src="bm-web.webp" alt="Buenas Marcas, diseño web" loading="lazy" /></div>
-      <div class="pitem"><img src="santo-pastel-portada.webp" alt="Santo Pastel, identidad visual" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr 1fr;height:420px;">
-      <div class="pitem"><img src="Valentina_landing.webp" alt="Valentina Ruiz, diseño web" loading="lazy" /></div>
-      <div class="pitem"><img src="yeet_portfolio.webp" alt="Yeet, diseño web" loading="lazy" /></div>
-    </div>
-    <div class="pg-row fi" style="grid-template-columns:1fr;height:560px;">
-      <div class="pitem"><img src="disegna-web-v2.webp" alt="Diseño web para Estudio Disegna — LIS Creative Studio" loading="lazy" /></div>
+    <h2 class="section-title pf-title fi">Marcas y webs <em>que diseñamos</em></h2>
+    <div class="pf-grid">
+      <a class="pc fi" href="/proyectos/bwild"><div class="pc-img"><img src="/img/proyectos/bwild/card.webp" alt="BWILD, web para un estudio de arquitectura e interiorismo, Buenos Aires" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">BWILD</h3><p class="pc-desc">Web para un estudio de arquitectura e interiorismo, Buenos Aires</p></a>
+      <div class="pc fi fi-d1"><div class="pc-img"><img src="/img/proyectos/green-golden/card.webp" alt="Green Golden, identidad visual y web para un espacio de congresos, Barcelona" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Green Golden</h3><p class="pc-desc">Identidad visual y web para un espacio de congresos, Barcelona</p></div>
+      <div class="pc fi fi-d2"><div class="pc-img"><img src="/img/proyectos/estudio-disegna/card.webp" alt="Estudio Disegna, web para un estudio de arquitectura e interiorismo" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Estudio Disegna</h3><p class="pc-desc">Web para un estudio de arquitectura e interiorismo</p></div>
+      <div class="pc fi"><div class="pc-img"><img src="/img/proyectos/buenas-marcas/card.webp" alt="Buenas Marcas, identidad visual, merch y web para un medio online" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Buenas Marcas</h3><p class="pc-desc">Identidad visual, merch y web para un medio online</p></div>
+      <div class="pc fi fi-d1"><div class="pc-img"><img src="/img/proyectos/orfeon/card.webp" alt="Orfeon, identidad visual para una empresa de tecnología e inteligencia artificial" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Orfeon</h3><p class="pc-desc">Identidad visual para una empresa de tecnología e inteligencia artificial</p></div>
+      <div class="pc fi fi-d2"><div class="pc-img"><img src="/img/proyectos/santo-pastel/card.webp" alt="Santo Pastel, identidad visual e ilustración para un café y pastelería" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Santo Pastel</h3><p class="pc-desc">Identidad visual e ilustración para un café y pastelería</p></div>
+      <div class="pc fi"><div class="pc-img"><img src="/img/proyectos/yeet/card.webp" alt="Yeet Generation, diseño web" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Yeet Generation</h3><p class="pc-desc">Diseño web</p></div>
+      <div class="pc fi fi-d1"><div class="pc-img"><img src="/img/proyectos/menatech/card.webp" alt="MenaTech, identidad visual y redes para una empresa de tecnología" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">MenaTech</h3><p class="pc-desc">Identidad visual y redes para una empresa de tecnología</p></div>
+      <div class="pc fi fi-d2"><div class="pc-img"><img src="/img/proyectos/pastas-prin/card.webp" alt="Pastas Prin, identidad visual e ilustración para una marca de pastas frescas" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Pastas Prin</h3><p class="pc-desc">Identidad visual e ilustración para una marca de pastas frescas</p></div>
+      <div class="pc fi"><div class="pc-img"><img src="/img/proyectos/carpetania/card.webp" alt="Carpetania, identidad visual para una cafetería" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Carpetania</h3><p class="pc-desc">Identidad visual para una cafetería</p></div>
+      <div class="pc fi fi-d1"><div class="pc-img"><img src="/img/proyectos/jeudi/card.webp" alt="Jeudi, identidad visual para una marca de ropa" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Jeudi</h3><p class="pc-desc">Identidad visual para una marca de ropa</p></div>
+      <div class="pc fi fi-d2"><div class="pc-img"><img src="/img/proyectos/golden-hour/card.webp" alt="Golden Hour, identidad visual para una joyería de autor" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Golden Hour</h3><p class="pc-desc">Identidad visual para una joyería de autor</p></div>
+      <div class="pc fi"><div class="pc-img"><img src="/img/proyectos/valentina-ruiz/card.webp" alt="Valentina Ruiz, marca personal y web para una diseñadora" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Valentina Ruiz</h3><p class="pc-desc">Marca personal y web para una diseñadora</p></div>
+      <div class="pc fi fi-d1"><div class="pc-img"><img src="/img/proyectos/club-conecta/card.webp" alt="Club Conecta, identidad visual y web para una comunidad de emprendedoras, Rosario" width="808" height="632" loading="lazy" decoding="async" /></div><h3 class="pc-name">Club Conecta</h3><p class="pc-desc">Identidad visual y web para una comunidad de emprendedoras, Rosario</p></div>
     </div>
   </section>
   <!-- ══ TESTIMONIALS ══ -->

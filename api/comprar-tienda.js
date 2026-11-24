@@ -74,6 +74,26 @@ const PRODUCTOS = {
   // Masterclass 01: en pausa desde el 11/11/2026 (vuelve en 2027). Sin producto, el link viejo lleva a /tienda.
 };
 
+// Black Friday 2026: 30% en toda la tienda del jueves 26/11 a las 00:00 al lunes 30/11 a las 23:59 (hora de Argentina).
+// Solo desde el link que Orne manda por DM (/tienda?bf), que cambia los botones a estos ids (<id>-bf).
+// Fuera de esas fechas el link lleva a la tienda con el precio de siempre.
+const BF = { desde: "2026-11-26T03:00:00Z", hasta: "2026-12-01T03:00:00Z" };
+const BF_PRECIOS = {
+  "sistema": 34900, "kit-bienvenida": 17400, "propuesta": 10400, "conceptboards": 10400,
+  "entrega-identidad": 10400, "manual-de-marca": 20900, "entrega-web": 10400, "presupuesto": 2700, "firmas": 5500,
+};
+for (const [id, precio] of Object.entries(BF_PRECIOS)) {
+  const base = PRODUCTOS[id];
+  PRODUCTOS[`${id}-bf`] = {
+    title: base.title.replace(" · LIS. Creative Studio", " · Black Friday 30% off · LIS. Creative Studio"),
+    unit_price: precio,
+    gracias: `/tienda-gracias-8e4c5f5d4f?p=${id}&v=${precio}`,
+    volver: base.volver,
+    desde: BF.desde,
+    hasta: BF.hasta,
+  };
+}
+
 export default async function handler(req, res) {
   const redirect = (url) => { res.writeHead(302, { Location: url, "Cache-Control": "no-store" }); res.end(); };
   const id = new URL(req.url, SITIO).searchParams.get("p");
@@ -81,6 +101,7 @@ export default async function handler(req, res) {
   const respaldo = `mailto:hello@liscreativestudio.com?subject=${encodeURIComponent("Quiero comprar: " + (prod ? prod.title : "un producto de la tienda"))}`;
   if (!prod) return redirect(`${SITIO}/tienda`);
   if (prod.hasta && Date.now() > Date.parse(prod.hasta)) return redirect(`${SITIO}/tienda#plantillas`);
+  if (prod.desde && Date.now() < Date.parse(prod.desde)) return redirect(`${SITIO}/tienda#plantillas`);
   const token = process.env.MP_ACCESS_TOKEN;
   if (!token) return redirect(respaldo);
 

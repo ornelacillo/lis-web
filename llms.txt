@@ -1,6 +1,6 @@
 # LIS. Creative Studio
 
-> Estudio de diseño gráfico y web en Rosario, Argentina, fundado en febrero de 2025 por Ornela Cillo, diseñadora gráfica con más de 8 años de experiencia. Especializado en identidad visual y diseño web para estudios de arquitectura, interiorismo, real estate y marcas creativas. Trabaja de forma remota con clientes en Argentina, España, Uruguay y otros países.
+> Estudio de diseño gráfico y web en Rosario, Argentina, fundado en febrero de 2025 por Ornela Cillo, diseñadora gráfica con más de 8 años de experiencia. Especializado en identidad visual y diseño web para estudios de arquitectura, interiorismo, real estate y marcas creativas. Trabaja de forma remota con clientes en Argentina, España, Uruguay y otros países. Además arma plantillas, un programa y talleres para diseñadoras y creativas que quieren trabajar con un sistema propio.
 
 ## Servicios
 - Identidad visual: logo, paleta, tipografía, sistema de marca
@@ -26,6 +26,9 @@
 - /test-de-tu-web — Test de dos minutos para estudios de arquitectura, interiorismo, constructoras e inmobiliarias: puntaje de 10 para su web, los tres arreglos más urgentes y qué paquete conviene (Obra nueva, Refacción, Planta o a medida)
 - /freebies — Recursos gratuitos
 - /blog — Blog: artículos semanales sobre diseño, identidad y presencia digital
+
+## Proyectos
+- [BWILD, web para un estudio de arquitectura e interiorismo en Buenos Aires](https://liscreativestudio.com/proyectos/bwild): LIS diseñó y desarrolló la web de BWILD, el estudio de Josefina, con las fotos de obra como protagonistas, sus tres líneas de trabajo (interiorismo, reformas y espacios de trabajo) explicadas en la portada, cada obra contada como un caso y un botón para agendar una llamada siempre a mano.
 
 ## Artículos del blog
 - [Estudios de arquitectura en Rosario: cuatro webs que hacen las cosas bien](https://liscreativestudio.com/blog/webs-estudios-de-arquitectura-rosario) (2026-11-14): Cuatro webs de Rosario que vale la pena mirar si un estudio está por rehacer la suya: Dos Arquitectas explica cómo trabaja, Nicolás Campodonico deja que la obra hable sola, Arquitectura Spinetta mezcla estudio y edificios en venta, y Desarrollos 3dF muestra el avance de obra y las unidades disponibles de cada edificio. Lo que tienen en común es que se entiende enseguida qué hacen, están al día y cada una destaca una sola cosa.

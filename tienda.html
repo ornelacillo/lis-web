@@ -1161,5 +1161,34 @@ a, a:hover, a:focus { text-decoration: none !important; }
     })();
   </script>
 
+  <!-- Black Friday 2026 (26/11 al 30/11, hora de Argentina): con el link del DM (/tienda?bf) los botones pasan al 30% off.
+       El cobro (api/comprar-tienda.js) controla las fechas; /tienda?bf=ver muestra cómo se ve aunque no haya empezado. -->
+  <style>
+    .bf-aviso { background: #1b1a17; color: #f4ede3; padding: 18px 22px; border-radius: 4px; margin: 0 0 28px; font-size: 15px; line-height: 1.5; }
+    .bf-aviso strong { font-family: 'Inter Tight', 'Inter', sans-serif; font-weight: 500; letter-spacing: -.02em; font-size: 20px; display: block; margin-bottom: 2px; }
+  </style>
+  <script>
+  (function () {
+    var BF = { 'sistema': 34900, 'kit-bienvenida': 17400, 'propuesta': 10400, 'conceptboards': 10400, 'entrega-identidad': 10400,
+               'manual-de-marca': 20900, 'entrega-web': 10400, 'presupuesto': 2700, 'firmas': 5500 };
+    var DESDE = Date.parse('2026-11-26T03:00:00Z'), HASTA = Date.parse('2026-12-01T03:00:00Z'), ahora = Date.now();
+    var q = new URLSearchParams(location.search), ver = q.get('bf') === 'ver', guardado = false;
+    try { guardado = sessionStorage.getItem('lis-bf') === '1'; if (q.has('bf')) sessionStorage.setItem('lis-bf', '1'); } catch (e) {}
+    if (!ver && !((q.has('bf') || guardado) && ahora >= DESDE && ahora < HASTA)) return;
+    var plata = function (n) { return '$' + n.toLocaleString('es-AR'); };
+    document.querySelectorAll('a[href*="/api/comprar-tienda?p="]').forEach(function (a) {
+      var id = (a.getAttribute('href').split('p=')[1] || '').split('&')[0];
+      if (!BF[id]) return;
+      a.setAttribute('href', '/api/comprar-tienda?p=' + id + '-bf');
+      if (window.LIS_PRECIOS) LIS_PRECIOS[id + '-bf'] = BF[id];
+      var precio = a.closest('.p-foot') && a.closest('.p-foot').querySelector('.p-price');
+      if (precio && window.LIS_PRECIOS && LIS_PRECIOS[id]) {
+        precio.innerHTML = '<span class="p-old">' + plata(LIS_PRECIOS[id]) + '</span>' + plata(BF[id]) + '<small>Black Friday, 30% off hasta el lunes 30</small>';
+      }
+    });
+    var head = document.querySelector('#plantillas .shop-head');
+    if (head) head.insertAdjacentHTML('beforebegin','<div class="bf-aviso"><strong>Black Friday: 30% en toda la tienda</strong>Hasta el lunes 30 de noviembre a la noche, pagando en pesos con Mercado Pago.</div>');
+  })();
+  </script>
 </body>
 </html>

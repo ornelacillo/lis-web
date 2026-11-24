@@ -278,4 +278,10 @@
 
   <url><loc>https://liscreativestudio.com/masterclass</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://liscreativestudio.com/las-que-nos-quedamos</loc><lastmod>2026-11-18</lastmod></url>
+  <url>
+    <loc>https://liscreativestudio.com/proyectos/bwild</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
 </urlset>

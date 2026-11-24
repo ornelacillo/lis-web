@@ -13,7 +13,7 @@ INICIO, FIN = '<!-- THEME-CSS: copia de theme.css, no editar acá -->', '<!-- /T
 css = open(os.path.join(RAIZ, 'theme.css'), encoding='utf-8').read().strip()
 bloque = f'{INICIO}\n  <style>\n{css}\n  </style>\n  {FIN}'
 cambiadas = []
-for ruta in sorted(glob.glob(os.path.join(RAIZ, '*.html')) + glob.glob(os.path.join(RAIZ, 'blog', '*.html')) + glob.glob(os.path.join(RAIZ, 'en', '*.html'))):
+for ruta in sorted(glob.glob(os.path.join(RAIZ, '*.html')) + glob.glob(os.path.join(RAIZ, 'blog', '*.html')) + glob.glob(os.path.join(RAIZ, 'en', '*.html')) + glob.glob(os.path.join(RAIZ, 'proyectos', '*.html'))):
     nombre = os.path.relpath(ruta, RAIZ)
     if os.path.basename(ruta) in SALTEAR:
         continue

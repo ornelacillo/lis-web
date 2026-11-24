@@ -11,6 +11,7 @@ import html, json, os, re
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 BASE = os.path.join(RAIZ, 'blog', 'portfolio-estudio-de-arquitectura.html')
 SITIO = 'https://liscreativestudio.com'
+VERSION_IMG = '20261124b'  # cambiar cuando se reemplazan imágenes, así el navegador no muestra las viejas (caché de 30 días)
 
 PROYECTOS = [
     {
@@ -436,11 +437,11 @@ def pieza(slug, p, i):
     carpeta = f'/img/proyectos/{slug}/'
     if p[0] == 'video':
         _, archivo, poster, alt = p
-        return (f'<div class="pj-media"><video src="{carpeta}{archivo}" poster="{carpeta}{poster}" autoplay muted loop playsinline '
+        return (f'<div class="pj-media"><video src="{carpeta}{archivo}?v={VERSION_IMG}" poster="{carpeta}{poster}?v={VERSION_IMG}" autoplay muted loop playsinline '
                 f'preload="none" aria-label="{e(alt)}"></video></div>')
     _, archivo, alt = p
     carga = 'eager" fetchpriority="high' if i == 0 else 'lazy'
-    return f'<div class="pj-media"><img src="{carpeta}{archivo}" alt="{e(alt)}" loading="{carga}" decoding="async" /></div>'
+    return f'<div class="pj-media"><img src="{carpeta}{archivo}?v={VERSION_IMG}" alt="{e(alt)}" loading="{carga}" decoding="async" /></div>'
 
 
 def filas(slug, lista, inicio=0):

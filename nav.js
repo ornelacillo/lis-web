@@ -376,7 +376,7 @@
         { label: 'programa',  href: '/diseno-en-orden' },
         { label: 'freebies',  href: 'https://ornelacillo.gumroad.com', ext: true }, // los gratis están en Gumroad (7/11/2026)
         { label: 'blog',      href: '/blog' },
-        { label: 'newsletter', href: '/newsletter', cta: true }, // portada sin servicios desde el 18/11/2026
+        { label: 'newsletter', href: '/freebies#newsletter', cta: true }, // portada sin servicios desde el 18/11/2026
       ],
       services: [],
     };

@@ -6,6 +6,10 @@
   <title>Herramientas que uso · LIS. Creative Studio</title>
   <meta name="description" content="Las herramientas con las que Orne trabaja todos los días en LIS. Creative Studio para la newsletter, el hosting y las webs de los estudios." />
   <link rel="canonical" href="https://liscreativestudio.com/herramientas" />
+  <link rel="alternate" hreflang="es" href="https://liscreativestudio.com/herramientas" />
+  <link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en/tools" />
+  <link rel="alternate" hreflang="x-default" href="https://liscreativestudio.com/herramientas" />
+  <script src="/nav.js?v=20261124" defer></script>
   <link rel="icon" href="/favicon.png" type="image/png">
   <meta property="og:title" content="Herramientas que uso · LIS. Creative Studio" />
   <meta property="og:description" content="Lo que uso de verdad para la newsletter, el hosting y las webs de los estudios." />
@@ -64,10 +68,6 @@
     .sticker { display: inline-block; font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; font-size: clamp(13px, 1.2vw, 16px); line-height: 1.15; padding: 10px 14px; background: var(--orange); color: var(--ink); transform: rotate(-6deg); box-shadow: 3px 3px 0 var(--ink); }
     .sticker .s { font-weight: 400; font-size: 1.25em; letter-spacing: 0; }
 
-    nav { position: absolute; top: 0; left: 0; right: 0; z-index: 5; display: flex; justify-content: space-between; align-items: center; padding: 26px var(--gutter); }
-    nav svg { width: 74px; height: auto; color: var(--ink); }
-    nav a.back { font-size: 14px; text-decoration: none; opacity: .7; }
-    nav a.back:hover { opacity: 1; }
 
     /* Portada */
     .cover { position: relative; padding: clamp(130px, 16vw, 200px) var(--gutter) clamp(56px, 7vw, 96px); }
@@ -146,16 +146,12 @@
   </style>
 <script defer src="/_vercel/insights/script.js"></script>
 </head>
-<body>
+<body data-nav-page="herramientas">
 <svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 1006.3 525.6"><path fill="currentColor" d="M0 0H188V339.9H369.6V0H557.6V339.9C826.8 339.9 638.4 0.0 1006.3 0.0V184.2C856.2 184.2 964.6 525.6 589.3 525.6H0Z M914 432.9H1006.3V525.6H914Z"/></symbol></svg>
 
-  <nav>
-    <a href="/" aria-label="LIS. Creative Studio"><svg viewBox="0 0 1006.3 525.6"><use href="#logo"/></svg></a>
-    <a class="back" href="/blog">← volver al blog</a>
-  </nav>
 
   <!-- Portada -->
-  <header class="cover">
+  <header class="cover" data-nav-theme="dark">
     <span class="sticker">uso real, <span class="s">no catálogo</span></span>
     <div class="reveal">
       <h1 class="d"><span class="t">Herramientas</span><span class="row2"><span class="par" aria-hidden="true">(</span>que uso<span class="par" aria-hidden="true">)</span></span><span class="s">en el día a día de LIS</span></h1>
@@ -164,7 +160,7 @@
     </div>
   </header>
 
-  <div class="band" aria-hidden="true">
+  <div class="band" aria-hidden="true" data-nav-theme="light">
     <div class="track">
       <span>Newsletter <i>(todas las semanas)</i></span><span>Hosting</span><span>Dominio</span><span>Webs de estudios <i>(lo que uso de verdad)</i></span><span>Planta Libre</span>
       <span>Newsletter <i>(todas las semanas)</i></span><span>Hosting</span><span>Dominio</span><span>Webs de estudios <i>(lo que uso de verdad)</i></span><span>Planta Libre</span>
@@ -172,7 +168,7 @@
   </div>
 
   <!-- Herramientas -->
-  <main class="tools">
+  <main class="tools" data-nav-theme="dark">
     <p class="intro reveal">Dos herramientas, una para cada parte del trabajo.</p>
     <div class="grid">
 
@@ -205,7 +201,7 @@
   </main>
 
   <!-- Cierre -->
-  <footer class="contact">
+  <footer class="contact" data-nav-theme="light">
     <div class="reveal">
       <h2 class="d"><span class="t">¿Dudas</span> <span class="par">(</span>con cuál<span class="par">)</span> <span class="s">arrancar?</span></h2>
       <p class="txt">Si estás por armar la web o la newsletter de tu estudio y no sabés por dónde empezar, escribime y lo charlamos.</p>

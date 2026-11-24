@@ -321,6 +321,7 @@
     ['/web', '/en/web-design'],
     ['/asesoria', '/en/consulting'],
     ['/prensa', '/en/press'],
+    ['/herramientas', '/en/tools'],
     ['/privacidad', '/en/privacy'],
     ['/blog', '/en/blog'],
     ['/blog/marca-estudio-de-arquitectura', '/en/blog/architecture-studio-brand'],

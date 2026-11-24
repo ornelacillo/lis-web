@@ -173,9 +173,15 @@
   </url>
   <url>
     <loc>https://liscreativestudio.com/herramientas</loc>
-    <lastmod>2026-11-21</lastmod>
+    <lastmod>2026-11-24</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.4</priority>
+  </url>
+  <url>
+    <loc>https://liscreativestudio.com/en/tools</loc>
+    <lastmod>2026-11-24</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://liscreativestudio.com/lunch</loc>

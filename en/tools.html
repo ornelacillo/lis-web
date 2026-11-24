@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tools I use · LIS. Creative Studio</title>
+  <meta name="description" content="The tools Orne works with every day at LIS. Creative Studio for the newsletter, hosting and websites." />
+  <link rel="canonical" href="https://liscreativestudio.com/en/tools" />
+  <link rel="alternate" hreflang="es" href="https://liscreativestudio.com/herramientas" />
+  <link rel="alternate" hreflang="en" href="https://liscreativestudio.com/en/tools" />
+  <link rel="alternate" hreflang="x-default" href="https://liscreativestudio.com/herramientas" />
+  <script src="/nav.js?v=20261124" defer></script>
+  <link rel="icon" href="/favicon.png" type="image/png">
+  <meta property="og:title" content="Tools I use · LIS. Creative Studio" />
+  <meta property="og:description" content="What I actually use for the newsletter, hosting and websites." />
+  <meta property="og:url" content="https://liscreativestudio.com/en/tools" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:site_name" content="LIS. Creative Studio" />
+  <meta property="og:image" content="https://liscreativestudio.com/og-lis-2026.jpg" />
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-WD947ZRR32');
+  </script>
+  <!-- Analytics, Clarity y Meta se cargan al primer scroll o toque, o 2,5 s después de la carga, para no frenar la página -->
+  <script>
+    (function () {
+      var done = false;
+      function add(src) { var t = document.createElement('script'); t.async = true; t.src = src; document.head.appendChild(t); }
+      function go() {
+        if (done) return; done = true;
+        add('https://www.googletagmanager.com/gtag/js?id=G-WD947ZRR32');
+        if (window.__clarity) add('https://www.clarity.ms/tag/z3r50bv2sr');
+        if (window.__fbq) add('https://connect.facebook.net/en_US/fbevents.js');
+      }
+      ['scroll', 'click', 'touchstart', 'keydown', 'mousemove'].forEach(function (e) { addEventListener(e, go, { once: true, passive: true }); });
+      addEventListener('load', function () { setTimeout(go, 2500); });
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@100..900&family=Inter:wght@400;500;600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet" />
+  <style>
+    /* Herramientas · sistema del manual v2 con la onda "para creativos":
+       paréntesis gigantes, stickers rectos y girados, tarjetas a color plenas y una cinta que corre.
+       Sin píldoras ni óvalos. */
+    :root {
+      --ink: #1b1a17; --cream: #f4ede3; --stone: #b8b2a7; --paper: #e9e2d6; --sand: #d8cebf; --muted: #6f6b64;
+      --blue: #2b4c86; --orange: #e8693a;
+      --f-display: 'Inter Tight', 'Inter', Helvetica, Arial, sans-serif;
+      --f-script: 'Instrument Serif', Georgia, serif;
+      --f-text: 'Inter', Helvetica, Arial, sans-serif;
+      --gutter: clamp(16px, 5vw, 72px);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--cream); color: var(--ink); font-family: var(--f-text); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: inherit; }
+
+    .d { font-family: var(--f-display); text-transform: uppercase; letter-spacing: -.045em; line-height: .86; font-weight: 800; overflow-wrap: anywhere; }
+    .t { font-weight: 150; letter-spacing: -.03em; }
+    .s { font-family: var(--f-script); font-style: italic; font-weight: 400; text-transform: none; letter-spacing: -.02em; }
+
+    /* Sticker: rectángulo girado, nunca píldora */
+    .sticker { display: inline-block; font-family: var(--f-display); font-weight: 800; text-transform: uppercase; letter-spacing: -.01em; font-size: clamp(13px, 1.2vw, 16px); line-height: 1.15; padding: 10px 14px; background: var(--orange); color: var(--ink); transform: rotate(-6deg); box-shadow: 3px 3px 0 var(--ink); }
+    .sticker .s { font-weight: 400; font-size: 1.25em; letter-spacing: 0; }
+
+
+    /* Portada */
+    .cover { position: relative; padding: clamp(130px, 16vw, 200px) var(--gutter) clamp(56px, 7vw, 96px); }
+    .cover h1 { font-size: clamp(40px, 10vw, 170px); }
+    .cover h1 .row2 { display: flex; align-items: center; gap: .08em; }
+    .cover h1 .par { font-weight: 100; font-size: 1.35em; line-height: .7; color: var(--orange); transform: translateY(-.04em); }
+    .cover h1 .s { display: block; font-size: .5em; margin-top: .18em; line-height: 1; }
+    .cover .lead { margin-top: clamp(28px, 4vw, 48px); font-size: clamp(18px, 1.8vw, 24px); line-height: 1.45; max-width: 720px; letter-spacing: -.01em; }
+    .cover .aviso { margin-top: 18px; max-width: 720px; font-size: 15px; line-height: 1.6; color: var(--muted); }
+    .cover .sticker { position: absolute; right: var(--gutter); top: clamp(120px, 14vw, 190px); }
+
+    /* Cinta que corre */
+    .band { background: var(--ink); color: var(--cream); overflow: hidden; white-space: nowrap; padding: 16px 0; }
+    .band .track { display: inline-flex; align-items: baseline; gap: 40px; padding-right: 40px; animation: run 28s linear infinite; }
+    .band span { font-family: var(--f-display); text-transform: uppercase; font-size: clamp(18px, 2vw, 26px); line-height: 1; letter-spacing: -.02em; font-weight: 800; }
+    .band span i { font-family: var(--f-script); text-transform: none; font-weight: 400; font-size: 1.15em; line-height: 1; letter-spacing: 0; color: var(--orange); vertical-align: baseline; }
+    @keyframes run { to { transform: translateX(-50%); } }
+
+    /* Tarjetas */
+    .tools { padding: clamp(56px, 8vw, 110px) var(--gutter); background: var(--paper); }
+    .tools .intro { font-family: var(--f-script); font-style: italic; font-size: clamp(24px, 2.6vw, 36px); line-height: 1.15; max-width: 640px; margin-bottom: clamp(32px, 5vw, 56px); }
+    .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(16px, 2.4vw, 32px); }
+    .card { position: relative; display: flex; flex-direction: column; padding: clamp(26px, 3.4vw, 48px); min-height: 520px; }
+    .card.blue { background: var(--blue); color: var(--cream); }
+    .card.orange { background: var(--orange); color: var(--ink); }
+    .card .num { font-family: var(--f-display); font-weight: 150; font-size: clamp(56px, 7vw, 110px); line-height: .8; letter-spacing: -.04em; }
+    .card h2 { margin-top: clamp(28px, 4vw, 56px); font-size: clamp(34px, 4.4vw, 72px); }
+    .card .cat { display: block; margin-top: 10px; font-family: var(--f-script); font-style: italic; font-size: clamp(22px, 2vw, 30px); }
+    .card p { margin-top: 22px; font-size: clamp(16px, 1.3vw, 19px); line-height: 1.6; max-width: 520px; }
+    .card .cta { margin-top: auto; padding-top: 32px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 22px; }
+    .btn { display: inline-block; font-family: var(--f-display); font-weight: 700; text-transform: uppercase; letter-spacing: -.02em; font-size: 16px; text-decoration: none; padding: 15px 22px; white-space: nowrap; transition: transform .2s; }
+    .card.blue .btn { background: var(--cream); color: var(--ink); }
+    .card.orange .btn { background: var(--ink); color: var(--cream); }
+    .btn:hover { transform: translate(-2px, -2px); box-shadow: 4px 4px 0 currentColor; }
+    .coupon { display: flex; align-items: center; gap: 10px; font-size: 14px; }
+    .coupon code { font-family: var(--f-display); font-weight: 800; font-size: 20px; letter-spacing: .03em; padding: 6px 10px; border: 1.5px dashed currentColor; }
+    .copy { background: none; border: 0; border-bottom: 1.5px solid currentColor; padding: 0 0 2px; color: inherit; font-family: var(--f-script); font-style: italic; font-size: 19px; cursor: pointer; }
+    .copy:hover { opacity: .6; }
+    .card .cta .extra { flex-basis: 100%; margin-top: 0; font-size: 15px; line-height: 1.5; }
+    .card .sticker { position: absolute; top: clamp(22px, 3vw, 40px); right: clamp(18px, 3vw, 40px); transform: rotate(5deg); }
+    .card.blue .sticker { background: var(--cream); }
+    .card.orange .sticker { background: var(--cream); }
+
+    /* Cierre */
+    .contact { background: var(--ink); color: var(--cream); padding: clamp(72px, 10vw, 130px) var(--gutter) 40px; }
+    .contact h2 { font-size: clamp(40px, 8vw, 130px); }
+    .contact h2 .par { font-weight: 100; color: var(--orange); }
+    .contact p.txt { margin-top: 28px; font-size: clamp(17px, 1.6vw, 22px); line-height: 1.55; max-width: 640px; opacity: .9; }
+    .contact a.mail { display: inline-block; margin-top: 26px; font-family: var(--f-display); text-transform: uppercase; letter-spacing: -.04em; font-size: clamp(20px, 3.4vw, 52px); text-decoration: none; overflow-wrap: anywhere; }
+    .contact a.mail b { font-weight: 800; } .contact a.mail i { font-weight: 150; font-style: normal; }
+    .contact a.mail:hover i { font-weight: 800; }
+    .contact .foot { display: flex; justify-content: space-between; align-items: flex-end; gap: 24px; margin-top: clamp(56px, 8vw, 100px); }
+    .contact .foot svg { width: clamp(110px, 16vw, 220px); height: auto; color: var(--cream); }
+    .contact .foot p { font-size: 14px; opacity: .7; text-align: right; line-height: 1.6; }
+
+    /* Datos que Orne tiene que completar antes de publicar */
+    .falta { outline: 2px dashed var(--ink); outline-offset: 3px; }
+
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.on { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .band .track { animation: none; }
+    }
+
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
+      .card { min-height: 0; }
+      .cover .sticker { position: static; margin-bottom: 28px; }
+      .cover { display: flex; flex-direction: column; }
+      .cover .sticker { order: -1; align-self: flex-start; }
+      .contact .foot { flex-direction: column; align-items: flex-start; }
+      .contact .foot p { text-align: left; }
+    }
+    html, body, body * { cursor: url('/cursor.svg') 2 2, auto !important; }
+  </style>
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body data-nav-page="herramientas">
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="logo" viewBox="0 0 1006.3 525.6"><path fill="currentColor" d="M0 0H188V339.9H369.6V0H557.6V339.9C826.8 339.9 638.4 0.0 1006.3 0.0V184.2C856.2 184.2 964.6 525.6 589.3 525.6H0Z M914 432.9H1006.3V525.6H914Z"/></symbol></svg>
+
+
+  <!-- Portada -->
+  <header class="cover" data-nav-theme="dark">
+    <span class="sticker">real use, <span class="s">not a catalog</span></span>
+    <div class="reveal">
+      <h1 class="d"><span class="t">Tools</span><span class="row2"><span class="par" aria-hidden="true">(</span>I use<span class="par" aria-hidden="true">)</span></span><span class="s">every day at LIS</span></h1>
+      <p class="lead">These are the tools I work with every day, for the newsletter and for websites. It isn't a list of everything out there, just what I actually use and recommend to the people I work with.</p>
+      <p class="aviso">Some links are affiliate links: if you sign up through them I get a commission, and it costs you nothing extra (in some cases you even get a discount).</p>
+    </div>
+  </header>
+
+  <div class="band" aria-hidden="true" data-nav-theme="light">
+    <div class="track">
+      <span>Newsletter <i>(every week)</i></span><span>Hosting</span><span>Domain</span><span>Websites <i>(what I actually use)</i></span><span>Planta Libre</span>
+      <span>Newsletter <i>(every week)</i></span><span>Hosting</span><span>Domain</span><span>Websites <i>(what I actually use)</i></span><span>Planta Libre</span>
+    </div>
+  </div>
+
+  <!-- Herramientas -->
+  <main class="tools" data-nav-theme="dark">
+    <p class="intro reveal">Two tools, one for each part of the work.</p>
+    <div class="grid">
+
+      <article class="card blue reveal">
+        <span class="sticker">I make <span class="s">Planta Libre</span> with it</span>
+        <span class="num">01</span>
+        <h2 class="d">Mailer<span class="t">Lite</span></h2>
+        <span class="cat">newsletter</span>
+        <p>I put together Planta Libre with MailerLite every week. I chose it because it's simple, the editor doesn't fight your design, and the free plan is enough to start a newsletter for a small studio.</p>
+        <div class="cta">
+          <!-- Cuando aprueben el afiliado de MailerLite, cambiar este href por el enlace de afiliada y sumar rel="sponsored" -->
+          <a class="btn" href="https://www.mailerlite.com" target="_blank" rel="noopener">Try MailerLite →</a>
+        </div>
+      </article>
+
+      <article class="card orange reveal">
+        <span class="sticker">10% extra <span class="s">with my code</span></span>
+        <span class="num">02</span>
+        <h2 class="d">Host<span class="t">inger</span></h2>
+        <span class="cat">hosting and domain</span>
+        <p>It's the hosting I use most, because it's affordable and easy to manage without knowing how to code. Your domain, email and website live in one place.</p>
+        <div class="cta">
+          <a class="btn" href="https://hostinger.com.ar/ornela" target="_blank" rel="sponsored noopener">See Hostinger →</a>
+          <span class="coupon">code <code id="cupon-hostinger">ORNELA</code> <button class="copy" data-copy="cupon-hostinger">copy</button></span>
+          <p class="extra">With the code ORNELA you get an extra 10% off, on top of any deal Hostinger is running at the time.</p>
+        </div>
+      </article>
+
+    </div>
+  </main>
+
+  <!-- Cierre -->
+  <footer class="contact" data-nav-theme="light">
+    <div class="reveal">
+      <h2 class="d"><span class="t">Not sure</span> <span class="par">(</span>where<span class="par">)</span> <span class="s">to start?</span></h2>
+      <p class="txt">If you're about to set up your website or newsletter and don't know where to begin, write to me and we'll talk it through.</p>
+      <a class="mail" href="mailto:hello@liscreativestudio.com?subject=Tools"><b>hello</b><i>@liscreativestudio.com</i></a>
+    </div>
+    <div class="foot">
+      <svg viewBox="0 0 1006.3 525.6" aria-label="LIS. Creative Studio"><use href="#logo"/></svg>
+      <p>Ornela Cillo · Rosario, Argentina<br>© 2026 LIS. Creative Studio · <a href="/en/privacy">Privacy</a></p>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.copy').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var label = btn.textContent;
+        navigator.clipboard.writeText(document.getElementById(btn.dataset.copy).innerText.trim()).then(function () {
+          btn.textContent = 'copied ✓';
+          setTimeout(function () { btn.textContent = label; }, 1600);
+        });
+      });
+    });
+    var els = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('on'); io.unobserve(e.target); } });
+      }, { threshold: .12 });
+      els.forEach(function (el) { io.observe(el); });
+    } else { els.forEach(function (el) { el.classList.add('on'); }); }
+  </script>
+</body>
+</html>

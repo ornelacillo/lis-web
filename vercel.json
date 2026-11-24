@@ -76,6 +76,16 @@
       "source": "/brandbook",
       "destination": "/tienda",
       "permanent": true
+    },
+    {
+      "source": "/proyectos/menatech",
+      "destination": "/#portfolio",
+      "permanent": false
+    },
+    {
+      "source": "/proyectos/pastas-prin",
+      "destination": "/#portfolio",
+      "permanent": false
     }
   ],
   "headers": [

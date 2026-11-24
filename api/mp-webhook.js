@@ -26,6 +26,23 @@ const NOMBRES = {
   "presupuesto": "Presupuesto y recibo", "firmas": "Firmas de mail", "sistema": "Sistema de freelance a estudio", "sistema-vuelve": "Sistema de freelance a estudio", "masterclass-ia": "Masterclass Así usamos la IA en LIS",
 };
 const GRUPO = "Compró en la tienda";
+// Trustpilot (AFS, activado el 24/11/2026): un mail a esta dirección con los datos de quién compró
+// hace que Trustpilot le mande la invitación a reseñar a los 7 días, en español. Sale por Resend (RESEND_API_KEY en Vercel).
+const TRUSTPILOT_AFS = process.env.TRUSTPILOT_AFS || "liscreativestudio.com+daa4a1588e@invite.trustpilot.com";
+
+async function invitarTrustpilot(email, nombre, ref) {
+  if (!process.env.RESEND_API_KEY) { console.log("trustpilot: falta RESEND_API_KEY, no se invitó", ref); return; }
+  const datos = JSON.stringify({ recipientEmail: email, recipientName: nombre || email.split("@")[0], referenceId: ref });
+  const r = await fetch("https://api.resend.com/emails", {
+    method: "POST",
+    headers: { Authorization: `Bearer ${process.env.RESEND_API_KEY}`, "Content-Type": "application/json" },
+    body: JSON.stringify({
+      from: "LIS. Creative Studio <portal@liscreativestudio.com>", to: TRUSTPILOT_AFS, subject: `Invitación Trustpilot · ${ref}`,
+      html: `<p>Invitación a reseñar · ${ref}</p><script type="application/json+trustpilot">${datos}</script>`, text: datos,
+    }),
+  });
+  if (!r.ok) throw new Error("Resend " + r.status + " " + (await r.text()).slice(0, 200));
+}
 const ML = "https://connect.mailerlite.com/api";
 
 async function ml(path, opts = {}) {
@@ -51,7 +68,7 @@ export default async function handler(req, res) {
     const url = new URL(req.url, "https://liscreativestudio.com");
     // Chequeo de configuración (no muestra ninguna clave): /api/mp-webhook?check=1
     if (url.searchParams.get("check") === "1") {
-      const estado = { mercadopago: !!process.env.MP_ACCESS_TOKEN, mailerlite: !!process.env.MAILERLITE_API_KEY, grupo: false };
+      const estado = { mercadopago: !!process.env.MP_ACCESS_TOKEN, mailerlite: !!process.env.MAILERLITE_API_KEY, trustpilot: !!process.env.RESEND_API_KEY, grupo: false };
       try { estado.grupo = !!(await grupoId(GRUPO)); } catch (e) { estado.error = e.message; }
       res.setHeader("Content-Type", "application/json"); res.statusCode = 200; res.end(JSON.stringify(estado)); return;
     }
@@ -83,6 +100,8 @@ export default async function handler(req, res) {
       await ml(`/subscribers/${sid}/groups/${gid}`, { method: "POST" });
     }
     console.log("Compra entregada:", producto, pago.id);
+    // Si Trustpilot falla, la compra ya quedó entregada: solo se anota el error (y Mercado Pago no reintenta)
+    try { await invitarTrustpilot(email, nombre, `tienda-${pago.id}`); } catch (e) { console.error("trustpilot:", e.message); }
     return ok();
   } catch (err) {
     console.error("mp-webhook:", err.message);

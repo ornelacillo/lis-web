@@ -755,6 +755,26 @@ a, a:hover, a:focus { text-decoration: none !important; }
       .voces-head, .voces figcaption, .hero-voz, .hero-voz span { font-size: 16px; }
       .voces blockquote { font-size: 18px; }
     }
+    /* Reseñas de clientes del estudio (movidas desde la home el 24/11/2026) */
+    .resenas { max-width: 1100px; margin: 0 auto; padding: 88px 60px 0; }
+    .resenas-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 36px; }
+    .resenas-head p { font-size: 16px; line-height: 1.6; color: #555; max-width: 460px; }
+    .resenas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .resena { margin: 0; background: #e9e2d6; border-radius: 4px; padding: 32px 32px 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .resena blockquote { margin: 0; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 21px; font-weight: 400; letter-spacing: -.02em; line-height: 1.4; color: var(--ink); }
+    .resena blockquote::before { content: "“"; display: block; font-family: var(--font-script, 'Instrument Serif'), serif; font-size: 64px; line-height: .6; margin-bottom: 10px; color: #6f6b64; }
+    .resena figcaption { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; border-top: 1px solid var(--ink); padding-top: 14px; font-size: 14px; }
+    .resena figcaption b { font-weight: 500; }
+    .resena figcaption span { color: #6f6b64; text-align: right; }
+    .resena-estrellas { letter-spacing: .12em; font-size: 13px; color: var(--ink); }
+    @media (max-width: 860px) {
+      .resenas { padding: 56px 16px 0; }
+      .resenas-head, .resenas-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .resena { padding: 26px 22px 22px; }
+      .resena blockquote { font-size: 19px; }
+      .resena figcaption { font-size: 16px; flex-direction: column; gap: 4px; }
+      .resena figcaption span { text-align: left; }
+    }
     .why { max-width: 1100px; margin: 0 auto; padding: 60px 60px 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
     .why div { border-top: 1px solid var(--black); padding-top: 18px; }
     .why b { display: block; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 44px; font-weight: 500; letter-spacing: -.05em; line-height: 1; margin-bottom: 8px; }
@@ -988,6 +1008,32 @@ a, a:hover, a:focus { text-decoration: none !important; }
   </section>
 
 
+
+  <!-- ══ RESEÑAS DEL ESTUDIO ══ -->
+  <section class="resenas" aria-label="Reseñas de clientes de LIS">
+    <div class="resenas-head fi">
+      <h2 class="res-title">Lo que dicen <em>de mi trabajo</em></h2>
+      <p>Antes de convertirlas en plantillas, todas estas piezas las usé con clientes reales del estudio. Esto es lo que dicen algunos de ellos.</p>
+    </div>
+    <div class="resenas-grid">
+      <figure class="resena fi">
+        <blockquote>Cuando contacté a LIS no tenía muy en claro el diseño de nuestro sitio web. Gracias a su equipo creamos una nueva marca y un sitio web funcional acorde a nuestras necesidades, logrando nuestros objetivos. Recomiendo al 100%.</blockquote>
+        <figcaption><b>Augusto Iadanza</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · Reseña de Google</span></figcaption>
+      </figure>
+      <figure class="resena fi fi-d1">
+        <blockquote>Fue excelente trabajar con Ornela. Muy responsable con su trabajo y siempre tratando de entender mis peticiones con éxito. Muchas gracias por tu dedicación, estoy muy entusiasmada por todo lo que se viene.</blockquote>
+        <figcaption><b>Club Conecta</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · Reseña de Google</span></figcaption>
+      </figure>
+      <figure class="resena fi">
+        <blockquote>Es un verdadero placer recomendar a Ornela Cillo. Trabajar con ella en el proyecto "Conecta con Nosotras" ha sido una experiencia increíblemente positiva. Su eficiencia, responsabilidad y compromiso son ejemplares y han sido claves para el éxito del equipo.</blockquote>
+        <figcaption><b>María Florencia Massaccesi</b><span>Recomendación de LinkedIn</span></figcaption>
+      </figure>
+      <figure class="resena fi fi-d1">
+        <blockquote>Necesitaba unos ajustes con mi logo y poder tenerlo en Giphy, y me lo hizo en menos de 24 horas cuando habíamos pactado 48. ¡Súper genia!</blockquote>
+        <figcaption><b>Leonardo Calvet</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · Reseña de Google</span></figcaption>
+      </figure>
+    </div>
+  </section>
 
   <!-- ══ PROGRAMA Y TALLER ══ -->
   <section class="steps">

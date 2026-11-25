@@ -18,8 +18,8 @@ PROYECTOS = [
         'slug': 'bwild',
         'nombre': 'BWILD',
         'bajada': 'Web para un estudio de arquitectura e interiorismo en Buenos Aires',
-        'titulo_seo': 'BWILD, web para un estudio de arquitectura e interiorismo · LIS',
-        'descripcion': 'Cómo diseñamos la web de BWILD, el estudio de arquitectura e interiorismo de Josefina en Buenos Aires: fotos de obra protagonistas, tres líneas de trabajo claras y cada obra contada como un caso.',
+        'titulo_seo': 'BWILD, web para un estudio de arquitectura · LIS',
+        'descripcion': 'La web de BWILD, estudio de arquitectura e interiorismo de Buenos Aires: fotos de obra protagonistas y cada obra contada como un caso.',
         'resumen': 'LIS. Creative Studio diseñó y desarrolló la web de BWILD, un estudio de arquitectura e interiorismo de Buenos Aires: un sitio luminoso con las fotos de obra como protagonistas, sus tres líneas de trabajo (interiorismo, reformas y espacios de trabajo) explicadas en la portada, cada obra contada como un caso y un botón para agendar una llamada siempre a mano.',
         'servicio': 'Diseño web',
         'intro': [
@@ -33,6 +33,7 @@ PROYECTOS = [
             ('Alcance', 'Diseño UI, desarrollo responsive y carga de proyectos'),
         ],
         'web': 'https://bwild.com.ar',
+        'behance': 'https://www.behance.net/gallery/257677293/BWILD-Diseno-web-para-un-estudio-de-arquitectura',
         'cliente_org': {'name': 'BWILD', 'url': 'https://bwild.com.ar'},
         'columnas': [
             ('El desafío', 'Mostrar la forma de pensar del estudio y no solo las fotos, con tres líneas de trabajo muy distintas (interiorismo, reformas y espacios de trabajo) que se tenían que entender de un vistazo.'),
@@ -59,8 +60,8 @@ PROYECTOS = [
         'slug': 'green-golden',
         'nombre': 'Green Golden',
         'bajada': 'Identidad visual y web para un espacio de congresos y eventos en Barcelona',
-        'titulo_seo': 'Green Golden, identidad visual y web para un espacio de eventos en Barcelona · LIS',
-        'descripcion': 'Identidad visual, íconos y web para Green Golden Congress BCN Events, un espacio de congresos y eventos en Barcelona: un monograma de dos G, un verde muy oscuro y una web con los formatos de sala a un clic.',
+        'titulo_seo': 'Green Golden, identidad visual y web · LIS',
+        'descripcion': 'Identidad visual y web para Green Golden, espacio de eventos en Barcelona: un monograma de dos G, un verde muy oscuro y las salas a un clic.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual, los íconos y la web de Green Golden Congress BCN Events, un espacio para eventos corporativos, formaciones y presentaciones a pasos de Fira Gran Via, en Barcelona. El sistema parte de un monograma de dos G enfrentadas sobre un verde muy oscuro, y la web muestra fotos reales de los eventos, la propuesta gastronómica y siete formatos de sala con su capacidad.',
         'servicio': 'Identidad visual y diseño web',
         'intro': [
@@ -74,6 +75,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, íconos y diseño web'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/257691123/Green-Golden-Identidad-visual-y-web-',
         'cliente_org': {'name': 'Green Golden Congress BCN Events'},
         'columnas': [
             ('El desafío', 'Que el espacio se venda solo antes de la visita, mostrando la sala, la luz y los materiales con fotos de eventos reales y no con renders.'),
@@ -99,8 +101,8 @@ PROYECTOS = [
         'slug': 'estudio-disegna',
         'nombre': 'Estudio Disegna',
         'bajada': 'Web para un estudio de arquitectura e interiorismo en Fisherton y Funes',
-        'titulo_seo': 'Estudio Disegna, web para un estudio de arquitectura e interiorismo · LIS',
-        'descripcion': 'Cómo diseñamos la web de Estudio Disegna, el estudio de arquitectura e interiorismo de Genoveva Yerkovich en Fisherton y Funes: simple, silenciosa y con la fotografía de obra como protagonista.',
+        'titulo_seo': 'Estudio Disegna, web para un estudio de interiorismo · LIS',
+        'descripcion': 'La web de Estudio Disegna, estudio de arquitectura e interiorismo en Fisherton y Funes: simple, silenciosa y con la fotografía de obra como protagonista.',
         'resumen': 'LIS. Creative Studio diseñó y desarrolló la web de Estudio Disegna, el estudio de arquitectura e interiorismo de Genoveva Yerkovich en Fisherton y Funes, Argentina. El estudio no tenía portfolio ni un lugar donde explicar sus servicios, así que el sitio muestra obras seleccionadas, sus tres líneas de trabajo, testimonios reales y dos caminos de contacto: agendar una llamada o dejar un mensaje.',
         'servicio': 'Diseño web',
         'intro': [
@@ -114,6 +116,7 @@ PROYECTOS = [
             ('Alcance', 'Estrategia de contenido, diseño UI, desarrollo responsive en WordPress'),
         ],
         'web': 'https://estudiodisegna.com',
+        'behance': 'https://www.behance.net/gallery/256360129/Estudio-Disegna-Diseno-web',
         'cliente_org': {'name': 'Estudio Disegna', 'url': 'https://estudiodisegna.com'},
         'columnas': [
             ('El desafío', 'Mostrar el criterio del estudio sin decir de más, con una selección editorial de obras en lugar de un catálogo y tres servicios que se entendieran de un vistazo.'),
@@ -141,7 +144,7 @@ PROYECTOS = [
         'nombre': 'Buenas Marcas',
         'bajada': 'Identidad visual, merch y web para un medio que verifica tiendas online',
         'titulo_seo': 'Buenas Marcas, identidad visual, merch y web · LIS',
-        'descripcion': 'Identidad visual completa para Buenas Marcas, un medio que ayuda a comprar online con seguridad: un azul fuerte, un patrón propio y un isotipo corto, aplicados en la web, remeras, gorras y latas.',
+        'descripcion': 'Identidad visual para Buenas Marcas: un azul fuerte, un patrón propio y un isotipo corto, en la web, remeras, gorras y latas.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual completa de Buenas Marcas, un medio que ayuda a la gente a comprar online con seguridad verificando tiendas y contando historias de marcas. El sistema combina un azul fuerte, un patrón propio que funciona como textura y un isotipo corto, y se aplica en la web, remeras, gorras, latas y packaging.',
         'servicio': 'Identidad visual y diseño web',
         'intro': [
@@ -155,6 +158,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, patrón, merch y diseño web'),
         ],
         'web': 'https://buenasmarcas.ar',
+        'behance': 'https://www.behance.net/gallery/237388793/Branding-buenasmarcasar',
         'cliente_org': {'name': 'Buenas Marcas', 'url': 'https://buenasmarcas.ar'},
         'columnas': [
             ('El desafío', 'Transmitir confianza en un rubro donde la gente desconfía, con una marca que se vea seria en una nota y simpática en una remera.'),
@@ -181,8 +185,8 @@ PROYECTOS = [
         'slug': 'orfeon',
         'nombre': 'Orfeon',
         'bajada': 'Identidad visual para una empresa de tecnología e inteligencia artificial',
-        'titulo_seo': 'Orfeon, identidad visual para una empresa de tecnología e IA · LIS',
-        'descripcion': 'Identidad visual para Orfeon, una empresa que automatiza procesos e incorpora inteligencia artificial, con dos líneas, Orfeon Tech y Orfeon Financial: una O que gira como un anillo, un azul profundo y un patrón de píxeles.',
+        'titulo_seo': 'Orfeon, identidad visual para una empresa de IA · LIS',
+        'descripcion': 'Identidad visual para Orfeon, empresa de tecnología e IA: una O que gira como un anillo, un azul profundo y un patrón de píxeles.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual de Orfeon, una empresa que optimiza procesos, automatiza tareas e incorpora inteligencia artificial de forma práctica, con dos líneas de negocio: Orfeon Tech y Orfeon Financial. El símbolo es una O que gira como un anillo en movimiento, acompañada por un azul profundo y un patrón de píxeles, y el sistema se aplica en la app, la web, etiquetas y merch.',
         'servicio': 'Identidad visual',
         'intro': [
@@ -195,6 +199,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, manual de marca, ícono de app y aplicaciones'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/251817753/ORFEON',
         'cliente_org': {'name': 'Orfeon'},
         'columnas': [
             ('El desafío', 'Una marca de tecnología que no se viera fría ni genérica, y que le diera lugar a dos líneas de negocio distintas sin perder la unidad.'),
@@ -212,7 +217,6 @@ PROYECTOS = [
             [('img', 'etiqueta.webp', 'Etiqueta tejida con el símbolo de Orfeon'),
              ('img', 'laptop.webp', 'Presentación de Orfeon con el patrón de píxeles en una laptop'),
              ('img', 'tejido.webp', 'Etiqueta de Orfeon cosida en un tejido azul, entre los dedos')],
-            [('img', 'etiqueta-celular.webp', 'Etiqueta de Orfeon en un tejido y la app en un celular')],
             [('img', 'app.webp', 'El ícono de la app de Orfeon en la pantalla de un celular')],
         ],
         'portada_og': 'og.jpg',
@@ -223,8 +227,8 @@ PROYECTOS = [
         'slug': 'santo-pastel',
         'nombre': 'Santo Pastel',
         'bajada': 'Identidad visual e ilustración para un café y pastelería artesanal',
-        'titulo_seo': 'Santo Pastel, identidad visual e ilustración para un café y pastelería · LIS',
-        'descripcion': 'Identidad visual para Santo Pastel, un café y pastelería artesanal: un logo de trazo manual que se apoya sobre las fotos, una paleta del grano a la medialuna e ilustraciones tipo sticker para redes.',
+        'titulo_seo': 'Santo Pastel, identidad visual para una pastelería · LIS',
+        'descripcion': 'Identidad visual para Santo Pastel, café y pastelería: un logo de trazo manual, una paleta del grano a la medialuna e ilustraciones tipo sticker.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual de Santo Pastel, un café y pastelería artesanal con recetas clásicas, café de especialidad y helado. El sistema combina un logo de trazo manual, una cursiva suelta con una tipografía alta y delgada, pensado para apoyarse sobre las fotos del café, una paleta tomada del grano a la medialuna, un set de ilustraciones tipo sticker y plantillas para redes.',
         'servicio': 'Identidad visual e ilustración',
         'intro': [
@@ -237,6 +241,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, ilustraciones y plantillas para redes'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/204010771/Santo-Pastel-Brand-identity-illustration',
         'cliente_org': {'name': 'Santo Pastel'},
         'columnas': [
             ('El desafío', 'Que la marca se sintiera como entrar a un café de barrio, con olor a medialunas recién hechas, y que al mismo tiempo se viera prolija en cada pieza.'),
@@ -261,8 +266,8 @@ PROYECTOS = [
         'slug': 'carpetania',
         'nombre': 'Carpetania',
         'bajada': 'Identidad visual para una cafetería de especialidad',
-        'titulo_seo': 'Carpetania, identidad visual para una cafetería de especialidad · LIS',
-        'descripcion': 'Identidad visual para Carpetania, una cafetería de especialidad donde la tradición se encuentra con la pasión por el café: una paleta de tostados y chocolate, un símbolo de trazo continuo y aplicaciones en vasos, bolsas y remeras.',
+        'titulo_seo': 'Carpetania, identidad visual para una cafetería · LIS',
+        'descripcion': 'Identidad visual para Carpetania, cafetería de especialidad: una paleta de tostados, un símbolo de trazo continuo y aplicaciones en vasos y bolsas.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual de Carpetania, una cafetería de especialidad inspirada en la historia de la región que lleva su nombre, con el lema "Donde la tradición se encuentra con la pasión por el café". El sistema combina un logotipo de letras gruesas, un símbolo de trazo continuo, una paleta de tostados, terracota y chocolate, y aplicaciones en vasos, bolsas, papelería y remeras.',
         'servicio': 'Identidad visual',
         'intro': [
@@ -274,6 +279,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, paleta, papelería y aplicaciones'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/205406757/Diseno-Identidad-Visual-Carpetania',
         'cliente_org': {'name': 'Carpetania'},
         'columnas': [
             ('El desafío', 'Que una cafetería nueva transmitiera tradición y oficio desde el primer vaso, sin verse antigua ni parecerse a todas las cafeterías de especialidad.'),
@@ -304,7 +310,7 @@ PROYECTOS = [
         'nombre': 'Jeudi',
         'bajada': 'Identidad visual para una marca de ropa',
         'titulo_seo': 'Jeudi, identidad visual para una marca de ropa · LIS',
-        'descripcion': 'Identidad visual para Jeudi, una marca de ropa con una idea simple, tu jueves todos los días: un logotipo con la tipografía LK Ternima, una paleta de marrones y azul pizarra y aplicaciones en bolsas, remeras y pilusos.',
+        'descripcion': 'Identidad visual para Jeudi, marca de ropa: un logotipo en LK Ternima, una paleta de marrones y azul pizarra y aplicaciones en bolsas y remeras.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual de Jeudi, una marca de ropa cuyo lema es "Tu jueves, todos los días", la idea de vivir la espontaneidad y la comodidad del jueves cualquier día de la semana. El sistema combina un logotipo con la tipografía LK Ternima DCU, un isotipo de tres líneas, una paleta de marrones y azul pizarra y aplicaciones en bolsas, remeras, libros y pilusos.',
         'servicio': 'Identidad visual',
         'intro': [
@@ -316,6 +322,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, tipografía, paleta y aplicaciones'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/204518049/Diseno-Identidad-Visual-Jeudi',
         'cliente_org': {'name': 'Jeudi'},
         'columnas': [
             ('El desafío', 'Una marca de ropa para un público joven que se sintiera actual y con carácter, sin depender de una tendencia que pase de moda en una temporada.'),
@@ -347,8 +354,8 @@ PROYECTOS = [
         'slug': 'golden-hour',
         'nombre': 'Golden Hour',
         'bajada': 'Identidad visual para una joyería de autor',
-        'titulo_seo': 'Golden Hour, identidad visual para una joyería de autor · LIS',
-        'descripcion': 'Identidad visual para Golden Hour, una joyería de autor con piezas únicas y personalizadas: un logotipo de serif fina, una paleta de chocolate, canela y miel y patrones para la papelería.',
+        'titulo_seo': 'Golden Hour, identidad visual para una joyería · LIS',
+        'descripcion': 'Identidad visual para Golden Hour, joyería de autor: un logotipo de serif fina, una paleta de chocolate, canela y miel y patrones para la papelería.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual de Golden Hour, una joyería de autor que ofrece piezas únicas y personalizadas para mujeres que buscan expresar su individualidad, inspiradas en la belleza natural y la luz dorada. El sistema combina un logotipo de serif fina, una paleta de chocolate, canela, miel y choco blanco, patrones de puntos y líneas y aplicaciones en packaging y vasos.',
         'servicio': 'Identidad visual',
         'intro': [
@@ -360,6 +367,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, paleta, patrones y aplicaciones'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/204367893/Diseno-identidad-visual-Brand-Book',
         'cliente_org': {'name': 'Golden Hour'},
         'columnas': [
             ('El desafío', 'Que una joyería chica se viera exclusiva y artesanal a la vez, a la altura de piezas únicas, sin caer en el dorado brillante de siempre.'),
@@ -389,8 +397,8 @@ PROYECTOS = [
         'slug': 'brunch-club',
         'nombre': 'Brunch Club Café',
         'bajada': 'Identidad visual para un café de brunch',
-        'titulo_seo': 'Brunch Club Café, identidad visual para un café de brunch · LIS',
-        'descripcion': 'Identidad visual para Brunch Club Café, un café de brunch, comida sana, buen café y perros bienvenidos: un imagotipo con un limón, un perro que toma café y patrones en lima, gris y crema.',
+        'titulo_seo': 'Brunch Club Café, identidad visual · LIS',
+        'descripcion': 'Identidad visual para Brunch Club Café: un imagotipo con un limón, un perro que toma café y patrones en lima, gris y crema.',
         'resumen': 'LIS. Creative Studio diseñó la identidad visual de Brunch Club Café, un café de brunch, comida sana, buen café, jugos verdes y buena música, donde los perros son bienvenidos. El sistema combina un logotipo de serif con cursiva, un imagotipo con un limón, un personaje de perro que toma café, una paleta de lima, negro, grises y verde oliva y patrones para el packaging y el merch.',
         'servicio': 'Identidad visual',
         'intro': [
@@ -402,6 +410,7 @@ PROYECTOS = [
             ('Alcance', 'Identidad visual, manual de marca, patrones y aplicaciones'),
         ],
         'web': None,
+        'behance': 'https://www.behance.net/gallery/203585751/Identidad-visual-de-marca',
         'cliente_org': {'name': 'Brunch Club Café'},
         'columnas': [
             ('El desafío', 'Un café de brunch con mucha competencia alrededor, que necesitaba diferenciarse con una personalidad propia y no solo con fotos lindas de platos.'),
@@ -421,6 +430,44 @@ PROYECTOS = [
              ('img', 'patron-oscuro.webp', 'Patrón gris con cafeteras y medialunas de Brunch Club Café')],
             [('img', 'aplicaciones.webp', 'Vaso negro y bolsa lima de Brunch Club Café'),
              ('video', 'gorra.mp4', 'gorra.jpg', 'Gorra negra con el logo de Brunch Club Café')],
+        ],
+        'portada_og': 'og.jpg',
+        'tarjeta': 'card.webp',
+        'siguiente': 'yeet',
+    },
+    {
+        'slug': 'yeet',
+        'nombre': 'Yeet Generation',
+        'bajada': 'Web para una agencia de marketing especializada en la Generación Z',
+        'titulo_seo': 'Yeet Generation, web para una agencia de marketing Gen Z · LIS',
+        'descripcion': 'La web de Yeet Generation, agencia de marketing especializada en la Generación Z: video, amarillo fuerte y un portfolio de campañas filtrable.',
+        'resumen': 'LIS. Creative Studio diseñó y desarrolló en Webflow la web de Yeet Generation, una agencia de marketing especializada en la Generación Z que crea contenido, campañas y experiencias en plataformas emergentes. El sitio combina video, un amarillo fuerte sobre negro y tipografías con mucha personalidad, con un portfolio de campañas filtrable por servicio, una sección de insights y un llamado a agendar una auditoría.',
+        'servicio': 'Diseño web',
+        'intro': [
+            'Yeet Generation es una agencia de marketing especializada en la Generación Z: crea contenido, campañas y experiencias para las marcas en las plataformas donde está ese público, y las ayuda a ser culturalmente relevantes en una cultura que cambia todo el tiempo. Su frase lo dice todo: para la Gen Z, la cultura y mucho más.',
+            'Diseñamos y desarrollamos la web en Webflow con el mismo lenguaje que usan en redes, con video de fondo, un amarillo fuerte sobre negro y tipografías con mucha personalidad, sin perder orden para que una empresa entienda rápido qué hacen y cómo contactarlos.',
+        ],
+        'ficha': [
+            ('Cliente', 'Yeet Generation'),
+            ('Rubro', 'Agencia de marketing para la Generación Z'),
+            ('Alcance', 'Diseño UI, desarrollo en Webflow, responsive y SEO'),
+        ],
+        'web': None,
+        'behance': 'https://www.behance.net/gallery/172627977/Yeet-Generation',
+        'cliente_org': {'name': 'Yeet Generation'},
+        'columnas': [
+            ('El desafío', 'Hablarle a la Gen Z sin dejar de convencer a las empresas que contratan, con una web que se sintiera tan viva como sus redes y que cargara rápido en el celular.'),
+            ('La idea', 'Llevar a la web el ritmo de un feed: video desde el primer segundo, textos cortos con tipografía expresiva y un llamado claro, stop scrolling, para agendar una auditoría.'),
+            ('El sistema', 'Amarillo y negro como base, un portfolio de campañas filtrable por servicio (create, data y learning) y secciones pensadas primero para el celular.'),
+        ],
+        'filas_arriba': [
+            [('img', 'celulares.webp', 'La web de Yeet Generation en dos celulares sobre un fondo de luces en movimiento')],
+            [('video', 'recorrido.mp4', 'recorrido.jpg', 'Recorrido en movimiento por la portada de la web de Yeet Generation')],
+        ],
+        'filas_abajo': [
+            [('img', 'piezas.webp', 'Piezas de contenido y videos de campañas de Yeet Generation sobre una franja amarilla'),
+             ('img', 'celular.webp', 'La web de Yeet Generation en un celular sobre un bloque de cemento')],
+            [('img', 'portfolio.webp', 'La página de portfolio de Yeet Generation con campañas como Olympics, Universal Music y Pokémon Go')],
         ],
         'portada_og': 'og.jpg',
         'tarjeta': 'card.webp',
@@ -522,6 +569,7 @@ def construir(p, base, todos):
         'genre': p['servicio'],
         'about': {'@type': 'Organization', **p['cliente_org']},
         'creator': {'@id': f'{SITIO}/#business'},
+        **({'sameAs': p['behance']} if p.get('behance') else {}),
         'author': {'@type': 'Person', '@id': f'{SITIO}/#ornela', 'name': 'Ornela Cillo'},
         'publisher': {'@type': 'Organization', '@id': f'{SITIO}/#business', 'name': 'LIS. Creative Studio'},
     }
@@ -560,7 +608,12 @@ def construir(p, base, todos):
     intro = '\n'.join(f'        <p>{e(t)}</p>' for t in p['intro'])
     ficha = '\n'.join(f'          <div><dt>{e(k)}</dt><dd>{e(v)}</dd></div>' for k, v in p['ficha'])
     cols = '\n'.join(f'      <div><h2>{e(t)}</h2><p>{e(x)}</p></div>' for t, x in p['columnas'])
-    web = f'\n        <a class="pj-web" href="{p["web"]}" target="_blank" rel="noopener">Ver la web online →</a>' if p.get('web') else ''
+    if p.get('web'):
+        web = f'\n        <a class="pj-web" href="{p["web"]}" target="_blank" rel="noopener">Ver la web online →</a>'
+    elif p.get('behance'):
+        web = f'\n        <a class="pj-web" href="{p["behance"]}" target="_blank" rel="noopener">Ver en Behance →</a>'
+    else:
+        web = ''
 
     sig = next((q for q in todos if q['slug'] == p.get('siguiente')), None)
     if sig:

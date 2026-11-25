@@ -1212,9 +1212,9 @@ a, a:hover, a:focus { text-decoration: none !important; }
             M.Bodies.rectangle(-g / 2, H / 2 - H, g, H * 4, { isStatic: true }),
             M.Bodies.rectangle(W + g / 2, H / 2 - H, g, H * 4, { isStatic: true })
           ]);
-          comp.classList.add('fisica');
+          comp.classList.add('fisica'); comp.style.overflow = 'hidden';
           cuerpos = els.map(function (el, i) {
-            el.style.transform = 'none'; el.style.translate = '0 0';
+            el.style.cssText += ';left:0;top:0;transform:none;translate:0 0;transform-origin:50% 50%;animation:none;transition:none;user-select:none;-webkit-user-select:none';
             var w = el.offsetWidth, h = el.offsetHeight, sello = el.classList.contains('pal-sello');
             var x = Math.min(Math.max(w / 2, W * (0.15 + Math.random() * 0.7)), W - w / 2);
             var y = -h - i * H * 0.12 - Math.random() * 40;

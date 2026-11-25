@@ -841,7 +841,7 @@ a, a:hover, a:focus { text-decoration: none !important; }
   .pal-pie { flex-direction: column; align-items: flex-start; gap: 28px; margin-top: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { .pal-comp .w, .pal-sello { animation: none; } }
-/* Con la física prendida, cada palabra la ubica Matter.js desde la esquina de arriba a la izquierda */
+/* Con la caída prendida, cada palabra la ubica el JS desde la esquina de arriba a la izquierda */
 
 .pal-comp.fisica .w, .pal-comp.fisica .pal-sello { left: 0 !important; top: 0 !important; transform-origin: 50% 50% !important; animation: none !important; transition: none !important; user-select: none; -webkit-user-select: none; }
 </style>
@@ -1193,83 +1193,62 @@ a, a:hover, a:focus { text-decoration: none !important; }
       var vObs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { play(e.target); vObs.unobserve(e.target); } }); }, { rootMargin: '300px' });
       document.querySelectorAll('video[data-lazy]').forEach(function (v) { vObs.observe(v); });
     })();
-    // Encabezado: las palabras caen con gravedad, rebotan y se apilan, y con el mouse se pueden agarrar y tirar (Matter.js, como colorclub.online, 25/11/2026)
+    // Encabezado: las palabras caen y se apilan en el piso (idea de colorclub.online, 25/11/2026)
     (function () {
       var comp = document.querySelector('.pal-comp'); if (!comp || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var sc = document.createElement('script');
-      sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js';
-      sc.onload = iniciar; document.head.appendChild(sc);
+      iniciar();
       function iniciar() {
-        var M = window.Matter, eng, raf, prev = 0, cuerpos = [], ancho = 0, mouse = null;
-        var estado, t0, ultimo = 0;
-        var els = [].slice.call(comp.querySelectorAll('.w, .pal-sello'));
-        var dif = function (a, b) { var d = (b - a) % (2 * Math.PI); return d > Math.PI ? d - 2 * Math.PI : d < -Math.PI ? d + 2 * Math.PI : d; };
-        var ease = function (k) { return 1 - Math.pow(1 - k, 3); };
+        // Las palabras caen en orden de lectura, rebotan un poco y quedan apiladas en el piso, renglón por renglón (25/11/2026)
+        var raf, ancho = 0;
+        var palabras = [].slice.call(comp.querySelectorAll('.w'));
+        var sello = comp.querySelector('.pal-sello');
+        var rebote = function (k) { var n = 7.5625, d = 2.75; if (k < 1 / d) return n * k * k; if (k < 2 / d) return n * (k -= 1.5 / d) * k + .75; if (k < 2.5 / d) return n * (k -= 2.25 / d) * k + .9375; return n * (k -= 2.625 / d) * k + .984375; };
         function armar() {
-          if (eng) { cancelAnimationFrame(raf); M.Engine.clear(eng); }
-          els.forEach(function (el) { el.style.cssText = el.style.cssText.replace(/;left:0.*$/, ''); });
-          var W = comp.clientWidth, H = comp.clientHeight; ancho = W;
-          // Dónde va cada palabra en la frase armada (lo que dice el CSS), para volver ahí después de caer
-          var destinos = els.map(function (el) {
-            var cs = getComputedStyle(el), w = el.offsetWidth, h = el.offsetHeight;
-            var m = new DOMMatrix(cs.transform === 'none' ? undefined : cs.transform), a = Math.atan2(m.b, m.a);
-            var x0 = parseFloat(cs.left), y0 = parseFloat(cs.top);
-            if (el.classList.contains('pal-sello')) return { x: x0 + w / 2, y: y0 + h / 2, a: a };
-            return { x: x0 + w / 2 * Math.cos(a) - h / 2 * Math.sin(a), y: y0 + w / 2 * Math.sin(a) + h / 2 * Math.cos(a), a: a };
-          });
-          eng = M.Engine.create({ gravity: { y: 1.1 } });
-          var g = 200;
-          M.Composite.add(eng.world, [
-            M.Bodies.rectangle(W / 2, H + g / 2, W * 3, g, { isStatic: true }),
-            M.Bodies.rectangle(-g / 2, 0, g, H * 4, { isStatic: true }),
-            M.Bodies.rectangle(W + g / 2, 0, g, H * 4, { isStatic: true })
-          ]);
+          cancelAnimationFrame(raf);
           comp.classList.add('fisica');
-          cuerpos = els.map(function (el, i) {
-            el.style.cssText += ';left:0;top:0;transform:none;translate:0 0;transform-origin:50% 50%;animation:none;transition:none;user-select:none;-webkit-user-select:none';
-            var w = el.offsetWidth, h = el.offsetHeight, sello = el.classList.contains('pal-sello');
-            var x = Math.min(Math.max(w / 2, destinos[i].x), W - w / 2);
-            var y = -h - i * H * 0.12 - Math.random() * 40;
-            var b = sello ? M.Bodies.circle(x, y, w / 2 * 0.92, { restitution: .5, friction: .3 })
-                          : M.Bodies.rectangle(x, y, w, h * 0.92, { restitution: .35, friction: .4, chamfer: { radius: Math.min(h * .2, 12) } });
-            M.Body.setAngle(b, (Math.random() - .5) * 0.9);
-            return { el: el, b: b, w: w, h: h, d: destinos[i] };
+          var todos = palabras.concat(sello ? [sello] : []);
+          todos.forEach(function (el) { el.style.cssText = el.style.cssText.replace(/;left:0.*$/, '') + ';left:0;top:0;transform:none;translate:0 0;transform-origin:50% 100%;animation:none;transition:none;opacity:0'; });
+          var W = comp.clientWidth, gap = W * 0.014;
+          var filas = [[]], usado = 0;
+          palabras.forEach(function (el) {
+            var w = el.offsetWidth;
+            if (filas[filas.length - 1].length && usado + w > W * 0.98) { filas.push([]); usado = 0; }
+            filas[filas.length - 1].push(el); usado += w + gap;
           });
-          M.Composite.add(eng.world, cuerpos.map(function (c) { return c.b; }));
-          if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-            mouse = M.Mouse.create(comp);
-            mouse.element.removeEventListener('wheel', mouse.mousewheel); mouse.element.removeEventListener('mousewheel', mouse.mousewheel); mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
-            M.Composite.add(eng.world, M.MouseConstraint.create(eng, { mouse: mouse, constraint: { stiffness: .2, render: { visible: false } } }));
+          var altos = filas.map(function (f) { return Math.max.apply(null, f.map(function (el) { return el.offsetHeight; })); });
+          var pila = altos.reduce(function (a, b) { return a + b; }, 0);
+          var sw = sello ? sello.offsetWidth : 0, H = Math.round(pila + W * 0.02 + sw * 0.75); ancho = W;
+          comp.style.aspectRatio = 'auto'; comp.style.height = H + 'px';
+          var items = [], orden = 0, piso = H;
+          for (var r = filas.length - 1; r >= 0; r--) {
+            var x = W * (0.005 + Math.random() * 0.02);
+            filas[r].forEach(function (el) {
+              var w = el.offsetWidth, h = el.offsetHeight;
+              items.push({ el: el, x: x, y: piso - h, a: (Math.random() - .5) * 0.05, a0: (Math.random() - .5) * 0.5, caida: piso + 40, delay: orden * 110 });
+              x += w + gap; orden++;
+            });
+            piso -= altos[r];
           }
-          estado = 'cae'; t0 = performance.now(); prev = 0;
+          if (sello) {
+            var sx = W - sw - W * 0.01, sy = piso - sw * 0.8;
+            items.push({ el: sello, x: sx, y: sy, a: -0.21, a0: 0.6, caida: sy + sw + 40, delay: orden * 110 + 150 });
+          }
+          var t0 = performance.now(), dur = 900;
           (function pintar(t) {
-            t = t || performance.now();
-            var dt = prev ? Math.min(t - prev, 33) : 16.7; prev = t;
-            if (mouse && mouse.button === 0) {
-              ultimo = t;
-              if (estado === 'quieto' || estado === 'arma') { estado = 'suelto'; cuerpos.forEach(function (c) { M.Body.setStatic(c.b, false); }); }
-            }
-            if (estado === 'cae' && t - t0 > 1700) empezarArmar(t);
-            if (estado === 'suelto' && t - ultimo > 2500) empezarArmar(t);
-            if (estado === 'arma') {
-              var k = Math.min((t - t0) / 900, 1), e = ease(k);
-              cuerpos.forEach(function (c) {
-                M.Body.setPosition(c.b, { x: c.ox + (c.d.x - c.ox) * e, y: c.oy + (c.d.y - c.oy) * e });
-                M.Body.setAngle(c.b, c.oa + dif(c.oa, c.d.a) * e);
-              });
-              if (k >= 1) estado = 'quieto';
-            } else if (estado !== 'quieto') M.Engine.update(eng, dt);
-            cuerpos.forEach(function (c) { c.el.style.transform = 'translate(' + (c.b.position.x - c.w / 2).toFixed(1) + 'px,' + (c.b.position.y - c.h / 2).toFixed(1) + 'px) rotate(' + c.b.angle.toFixed(3) + 'rad)'; });
-            raf = requestAnimationFrame(pintar);
-          })();
-        }
-        function empezarArmar(t) {
-          estado = 'arma'; t0 = t;
-          cuerpos.forEach(function (c) { c.ox = c.b.position.x; c.oy = c.b.position.y; c.oa = c.b.angle; M.Body.setStatic(c.b, true); });
+            var listo = true;
+            items.forEach(function (it) {
+              var k = Math.min(Math.max((t - t0 - it.delay) / dur, 0), 1);
+              if (k < 1) listo = false;
+              var y = it.y - it.caida * (1 - rebote(k)), a = it.a0 + (it.a - it.a0) * Math.min(k * 1.6, 1);
+              it.el.style.opacity = k > 0 ? 1 : 0;
+              it.el.style.transform = 'translate(' + it.x.toFixed(1) + 'px,' + y.toFixed(1) + 'px) rotate(' + a.toFixed(3) + 'rad)';
+            });
+            if (!listo) raf = requestAnimationFrame(pintar);
+          })(t0);
         }
         var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); armar(); } });
         io.observe(comp);
-        var tt; addEventListener('resize', function () { clearTimeout(tt); tt = setTimeout(function () { if (eng && Math.abs(comp.clientWidth - ancho) > 40) armar(); }, 300); });
+        var tt; addEventListener('resize', function () { clearTimeout(tt); tt = setTimeout(function () { if (ancho && Math.abs(comp.clientWidth - ancho) > 40) armar(); }, 300); });
       }
     })();
   </script>

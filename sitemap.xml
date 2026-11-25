@@ -158,13 +158,6 @@
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://liscreativestudio.com/asesoria</loc>
-    <lastmod>2026-10-26</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
   <url>
     <loc>https://liscreativestudio.com/prensa</loc>
     <lastmod>2026-10-28</lastmod>
@@ -281,8 +274,6 @@
     <changefreq>monthly</changefreq>
     <priority>0.2</priority>
   </url>
-
-  <url><loc>https://liscreativestudio.com/masterclass</loc><lastmod>2026-11-10</lastmod></url>
   <url><loc>https://liscreativestudio.com/las-que-nos-quedamos</loc><lastmod>2026-11-18</lastmod></url>
   <url>
     <loc>https://liscreativestudio.com/proyectos/bwild</loc>

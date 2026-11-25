@@ -841,6 +841,9 @@ a, a:hover, a:focus { text-decoration: none !important; }
   .pal-pie { flex-direction: column; align-items: flex-start; gap: 28px; margin-top: 28px; }
 }
 @media (prefers-reduced-motion: reduce) { .pal-comp .w, .pal-sello { animation: none; } }
+/* Con la física prendida, cada palabra la ubica Matter.js desde la esquina de arriba a la izquierda */
+.pal-comp.fisica { overflow: hidden; }
+.pal-comp.fisica .w, .pal-comp.fisica .pal-sello { left: 0 !important; top: 0 !important; transform-origin: 50% 50% !important; animation: none !important; transition: none !important; user-select: none; -webkit-user-select: none; }
 </style>
   <!-- TrustBox script -->
   <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
@@ -1190,21 +1193,52 @@ a, a:hover, a:focus { text-decoration: none !important; }
       var vObs = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { play(e.target); vObs.unobserve(e.target); } }); }, { rootMargin: '300px' });
       document.querySelectorAll('video[data-lazy]').forEach(function (v) { vObs.observe(v); });
     })();
-    // Encabezado: las palabras se corren para el lado contrario al cursor, cada una a su ritmo; en el celu se mueven un poco con el scroll
+    // Encabezado: las palabras caen con gravedad, rebotan y se apilan, y con el mouse se pueden agarrar y tirar (Matter.js, como colorclub.online, 25/11/2026)
     (function () {
       var comp = document.querySelector('.pal-comp'); if (!comp || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      var els = [].slice.call(comp.querySelectorAll('.w, .pal-sello'));
-      var prof = [1.7, 0.9, 1.3, 0.7, 1.5, 1, 0.8, 1.2, 0.6, 2];
-      function mover(nx, ny) { els.forEach(function (el, i) { var k = prof[i % prof.length]; el.style.translate = (-nx * 26 * k).toFixed(1) + 'px ' + (-ny * 18 * k).toFixed(1) + 'px'; }); }
-      if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
-        addEventListener('mousemove', function (e) { mover(e.clientX / innerWidth - .5, e.clientY / innerHeight - .5); }, { passive: true });
-        document.addEventListener('mouseleave', function () { mover(0, 0); });
-      } else {
-        var pend = false;
-        addEventListener('scroll', function () {
-          if (pend) return; pend = true;
-          requestAnimationFrame(function () { pend = false; var y = Math.min(scrollY, innerHeight) / innerHeight; els.forEach(function (el, i) { var k = prof[i % prof.length]; el.style.translate = ((i % 2 ? 1 : -1) * y * 22 * k).toFixed(1) + 'px ' + (-y * 30 * k).toFixed(1) + 'px'; }); });
-        }, { passive: true });
+      var sc = document.createElement('script');
+      sc.src = 'https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js';
+      sc.onload = iniciar; document.head.appendChild(sc);
+      function iniciar() {
+        var M = window.Matter, eng, raf, prev = 0, cuerpos = [], ancho = 0;
+        var els = [].slice.call(comp.querySelectorAll('.w, .pal-sello'));
+        function armar() {
+          if (eng) { cancelAnimationFrame(raf); M.Engine.clear(eng); }
+          var W = comp.clientWidth, H = comp.clientHeight; ancho = W;
+          eng = M.Engine.create({ gravity: { y: 1.1 } });
+          var g = 200;
+          M.Composite.add(eng.world, [
+            M.Bodies.rectangle(W / 2, H + g / 2, W * 3, g, { isStatic: true }),
+            M.Bodies.rectangle(-g / 2, H / 2 - H, g, H * 4, { isStatic: true }),
+            M.Bodies.rectangle(W + g / 2, H / 2 - H, g, H * 4, { isStatic: true })
+          ]);
+          comp.classList.add('fisica');
+          cuerpos = els.map(function (el, i) {
+            el.style.transform = 'none'; el.style.translate = '0 0';
+            var w = el.offsetWidth, h = el.offsetHeight, sello = el.classList.contains('pal-sello');
+            var x = Math.min(Math.max(w / 2, W * (0.15 + Math.random() * 0.7)), W - w / 2);
+            var y = -h - i * H * 0.12 - Math.random() * 40;
+            var b = sello ? M.Bodies.circle(x, y, w / 2 * 0.92, { restitution: .5, friction: .3 })
+                          : M.Bodies.rectangle(x, y, w, h * 0.92, { restitution: .35, friction: .4, chamfer: { radius: Math.min(h * .2, 12) } });
+            M.Body.setAngle(b, (Math.random() - .5) * 0.9);
+            return { el: el, b: b, w: w, h: h };
+          });
+          M.Composite.add(eng.world, cuerpos.map(function (c) { return c.b; }));
+          if (matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            var mouse = M.Mouse.create(comp);
+            mouse.element.removeEventListener('wheel', mouse.mousewheel); mouse.element.removeEventListener('mousewheel', mouse.mousewheel); mouse.element.removeEventListener('DOMMouseScroll', mouse.mousewheel);
+            M.Composite.add(eng.world, M.MouseConstraint.create(eng, { mouse: mouse, constraint: { stiffness: .2, render: { visible: false } } }));
+          }
+          prev = 0;
+          (function pintar(t) {
+            var dt = prev ? Math.min(t - prev, 33) : 16.7; prev = t || 0; M.Engine.update(eng, dt);
+            cuerpos.forEach(function (c) { c.el.style.transform = 'translate(' + (c.b.position.x - c.w / 2).toFixed(1) + 'px,' + (c.b.position.y - c.h / 2).toFixed(1) + 'px) rotate(' + c.b.angle.toFixed(3) + 'rad)'; });
+            raf = requestAnimationFrame(pintar);
+          })();
+        }
+        var io = new IntersectionObserver(function (es) { if (es[0].isIntersecting) { io.disconnect(); armar(); } });
+        io.observe(comp);
+        var t; addEventListener('resize', function () { clearTimeout(t); t = setTimeout(function () { if (eng && Math.abs(comp.clientWidth - ancho) > 40) armar(); }, 300); });
       }
     })();
   </script>

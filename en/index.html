@@ -526,11 +526,15 @@
       font-family: var(--font-body); font-size: 13px; font-weight: 600;
       letter-spacing: .04em; text-transform: uppercase;
       color: var(--black); text-decoration: none;
-      border-bottom: 1px solid rgba(0,0,0,.25);
       padding-bottom: 4px;
-      transition: border-color .2s;
+      transition: color .2s;
     }
-    .test-cta a:hover { border-color: var(--black); }
+    .test-cta { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px 36px; }
+    .test-cta a:hover { color: #70757a; }
+    .test-cta a { display: inline-block; text-align: center; }
+    .tp-star { color: #00b67a; }
+    .test-meta a { color: inherit; text-decoration: none; }
+    .test-meta a:hover { color: #202124; }
     @media (max-width: 768px) {
       #testimonials { padding: 60px 24px; }
       .test-grid { grid-template-columns: 1fr; }
@@ -1140,7 +1144,7 @@ a, a:hover, a:focus { text-decoration: none !important; }
           <div class="test-avatar a3">C</div>
           <div>
             <div class="test-name">Club Conecta</div>
-            <div class="test-meta">Google review</div>
+            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a></div>
           </div>
         </div>
         <div class="test-rating">
@@ -1159,7 +1163,7 @@ a, a:hover, a:focus { text-decoration: none !important; }
           <div class="test-avatar a1">A</div>
           <div>
             <div class="test-name">Augusto Iadanza</div>
-            <div class="test-meta">Local Guide · 23 reviews · 2 photos</div>
+            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a> · Local Guide</div>
           </div>
         </div>
         <div class="test-rating">
@@ -1178,7 +1182,7 @@ a, a:hover, a:focus { text-decoration: none !important; }
           <div class="test-avatar a2">L</div>
           <div>
             <div class="test-name">Leonardo Calvet</div>
-            <div class="test-meta">Local Guide · 285 reviews · 122 photos</div>
+            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a> · Local Guide</div>
           </div>
         </div>
         <div class="test-rating">
@@ -1192,7 +1196,7 @@ a, a:hover, a:focus { text-decoration: none !important; }
           <div class="test-avatar a4">M</div>
           <div>
             <div class="test-name">María Florencia Massaccesi</div>
-            <div class="test-meta">LinkedIn recommendation · Co-founder of Club Conecta</div>
+            <div class="test-meta"><a href="https://www.linkedin.com/in/ornelacillo/details/recommendations/" target="_blank" rel="noopener">LinkedIn recommendation</a> · Co-founder of Club Conecta</div>
           </div>
         </div>
         <div class="test-rating">
@@ -1206,8 +1210,9 @@ a, a:hover, a:focus { text-decoration: none !important; }
     </div>
 
     <div class="test-cta fi">
-      <!-- TODO Orni: reemplazar # por tu link de Google (g.page/r/XXXXX/review) -->
       <a href="https://g.page/r/CZe31SeGF55PEBM/review/" target="_blank" rel="noopener">Leave your review on Google →</a>
+      <!-- Trustpilot como enlace sin puntaje: con 1 sola reseña el TrustBox muestra "Average"; volver al widget con unas 10 reseñas -->
+      <a href="https://www.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">More reviews on <span class="tp-star">★</span> Trustpilot →</a>
     </div>
   </section>
 

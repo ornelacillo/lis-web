@@ -442,6 +442,35 @@
     /* ══════════════════════════════
        TESTIMONIALS (Google reviews style)
     ══════════════════════════════ */
+    /* Reseñas: mismo diseño que la tienda, 3 por línea (26/11/2026) */
+    .resenas { max-width: 1240px; margin: 0 auto; padding: 100px 60px; }
+    .resenas-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 36px; }
+    .resenas-head .test-title { text-align: left; margin: 0; }
+    .resenas-head p { font-size: 16px; line-height: 1.6; color: #555; max-width: 460px; margin: 0; }
+    .resenas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .resena { margin: 0; background: #e9e2d6; border-radius: 4px; padding: 32px 32px 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .resena-ancha { grid-column: 1 / -1; }
+    .resena blockquote { margin: 0; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 20px; font-weight: 400; letter-spacing: -.02em; line-height: 1.4; color: var(--ink); }
+    .resena blockquote::before { content: "\201C"; display: block; font-family: var(--font-script, 'Instrument Serif'), serif; font-size: 64px; line-height: .6; margin-bottom: 10px; color: #6f6b64; }
+    .resena figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; border-top: 1px solid var(--ink); padding-top: 14px; font-size: 14px; }
+    .resena figcaption b { font-weight: 500; }
+    .resena figcaption span { color: #6f6b64; text-align: right; }
+    .resena figcaption a { color: inherit; text-decoration: none; }
+    .resena figcaption a:hover { color: var(--ink); }
+    .resena-estrellas { letter-spacing: .12em; font-size: 13px; color: var(--ink); }
+    .resenas-tp { margin-top: 28px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 36px; font-size: 15px; }
+    .resenas-tp a { color: var(--ink); text-decoration: none; }
+    .resenas-tp a:hover { color: #6f6b64; }
+    .tp-star { color: #00b67a; }
+    @media (max-width: 1000px) { .resenas-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 860px) {
+      .resenas { padding: 56px 16px; }
+      .resenas-head, .resenas-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .resena { padding: 26px 22px 22px; }
+      .resena blockquote { font-size: 19px; }
+      .resena figcaption { font-size: 16px; flex-direction: column; gap: 4px; }
+      .resena figcaption span { text-align: left; }
+    }
     #testimonials {
       background: var(--white); color: var(--black);
       padding: 100px max(80px, 10%);
@@ -1107,85 +1136,34 @@ a, a:hover, a:focus { text-decoration: none !important; }
     </div>
   </section>
 
-  <!-- ══ TESTIMONIALS ══ -->
-  <section id="testimonials" data-nav-theme="dark">
-    <h2 class="test-title fi">Lo que dicen <em>sobre LIS</em></h2>
-
-    <div class="test-grid">
-      <div class="test-card fi">
-        <div class="test-head">
-          <div class="test-avatar a3">C</div>
-          <div>
-            <div class="test-name">Club Conecta</div>
-            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">Octubre 2026</span>
-        </div>
-        <p class="test-body">Fue excelente trabajar con Ornela. Muy responsable con su trabajo y siempre tratando de entender mis peticiones con éxito. Muchas gracias por tu dedicación, estoy muy entusiasmada por todo lo que se viene.</p>
-        <div class="test-reply">
-          <div class="test-reply-label">Respuesta del propietario · Octubre 2026</div>
-          <div class="test-reply-body">Muchas gracias Flor por tomarte el tiempo de escribir esta reseña. Nos encantó trabajar juntas, este es el comienzo de muchos logros más!</div>
-        </div>
-      </div>
-
-      <div class="test-card fi">
-        <div class="test-head">
-          <div class="test-avatar a1">A</div>
-          <div>
-            <div class="test-name">Augusto Iadanza</div>
-            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a> · Local Guide</div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">Hace 10 meses</span>
-        </div>
-        <p class="test-body">Cuando contacté a LIS. no tenía muy en claro el diseño de nuestro sitio web. Gracias a su equipo creamos una nueva marca y un sitio web funcional acorde a nuestras necesidades, logrando nuestros objetivos. Recomiendo al 100%.</p>
-        <div class="test-reply">
-          <div class="test-reply-label">Respuesta del propietario · Hace 10 meses</div>
-          <div class="test-reply-body">Muchas gracias Augus por la reseña! Nos alegramos mucho haber cumplidos sus expectativas!!</div>
-        </div>
-      </div>
-
-      <div class="test-card fi">
-        <div class="test-head">
-          <div class="test-avatar a2">L</div>
-          <div>
-            <div class="test-name">Leonardo Calvet</div>
-            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a> · Local Guide</div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">Hace 6 años</span>
-        </div>
-        <p class="test-body">Necesitaba unos ajustes con mi logo y poder tenerlo en Giphy, y me lo hizo en menos de 24 horas cuando habíamos pactado 48!!! Super genia!!!</p>
-      </div>
-      <div class="test-card test-wide fi">
-        <div class="test-head">
-          <div class="test-avatar a4">M</div>
-          <div>
-            <div class="test-name">María Florencia Massaccesi</div>
-            <div class="test-meta"><a href="https://www.linkedin.com/in/ornelacillo/details/recommendations/" target="_blank" rel="noopener">Recomendación de LinkedIn</a> · Cofundadora de Club Conecta</div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">Julio 2024</span>
-        </div>
-        <p class="test-body">Es un verdadero placer recomendar a Ornela Cillo. Trabajar con ella en el proyecto "Conecta con Nosotras" ha sido una experiencia increíblemente positiva. Su eficiencia, responsabilidad y compromiso son ejemplares y han sido claves para el éxito del equipo.</p>
-        <p class="test-body">Ornela y yo logramos complementarnos al 100%, gracias a una comunicación espectacular que nos permite organizarnos y ordenar tareas con gran eficacia. Su energía contagiosa y su habilidad para impulsar ideas me motivan constantemente a avanzar y superar los desafíos.</p>
-        <p class="test-body">Recomiendo a Ornela sin reservas para cualquier proyecto o rol en el que pueda aportar su gran talento y dedicación. Su capacidad para trabajar en equipo y su actitud positiva son verdaderamente valiosas.</p>
-      </div>
+  <!-- ══ RESEÑAS (mismo diseño que la tienda, 3 por línea) ══ -->
+  <section class="resenas" id="resenas" aria-label="Reseñas de clientes de LIS">
+    <div class="resenas-head fi">
+      <h2 class="test-title">Lo que dicen <em>de mi trabajo</em></h2>
+      <p>Algunas de las personas con las que trabajé en el estudio, cada reseña con el enlace a donde la dejaron.</p>
     </div>
-
-    <div class="test-cta fi">
-      <a href="https://g.page/r/CZe31SeGF55PEBM/review/" target="_blank" rel="noopener">Dejá tu reseña en Google →</a>
+    <div class="resenas-grid">
+      <figure class="resena fi">
+        <blockquote>Cuando contacté a LIS no tenía muy en claro el diseño de nuestro sitio web. Gracias a su equipo creamos una nueva marca y un sitio web funcional acorde a nuestras necesidades, logrando nuestros objetivos. Recomiendo al 100%.</blockquote>
+        <figcaption><b>Augusto Iadanza</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></span></figcaption>
+      </figure>
+      <figure class="resena fi fi-d1">
+        <blockquote>Fue excelente trabajar con Ornela. Muy responsable con su trabajo y siempre tratando de entender mis peticiones con éxito. Muchas gracias por tu dedicación, estoy muy entusiasmada por todo lo que se viene.</blockquote>
+        <figcaption><b>Club Conecta</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></span></figcaption>
+      </figure>
+      <figure class="resena fi fi-d2">
+        <blockquote>Necesitaba unos ajustes con mi logo y poder tenerlo en Giphy, y me lo hizo en menos de 24 horas cuando habíamos pactado 48. ¡Súper genia!</blockquote>
+        <figcaption><b>Leonardo Calvet</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></span></figcaption>
+      </figure>
+      <figure class="resena resena-ancha fi">
+        <blockquote>Es un verdadero placer recomendar a Ornela Cillo. Trabajar con ella en el proyecto "Conecta con Nosotras" ha sido una experiencia increíblemente positiva. Su eficiencia, responsabilidad y compromiso son ejemplares y han sido claves para el éxito del equipo.</blockquote>
+        <figcaption><b>María Florencia Massaccesi</b><span><a href="https://www.linkedin.com/in/ornelacillo/details/recommendations/" target="_blank" rel="noopener">Recomendación de LinkedIn</a></span></figcaption>
+      </figure>
+    </div>
+    <div class="resenas-tp fi">
       <!-- Trustpilot como enlace sin puntaje: con 1 sola reseña el TrustBox muestra "Bueno"; volver al widget con unas 10 reseñas -->
-      <a href="https://es.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">Más reseñas en <span class="tp-star">★</span> Trustpilot →</a>
+      <a href="https://g.page/r/CZe31SeGF55PEBM/review/" target="_blank" rel="noopener">Dejá tu reseña en Google</a>
+      <a href="https://es.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">Más reseñas en <span class="tp-star">★</span> Trustpilot</a>
     </div>
   </section>
 

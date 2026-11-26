@@ -762,7 +762,12 @@ a, a:hover, a:focus { text-decoration: none !important; }
     .resenas-head p { font-size: 16px; line-height: 1.6; color: #555; max-width: 460px; }
     .resenas-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
     .resenas-tp { margin-top: 28px; }
-    .resenas-tp a { text-decoration: none; }
+    .resenas-tp { text-align: center; font-size: 15px; }
+    .resenas-tp a { text-decoration: none; color: var(--ink); border-bottom: 0; }
+    .resenas-tp a:hover { color: #6f6b64; }
+    .tp-star { color: #00b67a; }
+    .resena figcaption a { color: inherit; text-decoration: none; }
+    .resena figcaption a:hover { color: var(--ink); }
     .resena { margin: 0; background: #e9e2d6; border-radius: 4px; padding: 32px 32px 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
     .resena blockquote { margin: 0; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 21px; font-weight: 400; letter-spacing: -.02em; line-height: 1.4; color: var(--ink); }
     .resena blockquote::before { content: "“"; display: block; font-family: var(--font-script, 'Instrument Serif'), serif; font-size: 64px; line-height: .6; margin-bottom: 10px; color: #6f6b64; }
@@ -846,7 +851,6 @@ a, a:hover, a:focus { text-decoration: none !important; }
 .pal-comp.fisica .w, .pal-comp.fisica .pal-sello { left: 0 !important; top: 0 !important; transform-origin: 50% 50% !important; animation: none !important; transition: none !important; user-select: none; -webkit-user-select: none; }
 </style>
   <!-- TrustBox script -->
-  <script type="text/javascript" src="//widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js" async></script>
   <!-- End TrustBox script -->
 </head>
 <body data-nav-theme="dark">
@@ -1016,27 +1020,26 @@ a, a:hover, a:focus { text-decoration: none !important; }
     <div class="resenas-grid">
       <figure class="resena fi">
         <blockquote>Cuando contacté a LIS no tenía muy en claro el diseño de nuestro sitio web. Gracias a su equipo creamos una nueva marca y un sitio web funcional acorde a nuestras necesidades, logrando nuestros objetivos. Recomiendo al 100%.</blockquote>
-        <figcaption><b>Augusto Iadanza</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · Reseña de Google</span></figcaption>
+        <figcaption><b>Augusto Iadanza</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></span></figcaption>
       </figure>
       <figure class="resena fi fi-d1">
         <blockquote>Fue excelente trabajar con Ornela. Muy responsable con su trabajo y siempre tratando de entender mis peticiones con éxito. Muchas gracias por tu dedicación, estoy muy entusiasmada por todo lo que se viene.</blockquote>
-        <figcaption><b>Club Conecta</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · Reseña de Google</span></figcaption>
+        <figcaption><b>Club Conecta</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></span></figcaption>
       </figure>
       <figure class="resena fi">
         <blockquote>Es un verdadero placer recomendar a Ornela Cillo. Trabajar con ella en el proyecto "Conecta con Nosotras" ha sido una experiencia increíblemente positiva. Su eficiencia, responsabilidad y compromiso son ejemplares y han sido claves para el éxito del equipo.</blockquote>
-        <figcaption><b>María Florencia Massaccesi</b><span>Recomendación de LinkedIn</span></figcaption>
+        <figcaption><b>María Florencia Massaccesi</b><span><a href="https://www.linkedin.com/in/ornelacillo/details/recommendations/" target="_blank" rel="noopener">Recomendación de LinkedIn</a></span></figcaption>
       </figure>
       <figure class="resena fi fi-d1">
         <blockquote>Necesitaba unos ajustes con mi logo y poder tenerlo en Giphy, y me lo hizo en menos de 24 horas cuando habíamos pactado 48. ¡Súper genia!</blockquote>
-        <figcaption><b>Leonardo Calvet</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · Reseña de Google</span></figcaption>
+        <figcaption><b>Leonardo Calvet</b><span><span class="resena-estrellas" aria-label="5 de 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Reseña de Google</a></span></figcaption>
       </figure>
     </div>
     <div class="resenas-tp fi">
-      <!-- TrustBox widget - Micro Star -->
-      <div class="trustpilot-widget" data-locale="es-ES" data-template-id="5419b732fbfb950b10de65e5" data-businessunit-id="6b05c7999898c9d06ed5fcd3" data-style-height="24px" data-style-width="100%">
-        <a href="https://es.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">Trustpilot</a>
-      </div>
-      <!-- End TrustBox widget -->
+      <!-- Con 1 sola reseña Trustpilot pone "Bueno" (3,5 estrellas), así que por ahora va un enlace sin puntaje.
+           Cuando haya unas 10 reseñas se puede volver al TrustBox Micro Star: template 5419b732fbfb950b10de65e5,
+           businessunit 6b05c7999898c9d06ed5fcd3, más el script widget.trustpilot.com/bootstrap/v5/tp.widget.bootstrap.min.js -->
+      <a href="https://es.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">Más reseñas, o dejá la tuya, en <span class="tp-star">★</span> Trustpilot</a>
     </div>
   </section>
 

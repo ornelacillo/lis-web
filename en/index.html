@@ -464,6 +464,35 @@
     /* ══════════════════════════════
        TESTIMONIALS (Google reviews style)
     ══════════════════════════════ */
+    /* Reviews: same design as the Spanish home and the shop, 3 per row (26/11/2026) */
+    .resenas { max-width: 1240px; margin: 0 auto; padding: 100px 60px; }
+    .resenas-head { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: end; margin-bottom: 36px; }
+    .resenas-head .test-title { text-align: left; margin: 0; }
+    .resenas-head p { font-size: 16px; line-height: 1.6; color: #555; max-width: 460px; margin: 0; }
+    .resenas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .resena { margin: 0; background: #e9e2d6; border-radius: 4px; padding: 32px 32px 28px; display: flex; flex-direction: column; justify-content: space-between; gap: 28px; }
+    .resena-ancha { grid-column: 1 / -1; }
+    .resena blockquote { margin: 0; font-family: var(--font-display, 'Inter Tight'), sans-serif; font-size: 20px; font-weight: 400; letter-spacing: -.02em; line-height: 1.4; color: var(--ink); }
+    .resena blockquote::before { content: "\201C"; display: block; font-family: var(--font-script, 'Instrument Serif'), serif; font-size: 64px; line-height: .6; margin-bottom: 10px; color: #6f6b64; }
+    .resena figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 6px 16px; border-top: 1px solid var(--ink); padding-top: 14px; font-size: 14px; }
+    .resena figcaption b { font-weight: 500; }
+    .resena figcaption span { color: #6f6b64; text-align: right; }
+    .resena figcaption a { color: inherit; text-decoration: none; }
+    .resena figcaption a:hover { color: var(--ink); }
+    .resena-estrellas { letter-spacing: .12em; font-size: 13px; color: var(--ink); }
+    .resenas-tp { margin-top: 28px; display: flex; justify-content: center; flex-wrap: wrap; gap: 10px 36px; font-size: 15px; }
+    .resenas-tp a { color: var(--ink); text-decoration: none; }
+    .resenas-tp a:hover { color: #6f6b64; }
+    .tp-star { color: #00b67a; }
+    @media (max-width: 1000px) { .resenas-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 860px) {
+      .resenas { padding: 56px 16px; }
+      .resenas-head, .resenas-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+      .resena { padding: 26px 22px 22px; }
+      .resena blockquote { font-size: 19px; }
+      .resena figcaption { font-size: 16px; flex-direction: column; gap: 4px; }
+      .resena figcaption span { text-align: left; }
+    }
     #testimonials {
       background: var(--white); color: var(--black);
       padding: 100px max(80px, 10%);
@@ -1134,85 +1163,34 @@ a, a:hover, a:focus { text-decoration: none !important; }
       <div class="pitem"><img src="/disegna-web-v2.webp" alt="Web design for Estudio Disegna — LIS Creative Studio" loading="lazy" /></div>
     </div>
   </section>
-  <!-- ══ TESTIMONIALS ══ -->
-  <section id="testimonials" data-nav-theme="dark">
-    <h2 class="test-title fi">What people say <em>about LIS</em></h2>
-
-    <div class="test-grid">
-      <div class="test-card fi">
-        <div class="test-head">
-          <div class="test-avatar a3">C</div>
-          <div>
-            <div class="test-name">Club Conecta</div>
-            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a></div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">October 2026</span>
-        </div>
-        <p class="test-body">Working with Ornela was excellent. She's very responsible with her work and always made the effort to understand what I was asking for, and she got it right. Thank you so much for your dedication, I'm really excited about everything that's coming.</p>
-        <div class="test-reply">
-          <div class="test-reply-label">Response from the owner · October 2026</div>
-          <div class="test-reply-body">Thank you so much Flor for taking the time to write this review. We loved working together, and this is the beginning of many more achievements!</div>
-        </div>
-      </div>
-
-      <div class="test-card fi">
-        <div class="test-head">
-          <div class="test-avatar a1">A</div>
-          <div>
-            <div class="test-name">Augusto Iadanza</div>
-            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a> · Local Guide</div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">10 months ago</span>
-        </div>
-        <p class="test-body">When I first reached out to LIS. I wasn't really sure what I wanted for our website. Thanks to their team we created a new brand and a functional website that fits our needs, and we reached our goals. 100% recommended.</p>
-        <div class="test-reply">
-          <div class="test-reply-label">Response from the owner · 10 months ago</div>
-          <div class="test-reply-body">Thank you so much Augus for the review! We're so happy we lived up to your expectations!!</div>
-        </div>
-      </div>
-
-      <div class="test-card fi">
-        <div class="test-head">
-          <div class="test-avatar a2">L</div>
-          <div>
-            <div class="test-name">Leonardo Calvet</div>
-            <div class="test-meta"><a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a> · Local Guide</div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">6 years ago</span>
-        </div>
-        <p class="test-body">I needed a few tweaks to my logo so I could have it on Giphy, and she did it in less than 24 hours when we had agreed on 48!!! Absolutely brilliant!!!</p>
-      </div>
-      <div class="test-card test-wide fi">
-        <div class="test-head">
-          <div class="test-avatar a4">M</div>
-          <div>
-            <div class="test-name">María Florencia Massaccesi</div>
-            <div class="test-meta"><a href="https://www.linkedin.com/in/ornelacillo/details/recommendations/" target="_blank" rel="noopener">LinkedIn recommendation</a> · Co-founder of Club Conecta</div>
-          </div>
-        </div>
-        <div class="test-rating">
-          <span class="test-stars">★★★★★</span>
-          <span class="test-time">July 2024</span>
-        </div>
-        <p class="test-body">It's a real pleasure to recommend Ornela Cillo. Working with her on the "Conecta con Nosotras" project has been an incredibly positive experience. Her efficiency, responsibility and commitment are exemplary and have been key to the team's success.</p>
-        <p class="test-body">Ornela and I complement each other 100%, thanks to outstanding communication that lets us organize ourselves and sort out tasks very effectively. Her contagious energy and her ability to push ideas forward constantly motivate me to keep going and overcome challenges.</p>
-        <p class="test-body">I recommend Ornela without reservation for any project or role where she can bring her great talent and dedication. Her ability to work as part of a team and her positive attitude are truly valuable.</p>
-      </div>
+  <!-- ══ REVIEWS (same design as the shop, 3 per row) ══ -->
+  <section class="resenas" id="reviews" aria-label="Reviews from LIS clients">
+    <div class="resenas-head fi">
+      <h2 class="test-title">What people say <em>about my work</em></h2>
+      <p>Some of the people I've worked with at the studio, each review linked to where they left it.</p>
     </div>
-
-    <div class="test-cta fi">
-      <a href="https://g.page/r/CZe31SeGF55PEBM/review/" target="_blank" rel="noopener">Leave your review on Google →</a>
-      <!-- Trustpilot como enlace sin puntaje: con 1 sola reseña el TrustBox muestra "Average"; volver al widget con unas 10 reseñas -->
-      <a href="https://www.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">More reviews on <span class="tp-star">★</span> Trustpilot →</a>
+    <div class="resenas-grid">
+      <figure class="resena fi">
+        <blockquote>When I first reached out to LIS I wasn't really sure what I wanted for our website. Thanks to their team we created a new brand and a functional website that fits our needs, and we reached our goals. 100% recommended.</blockquote>
+        <figcaption><b>Augusto Iadanza</b><span><span class="resena-estrellas" aria-label="5 out of 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a></span></figcaption>
+      </figure>
+      <figure class="resena fi fi-d1">
+        <blockquote>Working with Ornela was excellent. She's very responsible with her work and always made the effort to understand what I was asking for, and she got it right. Thank you so much for your dedication, I'm really excited about everything that's coming.</blockquote>
+        <figcaption><b>Club Conecta</b><span><span class="resena-estrellas" aria-label="5 out of 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a></span></figcaption>
+      </figure>
+      <figure class="resena fi fi-d2">
+        <blockquote>I needed a few tweaks to my logo so I could have it on Giphy, and she did it in less than 24 hours when we had agreed on 48. Absolutely brilliant!</blockquote>
+        <figcaption><b>Leonardo Calvet</b><span><span class="resena-estrellas" aria-label="5 out of 5">★★★★★</span> · <a href="https://g.page/r/CZe31SeGF55PEBM" target="_blank" rel="noopener">Google review</a></span></figcaption>
+      </figure>
+      <figure class="resena resena-ancha fi">
+        <blockquote>It's a real pleasure to recommend Ornela Cillo. Working with her on the "Conecta con Nosotras" project has been an incredibly positive experience. Her efficiency, responsibility and commitment are exemplary and have been key to the team's success.</blockquote>
+        <figcaption><b>María Florencia Massaccesi</b><span><a href="https://www.linkedin.com/in/ornelacillo/details/recommendations/" target="_blank" rel="noopener">LinkedIn recommendation</a></span></figcaption>
+      </figure>
+    </div>
+    <div class="resenas-tp fi">
+      <!-- Trustpilot as a plain link: with 1 review the TrustBox shows "Average"; switch back to the widget at ~10 reviews -->
+      <a href="https://g.page/r/CZe31SeGF55PEBM/review/" target="_blank" rel="noopener">Leave your review on Google</a>
+      <a href="https://www.trustpilot.com/review/liscreativestudio.com" target="_blank" rel="noopener">More reviews on <span class="tp-star">★</span> Trustpilot</a>
     </div>
   </section>
 
